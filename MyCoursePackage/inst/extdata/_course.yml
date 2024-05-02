@@ -1,0 +1,8 @@
+Description:
+  CourseName: Course Template
+  OverviewRmd: CourseOverview.Rmd
+Presentations:
+    titles: Session1 Session2
+    PresRmd: Session1.Rmd Session2.Rmd
+    PresOverviewRmd: Session1Overview.Rmd Session2Overview.Rmd
+    Exercises: MyExercise1.Rmd,MyExercise2.Rmd MyExercise3.Rmd

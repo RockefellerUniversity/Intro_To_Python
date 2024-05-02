@@ -1,0 +1,18 @@
+Package: MyCoursePackage
+Type: Package
+Title: Template Package for Courses
+Version: 0.1.1
+Author: Matt Paul and Thomas Carroll.
+Maintainer: Thomas Carroll <tc.infomatics@gmail>
+Description: This pacakge shows an example framework to build a teaching course. 
+License: What license is it under?
+LazyData: TRUE
+biocViews: Training
+Depends: methods, ggplot2, rmarkdown, rio
+Suggests: knitr,
+    rmarkdown,
+    testthat,
+    yaml
+SystemRequirements: R, RStudio
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1

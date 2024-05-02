@@ -1,0 +1,25 @@
+## Course Overview
+<br>
+
+### Course Integrity
+**This course is compiled automatically on _`r Sys.Date()`_ **
+<br>
+[<img src="https://github.com/RockefellerUniversity/RU_Course_template/workflows/R-CMD-check-bioc/badge.svg">](https://github.com/RockefellerUniversity/RU_Course_template/actions?query=workflow%3AR-CMD-check-bioc)
+
+**The course is tested and available on MacOS, Windows and Ubuntu Linux for R 4.0**
+<br>
+[<img src="https://github.com/RockefellerUniversity/RU_Course_template/workflows/R-CMD-check/badge.svg">](https://github.com/RockefellerUniversity/RU_Course_template/actions?query=workflow%3AR-CMD-check)
+
+<br>
+<br>
+
+### Overview
+?? This Section is used to build the course website ?? 
+
+?? What is this course about??
+
+?? Break down of course structure. You can look here for guidance: https://rockefelleruniversity.github.io/Intro_To_R_1Day/?? 
+
+Course material and exercises are available to view as rendered HTML at https://rockefelleruniversity.github.io/RU_Course_template/.
+All material is available to download under GPL v2 license.
+

@@ -1,0 +1,50 @@
+---
+title: "My Exercise 3"
+author: "Rockefeller University, Bioinformatics Resource Centre"
+date: "https://rockefelleruniversity.github.io/RU_course_template/"
+output: 
+  html_document:
+    number_sections: false  ## if you want number sections at each table header
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
+params:
+  toMessage: false    
+---
+
+```{r, setup,include=FALSE}
+toMessage <- ifelse(!is.null(params$toMessage),params$toMessage,FALSE)
+message(toMessage)
+```
+
+
+<p>&nbsp;</p>
+These exercises are about ??Add a summary of the topic?? [??Topic Name??](https://rockefelleruniversity.github.io/RU_course_template/). 
+
+**Exercise 1** - **??Ex 1 title if it has one??**
+
+- ??What is the first question??
+```{r,echo=toMessage}
+## Add the solution in here. This will only be included in the exercise sections. This is controlled by the echo=toMessage in the markdown header  ie:
+
+cat("Hello World")
+
+a<-1+2
+b<-3+4
+
+mean(a,b)
+
+```
+
+- ??What is the second question??
+```{r,echo=toMessage}
+## If your questions are too labor intensive to actually do during compilation you can add eval=F to the markdown header.
+
+## A caveat of using eval=F is you cannot check the code is running accurately, so it is good to at elast double check it yourself first
+
+## If any subsequent chunks rely on answers from a chunk that is eval=F, you will need to load them back in. Ideally this will be done behind the scenes by setting echp=F for the chunk that just loads. 
+
+
+```
+
+
+?? You can just keep adding questions in this format ??
