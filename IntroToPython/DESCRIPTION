@@ -1,4 +1,4 @@
-Package: MyCoursePackage
+Package: IntroToPython
 Type: Package
 Title: Template Package for Courses
 Version: 0.1.1
@@ -6,6 +6,15 @@ Author: Matt Paul and Thomas Carroll.
 Maintainer: Thomas Carroll <tc.infomatics@gmail>
 Description: This pacakge shows an example framework to build a teaching course. 
 License: What license is it under?
+Config/reticulate:
+  list(
+    packages = list(
+      list(package = "scipy"),
+      list(package = "numpy"),
+      list(package = "pandas"),
+      list(package = "matplotlib")
+    )
+  )
 LazyData: TRUE
 biocViews: Training
 Depends: methods, ggplot2, rmarkdown, rio
@@ -13,6 +22,6 @@ Suggests: knitr,
     rmarkdown,
     testthat,
     yaml
-SystemRequirements: R, RStudio
+SystemRequirements: Python, VS Code
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
