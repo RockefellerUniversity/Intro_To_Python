@@ -121,7 +121,7 @@ jobs:
       - name: Query dependencies
         run: |
           install.packages('remotes')
-          saveRDS(remotes::dev_package_deps("CellRanger/",dependencies = TRUE), ".github/depends.Rds", version = 2)
+          saveRDS(remotes::dev_package_deps("IntroToPython/",dependencies = TRUE), ".github/depends.Rds", version = 2)
           message(paste('****', Sys.time(), 'installing BiocManager ****'))
           remotes::install_cran("BiocManager")
         shell: Rscript {0}
@@ -161,12 +161,12 @@ jobs:
           ## Ideally, all dependencies should get installed in the first pass.
           ## Pass #1 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 1 at installing dependencies: local dependencies ****'))
-          local_deps <- remotes::local_package_deps("CellRanger/",dependencies = TRUE)
-          deps <- remotes::dev_package_deps("CellRanger/",dependencies = TRUE, repos = BiocManager::repositories())
+          local_deps <- remotes::local_package_deps("IntroToPython/",dependencies = TRUE)
+          deps <- remotes::dev_package_deps("IntroToPython/",dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(local_deps[local_deps %in% deps$package[deps$diff != 0]])
           ## Pass #2 at installing dependencies
           message(paste('****', Sys.time(), 'pass number 2 at installing dependencies: any remaining dependencies ****'))
-          deps <- remotes::dev_package_deps("CellRanger/",dependencies = TRUE, repos = BiocManager::repositories())
+          deps <- remotes::dev_package_deps("IntroToPython/",dependencies = TRUE, repos = BiocManager::repositories())
           BiocManager::install(deps$package[deps$diff != 0])
           ## For running the checks
           message(paste('****', Sys.time(), 'installing rcmdcheck and BiocCheck ****'))
@@ -185,13 +185,13 @@ jobs:
 
       - name: Install package
         if: github.ref == 'refs/heads/master' 
-        run: R CMD INSTALL ./CellRanger/
+        run: R CMD INSTALL ./IntroToPython/
 
       - name: Session info
         run: |
           require(compileCourses)
-          compileCourses::compileSingleCourseMaterial(repo="RockefellerUniversity",subdir="CellRanger",branch="master")
-          render_overview <- system.file("extdata/Descriptions/CourseOverview.Rmd", package = "CellRanger")
+          compileCourses::compileSingleCourseMaterial(repo="RockefellerUniversity",subdir="IntroToPython",branch="master")
+          render_overview <- system.file("extdata/Descriptions/CourseOverview.Rmd", package = "IntroToPython")
           rmarkdown::render(input = render_overview, output_file = "README.md", output_format = "md_document")
         shell: Rscript {0}
 
