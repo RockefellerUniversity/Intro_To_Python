@@ -167,25 +167,9 @@ This will be on right
 
 everything in the rmd is relative to the inst/extdata directory so you have some data to load in, just put it in the data directory, read it in along the path. 
 The structure is maintained for those attending the course and download the package using the instructions. The same rules are followed for imgs and scripts that you may call.
-```{r,echo=T}
-Table <- read.table("data/readThisTable.csv",sep=",",header=T)
 
-```
-
-## Big Processes
-
-If what you want to do is super intense computationally you can use the eval=F arguments to prevent it being done during compilation.
-
-```{r,echo=T, eval=F}
-#Intense computation
-myresult<-10^6 +1
-
-```
-
-You can then just load in the result of the computation, and keep using the result after that. If you do want them to evaluate the intense computation, then you can hide this intermediate file that you are loading in with echo=F. 
-
-```{r,echo=F, eval=T}
-load("data/myresult.RData")
+```{py}
+import 
 
 ```
 
