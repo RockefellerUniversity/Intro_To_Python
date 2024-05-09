@@ -17,7 +17,7 @@ Config/reticulate:
   )
 LazyData: TRUE
 biocViews: Training
-Depends: methods, ggplot2, rmarkdown, rio
+Depends: methods, ggplot2, rmarkdown, rio, formatR
 Suggests: knitr,
     rmarkdown,
     testthat,
