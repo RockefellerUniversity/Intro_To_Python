@@ -695,13 +695,50 @@ type(my_list_tuple_list)
 ---
 ## Dictionaries
 
+Another data type are dictionaries. Dcionaries are made of key:value pairs. 
 
-  
-  
+A key is some kind of identifier, typically a short string. The value is a corresponding piece of data that is often more complex. 
+
+This structure allows the organiztion of your data, and you can gives you the ability to grab out values using the key.
   
 ---
-##
+## Dictionaries
 
+```{python}
+my_dict = {
+    'my_list': [1,2,3],
+    'my_tuple': (4,5,6),
+    'language': 'python',
+    'technique': 'scRNAseq'
+}
+my_dict
+```
+
+---
+## Dictionaries
+
+```{python}
+my_dict.keys()
+```
+
+
+```{python}
+
+my_dict.values()
+```
+
+---
+## Dictionaries
+
+```{python}
+
+my_dict['my_list']
+```
+
+```{python}
+
+my_dict['language']
+```
 
 - reading/writing
 
