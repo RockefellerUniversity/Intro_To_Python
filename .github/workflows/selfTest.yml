@@ -175,21 +175,17 @@ jobs:
           BiocManager::install("rmarkdown")
           BiocManager::install("RockefellerUniversity/compileCourses",subdir="compileCourses")          
         shell: Rscript {0}
-
-      - name: Session info
-        run: |
-          options(width = 100)
-          pkgs <- installed.packages()[, "Package"]
-          sessioninfo::session_info(pkgs, include_base = TRUE)
-        shell: Rscript {0}
-
+        
       - name: Install package
         if: github.ref == 'refs/heads/master' 
         run: R CMD INSTALL ./IntroToPython/
-        
-      - name: Ensure R package loads
+
+      - name: Session info
         run: |
           library(IntroToPython)
+          options(width = 100)
+          pkgs <- installed.packages()[, "Package"]
+          sessioninfo::session_info(pkgs, include_base = TRUE)
         shell: Rscript {0}
 
       - name: Session info
