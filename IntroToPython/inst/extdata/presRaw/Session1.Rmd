@@ -300,10 +300,10 @@ round(3.14159)
 ---
 ## Help with functions
 
-To get help with a function you can use the question mark beforehand. This will open up the help page for this function. Hopefully this will contain information about what arguments it are accepted and what is returned by the function. In this case we can see there is an additonal optional argument *ndigits*. This has a default value of **None**.
+To get help with a function you can use the *help()* function. This will open up the help page for this function. Hopefully this will contain information about what arguments it are accepted and what is returned by the function. In this case we can see there is an additonal optional argument *ndigits*. This has a default value of **None**.
 
 ```{python}
-?round
+help(round)
 ```
 
 ---
