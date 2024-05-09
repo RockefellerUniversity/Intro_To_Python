@@ -526,6 +526,34 @@ my_strs[0] = 'z'
 ```
 
 ---
+## Complex Lists
+
+List are general containers for a variety of data types. This means you can make a list of lists!
+
+```{python}
+my_lists = ["a",['b1','b2'], ['c1',['c2']]]
+my_lists
+```
+
+We can still use indexing to deal with this mess of lists
+
+```{python}
+my_lists[2][1][0]
+```
+
+---
+## Indexing Lists
+
+
+```{python}
+my_lists
+list1, list2, list3 = my_lists
+list1
+list2
+list3
+```
+
+---
 ## Concatenation
 
 We can concatenate lists, just as we did with strings.
@@ -596,44 +624,95 @@ my_strs
 my_strs.index('c')
 ```
 
+* .sort() will sort your list
+
+```{python}
+my_list = [1,4,9,4,11,12,6]
+my_list.sort()
+my_list
+my_list.sort(reverse=True)
+my_list
+my_list = ["b","c","a"]
+my_list.sort()
+my_list
+```
 
 
-<!-- .sort() -->
-<!-- sorted(furniture) -->
+* .index() reveals which position in the list is the supplied argument
 
-<!-- furniture = ['table', 'chair', 'rack', 'shelf'] -->
-<!-- table, chair, rack, shelf = furniture -->
-<!-- unique? -->
+```{python}
+unique(my_strs)
+```
 
-<!-- Remember! -->
-<!-- Square brackets [] for indexing and lists. -->
 
-<!-- x[1] -->
-<!-- ## [1] 1 -->
-<!-- Parentheses () for function argments. -->
 
-<!-- sqrt(4) -->
-<!-- ## [1] 2 -->
-
-<!-- logical operations -->
 
 ---
 ## Tuples
 
+Tuples are another type of object in python. They look and behave a lot like lists. But where lists are dynamic and mutable, tuples cannot be changed. As a result tuples are more memory efficient than lists.
 
+When making a tuple you use parentheses instead of square brackets. 
 
-The key difference between tuples and lists is that, while tuples are immutable objects, lists are mutable. This means that tuples cannot be changed while the lists can be modified. Tuples are more memory efficient than the lists.
+```{python, eval=F}
+my_tuple = ('a','b','c','d','e')
+my_tuple[0] = 'z'
+```
+
+```{python, eval=T, echo=F}
+my_tuple = ('a','b','c','d','e')
+try:
+  my_tuple[0] = 'z'
+except Exception as e:
+  print(e)
+  
+```
+
+```{python}
+my_list = ['a','b','c','d','e']
+my_list[0] = 'z'
+my_list
+```
 
 ---
-## Variables
+## Tuple/List coercion
+
+As with str/int/float you can easily convert a list to a tuple and vice versa. Simply use the *list()* and *tuple()* functions. 
+
+```{python}
+my_list = ['a','b','c','d','e']
+my_tuple_list = tuple(my_list)
+my_tuple_list
+type(my_tuple_list)
+```
+
+```{python}
+my_list_tuple_list = list(my_tuple_list)
+my_list_tuple_list
+type(my_list_tuple_list)
+```
+
+---
+## Functions, tuples and lists
+
+**Remember!**
+
+* Square brackets [] for indexing and lists.
 
 
-    - range
-    - indexing
-    - bool: logicals
-  * tuple
-  * list
-  * dictionary
+* Parentheses () for functions and tuples.
+
+---
+## Dictionaries
+
+
+  
+  
+  
+---
+##
+
+
 - reading/writing
 
 
