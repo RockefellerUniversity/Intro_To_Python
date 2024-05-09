@@ -41,7 +41,7 @@ if(params$isSlides != "yes"){
 ```{r}
 library(IntroToPython)
 library(reticulate)
-py_install("matplotlib")
+py_install(c("matplotlib", "pandas"))
 ```
 
 ```{python}

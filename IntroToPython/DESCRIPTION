@@ -12,7 +12,7 @@ Config/reticulate:
       list(package = "scipy"),
       list(package = "numpy"),
       list(package = "pandas"),
-      list(package = "matplotlib")
+      list(package = "matplotlib", pip = TRUE)
     )
   )
 LazyData: TRUE
