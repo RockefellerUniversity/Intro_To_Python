@@ -637,16 +637,6 @@ my_list.sort()
 my_list
 ```
 
-
-* .index() reveals which position in the list is the supplied argument
-
-```{python}
-unique(my_strs)
-```
-
-
-
-
 ---
 ## Tuples
 
