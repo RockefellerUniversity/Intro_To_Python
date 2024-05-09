@@ -408,7 +408,7 @@ float_string_number
 ```
 
 ```{python}
-int_float_string_number = int(string_number)
+int_float_string_number = int(float_string_number)
 int_float_string_number 
 
 ```
@@ -549,7 +549,7 @@ biglist
 ---
 ## Functions and lists
 
-There are many useful functions for working with lists. Many of these functions work directly on the list. This means you use a 
+There are many useful functions for working with lists. Many of these functions work directly on the list. This means you don't need to assign the result back to the object. The structure is VARIABLE.function(). Here we use the append function to extend our list.
 
 ```{python}
 my_strs.append('f')
@@ -561,11 +561,42 @@ my_strs.append(1)
 my_strs
 ```
 
+---
+## Functions and lists
 
-<!-- .index -->
-<!-- .insert -->
-<!-- .del -->
-<!-- .remove -->
+There are many useful functions built into the base version of python. 
+
+
+
+* .insert() inserts an argument into a specfic postion in the list
+
+```{python}
+my_strs.insert(3,'c')
+my_strs
+```
+
+* remove() inserts an argument into a specfic postion in the list
+
+```{python}
+my_strs.remove('c')
+my_strs
+```
+
+* del() inserts an argument into a specfic postion in the list
+
+```{python}
+del(my_strs[3])
+my_strs
+```
+
+
+* .index() reveals which position in the list is the supplied argument
+
+```{python}
+my_strs.index('c')
+```
+
+
 
 <!-- .sort() -->
 <!-- sorted(furniture) -->
