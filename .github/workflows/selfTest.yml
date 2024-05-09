@@ -186,6 +186,11 @@ jobs:
       - name: Install package
         if: github.ref == 'refs/heads/master' 
         run: R CMD INSTALL ./IntroToPython/
+        
+      - name: Ensure R package loads
+        run: |
+          library(IntroToPython)
+        shell: Rscript {0}
 
       - name: Session info
         run: |
