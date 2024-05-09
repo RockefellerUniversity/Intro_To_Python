@@ -1,5 +1,5 @@
 ---
-title: "My Course Template, Session 1 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
+title: "Introduction to Python, Session 1 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "http://rockefelleruniversity.github.io/RU_course_template/"
 output: 
@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE, tidy = T)
 
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides != "yes"){
-  cat("# ???My Course name (session1)???
+  cat("# Introduction to Python
 
 ---
 "    
@@ -40,6 +40,8 @@ if(params$isSlides != "yes"){
 
 ```{r}
 library(IntroToPython)
+library(reticulate)
+py_install("matplotlib")
 ```
 
 ```{python}
@@ -221,11 +223,12 @@ https://en.wikipedia.org/wiki/TIOBE_index
 
 Though R has long been the key coding language in bioinformatics, python is growing in use. 
 
-There are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packaeges that aredriving the surging popularity of python i.e scanpY 
+Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e scanpY 
 
 ---
 ## Pyhton vs R
 
+Table here of strangths of each
 
 
 https://microbenotes.com/python-r-programming-language-bioinformatics/
