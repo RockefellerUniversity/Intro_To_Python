@@ -727,6 +727,11 @@ my_dict.keys()
 my_dict.values()
 ```
 
+```{python}
+
+my_dict.items()
+```
+
 ---
 ## Dictionaries
 
@@ -738,6 +743,15 @@ my_dict['my_list']
 ```{python}
 
 my_dict['language']
+
+my_dict.get('language')
+```
+
+
+```{python}
+
+my_dict.setdefault('metadata', True)
+my_dict
 ```
 
 - reading/writing
