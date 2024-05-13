@@ -754,6 +754,62 @@ my_dict.setdefault('metadata', True)
 my_dict
 ```
 
+```{python}
+
+'metadata' in my_dict.keys()
+
+'metadata' in my_dict
+
+```
+
+
+```{python}
+
+'scRNAseq' in my_dict.values()
+
+```
+
+
+---
+## Concatenating Dictionaries
+
+
+
+
+```{python}
+dict_1 = {'my_list': [1,2,3],
+  'my_tuple': (4,5,6),}
+  
+dict_2 = {'a': 1, 'b': 2}
+```
+
+Update function
+
+```{python}
+
+dict_1.update(dict_2)
+
+dict_1
+```
+
+Unpacking operator
+
+```{python}
+
+dict_3 = {**dict_1, **dict_2}
+dict_3
+
+```
+
+Merge with pipe
+
+```{python}
+
+dict_3 = dict_1 | dict_2
+dict_3
+
+```
+
 - reading/writing
 
 
