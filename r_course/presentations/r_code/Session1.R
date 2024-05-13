@@ -6,9 +6,9 @@ suppressPackageStartupMessages(require(knitr))
 knitr::opts_chunk$set(echo = TRUE, tidy = T)
 
 
-## ---- results='asis',include=TRUE,echo=FALSE----------------------------------
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides != "yes"){
-  cat("# ???My Course name (session1)???
+  cat("# Introduction to Python
 
 ---
 "    
@@ -18,7 +18,42 @@ if(params$isSlides != "yes"){
 
 
 
-## ---- results='asis',include=TRUE,echo=FALSE----------------------------------
+## -----------------------------------------------------------------------------
+library(IntroToPython)
+library(reticulate)
+py_install(c("matplotlib", "pandas"))
+
+
+## 
+## import numpy
+## import pandas
+## 
+
+## 
+## s = pandas.Series([1, 3, 5, numpy.nan, 6, 8])
+## s
+## 
+
+## import matplotlib
+## import matplotlib.pyplot as plt
+## 
+
+## fig, ax = plt.subplots()
+## 
+## fruits = ['apple', 'blueberry', 'cherry', 'orange']
+## counts = [40, 100, 30, 55]
+## bar_labels = ['red', 'blue', '_red', 'orange']
+## bar_colors = ['tab:red', 'tab:blue', 'tab:red', 'tab:orange']
+## 
+## ax.bar(fruits, counts, label=bar_labels, color=bar_colors)
+## 
+## ax.set_ylabel('fruit supply')
+## ax.set_title('Fruit supply by kind and color')
+## ax.legend(title='Fruit color')
+## 
+## plt.show()
+
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
@@ -45,11 +80,11 @@ if(params$isSlides == "yes"){
 ## # e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
 
 
-## ---- results='asis',include=TRUE,echo=FALSE----------------------------------
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
-# Another section header
+# Background of Python
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
@@ -57,8 +92,8 @@ if(params$isSlides == "yes"){
 "    
   )
 }else{
-  cat("# Another section header
-
+  cat("# Background of Python
+      
 ---
 "    
   )
@@ -67,18 +102,248 @@ if(params$isSlides == "yes"){
 
 
 
-## ----echo=T-------------------------------------------------------------------
-Table <- read.table("data/readThisTable.csv",sep=",",header=T)
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Data Types and Functions in Python
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Data Types and Functions in Python
+      
+---
+"    
+  )
+  
+}
 
 
 
-## ----echo=T, eval=F-----------------------------------------------------------
-## #Intense computation
-## myresult<-10^6 +1
+## 1+1
+## 2*5
+
+## round(3.14159)
+
+## help(round)
+
+## round(3.14159, 3)
+
+## round(ndigits=3, number=3.14159)
+
+## greeting = 'Hello!'
+## greeting
+
+## number = 3.14159
+## number
+
+## number
+
+## round(number)
 ## 
 
+## greeting = 'Hello!'
+## type(greeting )
 
-## ----echo=F, eval=T-----------------------------------------------------------
-load("data/myresult.RData")
+## number = 3.14159
+## type(number )
 
+## newnumber = round(number)
+## newnumber
+## type(newnumber)
 
+## string_number = str(number)
+## string_number
+
+## float_string_number = float(string_number)
+## float_string_number
+## 
+
+## int_float_string_number = int(float_string_number)
+## int_float_string_number
+## 
+
+## greeting = 'Hello!'
+## int(greeting)
+
+## 
+## try:
+##   float(greeting)
+## except Exception as e:
+##   print(e)
+## 
+
+## newgreeting = 'Hi' ' there'
+## newgreeting
+## newgreeting2 = 'Hi' + ' there'
+## newgreeting2
+## newgreeting3 = 'Hi'
+## newgreeting3 += ' there'
+## newgreeting3
+
+## newgreeting4 = 'Hi' * 5
+## newgreeting4
+
+## 
+## my_strs = ['a','b','c','d','e']
+## my_strs
+## 
+
+## 
+## my_ints= [1,2,3,4,5]
+## my_ints
+## 
+
+## 
+## my_floats = [1.1,2.2,3.3,4.4,5.5]
+## my_floats
+## 
+
+## my_strs[2]
+
+## my_strs[0]
+
+## my_strs[-1]
+
+## my_strs[2:4]
+
+## my_strs[2:-1]
+
+## my_strs[2:]
+
+## my_strs[0] = 'z'
+
+## my_lists = ["a",['b1','b2'], ['c1',['c2']]]
+## my_lists
+
+## my_lists[2][1][0]
+
+## my_lists
+## list1, list2, list3 = my_lists
+## list1
+## list2
+## list3
+
+## biglist = my_strs + my_ints
+## biglist
+
+## biglist = my_strs
+## biglist += my_ints
+## biglist
+
+## biglist = my_strs * 5
+## biglist
+
+## my_strs.append('f')
+## my_strs
+
+## my_strs.append(1)
+## my_strs
+
+## my_strs.insert(3,'c')
+## my_strs
+
+## my_strs.remove('c')
+## my_strs
+
+## del(my_strs[3])
+## my_strs
+
+## my_strs.index('c')
+
+## my_list = [1,4,9,4,11,12,6]
+## my_list.sort()
+## my_list
+## my_list.sort(reverse=True)
+## my_list
+## my_list = ["b","c","a"]
+## my_list.sort()
+## my_list
+
+## my_tuple = ('a','b','c','d','e')
+## my_tuple[0] = 'z'
+
+## my_tuple = ('a','b','c','d','e')
+## try:
+##   my_tuple[0] = 'z'
+## except Exception as e:
+##   print(e)
+## 
+
+## my_list = ['a','b','c','d','e']
+## my_list[0] = 'z'
+## my_list
+
+## my_list = ['a','b','c','d','e']
+## my_tuple_list = tuple(my_list)
+## my_tuple_list
+## type(my_tuple_list)
+
+## my_list_tuple_list = list(my_tuple_list)
+## my_list_tuple_list
+## type(my_list_tuple_list)
+
+## my_dict = {
+##     'my_list': [1,2,3],
+##     'my_tuple': (4,5,6),
+##     'language': 'python',
+##     'technique': 'scRNAseq'
+## }
+## my_dict
+
+## my_dict.keys()
+
+## 
+## my_dict.values()
+
+## 
+## my_dict.items()
+
+## 
+## my_dict['my_list']
+
+## 
+## my_dict['language']
+## 
+## my_dict.get('language')
+
+## 
+## my_dict.setdefault('metadata', True)
+## my_dict
+
+## 
+## 'metadata' in my_dict.keys()
+## 
+## 'metadata' in my_dict
+## 
+
+## 
+## 'scRNAseq' in my_dict.values()
+## 
+
+## dict_1 = {'my_list': [1,2,3],
+##   'my_tuple': (4,5,6),}
+## 
+## dict_2 = {'a': 1, 'b': 2}
+
+## 
+## dict_3 = {**dict_1, **dict_2}
+## dict_3
+## 
+
+## 
+## dict_3 = dict_1 | dict_2
+## dict_3
+## 
+
+## 
+## dict_1.update(dict_2)
+## 
+## dict_1
+
+## import
+## 
