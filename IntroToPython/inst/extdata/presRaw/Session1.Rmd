@@ -102,6 +102,26 @@ ax.legend(title='Fruit color')
 plt.show()
 ```
 
+---
+## test
+
+```{python}
+plt.savefig('test.png')
+
+
+```
+
+
+---
+## test
+
+```{r}
+knitr::include_graphics("test.png")
+
+
+```
+
+---
 ## Overview
 
 ??We often put an overview slide that links to the various parts of the course content to make it easy to navigate i.e. this one for intro to r??
