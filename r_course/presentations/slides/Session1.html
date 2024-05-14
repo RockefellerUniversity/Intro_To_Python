@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Session1.utf8</title>
+    <title>Introduction to Python, Session 1    </title>
     <meta charset="utf-8" />
     <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
+    <script src="libs/header-attrs-2.26/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
     <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
@@ -12,15 +13,19 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
-# My Course Template, Session 1
-<html>
-<div style="float:left">
-
-</div>
-<hr color='#EB811B' size=1px width=796px>
+.title[
+# Introduction to Python, Session 1<br />
+<html><br />
+<br />
+<hr color='#EB811B' size=1px width=796px><br />
 </html>
+]
+.author[
 ### Rockefeller University, Bioinformatics Resource Centre
+]
+.date[
 ### <a href="http://rockefelleruniversity.github.io/RU_course_template/" class="uri">http://rockefelleruniversity.github.io/RU_course_template/</a>
+]
 
 ---
 
@@ -28,6 +33,119 @@ class: center, middle, inverse, title-slide
 
 
 
+
+
+```r
+library(IntroToPython)
+```
+
+```
+## Loading required package: ggplot2
+```
+
+```
+## Loading required package: rio
+```
+
+```
+## Loading required package: formatR
+```
+
+```
+## Loading required package: reticulate
+```
+
+```
+## 
+## Attaching package: 'reticulate'
+```
+
+```
+## The following object is masked from 'package:rio':
+## 
+##     import
+```
+
+```r
+library(reticulate)
+py_install(c("matplotlib", "pandas"))
+```
+
+```
+## Using Python: /usr/bin/python3.10
+## Creating virtual environment '~/.virtualenvs/r-reticulate' ...
+```
+
+```
+## + /usr/bin/python3.10 -m venv /github/home/.virtualenvs/r-reticulate
+```
+
+```
+## Done!
+## Installing packages: pip, wheel, setuptools
+```
+
+```
+## + /github/home/.virtualenvs/r-reticulate/bin/python -m pip install --upgrade pip wheel setuptools
+```
+
+```
+## Virtual environment '~/.virtualenvs/r-reticulate' successfully created.
+## Using virtual environment '~/.virtualenvs/r-reticulate' ...
+```
+
+```
+## + /github/home/.virtualenvs/r-reticulate/bin/python -m pip install --upgrade --no-user matplotlib pandas
+```
+
+
+```python
+
+import numpy
+import pandas
+```
+
+
+```python
+s = pandas.Series([1, 3, 5, numpy.nan, 6, 8])
+s
+```
+
+```
+## 0    1.0
+## 1    3.0
+## 2    5.0
+## 3    NaN
+## 4    6.0
+## 5    8.0
+## dtype: float64
+```
+
+
+```python
+import matplotlib
+import matplotlib.pyplot as plt
+```
+
+
+```python
+fig, ax = plt.subplots()
+
+fruits = ['apple', 'blueberry', 'cherry', 'orange']
+counts = [40, 100, 30, 55]
+bar_labels = ['red', 'blue', '_red', 'orange']
+bar_colors = ['tab:red', 'tab:blue', 'tab:red', 'tab:orange']
+
+ax.bar(fruits, counts, label=bar_labels, color=bar_colors)
+
+ax.set_ylabel('fruit supply')
+ax.set_title('Fruit supply by kind and color')
+ax.legend(title='Fruit color')
+
+plt.show()
+```
+
+![](Session1_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 
 ## Overview
 
@@ -102,11 +220,984 @@ setwd("/PathToMyDownload/RU_Course_template/r_course")
 ---
 class: inverse, center, middle
 
-# Another section header
+# Background of Python
 
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
 
 ---
+
+## What is Python?
+
+Python is a high-level, general-purpose programming language.
+
+Guido van Rossum began working on Python in the late 1980s as a successor to the ABC programming language and first released it in 1991 
+
+One of the most noticeable differences comes from the emphasis on code readability:
+it uses significant indentation 
+
+
+
+
+Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions.While Python 2.7 and older is officially unsupported, a different unofficial Python implementation, PyPy, continues to support Python 2, i.e
+
+o index
+
+---
+## What is Python to you?
+
+.pull-left[
+Python has a huge user base across many disciplines. These users have developed a wide range of libraries which you can use.  
+
+As python is used by many fields, it is a useful language for adapting novel approaches for bioinformatics:
+such as deep learning methods for scRNAseq or Image Analysis
+  ]
+  
+.pull-right[
+
+https://en.wikipedia.org/wiki/TIOBE_index
+  ]
+
+---
+## Pyhton vs R
+
+Though R has long been the key coding language in bioinformatics, python is growing in use. 
+
+Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e scanpY 
+
+---
+## Pyhton vs R
+
+Table here of strangths of each
+
+
+https://microbenotes.com/python-r-programming-language-bioinformatics/
+https://medium.com/@hamza_33678/programming-for-bioinformatics-r-vs-python-52969a1f7a49
+
+ Biopython, ML and scRNAseq
+ image analysis
+
+
+---
+## Setting Up Python
+
+ensure installed
+interactive vs scripts
+
+---
+## Navigating VS Code
+
+
+---
+class: inverse, center, middle
+
+# Data Types and Functions in Python
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+
+
+## Simple Calculation
+
+At its simplest you can just use python as a fancy calculator:
+
+
+```python
+1+1
+```
+
+```
+## 2
+```
+
+```python
+2*5
+```
+
+```
+## 10
+```
+
+---
+## Functions
+
+To take things further there are many functions built-in to python. These are saved chun ks of code that will do a task based on the arguments you provide. You can tell there is a function when there is a string immediately followed by a set of parenthesis:
+
+*myfunction()*
+
+Here we use the round function:
+
+
+```python
+round(3.14159)
+```
+
+```
+## 3
+```
+
+---
+## Help with functions
+
+To get help with a function you can use the *help()* function. This will open up the help page for this function. Hopefully this will contain information about what arguments it are accepted and what is returned by the function. In this case we can see there is an additonal optional argument *ndigits*. This has a default value of **None**.
+
+
+```python
+help(round)
+```
+
+```
+## Help on built-in function round in module builtins:
+## 
+## round(number, ndigits=None)
+##     Round a number to a given precision in decimal digits.
+##     
+##     The return value is an integer if ndigits is omitted or None.  Otherwise
+##     the return value has the same type as the number.  ndigits may be negative.
+```
+
+---
+## Function and arguments
+
+If we want to update our rounding result to allow for more decimal places we can add the second argument. For simple function like this, s long as the order is correct we do not to specify the argument. 
+
+
+```python
+round(3.14159, 3)
+```
+
+```
+## 3.142
+```
+
+We can still run a function with disordered arguments by naming them. 
+
+
+```python
+round(ndigits=3, number=3.14159)
+```
+
+```
+## 3.142
+```
+
+ 
+---
+## Variables
+
+Often you will want to save something in your environment for use later on. We do this by creating a variable by assignment with the **=** sign.
+
+
+```python
+greeting = 'Hello!'
+greeting
+```
+
+```
+## 'Hello!'
+```
+
+
+```python
+number = 3.14159
+number
+```
+
+```
+## 3.14159
+```
+
+---
+## Variables
+
+When assigning a variable there are certain things you can and cannot do.
+
+Good:
+
+* Only letters, numbers, and the underscore
+
+Bad:
+
+* Don't use non-alphanumerics. This includes: . % + - * #  
+* You can't start with a number
+
+The best thing to do is name it something short and simple, that makes sense.
+
+---
+## Variables and functions
+
+Once we have a variable we can then use it inside functions. The vector name is acting as an alias for what it contains.
+
+
+```python
+number
+```
+
+```
+## 3.14159
+```
+
+
+```python
+round(number)
+```
+
+```
+## 3
+```
+
+
+---
+## Variables
+
+There are many kinds of variables. The most basic types are: *str*,*float* and *int*. You can always check what kind you have with the *type()* function.
+
+
+```python
+greeting = 'Hello!'
+type(greeting )
+```
+
+```
+## &lt;class 'str'&gt;
+```
+
+
+```python
+number = 3.14159
+type(number )
+```
+
+```
+## &lt;class 'float'&gt;
+```
+
+
+```python
+newnumber = round(number)
+newnumber
+```
+
+```
+## 3
+```
+
+```python
+type(newnumber)
+```
+
+```
+## &lt;class 'int'&gt;
+```
+
+---
+## Variables Coercion
+
+We can manually set the type using: *str()*, *float()* and *int()*. 
+
+
+```python
+string_number = str(number)
+string_number
+```
+
+```
+## '3.14159'
+```
+
+
+```python
+float_string_number = float(string_number)
+float_string_number 
+```
+
+```
+## 3.14159
+```
+
+
+```python
+int_float_string_number = int(float_string_number)
+int_float_string_number 
+```
+
+```
+## 3
+```
+
+---
+## Variables Coercion
+
+These functions do not always work, if there is not a clear rationale for how to resolve the function.
+
+
+```python
+greeting = 'Hello!'
+int(greeting)
+```
+
+
+```
+## could not convert string to float: 'Hello!'
+```
+
+---
+## Concatenation
+
+Strings can be concatenated easily.
+
+
+```python
+newgreeting = 'Hi' ' there'
+newgreeting
+```
+
+```
+## 'Hi there'
+```
+
+```python
+newgreeting2 = 'Hi' + ' there'
+newgreeting2
+```
+
+```
+## 'Hi there'
+```
+
+```python
+newgreeting3 = 'Hi'
+newgreeting3 += ' there'
+newgreeting3 
+```
+
+```
+## 'Hi there'
+```
+
+
+```python
+newgreeting4 = 'Hi' * 5
+newgreeting4
+```
+
+```
+## 'HiHiHiHiHi'
+```
+
+---
+## Lists
+
+Python has many options for storing data. The simplest is a list. Lists are denoted with square brackets. 
+
+
+```python
+my_strs = ['a','b','c','d','e']
+my_strs
+```
+
+```
+## ['a', 'b', 'c', 'd', 'e']
+```
+
+
+```python
+my_ints= [1,2,3,4,5]
+my_ints
+```
+
+```
+## [1, 2, 3, 4, 5]
+```
+
+
+```python
+my_floats = [1.1,2.2,3.3,4.4,5.5]
+my_floats
+```
+
+```
+## [1.1, 2.2, 3.3, 4.4, 5.5]
+```
+
+---
+## Indexing Lists
+
+We can also use the square brackets to extract specific values from our list. 
+
+
+```python
+my_strs[2]
+```
+
+```
+## 'c'
+```
+
+Here we get the third value from our list using the number 2. That is because python uses zero indexing; counting in python starts at 0, not 1. 
+
+
+```python
+my_strs[0]
+```
+
+```
+## 'a'
+```
+
+---
+## Indexing Lists
+
+Sometimes we have a long list, but we know we want the final value. We can use a *-* to indicate how far from the end we want to index.
+
+
+```python
+my_strs[-1]
+```
+
+```
+## 'e'
+```
+
+We can also create a sublist by slicing our list with the *:*.
+
+
+```python
+my_strs[2:4]
+```
+
+```
+## ['c', 'd']
+```
+
+
+```python
+my_strs[2:-1]
+```
+
+```
+## ['c', 'd']
+```
+
+
+```python
+my_strs[2:]
+```
+
+```
+## ['c', 'd', 'e']
+```
+
+
+
+```python
+my_strs[0] = 'z'
+```
+
+---
+## Complex Lists
+
+List are general containers for a variety of data types. This means you can make a list of lists!
+
+
+```python
+my_lists = ["a",['b1','b2'], ['c1',['c2']]]
+my_lists
+```
+
+```
+## ['a', ['b1', 'b2'], ['c1', ['c2']]]
+```
+
+We can still use indexing to deal with this mess of lists
+
+
+```python
+my_lists[2][1][0]
+```
+
+```
+## 'c2'
+```
+
+---
+## Indexing Lists
+
+
+
+```python
+my_lists
+```
+
+```
+## ['a', ['b1', 'b2'], ['c1', ['c2']]]
+```
+
+```python
+list1, list2, list3 = my_lists
+list1
+```
+
+```
+## 'a'
+```
+
+```python
+list2
+```
+
+```
+## ['b1', 'b2']
+```
+
+```python
+list3
+```
+
+```
+## ['c1', ['c2']]
+```
+
+---
+## Concatenation
+
+We can concatenate lists, just as we did with strings.
+
+
+```python
+biglist = my_strs + my_ints
+biglist
+```
+
+```
+## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
+```
+
+
+```python
+biglist = my_strs 
+biglist += my_ints
+biglist
+```
+
+```
+## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
+```
+
+
+```python
+biglist = my_strs * 5
+biglist
+```
+
+```
+## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
+```
+
+---
+## Functions and lists
+
+There are many useful functions for working with lists. Many of these functions work directly on the list. This means you don't need to assign the result back to the object. The structure is VARIABLE.function(). Here we use the append function to extend our list.
+
+
+```python
+my_strs.append('f')
+my_strs
+```
+
+```
+## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f']
+```
+
+
+```python
+my_strs.append(1)
+my_strs
+```
+
+```
+## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
+```
+
+---
+## Functions and lists
+
+There are many useful functions built into the base version of python. 
+
+
+
+* .insert() inserts an argument into a specfic postion in the list
+
+
+```python
+my_strs.insert(3,'c')
+my_strs
+```
+
+```
+## ['z', 'b', 'c', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
+```
+
+* remove() inserts an argument into a specfic postion in the list
+
+
+```python
+my_strs.remove('c')
+my_strs
+```
+
+```
+## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
+```
+
+* del() inserts an argument into a specfic postion in the list
+
+
+```python
+del(my_strs[3])
+my_strs
+```
+
+```
+## ['z', 'b', 'c', 'e', 1, 2, 3, 4, 5, 'f', 1]
+```
+
+
+* .index() reveals which position in the list is the supplied argument
+
+
+```python
+my_strs.index('c')
+```
+
+```
+## 2
+```
+
+* .sort() will sort your list
+
+
+```python
+my_list = [1,4,9,4,11,12,6]
+my_list.sort()
+my_list
+```
+
+```
+## [1, 4, 4, 6, 9, 11, 12]
+```
+
+```python
+my_list.sort(reverse=True)
+my_list
+```
+
+```
+## [12, 11, 9, 6, 4, 4, 1]
+```
+
+```python
+my_list = ["b","c","a"]
+my_list.sort()
+my_list
+```
+
+```
+## ['a', 'b', 'c']
+```
+
+---
+## Tuples
+
+Tuples are another type of object in python. They look and behave a lot like lists. But where lists are dynamic and mutable, tuples cannot be changed. As a result tuples are more memory efficient than lists.
+
+When making a tuple you use parentheses instead of square brackets. 
+
+
+```python
+my_tuple = ('a','b','c','d','e')
+my_tuple[0] = 'z'
+```
+
+
+```
+## 'tuple' object does not support item assignment
+```
+
+
+```python
+my_list = ['a','b','c','d','e']
+my_list[0] = 'z'
+my_list
+```
+
+```
+## ['z', 'b', 'c', 'd', 'e']
+```
+
+---
+## Tuple/List coercion
+
+As with str/int/float you can easily convert a list to a tuple and vice versa. Simply use the *list()* and *tuple()* functions. 
+
+
+```python
+my_list = ['a','b','c','d','e']
+my_tuple_list = tuple(my_list)
+my_tuple_list
+```
+
+```
+## ('a', 'b', 'c', 'd', 'e')
+```
+
+```python
+type(my_tuple_list)
+```
+
+```
+## &lt;class 'tuple'&gt;
+```
+
+
+```python
+my_list_tuple_list = list(my_tuple_list)
+my_list_tuple_list
+```
+
+```
+## ['a', 'b', 'c', 'd', 'e']
+```
+
+```python
+type(my_list_tuple_list)
+```
+
+```
+## &lt;class 'list'&gt;
+```
+
+---
+## Functions, tuples and lists
+
+**Remember!**
+
+* Square brackets [] for indexing and lists.
+
+
+* Parentheses () for functions and tuples.
+
+---
+## Dictionaries
+
+Another data type are dictionaries. Dcionaries are made of key:value pairs. 
+
+A key is some kind of identifier, typically a short string. The value is a corresponding piece of data that is often more complex. 
+
+This structure allows the organiztion of your data, and you can gives you the ability to grab out values using the key.
+  
+---
+## Dictionaries
+
+
+```python
+my_dict = {
+    'my_list': [1,2,3],
+    'my_tuple': (4,5,6),
+    'language': 'python',
+    'technique': 'scRNAseq'
+}
+my_dict
+```
+
+```
+## {'my_list': [1, 2, 3], 'my_tuple': (4, 5, 6), 'language': 'python', 'technique': 'scRNAseq'}
+```
+
+---
+## Dictionaries
+
+
+```python
+my_dict.keys()
+```
+
+```
+## dict_keys(['my_list', 'my_tuple', 'language', 'technique'])
+```
+
+
+
+```python
+my_dict.values()
+```
+
+```
+## dict_values([[1, 2, 3], (4, 5, 6), 'python', 'scRNAseq'])
+```
+
+
+```python
+my_dict.items()
+```
+
+```
+## dict_items([('my_list', [1, 2, 3]), ('my_tuple', (4, 5, 6)), ('language', 'python'), ('technique', 'scRNAseq')])
+```
+
+---
+## Dictionaries
+
+
+```python
+my_dict['my_list']
+```
+
+```
+## [1, 2, 3]
+```
+
+
+```python
+my_dict['language']
+```
+
+```
+## 'python'
+```
+
+```python
+my_dict.get('language')
+```
+
+```
+## 'python'
+```
+
+
+
+```python
+my_dict.setdefault('metadata', True)
+```
+
+```
+## True
+```
+
+```python
+my_dict
+```
+
+```
+## {'my_list': [1, 2, 3], 'my_tuple': (4, 5, 6), 'language': 'python', 'technique': 'scRNAseq', 'metadata': True}
+```
+
+
+```python
+'metadata' in my_dict.keys()
+```
+
+```
+## True
+```
+
+```python
+'metadata' in my_dict
+```
+
+```
+## True
+```
+
+
+
+```python
+'scRNAseq' in my_dict.values()
+```
+
+```
+## True
+```
+
+
+---
+## Concatenating Dictionaries
+
+
+
+
+
+```python
+dict_1 = {'my_list': [1,2,3],
+  'my_tuple': (4,5,6),}
+  
+dict_2 = {'a': 1, 'b': 2}
+```
+
+Unpacking operator
+
+
+```python
+dict_3 = {**dict_1, **dict_2}
+dict_3
+```
+
+```
+## {'my_list': [1, 2, 3], 'my_tuple': (4, 5, 6), 'a': 1, 'b': 2}
+```
+
+Merge with pipe
+
+
+```python
+dict_3 = dict_1 | dict_2
+dict_3
+```
+
+```
+## {'my_list': [1, 2, 3], 'my_tuple': (4, 5, 6), 'a': 1, 'b': 2}
+```
+
+
+Update function
+
+
+```python
+dict_1.update(dict_2)
+
+dict_1
+```
+
+```
+## {'my_list': [1, 2, 3], 'my_tuple': (4, 5, 6), 'a': 1, 'b': 2}
+```
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+- reading/writing
+
+
+
+
+
+
+- libraries
+- control and list comp
+
+
+
+
+
+
+
+
+
 
 ## Slide Structure
 
@@ -132,23 +1223,11 @@ This will be on right
 everything in the rmd is relative to the inst/extdata directory so you have some data to load in, just put it in the data directory, read it in along the path. 
 The structure is maintained for those attending the course and download the package using the instructions. The same rules are followed for imgs and scripts that you may call.
 
-```r
-Table &lt;- read.table("data/readThisTable.csv", sep = ",", header = T)
+
+```py
+import 
+
 ```
-
-## Big Processes
-
-If what you want to do is super intense computationally you can use the eval=F arguments to prevent it being done during compilation.
-
-
-```r
-# Intense computation
-myresult &lt;- 10^6 + 1
-```
-
-You can then just load in the result of the computation, and keep using the result after that. If you do want them to evaluate the intense computation, then you can hide this intermediate file that you are loading in with echo=F. 
-
-
 
 --
 ## Exercises
@@ -232,6 +1311,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
