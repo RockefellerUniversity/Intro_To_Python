@@ -53,6 +53,16 @@ py_install(c("matplotlib", "pandas"))
 ## 
 ## plt.show()
 
+## plt.savefig('test.png')
+## 
+## 
+
+## -----------------------------------------------------------------------------
+knitr::include_graphics("test.png")
+
+
+
+
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
