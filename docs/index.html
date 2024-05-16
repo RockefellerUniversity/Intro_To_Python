@@ -437,7 +437,7 @@ class="email">brc@rockefeller.edu</a></h4>
 <p><br></p>
 <div id="course-integrity" class="section level3">
 <h3>Course Integrity</h3>
-<p><strong>This course is compiled automatically on <em>2024-05-14</em>
+<p><strong>This course is compiled automatically on <em>2024-05-16</em>
 </strong> <br> <a
 href="https://github.com/RockefellerUniversity/RU_Course_template/actions?query=workflow%3AR-CMD-check-bioc"><img src="https://github.com/RockefellerUniversity/RU_Course_template/workflows/R-CMD-check-bioc/badge.svg"></a></p>
 <p><strong>The course is tested and available on MacOS, Windows and
@@ -465,26 +465,39 @@ All material is available to download under GPL v2 license.</p>
 <div id="system-requirements" class="section level4">
 <h4><strong>System Requirements</strong></h4>
 </div>
-<div id="install-python" class="section level4">
-<h4>Install Python</h4>
-<p>Pyhton si automatically installed. We will isntall a new version
-though so that you can mange enrvirnmetns. We will do this with
-conda.</p>
+<div id="install-python-and-miniconda" class="section level4">
+<h4>Install Python and Miniconda</h4>
+<p>Python is automatically installed in lots of different OS
+distributions i.e. macOS. We want to use Miniconda environments to help
+us manage and control the version of python and the packages we
+install.</p>
+<p>You can install Miniconda from the Anaconda website.</p>
+<p><a href="https://docs.anaconda.com/free/miniconda/miniconda-install/"
+class="uri">https://docs.anaconda.com/free/miniconda/miniconda-install/</a></p>
 <p><br></p>
 </div>
 <div id="install-vs-code" class="section level4">
 <h4>Install VS Code</h4>
-<p>To make it easier to codew e often use IDEs. Here we will show you
-how to use VS Code.</p>
+<p>VS Code is a software which provides a nice interface in which we can
+run python. It in can be installed from the VS Code website.</p>
+<p><a href="https://code.visualstudio.com/download"
+class="uri">https://code.visualstudio.com/download</a></p>
 <p><br></p>
 </div>
-<div id="install-required-python-packages" class="section level4">
-<h4><strong>Install required Python packages</strong></h4>
-<pre><code>  Python packages can be installed from several places. You will run this in terminal.
-
-  ##### From conda</code></pre>
-<p><code>{sh} conda activate conda install scipy conda install numpy conda install pandas conda install matplotlib</code>
-```</p>
+<div id="install-python-and-required-python-packages"
+class="section level4">
+<h4><strong>Install Python and required Python packages</strong></h4>
+<p>We can use the installed Miniconda to manage the installs of python
+and its pacakges. First we will create an environment. You can name this
+whatever you want. You will run this in terminal.
+<code>{sh, eval=F} conda create -n intro_to_python conda activate intro_to_python conda install python</code></p>
+<p>Python packages can be installed from several places. The main two
+options are conda and pip. ##### From conda
+<code>{sh, eval=F} conda install scipy conda install numpy conda install pandas conda install matplotlib</code></p>
+<div id="from-pip" class="section level5">
+<h5>From pip</h5>
+<p><code>{sh, eval=F} conda install pip pip install scipy pip install numpy pip install pandas pip install matplotlib</code></p>
+</div>
 </div>
 <div id="download-the-material" class="section level4">
 <h4><strong>Download the material</strong></h4>

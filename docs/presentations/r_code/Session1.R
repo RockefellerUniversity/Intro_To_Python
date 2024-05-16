@@ -57,11 +57,11 @@ py_install(c("matplotlib", "pandas"))
 ## 
 ## 
 
-## -----------------------------------------------------------------------------
-knitr::include_graphics("test.png")
+## plt.savefig('imgs/test2.png')
+## 
 
-
-
+## plt.savefig('../imgs/test3.png')
+## 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){

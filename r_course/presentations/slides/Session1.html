@@ -39,7 +39,7 @@ class: center, middle, inverse, title-slide
 ## test1
 
 
-```r
+``` r
 library(IntroToPython)
 ```
 
@@ -70,7 +70,7 @@ library(IntroToPython)
 ##     import
 ```
 
-```r
+``` r
 library(reticulate)
 py_install(c("matplotlib", "pandas"))
 ```
@@ -106,7 +106,7 @@ py_install(c("matplotlib", "pandas"))
 ## test2
 
 
-```python
+``` python
 
 import numpy
 import pandas
@@ -116,7 +116,7 @@ import pandas
 ## test3
 
 
-```python
+``` python
 s = pandas.Series([1, 3, 5, numpy.nan, 6, 8])
 s
 ```
@@ -135,7 +135,7 @@ s
 ## test4
 
 
-```python
+``` python
 import matplotlib
 import matplotlib.pyplot as plt
 ```
@@ -144,7 +144,7 @@ import matplotlib.pyplot as plt
 ## test5
 
 
-```python
+``` python
 fig, ax = plt.subplots()
 
 fruits = ['apple', 'blueberry', 'cherry', 'orange']
@@ -159,7 +159,7 @@ bar_colors = ['tab:red', 'tab:blue', 'tab:red', 'tab:orange']
 ## test5
 
 
-```python
+``` python
 ax.bar(fruits, counts, label=bar_labels, color=bar_colors)
 
 ax.set_ylabel('fruit supply')
@@ -175,23 +175,46 @@ plt.show()
 ## test
 
 
-```python
+``` python
 plt.savefig('test.png')
 
 ```
 
 ![](Session1_files/figure-html/unnamed-chunk-9-5.png)&lt;!-- --&gt;
 
+---
+## test
+
+
+
+``` python
+plt.savefig('imgs/test2.png')
+```
+
+![](Session1_files/figure-html/unnamed-chunk-10-7.png)&lt;!-- --&gt;
 
 ---
 ## test
 
 
-```r
-knitr::include_graphics("test.png")
+
+``` python
+plt.savefig('../imgs/test3.png')
 ```
 
-![](test.png)&lt;!-- --&gt;
+---
+## test
+
+![test](test.png)
+
+---
+## test
+
+![test](imgs/test2.png)
+
+---
+## test
+
 
 ---
 ## Overview
@@ -258,7 +281,7 @@ You may navigate to the unarchived RU_Course_help folder in the Rstudio menu.
 or in the console.
 
 
-```r
+``` r
 setwd("/PathToMyDownload/RU_Course_template/r_course")
 # e.g. setwd('~/Downloads/Intro_To_R_1Day/r_course')
 ```
@@ -350,7 +373,7 @@ class: inverse, center, middle
 At its simplest you can just use python as a fancy calculator:
 
 
-```python
+``` python
 1+1
 ```
 
@@ -358,7 +381,7 @@ At its simplest you can just use python as a fancy calculator:
 ## 2
 ```
 
-```python
+``` python
 2*5
 ```
 
@@ -376,7 +399,7 @@ To take things further there are many functions built-in to python. These are sa
 Here we use the round function:
 
 
-```python
+``` python
 round(3.14159)
 ```
 
@@ -390,7 +413,7 @@ round(3.14159)
 To get help with a function you can use the *help()* function. This will open up the help page for this function. Hopefully this will contain information about what arguments it are accepted and what is returned by the function. In this case we can see there is an additonal optional argument *ndigits*. This has a default value of **None**.
 
 
-```python
+``` python
 help(round)
 ```
 
@@ -410,7 +433,7 @@ help(round)
 If we want to update our rounding result to allow for more decimal places we can add the second argument. For simple function like this, s long as the order is correct we do not to specify the argument. 
 
 
-```python
+``` python
 round(3.14159, 3)
 ```
 
@@ -421,7 +444,7 @@ round(3.14159, 3)
 We can still run a function with disordered arguments by naming them. 
 
 
-```python
+``` python
 round(ndigits=3, number=3.14159)
 ```
 
@@ -436,7 +459,7 @@ round(ndigits=3, number=3.14159)
 Often you will want to save something in your environment for use later on. We do this by creating a variable by assignment with the **=** sign.
 
 
-```python
+``` python
 greeting = 'Hello!'
 greeting
 ```
@@ -446,7 +469,7 @@ greeting
 ```
 
 
-```python
+``` python
 number = 3.14159
 number
 ```
@@ -477,7 +500,7 @@ The best thing to do is name it something short and simple, that makes sense.
 Once we have a variable we can then use it inside functions. The vector name is acting as an alias for what it contains.
 
 
-```python
+``` python
 number
 ```
 
@@ -486,7 +509,7 @@ number
 ```
 
 
-```python
+``` python
 round(number)
 ```
 
@@ -501,7 +524,7 @@ round(number)
 There are many kinds of variables. The most basic types are: *str*,*float* and *int*. You can always check what kind you have with the *type()* function.
 
 
-```python
+``` python
 greeting = 'Hello!'
 type(greeting )
 ```
@@ -511,7 +534,7 @@ type(greeting )
 ```
 
 
-```python
+``` python
 number = 3.14159
 type(number )
 ```
@@ -521,7 +544,7 @@ type(number )
 ```
 
 
-```python
+``` python
 newnumber = round(number)
 newnumber
 ```
@@ -530,7 +553,7 @@ newnumber
 ## 3
 ```
 
-```python
+``` python
 type(newnumber)
 ```
 
@@ -544,7 +567,7 @@ type(newnumber)
 We can manually set the type using: *str()*, *float()* and *int()*. 
 
 
-```python
+``` python
 string_number = str(number)
 string_number
 ```
@@ -554,7 +577,7 @@ string_number
 ```
 
 
-```python
+``` python
 float_string_number = float(string_number)
 float_string_number 
 ```
@@ -564,7 +587,7 @@ float_string_number
 ```
 
 
-```python
+``` python
 int_float_string_number = int(float_string_number)
 int_float_string_number 
 ```
@@ -579,7 +602,7 @@ int_float_string_number
 These functions do not always work, if there is not a clear rationale for how to resolve the function.
 
 
-```python
+``` python
 greeting = 'Hello!'
 int(greeting)
 ```
@@ -595,7 +618,7 @@ int(greeting)
 Strings can be concatenated easily.
 
 
-```python
+``` python
 newgreeting = 'Hi' ' there'
 newgreeting
 ```
@@ -604,7 +627,7 @@ newgreeting
 ## 'Hi there'
 ```
 
-```python
+``` python
 newgreeting2 = 'Hi' + ' there'
 newgreeting2
 ```
@@ -613,7 +636,7 @@ newgreeting2
 ## 'Hi there'
 ```
 
-```python
+``` python
 newgreeting3 = 'Hi'
 newgreeting3 += ' there'
 newgreeting3 
@@ -624,7 +647,7 @@ newgreeting3
 ```
 
 
-```python
+``` python
 newgreeting4 = 'Hi' * 5
 newgreeting4
 ```
@@ -639,7 +662,7 @@ newgreeting4
 Python has many options for storing data. The simplest is a list. Lists are denoted with square brackets. 
 
 
-```python
+``` python
 my_strs = ['a','b','c','d','e']
 my_strs
 ```
@@ -649,7 +672,7 @@ my_strs
 ```
 
 
-```python
+``` python
 my_ints= [1,2,3,4,5]
 my_ints
 ```
@@ -659,7 +682,7 @@ my_ints
 ```
 
 
-```python
+``` python
 my_floats = [1.1,2.2,3.3,4.4,5.5]
 my_floats
 ```
@@ -674,7 +697,7 @@ my_floats
 We can also use the square brackets to extract specific values from our list. 
 
 
-```python
+``` python
 my_strs[2]
 ```
 
@@ -685,7 +708,7 @@ my_strs[2]
 Here we get the third value from our list using the number 2. That is because python uses zero indexing; counting in python starts at 0, not 1. 
 
 
-```python
+``` python
 my_strs[0]
 ```
 
@@ -699,7 +722,7 @@ my_strs[0]
 Sometimes we have a long list, but we know we want the final value. We can use a *-* to indicate how far from the end we want to index.
 
 
-```python
+``` python
 my_strs[-1]
 ```
 
@@ -710,7 +733,7 @@ my_strs[-1]
 We can also create a sublist by slicing our list with the *:*.
 
 
-```python
+``` python
 my_strs[2:4]
 ```
 
@@ -719,7 +742,7 @@ my_strs[2:4]
 ```
 
 
-```python
+``` python
 my_strs[2:-1]
 ```
 
@@ -728,7 +751,7 @@ my_strs[2:-1]
 ```
 
 
-```python
+``` python
 my_strs[2:]
 ```
 
@@ -738,7 +761,7 @@ my_strs[2:]
 
 
 
-```python
+``` python
 my_strs[0] = 'z'
 ```
 
@@ -748,7 +771,7 @@ my_strs[0] = 'z'
 List are general containers for a variety of data types. This means you can make a list of lists!
 
 
-```python
+``` python
 my_lists = ["a",['b1','b2'], ['c1',['c2']]]
 my_lists
 ```
@@ -760,7 +783,7 @@ my_lists
 We can still use indexing to deal with this mess of lists
 
 
-```python
+``` python
 my_lists[2][1][0]
 ```
 
@@ -773,7 +796,7 @@ my_lists[2][1][0]
 
 
 
-```python
+``` python
 my_lists
 ```
 
@@ -781,7 +804,7 @@ my_lists
 ## ['a', ['b1', 'b2'], ['c1', ['c2']]]
 ```
 
-```python
+``` python
 list1, list2, list3 = my_lists
 list1
 ```
@@ -790,7 +813,7 @@ list1
 ## 'a'
 ```
 
-```python
+``` python
 list2
 ```
 
@@ -798,7 +821,7 @@ list2
 ## ['b1', 'b2']
 ```
 
-```python
+``` python
 list3
 ```
 
@@ -812,7 +835,7 @@ list3
 We can concatenate lists, just as we did with strings.
 
 
-```python
+``` python
 biglist = my_strs + my_ints
 biglist
 ```
@@ -822,7 +845,7 @@ biglist
 ```
 
 
-```python
+``` python
 biglist = my_strs 
 biglist += my_ints
 biglist
@@ -833,7 +856,7 @@ biglist
 ```
 
 
-```python
+``` python
 biglist = my_strs * 5
 biglist
 ```
@@ -848,7 +871,7 @@ biglist
 There are many useful functions for working with lists. Many of these functions work directly on the list. This means you don't need to assign the result back to the object. The structure is VARIABLE.function(). Here we use the append function to extend our list.
 
 
-```python
+``` python
 my_strs.append('f')
 my_strs
 ```
@@ -858,7 +881,7 @@ my_strs
 ```
 
 
-```python
+``` python
 my_strs.append(1)
 my_strs
 ```
@@ -877,7 +900,7 @@ There are many useful functions built into the base version of python.
 * .insert() inserts an argument into a specfic postion in the list
 
 
-```python
+``` python
 my_strs.insert(3,'c')
 my_strs
 ```
@@ -889,7 +912,7 @@ my_strs
 * remove() inserts an argument into a specfic postion in the list
 
 
-```python
+``` python
 my_strs.remove('c')
 my_strs
 ```
@@ -901,7 +924,7 @@ my_strs
 * del() inserts an argument into a specfic postion in the list
 
 
-```python
+``` python
 del(my_strs[3])
 my_strs
 ```
@@ -914,7 +937,7 @@ my_strs
 * .index() reveals which position in the list is the supplied argument
 
 
-```python
+``` python
 my_strs.index('c')
 ```
 
@@ -925,7 +948,7 @@ my_strs.index('c')
 * .sort() will sort your list
 
 
-```python
+``` python
 my_list = [1,4,9,4,11,12,6]
 my_list.sort()
 my_list
@@ -935,7 +958,7 @@ my_list
 ## [1, 4, 4, 6, 9, 11, 12]
 ```
 
-```python
+``` python
 my_list.sort(reverse=True)
 my_list
 ```
@@ -944,7 +967,7 @@ my_list
 ## [12, 11, 9, 6, 4, 4, 1]
 ```
 
-```python
+``` python
 my_list = ["b","c","a"]
 my_list.sort()
 my_list
@@ -962,7 +985,7 @@ Tuples are another type of object in python. They look and behave a lot like lis
 When making a tuple you use parentheses instead of square brackets. 
 
 
-```python
+``` python
 my_tuple = ('a','b','c','d','e')
 my_tuple[0] = 'z'
 ```
@@ -973,7 +996,7 @@ my_tuple[0] = 'z'
 ```
 
 
-```python
+``` python
 my_list = ['a','b','c','d','e']
 my_list[0] = 'z'
 my_list
@@ -989,7 +1012,7 @@ my_list
 As with str/int/float you can easily convert a list to a tuple and vice versa. Simply use the *list()* and *tuple()* functions. 
 
 
-```python
+``` python
 my_list = ['a','b','c','d','e']
 my_tuple_list = tuple(my_list)
 my_tuple_list
@@ -999,7 +1022,7 @@ my_tuple_list
 ## ('a', 'b', 'c', 'd', 'e')
 ```
 
-```python
+``` python
 type(my_tuple_list)
 ```
 
@@ -1008,7 +1031,7 @@ type(my_tuple_list)
 ```
 
 
-```python
+``` python
 my_list_tuple_list = list(my_tuple_list)
 my_list_tuple_list
 ```
@@ -1017,7 +1040,7 @@ my_list_tuple_list
 ## ['a', 'b', 'c', 'd', 'e']
 ```
 
-```python
+``` python
 type(my_list_tuple_list)
 ```
 
@@ -1048,7 +1071,7 @@ This structure allows the organiztion of your data, and you can gives you the ab
 ## Dictionaries
 
 
-```python
+``` python
 my_dict = {
     'my_list': [1,2,3],
     'my_tuple': (4,5,6),
@@ -1066,7 +1089,7 @@ my_dict
 ## Dictionaries
 
 
-```python
+``` python
 my_dict.keys()
 ```
 
@@ -1076,7 +1099,7 @@ my_dict.keys()
 
 
 
-```python
+``` python
 my_dict.values()
 ```
 
@@ -1085,7 +1108,7 @@ my_dict.values()
 ```
 
 
-```python
+``` python
 my_dict.items()
 ```
 
@@ -1097,7 +1120,7 @@ my_dict.items()
 ## Dictionaries
 
 
-```python
+``` python
 my_dict['my_list']
 ```
 
@@ -1106,7 +1129,7 @@ my_dict['my_list']
 ```
 
 
-```python
+``` python
 my_dict['language']
 ```
 
@@ -1114,7 +1137,7 @@ my_dict['language']
 ## 'python'
 ```
 
-```python
+``` python
 my_dict.get('language')
 ```
 
@@ -1124,7 +1147,7 @@ my_dict.get('language')
 
 
 
-```python
+``` python
 my_dict.setdefault('metadata', True)
 ```
 
@@ -1132,7 +1155,7 @@ my_dict.setdefault('metadata', True)
 ## True
 ```
 
-```python
+``` python
 my_dict
 ```
 
@@ -1141,7 +1164,7 @@ my_dict
 ```
 
 
-```python
+``` python
 'metadata' in my_dict.keys()
 ```
 
@@ -1149,7 +1172,7 @@ my_dict
 ## True
 ```
 
-```python
+``` python
 'metadata' in my_dict
 ```
 
@@ -1159,7 +1182,7 @@ my_dict
 
 
 
-```python
+``` python
 'scRNAseq' in my_dict.values()
 ```
 
@@ -1175,7 +1198,7 @@ my_dict
 
 
 
-```python
+``` python
 dict_1 = {'my_list': [1,2,3],
   'my_tuple': (4,5,6),}
   
@@ -1185,7 +1208,7 @@ dict_2 = {'a': 1, 'b': 2}
 Unpacking operator
 
 
-```python
+``` python
 dict_3 = {**dict_1, **dict_2}
 dict_3
 ```
@@ -1197,7 +1220,7 @@ dict_3
 Merge with pipe
 
 
-```python
+``` python
 dict_3 = dict_1 | dict_2
 dict_3
 ```
@@ -1210,7 +1233,7 @@ dict_3
 Update function
 
 
-```python
+``` python
 dict_1.update(dict_2)
 
 dict_1
@@ -1223,21 +1246,26 @@ dict_1
  
  
  
- 
- 
- 
+- Set up - install, conda, vs etc
+- Basic interaction - interactive vs scripts
+- Using functions
+- Data types:
+  * str, int, float
+  * List
+  * Tuple
+  * Library
+  * Include indexing, modification and concatenation for each
+  * arrays and numpy?
+- Reading/Writing
 
-- reading/writing
-
-
-
-
-
-
-- libraries
-- control and list comp
-
-
+- Control Statements
+  * if
+  * for
+  * while
+- List comprehension
+- Regex
+- Writing functions
+- Plotting
 
 
 
@@ -1271,7 +1299,7 @@ everything in the rmd is relative to the inst/extdata directory so you have some
 The structure is maintained for those attending the course and download the package using the instructions. The same rules are followed for imgs and scripts that you may call.
 
 
-```py
+``` py
 import 
 
 ```
