@@ -100,6 +100,21 @@ ax.set_title('Fruit supply by kind and color')
 ax.legend(title='Fruit color')
 
 plt.show()
+
+```
+
+---
+## test
+
+
+
+
+---
+## test
+
+```{python}
+
+plt.draw()
 ```
 
 ---
@@ -141,6 +156,18 @@ plt.savefig('../imgs/test3.png')
 
 ---
 ## test
+
+
+
+```{python}
+x = [1.1, 3.2, 4.4, 5.2, 6.3]
+y = [0.5, 3.5, 4.5, 4.8, 6.2]
+plt.scatter(x, y)
+plt.show()
+
+
+```
+
 
 
 ---
@@ -887,7 +914,7 @@ dict_1
   * Library
   * Include indexing, modification and concatenation for each
   * arrays and numpy?
-- Reading/Writing
+- Reading/Writing (and working directory)
 
 - Control Statements
   * if
