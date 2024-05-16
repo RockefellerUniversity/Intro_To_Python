@@ -111,15 +111,38 @@ plt.savefig('test.png')
 
 ```
 
+---
+## test
+
+
+```{python}
+plt.savefig('imgs/test2.png')
+
+```
 
 ---
 ## test
 
-```{r}
-knitr::include_graphics("test.png")
 
+```{python}
+plt.savefig('../imgs/test3.png')
 
 ```
+
+---
+## test
+
+![test](test.png)
+
+---
+## test
+
+![test](imgs/test2.png)
+
+---
+## test
+
+![test](../imgs/test3.png)
 
 ---
 ## Overview
@@ -855,21 +878,26 @@ dict_1
  
  
  
- 
- 
- 
+- Set up - install, conda, vs etc
+- Basic interaction - interactive vs scripts
+- Using functions
+- Data types:
+  * str, int, float
+  * List
+  * Tuple
+  * Library
+  * Include indexing, modification and concatenation for each
+  * arrays and numpy?
+- Reading/Writing
 
-- reading/writing
-
-
-
-
-
-
-- libraries
-- control and list comp
-
-
+- Control Statements
+  * if
+  * for
+  * while
+- List comprehension
+- Regex
+- Writing functions
+- Plotting
 
 
 
