@@ -124,7 +124,7 @@ plt.savefig('imgs/test2.png')
 ## test
 
 
-```{python}
+```{python, eval=F}
 plt.savefig('../imgs/test3.png')
 
 ```
@@ -142,7 +142,6 @@ plt.savefig('../imgs/test3.png')
 ---
 ## test
 
-![test](../imgs/test3.png)
 
 ---
 ## Overview
