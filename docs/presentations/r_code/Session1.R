@@ -52,6 +52,10 @@ py_install(c("matplotlib", "pandas"))
 ## ax.legend(title='Fruit color')
 ## 
 ## plt.show()
+## 
+
+## 
+## plt.draw()
 
 ## plt.savefig('test.png')
 ## 
@@ -61,6 +65,13 @@ py_install(c("matplotlib", "pandas"))
 ## 
 
 ## plt.savefig('../imgs/test3.png')
+## 
+
+## x = [1.1, 3.2, 4.4, 5.2, 6.3]
+## y = [0.5, 3.5, 4.5, 4.8, 6.2]
+## plt.scatter(x, y)
+## plt.show()
+## 
 ## 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
