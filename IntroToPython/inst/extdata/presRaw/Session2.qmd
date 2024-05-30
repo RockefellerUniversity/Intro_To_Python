@@ -66,3 +66,68 @@ Answers can be found here  [here](../..//exercises/answers/MyExercise3_answers.h
 
 Rcode for answers can be found here  [here](../..//exercises/answers//answers/MyExercise3_Answers.R)
 
+
+## Slide Structure
+
+We use the a double has/pound for slides. This is important for hierarchy. If you use 1 it will work for the slides, but will mess up the single page version.
+
+
+## Left/Right alignment
+
+To show things side by side on a slide you can use pull left/right. t is important to keep the tab on the second square bracket. On single page it will just be one after the other:
+
+.pull-left[
+This will be on left of slide
+  ] 
+  
+.pull-right[
+This will be on right
+
+ ]
+
+
+## Data from external sources
+
+everything in the rmd is relative to the inst/extdata directory so you have some data to load in, just put it in the data directory, read it in along the path. 
+The structure is maintained for those attending the course and download the package using the instructions. The same rules are followed for imgs and scripts that you may call.
+
+```{py}
+import 
+
+```
+
+--
+## Exercises
+The following few slides show you how to structure exercise slides.
+
+We often have several exercise slides per session. So you can just copy and paste and change the directory to the appropriate name. All 3 file types are made from you single exercise Rmd. 
+
+---
+## Time for an exercise!
+
+??? exercise description here?? [here](../../exercises/exercises/MyExercise1_exercises.html)
+
+---
+## Answers to exercise
+
+Answers can be found [here](../../exercises/answers/MyExercise1_answers.html)
+
+R code for solutions can be found [here](../../exercises/answers/MyExercise1_answers.R)
+
+## Exercise again
+
+So we can have some more sections here describing some new important topic
+
+Then more exercises
+
+---
+## Time for an exercise!
+
+??? exercise description here?? [here](../../exercises/exercises/MyExercise2_exercises.html)
+
+---
+## Answers to exercise
+
+Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
+
+R code for solutions can be found [here](../../exercises/answers/MyExercise2_answers.R)
