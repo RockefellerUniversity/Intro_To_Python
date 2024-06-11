@@ -952,16 +952,8 @@ myset = set(["a", "b", "c"])
 myset
 ```
 
-
-```{python}
-myset[0]
-```
-
-```{python}
-myset = set(["a", "b", "c","c","c"])
-myset
-```
-
+---
+## Sets can be modified
 
 ```{python}
 myset.add("d")
@@ -973,6 +965,36 @@ myset.remove("d")
 myset
 ```
 
+---
+## Sets have no order
+
+As sets have no order they can't be subset in the same way that other objects can be. 
+
+```{python, eval=F, echo=T}
+
+myset[0]
+
+```
+
+```{python, eval=T, echo=F}
+
+try:
+  myset[0]
+except Exception as e:
+  print(e)
+
+```
+
+---
+## Sets are unique
+
+```{python}
+myset = set(["a", "b", "c","c","c"])
+myset
+```
+
+---
+## Sets have specific functions
 
 ```{python}
 myset1 = {1, 2, 3, 4}
@@ -990,8 +1012,8 @@ myset1.difference(myset2)
 ---
 ## Set vs List
  
-A list allows duplicate elements and maintains their order
-A set ensures element uniqueness without any guaranteed order
+* A list allows duplicate elements and maintains their order
+* A set ensures element uniqueness without any guaranteed order
 
 
 
