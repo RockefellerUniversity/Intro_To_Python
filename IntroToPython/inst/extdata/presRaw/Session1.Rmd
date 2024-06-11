@@ -106,12 +106,6 @@ plt.show()
 ---
 ## test
 
-
-
-
----
-## test
-
 ```{python}
 
 plt.draw()
@@ -168,8 +162,6 @@ plt.show()
 
 ```
 
-
-
 ---
 ## Overview
 
@@ -205,13 +197,9 @@ if(params$isSlides == "yes"){
 
 ## Materials
 
-??We try to denote each major section of content with these title slides (see above for set up). The hierarchy will help with the different versions of the teaching content i.e. slides and single page.??
-
-?? Materials just gives the links to download the package Just ensure links are up to date??
-
 All prerequisites, links to material and slides for this course can be found on github.
 
-* [Intro_To_R_1](https://rockefelleruniversity.github.io/Intro_To_R_1Day/)
+* [Intro_To_Python](https://rockefelleruniversity.github.io/Intro_To_Python/)
 
 Or can be downloaded as a zip archive from here.
 
@@ -219,8 +207,6 @@ Or can be downloaded as a zip archive from here.
 
 ---
 ## Course materials
-
-?? this slide just shows where thye can get the course content from the download. You do not need to populate these directories. It will be made during compilation??
 
 Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
 
@@ -234,25 +220,6 @@ R code in presentations.
 Practicals as HTML pages. 
 * **r_course/answers/**
 Practicals with answers as HTML pages and R code solutions. 
-
-
----
-## Set the Working directory
-
-
-Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
-
-You may navigate to the unarchived RU_Course_help folder in the Rstudio menu.
-
-**Session -> Set Working Directory -> Choose Directory**
-
-or in the console.
-
-```{r setwd_introtoR,eval=F} 
-setwd("/PathToMyDownload/RU_Course_template/r_course")
-# e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
-```
-
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -286,14 +253,10 @@ Guido van Rossum began working on Python in the late 1980s as a successor to the
 One of the most noticeable differences comes from the emphasis on code readability:
 it uses significant indentation 
 
+Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions. While Python 2.7 and older is officially unsupported some tools require it. 
 
-
-
-Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions. 
-While Python 2.7 and older is officially unsupported some tools officially require it. 
-
+---
 ## What is Python to you?
-
 
 Python has a huge user base across many disciplines. These users have developed a wide range of libraries which you can use.  
 
@@ -308,7 +271,7 @@ such as deep learning methods for scRNAseq or Image Analysis
 
 Though R has long been the key coding language in bioinformatics, python is growing in use. 
 
-Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e scanpY 
+Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e Scanpy. 
 
 ![comparison](imgs/scanpy_vs_seurat.png)
 
