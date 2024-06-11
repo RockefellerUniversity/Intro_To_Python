@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Python, Session 1 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
+title: "Introduction to R, Session 1 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "http://rockefelleruniversity.github.io/RU_course_template/"
 output: 
@@ -289,24 +289,19 @@ it uses significant indentation
 
 
 
-Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions.While Python 2.7 and older is officially unsupported, a different unofficial Python implementation, PyPy, continues to support Python 2, i.e
+Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions. 
+While Python 2.7 and older is officially unsupported some tools officially require it. 
 
-o index
-
----
 ## What is Python to you?
 
-.pull-left[
+
 Python has a huge user base across many disciplines. These users have developed a wide range of libraries which you can use.  
 
 As python is used by many fields, it is a useful language for adapting novel approaches for bioinformatics:
 such as deep learning methods for scRNAseq or Image Analysis
-  ]
-  
-.pull-right[
 
-https://en.wikipedia.org/wiki/TIOBE_index
-  ]
+
+![TIOBE](https://en.wikipedia.org/wiki/TIOBE_index#/media/File:Tiobeindex.png)
 
 ---
 ## Pyhton vs R
@@ -314,6 +309,8 @@ https://en.wikipedia.org/wiki/TIOBE_index
 Though R has long been the key coding language in bioinformatics, python is growing in use. 
 
 Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e scanpY 
+
+![comparison](imgs/scanpy_vs_seurat.png)
 
 ---
 ## Pyhton vs R
@@ -334,8 +331,43 @@ https://medium.com/@hamza_33678/programming-for-bioinformatics-r-vs-python-52969
 ensure installed
 interactive vs scripts
 
+conda set up
+
+
+---
+## Interactive or scripts?
+
+As with many languages you can work with pyhton in two main ways:
+interactive or scripts
+
+When people think about coding they are often thinking about the interactive console. When you work in this way lines of code are submitted as you enter them. You often do this when you are developing an analysis and trying out parameters.
+
+When you want to automate something, i.e. an analysis workflow, you will write a scriptt. You can then run this script with python.
+
+---
+## Python and IDEs
+
+You can run python from within your terminal. This will give you access to the python console.
+
+Many people prefer to sue an Integrated Development Environment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, and access to many customizablefeature in additional panes. 
+
+We will be using VS code from windows. 
+
+
 ---
 ## Navigating VS Code
+
+
+---
+## Keeping Your Code Nice - Notebooks
+
+There exists many ways in which to store your code. Most fo the time we are not writing scripts that are production level which we will reude. Instead you will be doing an analysis of a some data. 
+
+Notebooks give you a means to tie the code and the result of the code together into a single file. 
+
+There are several options for python. But Jupyter Notebook is best know. Quarto is growing in popularity as its universal and language agnostic. 
+
+
 
 
 ---
@@ -615,6 +647,10 @@ my_strs[2:]
 my_strs[0] = 'z'
 ```
 
+
+make an error on purpose
+
+
 ---
 ## Complex Lists
 
@@ -684,8 +720,6 @@ my_strs
 
 There are many useful functions built into the base version of python. 
 
-
-
 * .insert() inserts an argument into a specfic postion in the list
 
 ```{python}
@@ -753,6 +787,15 @@ my_list = ['a','b','c','d','e']
 my_list[0] = 'z'
 my_list
 ```
+
+---
+## A quick aside
+
+You will run into errors coding. 
+
+DON'T PANIC. 
+
+Most of the time the error messages are very clear. And if they are not a quick google will often clear it up. 
 
 ---
 ## Tuple/List coercion
@@ -864,8 +907,6 @@ my_dict
 ## Concatenating Dictionaries
 
 
-
-
 ```{python}
 dict_1 = {'my_list': [1,2,3],
   'my_tuple': (4,5,6),}
@@ -891,7 +932,6 @@ dict_3
 
 ```
 
-
 Update function
 
 ```{python}
@@ -901,12 +941,480 @@ dict_1.update(dict_2)
 dict_1
 ```
 
+
+---
+## Sets
+
+```{python}
+myset = {"a", "b", "c"}
+myset
+myset = set(["a", "b", "c"])
+myset
+```
+
+
+```{python}
+myset[0]
+```
+
+```{python}
+myset = set(["a", "b", "c","c","c"])
+myset
+```
+
+
+```{python}
+myset.add("d")
+myset
+```
+
+```{python}
+myset.remove("d")
+myset
+```
+
+
+```{python}
+myset1 = {1, 2, 3, 4}
+myset2 = {3, 4, 5, 6}
+myset1.union(myset2)
+```
  
  
+```{python}
+myset1 = {1, 2, 3, 4}
+myset2 = {3, 4, 5, 6}
+myset1.difference(myset2)
+```
  
+---
+## Set vs List
+ 
+A list allows duplicate elements and maintains their order
+A set ensures element uniqueness without any guaranteed order
+
+
+
+---
+## Making functions
+
+Key parts:
+* function name
+* arguments
+* code
+* return values (sometimes)
+
+---
+## Making functions
+
+Function structure:
+
+def - indicates you will define a function
+function name - in this case *myFirstFunction*
+arguments - any arguments that the function expects in parentheses
+code - the start of the code is indicated by a colon, new line and indentation
+return - this is the result that you wish to be delivered from the function
+
+```{python}
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  return sumNum
+
+myResult = myFirstFunction(num1=2, num2=3)
+myResult
+```
+
+
+
+---
+## Returning multiple values
+
+We can only return 1 object at a time from function. Here we create the multiple of our numbers and try and return alongside our sum.
+
+```{python, eval=F, echo=T}
+
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+  return sumNum multipleNum
+
+myResult = myFirstFunction(num1=2, num2=3)
+
+```
+
+```{python, eval=T, echo=F}
+
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+  return sumNum multipleNum
+
+try:
+  myResult = myFirstFunction(num1=2, num2=3)
+except Exception as e:
+  print(e)
+
+```
+
+---
+## Returning multiple values
+
+A simple solution is to pass back an object that contains both results. Here we create a quick list.
+
+
+```{python}
+
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+  return [sumNum, multipleNum]
+
+myResult = myFirstFunction(num1=2, num2=3)
+myResult
+```
+
+---
+## Evaluate until return
+
+In a function containing a return statement, the code up until the return statement is evaluated and anything after the return statement is not evaluated.
+
+```{python}
+
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+  print("Before return")
+  return [sumNum, multipleNum]
+  print("After return")
+
+myFirstFunction(num1=2, num2=3)
+
+```
+
+---
+## No return statement
+
+If a function does not contain a return statement nothing will come back. In other languages this is not the case. 
+
+```{python}
+
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+
+myFirstFunction(num1=2, num2=3)
+
+```
+
+## Variable scope in functions
+
+Variables defined in the arguments or within the function exist only within the environment of the function.
+
+```{python, eval=F, echo=T}
+
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+  return [sumNum, multipleNum]
+
+myFirstFunction(num1=2, num2=3)
+
+sumNum
+
+```
+
+```{python, eval=T, echo=F}
+
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+  return [sumNum, multipleNum]
+
+myFirstFunction(num1=2, num2=3)
+
+try:
+  sumNum
+except Exception as e:
+  print(e)
+
+```
+
+## Variable scope in functions
+
+If a function makes changes to variables defined in the global environment they will not be updated in the global environment.
+
+```{python, eval=F, echo=T}
+num3 = 4
+
+def myFirstFunction(num1, num2, num3):
+  num3 = num1+num2+num3
+  return num3
+
+myFirstFunction(num1=2, num2=3, num3=num3)
+
+num3
+
+```
+
+
+## Local vs Global scope
+
+* Functions have local scope. This means they have access to global variables can be used anywhere and local variables which were made within the function. 
+
+* Once you exit the function you are in the console you are back to a global scope. Local variables can not be accessed at this point. 
+
+* Code in a function’s local scope cannot use variables in any other local scope i.e. between functions.
+
+* Though it is possible to have local and global variables with the same name, try and give everything unique names so you can keep track of everything. 
+
+
+---
+## Argument defaults
+
+Functions can have defaults for their arguments which will be used when arguments are not specified.
+
+```{python}
+def myFirstFunction(num1=1,num2=3):
+  sumNum = num1+num2
+  return sumNum
+
+myFirstFunction()
+
+```
+
+```{python}
+myFirstFunction(5,10)
+```
+
+---
+## Another Example (with multiple arguments)
+
+```{python}
+def say_hello(name):
+  print(f'Hello {name}')
+```
+
+```{python}
+say_hello('Carlos')
+```
+
+
+---
+## Control Statements
+
+There are several ways to control how your code is evaluated. There are two main classes:
+
+Conditional branching (if,else)
+Loops (for, while)
+
+
+<span style="color:green">While</span> I'm analysing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use Python <span style="color:red">else</span> I will use a calculator.
+
+---
+## Conditional Branching
+
+Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
+
+In Python, we use the if statement with the logical to be evaluated immediately after. The  dependent code is indicated by a colon, new line and indentation.
+
+```{python}
+
+x = True
+if x:
+  print("x is true")
+
+```
+
+```{python}
+
+x = False
+if x:
+  print("x is true")
+
+```
+
+---
+## Conditional Branching
+
+More often, we construct the logical value within the if statement itself. This can be termed the condition.
+
+```{python}
+
+x = 10
+y = 4
+if x > y:
+  print("The value of x is",x,"which is greater than", y)
+
+```
+The message is printed above because x is greater than y.
+
+
+```{python}
+y = 20
+if x > y:
+  print("The value of x is",x,"which is greater than", y)
+
+```
+
+x is now no longer greater than y, so no message is printed.
+
+We really still want a message telling us what was the result of the condition.
+
+---
+## else following an if
+
+If we want to perform an operation when the condition is false we can follow the *if* statement with an *else* statement.
+
+
+```{python}
+
+x = 3
+if x < 5:
+  print(x, "is less than to 5")
+else:
+  print(x, "is greater than or equal to 5")
+
+```
+
+```{python}
+
+x = 10
+if x < 5:
+  print(x, "is less than to 5")
+else:
+  print(x, "is greater than or equal to 5")
+
+```
+
+---
+## else if = elif
+
+We may wish to execute different procedures under multiple conditions. This can be controlled using the *elif* following an initial *if* statement.
+
+```{python}
+
+x = 5
+if x < 5:
+  print(x, "is less than to 5")
+elif x > 5:
+  print(x, "is greater than 5")
+else:
+  print(x, "is 5")
+
+```
+
+---
+## Loops
+
+While and for loops iterate over a block of code, and keep rerunning it. 
+
+*While* loops do this while a specific condition is met (or until that condition is not met).
+
+*For* loops will do this for a given number of iterations.
+
+---
+## While Loop
+
+While loops have a similar structure to if statements. We start by designating the while loop, ten follow with the logical to be evaluated immediately after. The  dependent code is indicated by a colon, new line and indentation.
+
+```{python}
+
+x = 1
+while x < 3:
+  print("x is",x)
+  x = x+1
+
+```
+
+---
+## For Loop
+
+For loops do not have a condtional. Instead you supply an object that you want to be iterate over. This can be a list, tuple, dictionary, set or string. Here we use a list. 
+
+```{python}
+
+x = ['Alpha','Bravo','Charlie']
+for i in x:
+  print(i)
+
+```
+
+
+---
+## for and range()
+
+The range() function provides us with a nice input for our for loops. It returns a sequence of numbers, starting from 0 and stops before the specified number.
+
+```{python}
+for i in range(3):
+  print("i is", i)
+
+```
+
+---
+## Looping through indices
+
+When we have a numeric range, we can use it to index out from existing objects. This often allows for more complex code evaluation. 
+
+```{python}
+
+geneName = ["Ikzf1","Myc","Igll1"]
+expression = [10.4, 4.3, 6.5]
+iterations = len(geneName)
+
+for i in range(iterations):
+  print(geneName[i]," has an TPM of ",expression[i])
+
+```
+
+
+---
+## Loops and conditionals
+
+Loops can be combined with conditional statements to allow for complex control of their execution over Python objects. Though these can be tough to read and create, by keeping an eye of the hierarchy of identation we can follow the logic. 
+
+```{python}
+x = range(8)
+
+for i in range(8):
+  if i > 5:
+    print("Number",i,"is greater than 5")
+  elif i == 5:
+    print("Number",i,"is  5") 
+  else:
+    print("Number",i,"is less than 5") 
+
+```
+
+---
+## Breaking loops
+
+We can use conditionals to exit a loop if a condition is satisfied, just like a while loop.
+
+```{python}
+x = range(8)
+
+for i in range(8):
+  if i > 5:
+    print("Number",i,"is greater than 5")
+  elif i == 5:
+    print("Number",i,"is  5")
+    break
+  else:
+    print("Number",i,"is less than 5") 
+
+```
+
+
+
+
+
+
+
+
+Day 1:
 - Set up - install, conda, vs etc
-- Basic interaction - interactive vs scripts
-- Using functions
+- Basic interaction - interactive vs scripts, .py files vs Jupyter notebooks (vs Quarto?)
 - Data types:
   * str, int, float
   * List
@@ -914,18 +1422,28 @@ dict_1
   * Library
   * Include indexing, modification and concatenation for each
   * arrays and numpy?
-- Reading/Writing (and working directory)
+  * sets, comparison to lists (ordered vs unordered)
+-Variables (defining, changing values)
+-Using existing functions (ex: print)
+-Defining your own functions and calling them (with example using variables)
+-Interpreting error messages
+-Finding and understanding python documentation online  
 
+Day 2: 
+- Reading/Writing (and working directory)
 - Control Statements
   * if
   * for
   * while
-- List comprehension
-- Regex
-- Writing functions
+- List comprehension This I could take or leave, I would rather use the time to teach them new functionalities rather than shorten ones they already know
+-Example of making a more complex function that uses:
+Data read/writing
+Control statements
+Ex: read in data, do some conditional mathematical manipulation/data cleaning, write to a file
+ 
+- Regex Do you mean the re package? If so I am not sure this is useful to the beginner Python user - maybe something to mention when talking about string operations but I don't know that I would go deeply into this. If you think it's useful though I am open to it.
 - Plotting
-
-
+-Showcase/discussion of other useful packages and what they can be used for (no need to use them, but just discuss) (pandas, scipy, scikit learn, biopython, etc.)
 
 
 
