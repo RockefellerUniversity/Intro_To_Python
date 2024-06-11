@@ -1,9 +1,10 @@
 <br>
 
-#### **?? My course name?? , Session 1**
+#### **Introduction to Python, Session 1**
 
-??What am I focusing on in this section. Bullet point lists are good??
+This section focuses on Python basics such as simple data types, data IO, plotting and statistics.
+Session sections:
 
-* Course content
-* Building courses
-* Making it look nice
+* Introduction to Python
+* Data Types
+* Reading and Writing Data

@@ -1,5 +1,5 @@
 Description:
-  CourseName: Course Template
+  CourseName: Introduction to Python
   OverviewRmd: CourseOverview.Rmd
 Presentations:
     titles: Session1 Session2

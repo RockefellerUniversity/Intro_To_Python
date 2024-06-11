@@ -1,9 +1,13 @@
 <br>
 
-#### **?? My course name?? , Session 2**
+#### **Introduction to Python, Session 2**
 
-??If you have more sections then do this again. what is session 2 about? keep adding more files if needed??
+In session 2, programmatic techniques such as looping and conditional expressions are introduced
+The session includes longer exercises and shorter slide decks and so more time should be allocated to exercises in this session.
 
-* Course content
-* Building courses
-* Making it look nice
+Session sections:
+
+* Looping Conditional Branching
+* Loading libraries
+* Writing Scripts
+* Getting help
