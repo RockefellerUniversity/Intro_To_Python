@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Introduction to Python, Session 1    </title>
+    <title>Introduction to R, Session 1    </title>
     <meta charset="utf-8" />
     <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
     <script src="libs/header-attrs-2.27/header-attrs.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Introduction to Python, Session 1<br />
+# Introduction to R, Session 1<br />
 <html><br />
 <br />
 <hr color='#EB811B' size=1px width=796px><br />
@@ -175,12 +175,6 @@ plt.show()
 ## test
 
 
-
-
----
-## test
-
-
 ``` python
 
 plt.draw()
@@ -244,77 +238,14 @@ plt.show()
 
 ![](Session1_files/figure-html/unnamed-chunk-13-11.png)&lt;!-- --&gt;
 
-
-
 ---
 ## Overview
 
-??We often put an overview slide that links to the various parts of the course content to make it easy to navigate i.e. this one for intro to r??
-
-- [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#set-up)
-- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r)
-- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r)
-- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
-
----
-class: inverse, center, middle
-
-# Set Up
-
-&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
-
----
-
-## Materials
-
-??We try to denote each major section of content with these title slides (see above for set up). The hierarchy will help with the different versions of the teaching content i.e. slides and single page.??
-
-?? Materials just gives the links to download the package Just ensure links are up to date??
-
-All prerequisites, links to material and slides for this course can be found on github.
-
-* [Intro_To_R_1](https://rockefelleruniversity.github.io/Intro_To_R_1Day/)
-
-Or can be downloaded as a zip archive from here.
-
-* [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
-
----
-## Course materials
-
-?? this slide just shows where thye can get the course content from the download. You do not need to populate these directories. It will be made during compilation??
-
-Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
-
-* **r_course/presentations/slides/**
-Presentations as an HTML slide show.
-* **r_course/presentations/singlepage/** 
-Presentations as an HTML single page.
-* **r_course/presentations/r_code/**
-R code in presentations.
-* **r_course/exercises/**
-Practicals as HTML pages. 
-* **r_course/answers/**
-Practicals with answers as HTML pages and R code solutions. 
-
-
----
-## Set the Working directory
-
-
-Before running any of the code in the practicals or slides we need to set the working directory to the folder we unarchived. 
-
-You may navigate to the unarchived RU_Course_help folder in the Rstudio menu.
-
-**Session -&gt; Set Working Directory -&gt; Choose Directory**
-
-or in the console.
-
-
-``` r
-setwd("/PathToMyDownload/RU_Course_template/r_course")
-# e.g. setwd('~/Downloads/Intro_To_R_1Day/r_course')
-```
+- [Course Home Page](http://rockefelleruniversity.github.io/Intro_To_Python/)
+- [Background to Python](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1.html#background-to-r)
+- [Set up](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1.html#set-up)
+- [Data types in Python](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1.html#data_types_in_r)
+- [Reading and writing in Python](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1#reading-and-writing-data-in-r)
 
 
 ---
@@ -335,34 +266,27 @@ Guido van Rossum began working on Python in the late 1980s as a successor to the
 One of the most noticeable differences comes from the emphasis on code readability:
 it uses significant indentation 
 
-
-
-
-Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions.While Python 2.7 and older is officially unsupported, a different unofficial Python implementation, PyPy, continues to support Python 2, i.e
-
-o index
+Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions. While Python 2.7 and older is officially unsupported some tools require it. 
 
 ---
 ## What is Python to you?
 
-.pull-left[
 Python has a huge user base across many disciplines. These users have developed a wide range of libraries which you can use.  
 
 As python is used by many fields, it is a useful language for adapting novel approaches for bioinformatics:
 such as deep learning methods for scRNAseq or Image Analysis
-  ]
-  
-.pull-right[
 
-https://en.wikipedia.org/wiki/TIOBE_index
-  ]
+
+![TIOBE](https://en.wikipedia.org/wiki/TIOBE_index#/media/File:Tiobeindex.png)
 
 ---
 ## Pyhton vs R
 
 Though R has long been the key coding language in bioinformatics, python is growing in use. 
 
-Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e scanpY 
+Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e Scanpy. 
+
+![comparison](imgs/scanpy_vs_seurat.png)
 
 ---
 ## Pyhton vs R
@@ -377,14 +301,126 @@ https://medium.com/@hamza_33678/programming-for-bioinformatics-r-vs-python-52969
  image analysis
 
 
----
-## Setting Up Python
 
-ensure installed
-interactive vs scripts
+---
+class: inverse, center, middle
+
+# Set Up
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+## Materials
+
+All prerequisites, links to material and slides for this course can be found on github.
+
+* [Intro_To_Python](https://rockefelleruniversity.github.io/Intro_To_Python/)
+
+Or can be downloaded as a zip archive from here.
+
+* [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
+
+---
+## Course materials
+
+Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
+
+* **r_course/presentations/slides/**
+Presentations as an HTML slide show.
+* **r_course/presentations/singlepage/** 
+Presentations as an HTML single page.
+* **r_course/presentations/r_code/**
+R code in presentations.
+* **r_course/exercises/**
+Practicals as HTML pages. 
+* **r_course/answers/**
+Practicals with answers as HTML pages and R code solutions. 
+
+
+---
+## Setting Up Conda and Python
+
+Many laptops will come with python installed so getting started is easy. 
+
+We will run a custom install of python using conda. Conda manages software and packages. Using Conda should make installations much easier and allow us to keep track of software versions. 
+
+We can install Conda from here. We will specifically want to use Miniconda:
+
+https://conda.io/projects/conda/en/latest/user-guide/install/index.html
+
+If you have instaled this correctly, running this on terminal/command prompt should give you a list of conda commands
+
+
+``` sh
+conda
+```
+
+
+---
+## Setting Up Conda and Python
+
+Conda is built on the idea of environments. An environment is a directory that contains a specific collection of Conda packages that you have installed. For today we will make sure we have python and the python packages we need for the training.
+
+The first step is we create a new environment. We will then activate it to expose the environment. 
+
+Lastly we can install python.
+
+
+``` sh
+
+ conda create -n intro_to_python
+ conda activate intro_to_python
+ conda install python
+
+```
+
+---
+## Setting Up Conda and Python
+
+We also want some specific Python packages. These mostly contain functions that are not present in the base Python distribution. 
+
+
+``` sh
+conda install 
+
+```
+
+
+---
+## Interactive or scripts?
+
+As with many languages you can work with python in two main ways:
+interactive or scripts
+
+When people think about coding they are often thinking about the interactive console. When you work in this way lines of code are submitted as you enter them. You often do this when you are developing an analysis and trying out parameters. This is mostly how we will work in the training. 
+
+When you want to automate something, i.e. an analysis workflow, you will write a script. You can then run this script with python.
+
+---
+## Python and IDEs
+
+You can run python from within your terminal/command prompt. This will give you access to the python console.
+
+Many people prefer to sue an Integrated Development Environment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, and access to many customizablefeature in additional panes. 
+
+We will be using VS code from Windows. 
+
 
 ---
 ## Navigating VS Code
+
+
+---
+## Keeping Your Code Nice - Notebooks
+
+There exists many ways in which to store your code. Most fo the time we are not writing scripts that are production level which we will reude. Instead you will be doing an analysis of a some data. 
+
+Notebooks give you a means to tie the code and the result of the code together into a single file. 
+
+There are several options for python. But Jupyter Notebook is best know. Quarto is growing in popularity as its universal and language agnostic. 
+
+
 
 
 ---
@@ -795,6 +831,10 @@ my_strs[2:]
 my_strs[0] = 'z'
 ```
 
+
+make an error on purpose
+
+
 ---
 ## Complex Lists
 
@@ -925,8 +965,6 @@ my_strs
 
 There are many useful functions built into the base version of python. 
 
-
-
 * .insert() inserts an argument into a specfic postion in the list
 
 
@@ -1035,6 +1073,15 @@ my_list
 ```
 ## ['z', 'b', 'c', 'd', 'e']
 ```
+
+---
+## A quick aside
+
+You will run into errors coding. 
+
+DON'T PANIC. 
+
+Most of the time the error messages are very clear. And if they are not a quick google will often clear it up. 
 
 ---
 ## Tuple/List coercion
@@ -1226,8 +1273,6 @@ my_dict
 
 
 
-
-
 ``` python
 dict_1 = {'my_list': [1,2,3],
   'my_tuple': (4,5,6),}
@@ -1259,7 +1304,6 @@ dict_3
 ## {'my_list': [1, 2, 3], 'my_tuple': (4, 5, 6), 'a': 1, 'b': 2}
 ```
 
-
 Update function
 
 
@@ -1273,12 +1317,581 @@ dict_1
 ## {'my_list': [1, 2, 3], 'my_tuple': (4, 5, 6), 'a': 1, 'b': 2}
 ```
 
+
+---
+## Sets
+
+
+``` python
+myset = {"a", "b", "c"}
+myset
+```
+
+```
+## {'b', 'a', 'c'}
+```
+
+``` python
+myset = set(["a", "b", "c"])
+myset
+```
+
+```
+## {'b', 'a', 'c'}
+```
+
+---
+## Sets can be modified
+
+
+``` python
+myset.add("d")
+myset
+```
+
+```
+## {'b', 'a', 'd', 'c'}
+```
+
+
+``` python
+myset.remove("d")
+myset
+```
+
+```
+## {'b', 'a', 'c'}
+```
+
+---
+## Sets have no order
+
+As sets have no order they can't be subset in the same way that other objects can be. 
+
+
+``` python
+myset[0]
+```
+
+
+```
+## 'set' object is not subscriptable
+```
+
+---
+## Sets are unique
+
+
+``` python
+myset = set(["a", "b", "c","c","c"])
+myset
+```
+
+```
+## {'b', 'a', 'c'}
+```
+
+---
+## Sets have specific functions
+
+
+``` python
+myset1 = {1, 2, 3, 4}
+myset2 = {3, 4, 5, 6}
+myset1.union(myset2)
+```
+
+```
+## {1, 2, 3, 4, 5, 6}
+```
  
  
+
+``` python
+myset1 = {1, 2, 3, 4}
+myset2 = {3, 4, 5, 6}
+myset1.difference(myset2)
+```
+
+```
+## {1, 2}
+```
  
+---
+## Set vs List
+ 
+* A list allows duplicate elements and maintains their order
+* A set ensures element uniqueness without any guaranteed order
+
+
+
+---
+## Making functions
+
+Key parts:
+* function name
+* arguments
+* code
+* return values (sometimes)
+
+---
+## Making functions
+
+Function structure:
+
+def - indicates you will define a function
+function name - in this case *myFirstFunction*
+arguments - any arguments that the function expects in parentheses
+code - the start of the code is indicated by a colon, new line and indentation
+return - this is the result that you wish to be delivered from the function
+
+
+``` python
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  return sumNum
+
+myResult = myFirstFunction(num1=2, num2=3)
+myResult
+```
+
+```
+## 5
+```
+
+
+
+---
+## Returning multiple values
+
+We can only return 1 object at a time from function. Here we create the multiple of our numbers and try and return alongside our sum. It wont even let us define the function. 
+
+
+``` python
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+  return sumNum multipleNum
+```
+
+
+```
+## File "&lt;string&gt;", line 1
+##     return sumNum multipleNum
+## IndentationError: unexpected indent
+```
+
+---
+## Returning multiple values
+
+A simple solution is to pass back an object that contains both results. Here we create a quick list.
+
+
+
+``` python
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+  return [sumNum, multipleNum]
+
+myResult = myFirstFunction(num1=2, num2=3)
+myResult
+```
+
+```
+## [5, 6]
+```
+
+---
+## Evaluate until return
+
+In a function containing a return statement, the code up until the return statement is evaluated and anything after the return statement is not evaluated.
+
+
+``` python
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+  print("Before return")
+  return [sumNum, multipleNum]
+  print("After return")
+
+myFirstFunction(num1=2, num2=3)
+```
+
+```
+## Before return
+## [5, 6]
+```
+
+---
+## No return statement
+
+If a function does not contain a return statement nothing will come back. In other languages this is not the case. 
+
+
+``` python
+
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+
+myFirstFunction(num1=2, num2=3)
+```
+
+## Variable scope in functions
+
+Variables defined in the arguments or within the function exist only within the environment of the function.
+
+
+``` python
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  multipleNum = num1*num2
+  return [sumNum, multipleNum]
+
+myFirstFunction(num1=2, num2=3)
+
+sumNum
+```
+
+
+```
+## [5, 6]
+```
+
+```
+## name 'sumNum' is not defined
+```
+
+## Variable scope in functions
+
+If a function makes changes to variables defined in the global environment they will not be updated in the global environment.
+
+
+``` python
+num3 = 4
+
+def myFirstFunction(num1, num2, num3):
+  num3 = num1+num2+num3
+  return num3
+
+myFirstFunction(num1=2, num2=3, num3=num3)
+
+num3
+```
+
+
+## Local vs Global scope
+
+* Functions have local scope. This means they have access to global variables can be used anywhere and local variables which were made within the function. 
+
+* Once you exit the function you are in the console you are back to a global scope. Local variables can not be accessed at this point. 
+
+* Code in a function’s local scope cannot use variables in any other local scope i.e. between functions.
+
+* Though it is possible to have local and global variables with the same name, try and give everything unique names so you can keep track of everything. 
+
+
+---
+## Argument defaults
+
+Functions can have defaults for their arguments which will be used when arguments are not specified.
+
+
+``` python
+def myFirstFunction(num1=1,num2=3):
+  sumNum = num1+num2
+  return sumNum
+
+myFirstFunction()
+```
+
+```
+## 4
+```
+
+
+``` python
+myFirstFunction(5,10)
+```
+
+```
+## 15
+```
+
+
+---
+## Control Statements
+
+There are several ways to control how your code is evaluated. There are two main classes:
+
+Conditional branching (if,else)
+Loops (for, while)
+
+
+&lt;span style="color:green"&gt;While&lt;/span&gt; I'm analysing data, &lt;span style="color:red"&gt;if&lt;/span&gt; I need to execute complex statistical procedures on the data I will use Python &lt;span style="color:red"&gt;else&lt;/span&gt; I will use a calculator.
+
+---
+## Conditional Branching
+
+Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
+
+In Python, we use the if statement with the logical to be evaluated immediately after. The  dependent code is indicated by a colon, new line and indentation.
+
+
+``` python
+x = True
+if x:
+  print("x is true")
+```
+
+```
+## x is true
+```
+
+
+``` python
+
+x = False
+if x:
+  print("x is true")
+```
+
+---
+## Conditional Branching
+
+More often, we construct the logical value within the if statement itself. This can be termed the condition.
+
+
+``` python
+x = 10
+y = 4
+if x &gt; y:
+  print("The value of x is",x,"which is greater than", y)
+```
+
+```
+## The value of x is 10 which is greater than 4
+```
+The message is printed above because x is greater than y.
+
+
+
+``` python
+y = 20
+if x &gt; y:
+  print("The value of x is",x,"which is greater than", y)
+```
+
+x is now no longer greater than y, so no message is printed.
+
+We really still want a message telling us what was the result of the condition.
+
+---
+## else following an if
+
+If we want to perform an operation when the condition is false we can follow the *if* statement with an *else* statement.
+
+
+
+``` python
+x = 3
+if x &lt; 5:
+  print(x, "is less than to 5")
+else:
+  print(x, "is greater than or equal to 5")
+```
+
+```
+## 3 is less than to 5
+```
+
+
+``` python
+x = 10
+if x &lt; 5:
+  print(x, "is less than to 5")
+else:
+  print(x, "is greater than or equal to 5")
+```
+
+```
+## 10 is greater than or equal to 5
+```
+
+---
+## else if = elif
+
+We may wish to execute different procedures under multiple conditions. This can be controlled using the *elif* following an initial *if* statement.
+
+
+``` python
+x = 5
+if x &lt; 5:
+  print(x, "is less than to 5")
+elif x &gt; 5:
+  print(x, "is greater than 5")
+else:
+  print(x, "is 5")
+```
+
+```
+## 5 is 5
+```
+
+---
+## Loops
+
+While and for loops iterate over a block of code, and keep rerunning it. 
+
+*While* loops do this while a specific condition is met (or until that condition is not met).
+
+*For* loops will do this for a given number of iterations.
+
+---
+## While Loop
+
+While loops have a similar structure to if statements. We start by designating the while loop, ten follow with the logical to be evaluated immediately after. The  dependent code is indicated by a colon, new line and indentation.
+
+
+``` python
+x = 1
+while x &lt; 3:
+  print("x is",x)
+  x = x+1
+```
+
+```
+## x is 1
+## x is 2
+```
+
+---
+## For Loop
+
+For loops do not have a condtional. Instead you supply an object that you want to be iterate over. This can be a list, tuple, dictionary, set or string. Here we use a list. 
+
+
+``` python
+x = ['Alpha','Bravo','Charlie']
+for i in x:
+  print(i)
+```
+
+```
+## Alpha
+## Bravo
+## Charlie
+```
+
+
+---
+## for and range()
+
+The range() function provides us with a nice input for our for loops. It returns a sequence of numbers, starting from 0 and stops before the specified number.
+
+
+``` python
+for i in range(3):
+  print("i is", i)
+```
+
+```
+## i is 0
+## i is 1
+## i is 2
+```
+
+---
+## Looping through indices
+
+When we have a numeric range, we can use it to index out from existing objects. This often allows for more complex code evaluation. 
+
+
+``` python
+geneName = ["Ikzf1","Myc","Igll1"]
+expression = [10.4, 4.3, 6.5]
+iterations = len(geneName)
+
+for i in range(iterations):
+  print(geneName[i]," has an TPM of ",expression[i])
+```
+
+```
+## Ikzf1  has an TPM of  10.4
+## Myc  has an TPM of  4.3
+## Igll1  has an TPM of  6.5
+```
+
+
+---
+## Loops and conditionals
+
+Loops can be combined with conditional statements to allow for complex control of their execution over Python objects. Though these can be tough to read and create, by keeping an eye of the hierarchy of identation we can follow the logic. 
+
+
+``` python
+x = range(8)
+
+for i in range(8):
+  if i &gt; 5:
+    print("Number",i,"is greater than 5")
+  elif i == 5:
+    print("Number",i,"is  5") 
+  else:
+    print("Number",i,"is less than 5") 
+```
+
+```
+## Number 0 is less than 5
+## Number 1 is less than 5
+## Number 2 is less than 5
+## Number 3 is less than 5
+## Number 4 is less than 5
+## Number 5 is  5
+## Number 6 is greater than 5
+## Number 7 is greater than 5
+```
+
+---
+## Breaking loops
+
+We can use conditionals to exit a loop if a condition is satisfied, just like a while loop.
+
+
+``` python
+x = range(8)
+
+for i in range(8):
+  if i &gt; 5:
+    print("Number",i,"is greater than 5")
+  elif i == 5:
+    print("Number",i,"is  5")
+    break
+  else:
+    print("Number",i,"is less than 5") 
+```
+
+```
+## Number 0 is less than 5
+## Number 1 is less than 5
+## Number 2 is less than 5
+## Number 3 is less than 5
+## Number 4 is less than 5
+## Number 5 is  5
+```
+
+
+
+
+
+
+
+
+Day 1:
 - Set up - install, conda, vs etc
-- Basic interaction - interactive vs scripts
-- Using functions
+- Basic interaction - interactive vs scripts, .py files vs Jupyter notebooks (vs Quarto?)
 - Data types:
   * str, int, float
   * List
@@ -1286,18 +1899,28 @@ dict_1
   * Library
   * Include indexing, modification and concatenation for each
   * arrays and numpy?
-- Reading/Writing (and working directory)
+  * sets, comparison to lists (ordered vs unordered)
+-Variables (defining, changing values)
+-Using existing functions (ex: print)
+-Defining your own functions and calling them (with example using variables)
+-Interpreting error messages
+-Finding and understanding python documentation online  
 
+Day 2: 
+- Reading/Writing (and working directory)
 - Control Statements
   * if
   * for
   * while
-- List comprehension
-- Regex
-- Writing functions
+- List comprehension This I could take or leave, I would rather use the time to teach them new functionalities rather than shorten ones they already know
+-Example of making a more complex function that uses:
+Data read/writing
+Control statements
+Ex: read in data, do some conditional mathematical manipulation/data cleaning, write to a file
+ 
+- Regex Do you mean the re package? If so I am not sure this is useful to the beginner Python user - maybe something to mention when talking about string operations but I don't know that I would go deeply into this. If you think it's useful though I am open to it.
 - Plotting
-
-
+-Showcase/discussion of other useful packages and what they can be used for (no need to use them, but just discuss) (pandas, scipy, scikit learn, biopython, etc.)
 
 
 
@@ -1329,10 +1952,6 @@ everything in the rmd is relative to the inst/extdata directory so you have some
 The structure is maintained for those attending the course and download the package using the instructions. The same rules are followed for imgs and scripts that you may call.
 
 
-``` py
-import 
-
-```
 
 --
 ## Exercises

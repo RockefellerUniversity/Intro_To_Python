@@ -12,7 +12,7 @@
 <meta name="author" content="Bioinformatics Resource Center" />
 
 
-<title>Course Template</title>
+<title>Introduction to Python</title>
 
 <script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -422,7 +422,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore"><strong>Course Template</strong></h1>
+<h1 class="title toc-ignore"><strong>Introduction to
+Python</strong></h1>
 <h4 class="author">Bioinformatics Resource Center</h4>
 <h4 class="date"><a href="mailto:brc@rockefeller.edu"
 class="email">brc@rockefeller.edu</a></h4>
@@ -437,24 +438,26 @@ class="email">brc@rockefeller.edu</a></h4>
 <p><br></p>
 <div id="course-integrity" class="section level3">
 <h3>Course Integrity</h3>
-<p><strong>This course is compiled automatically on <em>2024-05-30</em>
+<p><strong>This course is compiled automatically on <em>2024-06-12</em>
 </strong> <br> <a
-href="https://github.com/RockefellerUniversity/RU_Course_template/actions?query=workflow%3AR-CMD-check-bioc"><img src="https://github.com/RockefellerUniversity/RU_Course_template/workflows/R-CMD-check-bioc/badge.svg"></a></p>
+href="https://github.com/RockefellerUniversity/Intro_To_Python/actions?query=workflow%3AselfTest"><img src="https://github.com/RockefellerUniversity/Intro_To_Python/workflows/selfTest/badge.svg"></a></p>
 <p><strong>The course is tested and available on MacOS, Windows and
-Ubuntu Linux for R 4.0</strong> <br> <a
-href="https://github.com/RockefellerUniversity/RU_Course_template/actions?query=workflow%3AR-CMD-check"><img src="https://github.com/RockefellerUniversity/RU_Course_template/workflows/R-CMD-check/badge.svg"></a></p>
+Ubuntu Linux</strong> <br> <a
+href="https://github.com/RockefellerUniversity/Intro_To_Python/actions?query=workflow%3AR-CMD-check"><img src="https://github.com/RockefellerUniversity/Intro_To_Python/workflows/R-CMD-check/badge.svg"></a></p>
 <p><br> <br></p>
 </div>
 <div id="overview" class="section level3">
 <h3>Overview</h3>
-<p>?? This Section is used to build the course website ??</p>
-<p>?? What is this course about??</p>
-<p>?? Break down of course structure. You can look here for guidance: <a
-href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/"
-class="uri">https://rockefelleruniversity.github.io/Intro_To_R_1Day/</a>??</p>
+<p>This course introduces Python and general purpose programming.</p>
+<p>The course consists of 3 sections, 1 on basic Python data types and
+data input/output, a second on conditionals and looping and a third on
+plotting.</p>
+<p>Each section is presented as HTMl presentations or single page
+document. Exercises and answer sheets are included after all subsections
+to practice techniques and provide future reference examples.</p>
 <p>Course material and exercises are available to view as rendered HTML
-at <a href="https://rockefelleruniversity.github.io/RU_Course_template/"
-class="uri">https://rockefelleruniversity.github.io/RU_Course_template/</a>.
+at <a href="https://rockefelleruniversity.github.io/Intro_To_Python/"
+class="uri">https://rockefelleruniversity.github.io/Intro_To_Python/</a>.
 All material is available to download under GPL v2 license.</p>
 <p><br><br></p>
 </div>
@@ -490,15 +493,24 @@ class="section level4">
 <p>We can use the installed Miniconda to manage the installs of python
 and its pacakges. First we will create an environment. You can name this
 whatever you want. You will run this in terminal.
-<code>{sh, eval=F} conda create -n intro_to_python   conda activate intro_to_python   conda install python</code></p>
-<p>Python packages can be installed from several places. The main two
-options are conda and pip.<br />
+<code>{sh} conda create -n intro_to_python conda activate intro_to_python conda install python</code></p>
+<pre><code>
+Python packages can be installed from several places. The main two options are conda and pip.  
 ##### From conda
-<code>{sh, eval=F} conda install scipy   conda install numpy   conda install pandas   conda install matplotlib</code></p>
-<div id="from-pip" class="section level5">
-<h5>From pip</h5>
-<p><code>{sh, eval=F} conda install pip   pip install scipy   pip install numpy   pip install pandas   pip install matplotlib</code></p>
-</div>
+```{sh}
+conda install scipy
+conda install numpy
+conda install pandas
+conda install matplotlib</code></pre>
+<pre><code>
+##### From pip
+```{sh}
+conda install pip
+pip install scipy
+pip install numpy
+pip install pandas
+pip install matplotlib</code></pre>
+<p>```</p>
 </div>
 <div id="download-the-material" class="section level4">
 <h4><strong>Download the material</strong></h4>
@@ -511,14 +523,14 @@ the material</a></p>
 <div id="the-presentations" class="section level2">
 <h2>The Presentations</h2>
 <p><br></p>
-<div id="my-course-name-session-1" class="section level4">
-<h4><strong>?? My course name?? , Session 1</strong></h4>
-<p>??What am I focusing on in this section. Bullet point lists are
-good??</p>
+<div id="introduction-to-python-session-1" class="section level4">
+<h4><strong>Introduction to Python, Session 1</strong></h4>
+<p>This section focuses on Python basics such as simple data types, data
+IO, plotting and statistics. Session sections:</p>
 <ul>
-<li>Course content</li>
-<li>Building courses</li>
-<li>Making it look nice</li>
+<li>Introduction to Python</li>
+<li>Data Types</li>
+<li>Reading and Writing Data</li>
 </ul>
 <iframe src="presentations/slides/Session1.html" width="100%" height="400" title="Session1">
 </iframe>
@@ -534,14 +546,18 @@ href="presentations/r_code/Session1.R"><strong>R code</strong></a></p>
 <p><br></p>
 </div>
 </div>
-<div id="my-course-name-session-2" class="section level4">
-<h4><strong>?? My course name?? , Session 2</strong></h4>
-<p>??If you have more sections then do this again. what is session 2
-about? keep adding more files if needed??</p>
+<div id="introduction-to-python-session-2" class="section level4">
+<h4><strong>Introduction to Python, Session 2</strong></h4>
+<p>In session 2, programmatic techniques such as looping and conditional
+expressions are introduced The session includes longer exercises and
+shorter slide decks and so more time should be allocated to exercises in
+this session.</p>
+<p>Session sections:</p>
 <ul>
-<li>Course content</li>
-<li>Building courses</li>
-<li>Making it look nice</li>
+<li>Looping Conditional Branching</li>
+<li>Loading libraries</li>
+<li>Writing Scripts</li>
+<li>Getting help</li>
 </ul>
 <iframe src="presentations/slides/Session2.html" width="100%" height="400" title="Session2">
 </iframe>

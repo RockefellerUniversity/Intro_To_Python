@@ -78,6 +78,28 @@ py_install(c("matplotlib", "pandas"))
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
+# Background of Python
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Background of Python
+      
+---
+"    
+  )
+  
+}
+
+
+
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
 # Set Up
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
@@ -96,32 +118,18 @@ if(params$isSlides == "yes"){
 
 
 
-## ----setwd_introtoR,eval=F----------------------------------------------------
-## setwd("/PathToMyDownload/RU_Course_template/r_course")
-## # e.g. setwd("~/Downloads/Intro_To_R_1Day/r_course")
+## conda
 
+## 
+##  conda create -n intro_to_python
+##  conda activate intro_to_python
+##  conda install python
+## 
+## 
 
-## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Background of Python
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Background of Python
-      
----
-"    
-  )
-  
-}
-
-
+## conda install
+## 
+## 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){
@@ -366,5 +374,237 @@ if(params$isSlides == "yes"){
 ## 
 ## dict_1
 
-## import
+## myset = {"a", "b", "c"}
+## myset
+## myset = set(["a", "b", "c"])
+## myset
+
+## myset.add("d")
+## myset
+
+## myset.remove("d")
+## myset
+
+## 
+## myset[0]
+## 
+
+## 
+## try:
+##   myset[0]
+## except Exception as e:
+##   print(e)
+## 
+
+## myset = set(["a", "b", "c","c","c"])
+## myset
+
+## myset1 = {1, 2, 3, 4}
+## myset2 = {3, 4, 5, 6}
+## myset1.union(myset2)
+
+## myset1 = {1, 2, 3, 4}
+## myset2 = {3, 4, 5, 6}
+## myset1.difference(myset2)
+
+## def myFirstFunction(num1, num2):
+##   sumNum = num1 + num2
+##   return sumNum
+## 
+## myResult = myFirstFunction(num1=2, num2=3)
+## myResult
+
+## 
+## def myFirstFunction(num1, num2):
+##   sumNum = num1 + num2
+##   multipleNum = num1*num2
+##   return sumNum multipleNum
+## 
+
+## ----eval=T, echo=F-----------------------------------------------------------
+
+cat('File "<string>", line 1
+    return sumNum multipleNum
+IndentationError: unexpected indent')
+
+# try:
+#   def myFirstFunction(num1, num2):
+#     sumNum = num1 + num2
+#     multipleNum = num1*num2
+#     return sumNum multipleNum
+# except Exception as e:
+#   print(e)
+
+
+
+## 
+## def myFirstFunction(num1, num2):
+##   sumNum = num1 + num2
+##   multipleNum = num1*num2
+##   return [sumNum, multipleNum]
+## 
+## myResult = myFirstFunction(num1=2, num2=3)
+## myResult
+
+## 
+## def myFirstFunction(num1, num2):
+##   sumNum = num1 + num2
+##   multipleNum = num1*num2
+##   print("Before return")
+##   return [sumNum, multipleNum]
+##   print("After return")
+## 
+## myFirstFunction(num1=2, num2=3)
+## 
+
+## 
+## def myFirstFunction(num1, num2):
+##   sumNum = num1 + num2
+##   multipleNum = num1*num2
+## 
+## myFirstFunction(num1=2, num2=3)
+## 
+
+## 
+## def myFirstFunction(num1, num2):
+##   sumNum = num1 + num2
+##   multipleNum = num1*num2
+##   return [sumNum, multipleNum]
+## 
+## myFirstFunction(num1=2, num2=3)
+## 
+## sumNum
+## 
+
+## 
+## def myFirstFunction(num1, num2):
+##   sumNum = num1 + num2
+##   multipleNum = num1*num2
+##   return [sumNum, multipleNum]
+## 
+## myFirstFunction(num1=2, num2=3)
+## 
+## try:
+##   sumNum
+## except Exception as e:
+##   print(e)
+## 
+
+## num3 = 4
+## 
+## def myFirstFunction(num1, num2, num3):
+##   num3 = num1+num2+num3
+##   return num3
+## 
+## myFirstFunction(num1=2, num2=3, num3=num3)
+## 
+## num3
+## 
+
+## def myFirstFunction(num1=1,num2=3):
+##   sumNum = num1+num2
+##   return sumNum
+## 
+## myFirstFunction()
+## 
+
+## myFirstFunction(5,10)
+
+## 
+## x = True
+## if x:
+##   print("x is true")
+## 
+
+## 
+## x = False
+## if x:
+##   print("x is true")
+## 
+
+## 
+## x = 10
+## y = 4
+## if x > y:
+##   print("The value of x is",x,"which is greater than", y)
+## 
+
+## y = 20
+## if x > y:
+##   print("The value of x is",x,"which is greater than", y)
+## 
+
+## 
+## x = 3
+## if x < 5:
+##   print(x, "is less than to 5")
+## else:
+##   print(x, "is greater than or equal to 5")
+## 
+
+## 
+## x = 10
+## if x < 5:
+##   print(x, "is less than to 5")
+## else:
+##   print(x, "is greater than or equal to 5")
+## 
+
+## 
+## x = 5
+## if x < 5:
+##   print(x, "is less than to 5")
+## elif x > 5:
+##   print(x, "is greater than 5")
+## else:
+##   print(x, "is 5")
+## 
+
+## 
+## x = 1
+## while x < 3:
+##   print("x is",x)
+##   x = x+1
+## 
+
+## 
+## x = ['Alpha','Bravo','Charlie']
+## for i in x:
+##   print(i)
+## 
+
+## for i in range(3):
+##   print("i is", i)
+## 
+
+## 
+## geneName = ["Ikzf1","Myc","Igll1"]
+## expression = [10.4, 4.3, 6.5]
+## iterations = len(geneName)
+## 
+## for i in range(iterations):
+##   print(geneName[i]," has an TPM of ",expression[i])
+## 
+
+## x = range(8)
+## 
+## for i in range(8):
+##   if i > 5:
+##     print("Number",i,"is greater than 5")
+##   elif i == 5:
+##     print("Number",i,"is  5")
+##   else:
+##     print("Number",i,"is less than 5")
+## 
+
+## x = range(8)
+## 
+## for i in range(8):
+##   if i > 5:
+##     print("Number",i,"is greater than 5")
+##   elif i == 5:
+##     print("Number",i,"is  5")
+##     break
+##   else:
+##     print("Number",i,"is less than 5")
 ## 
