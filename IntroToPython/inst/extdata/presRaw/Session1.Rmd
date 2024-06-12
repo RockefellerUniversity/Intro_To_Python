@@ -165,61 +165,12 @@ plt.show()
 ---
 ## Overview
 
-??We often put an overview slide that links to the various parts of the course content to make it easy to navigate i.e. this one for intro to r??
+- [Course Home Page](http://rockefelleruniversity.github.io/Intro_To_Python/)
+- [Background to Python](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1.html#background-to-r)
+- [Set up](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1.html#set-up)
+- [Data types in Python](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1.html#data_types_in_r)
+- [Reading and writing in Python](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1#reading-and-writing-data-in-r)
 
-- [Set up](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#set-up)
-- [Background to R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r)
-- [Data types in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r)
-- [Reading and writing in R](https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r)
-
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Set Up
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Set Up
-
----
-"    
-  )
-  
-}
-
-```
-
-## Materials
-
-All prerequisites, links to material and slides for this course can be found on github.
-
-* [Intro_To_Python](https://rockefelleruniversity.github.io/Intro_To_Python/)
-
-Or can be downloaded as a zip archive from here.
-
-* [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
-
----
-## Course materials
-
-Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
-
-* **r_course/presentations/slides/**
-Presentations as an HTML slide show.
-* **r_course/presentations/singlepage/** 
-Presentations as an HTML single page.
-* **r_course/presentations/r_code/**
-R code in presentations.
-* **r_course/exercises/**
-Practicals as HTML pages. 
-* **r_course/answers/**
-Practicals with answers as HTML pages and R code solutions. 
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -288,33 +239,123 @@ https://medium.com/@hamza_33678/programming-for-bioinformatics-r-vs-python-52969
  image analysis
 
 
+
 ---
-## Setting Up Python
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
 
-ensure installed
-interactive vs scripts
+# Set Up
 
-conda set up
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Set Up
+
+---
+"    
+  )
+  
+}
+
+```
+
+## Materials
+
+All prerequisites, links to material and slides for this course can be found on github.
+
+* [Intro_To_Python](https://rockefelleruniversity.github.io/Intro_To_Python/)
+
+Or can be downloaded as a zip archive from here.
+
+* [Download zip](https://github.com/rockefelleruniversity/Intro_To_R_1Day/zipball/master)
+
+---
+## Course materials
+
+Once the zip file in unarchived. All presentations as HTML slides and pages, their R code and HTML practical sheets will be available in the directories underneath.
+
+* **r_course/presentations/slides/**
+Presentations as an HTML slide show.
+* **r_course/presentations/singlepage/** 
+Presentations as an HTML single page.
+* **r_course/presentations/r_code/**
+R code in presentations.
+* **r_course/exercises/**
+Practicals as HTML pages. 
+* **r_course/answers/**
+Practicals with answers as HTML pages and R code solutions. 
+
+
+---
+## Setting Up Conda and Python
+
+Many laptops will come with python installed so getting started is easy. 
+
+We will run a custom install of python using conda. Conda manages software and packages. Using Conda should make installations much easier and allow us to keep track of software versions. 
+
+We can install Conda from here. We will specifically want to use Miniconda:
+
+https://conda.io/projects/conda/en/latest/user-guide/install/index.html
+
+If you have instaled this correctly, running this on terminal/command prompt should give you a list of conda commands
+
+```{sh}
+conda
+```
+
+
+---
+## Setting Up Conda and Python
+
+Conda is built on the idea of environments. An environment is a directory that contains a specific collection of Conda packages that you have installed. For today we will make sure we have python and the python packages we need for the training.
+
+The first step is we create a new environment. We will then activate it to expose the environment. 
+
+Lastly we can install python.
+
+```{sh, eval=F}
+
+ conda create -n intro_to_python
+ conda activate intro_to_python
+ conda install python
+
+
+```
+
+---
+## Setting Up Conda and Python
+
+We also want some specific Python packages. These mostly contain functions that are not present in the base Python distribution. 
+
+```{sh, eval=F}
+conda install 
+
+
+```
 
 
 ---
 ## Interactive or scripts?
 
-As with many languages you can work with pyhton in two main ways:
+As with many languages you can work with python in two main ways:
 interactive or scripts
 
-When people think about coding they are often thinking about the interactive console. When you work in this way lines of code are submitted as you enter them. You often do this when you are developing an analysis and trying out parameters.
+When people think about coding they are often thinking about the interactive console. When you work in this way lines of code are submitted as you enter them. You often do this when you are developing an analysis and trying out parameters. This is mostly how we will work in the training. 
 
-When you want to automate something, i.e. an analysis workflow, you will write a scriptt. You can then run this script with python.
+When you want to automate something, i.e. an analysis workflow, you will write a script. You can then run this script with python.
 
 ---
 ## Python and IDEs
 
-You can run python from within your terminal. This will give you access to the python console.
+You can run python from within your terminal/command prompt. This will give you access to the python console.
 
 Many people prefer to sue an Integrated Development Environment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, and access to many customizablefeature in additional panes. 
 
-We will be using VS code from windows. 
+We will be using VS code from Windows. 
 
 
 ---
@@ -1081,7 +1122,7 @@ myFirstFunction(num1=2, num2=3)
 
 If a function does not contain a return statement nothing will come back. In other languages this is not the case. 
 
-```{python}
+```{python, function_noreturn}
 
 def myFirstFunction(num1, num2):
   sumNum = num1 + num2
@@ -1459,10 +1500,7 @@ This will be on right
 everything in the rmd is relative to the inst/extdata directory so you have some data to load in, just put it in the data directory, read it in along the path. 
 The structure is maintained for those attending the course and download the package using the instructions. The same rules are followed for imgs and scripts that you may call.
 
-```{py}
-import 
 
-```
 
 --
 ## Exercises
