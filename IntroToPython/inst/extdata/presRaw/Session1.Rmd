@@ -1055,7 +1055,7 @@ myResult
 ---
 ## Returning multiple values
 
-We can only return 1 object at a time from function. Here we create the multiple of our numbers and try and return alongside our sum.
+We can only return 1 object at a time from function. Here we create the multiple of our numbers and try and return alongside our sum. It wont even let us define the function. 
 
 ```{python, eval=F, echo=T}
 
@@ -1064,21 +1064,21 @@ def myFirstFunction(num1, num2):
   multipleNum = num1*num2
   return sumNum multipleNum
 
-myResult = myFirstFunction(num1=2, num2=3)
-
 ```
 
-```{python, eval=T, echo=F}
+```{r, eval=T, echo=F}
 
-def myFirstFunction(num1, num2):
-  sumNum = num1 + num2
-  multipleNum = num1*num2
-  return sumNum multipleNum
+cat('File "<string>", line 1
+    return sumNum multipleNum
+IndentationError: unexpected indent')
 
-try:
-  myResult = myFirstFunction(num1=2, num2=3)
-except Exception as e:
-  print(e)
+# try:
+#   def myFirstFunction(num1, num2):
+#     sumNum = num1 + num2
+#     multipleNum = num1*num2
+#     return sumNum multipleNum
+# except Exception as e:
+#   print(e)
 
 ```
 
@@ -1210,18 +1210,6 @@ myFirstFunction()
 
 ```{python}
 myFirstFunction(5,10)
-```
-
----
-## Another Example (with multiple arguments)
-
-```{python}
-def say_hello(name):
-  print(f'Hello {name}')
-```
-
-```{python}
-say_hello('Carlos')
 ```
 
 
