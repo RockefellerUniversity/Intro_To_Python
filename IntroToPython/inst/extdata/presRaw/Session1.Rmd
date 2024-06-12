@@ -303,7 +303,7 @@ https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
 If you have instaled this correctly, running this on terminal/command prompt should give you a list of conda commands
 
-```{sh}
+```{sh, eval=F}
 conda
 ```
 
