@@ -160,7 +160,7 @@ Now that we can make figures and axes, let's grab some data to plot. We are goin
 
 ```{python}
 import numpy as np
-sex, height, weight = np.genfromtxt('../data/height-weight.csv', unpack = True, delimiter = ",", skip_header=True, dtype=None, encoding='UTF-8')
+sex, height, weight = np.genfromtxt('data/height-weight.csv', unpack = True, delimiter = ",", skip_header=True, dtype=None, encoding='UTF-8')
 print(sex)
 ```
 
@@ -206,7 +206,7 @@ Python has a number of named colors. You can also specify hex or RGB color codes
 
 <div align="center">
 
-<img src="C:/Users/Claire/Documents/GitHub/Intro_To_Python/IntroToPython/inst/extdata/imgs/named_colors.png" alt="igv" height="300" width="600">
+<img src="imgs/named_colors.png" alt="igv" height="300" width="600">
 
 </div>
 
@@ -579,11 +579,11 @@ When you are using colors to plot your data, and in particular when you are usin
 
 My personal favourite is called *viridis* (watch the launch video [here](https://www.youtube.com/watch?v=xAoljeRJ3lU&ab_channel=Enthought) - surprisingly interesting), but there is actually a selection of these schemes available.
 
-![Alt text](c:/Users/Claire/Documents/GitHub/Intro_To_Python/IntroToPython/inst/extdata/imgs/viridis.png)
+![Alt text](imgs/viridis.png)
 
 It's also important to note that some color schemes that may seem natural to use (black to white and rainbow) actually tend to skew our perceptions of the data values and therefore are not recommended. 
 
-![Alt text](c:/Users/Claire/Documents/GitHub/Intro_To_Python/IntroToPython/inst/extdata/imgs/monalisa.png)
+![Alt text](imgs/monalisa.png)
 
 ---
 
