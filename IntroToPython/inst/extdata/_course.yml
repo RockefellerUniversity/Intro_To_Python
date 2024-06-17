@@ -2,7 +2,7 @@ Description:
   CourseName: Introduction to Python
   OverviewRmd: CourseOverview.Rmd
 Presentations:
-    titles: Session1 Session2
-    PresRmd: Session1.Rmd Session2.Rmd
-    PresOverviewRmd: Session1Overview.Rmd Session2Overview.Rmd
+    titles: Session1 Session2 Session3
+    PresRmd: Session1.Rmd Session2.Rmd Session3.Rmd
+    PresOverviewRmd: Session1Overview.Rmd Session2Overview.Rmd Session3Overview.Rmd
     Exercises: MyExercise1.Rmd,MyExercise2.Rmd MyExercise3.Rmd
