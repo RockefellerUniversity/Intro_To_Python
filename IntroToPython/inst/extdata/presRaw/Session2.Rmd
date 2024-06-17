@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R, Session 2 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
 author: "Rockefeller University, Bioinformatics Resource Centre"
-date: "http://rockefelleruniversity.github.io/RU_course_template/"
+date: "http://rockefelleruniversity.github.io/Intro_To_Python/"
 output: 
   xaringan::moon_reader:
     css: ["default", "metropolisCustom.css", "metropolis-fontsCustom.css"]
