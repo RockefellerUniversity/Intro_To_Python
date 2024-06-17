@@ -39,7 +39,7 @@ if(params$isSlides != "yes"){
 ```
 
 
-```{r, eval=F, echo=F, warning=F, message=F}
+```{r, eval=T, echo=F, warning=F, message=F}
 library(IntroToPython)
 library(reticulate)
 py_install(c("matplotlib", "numpy", "scipy","seaborn"))
