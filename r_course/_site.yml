@@ -22,6 +22,14 @@ navbar:
         href: presentations/singlepage/Session2.html
       - text: Code
         href: presentations/r_code/Session2.R
+    - text: Session3
+      menu:
+      - text: Slide
+        href: presentations/slides/Session3.html
+      - text: Single Page
+        href: presentations/singlepage/Session3.html
+      - text: Code
+        href: presentations/r_code/Session3.R
   - text: Exercises
     menu:
     - text: MyExercise1
