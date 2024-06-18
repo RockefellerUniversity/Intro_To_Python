@@ -1,0 +1,11 @@
+<br>
+
+#### **Introduction to Python, Session 3**
+
+In session 3 we cover the basics of plotting, introducing a variety of plot types and customization options. 
+
+Session sections:
+
+* Matplotlib package to generate a variety of plot types
+* Customization of plots
+* Seaborn library for advanced plotting

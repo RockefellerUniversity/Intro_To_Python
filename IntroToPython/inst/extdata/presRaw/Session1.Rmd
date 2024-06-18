@@ -1,7 +1,7 @@
 ---
 title: "Introduction to R, Session 1 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
 author: "Rockefeller University, Bioinformatics Resource Centre"
-date: "http://rockefelleruniversity.github.io/RU_course_template/"
+date: "http://rockefelleruniversity.github.io/Intro_To_Python/"
 output: 
   xaringan::moon_reader:
     css: ["default", "metropolisCustom.css", "metropolis-fontsCustom.css"]
@@ -39,137 +39,20 @@ if(params$isSlides != "yes"){
 ```
 
 
----
-## test1
-
-```{r}
+```{r, eval=T, echo=F, warning=F, message=F}
 library(IntroToPython)
 library(reticulate)
-py_install(c("matplotlib", "pandas"))
-```
-
----
-## test2
-
-```{python}
-
-import numpy
-import pandas
-
-```
-
----
-## test3
-
-```{python}
-
-s = pandas.Series([1, 3, 5, numpy.nan, 6, 8])
-s
-
-```
-
----
-## test4
-
-```{python}
-import matplotlib
-import matplotlib.pyplot as plt
-
-```
-
----
-## test5
-
-```{python}
-fig, ax = plt.subplots()
-
-fruits = ['apple', 'blueberry', 'cherry', 'orange']
-counts = [40, 100, 30, 55]
-bar_labels = ['red', 'blue', '_red', 'orange']
-bar_colors = ['tab:red', 'tab:blue', 'tab:red', 'tab:orange']
-```
-
----
-## test5
-
-```{python}
-ax.bar(fruits, counts, label=bar_labels, color=bar_colors)
-
-ax.set_ylabel('fruit supply')
-ax.set_title('Fruit supply by kind and color')
-ax.legend(title='Fruit color')
-
-plt.show()
-
-```
-
----
-## test
-
-```{python}
-
-plt.draw()
-```
-
----
-## test
-
-```{python}
-plt.savefig('test.png')
-
-
-```
-
----
-## test
-
-
-```{python}
-plt.savefig('imgs/test2.png')
-
-```
-
----
-## test
-
-
-```{python, eval=F}
-plt.savefig('../imgs/test3.png')
-
-```
-
----
-## test
-
-![test](test.png)
-
----
-## test
-
-![test](imgs/test2.png)
-
----
-## test
-
-
-
-```{python}
-x = [1.1, 3.2, 4.4, 5.2, 6.3]
-y = [0.5, 3.5, 4.5, 4.8, 6.2]
-plt.scatter(x, y)
-plt.show()
-
-
+py_install(c("matplotlib", "numpy", "scipy","seaborn"))
 ```
 
 ---
 ## Overview
 
 - [Course Home Page](http://rockefelleruniversity.github.io/Intro_To_Python/)
-- [Background to Python](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1.html#background-to-r)
-- [Set up](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1.html#set-up)
-- [Data types in Python](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1.html#data_types_in_r)
-- [Reading and writing in Python](https://rockefelleruniversity.github.io/Intro_To_Python/r_course/presentations/singlepage/Session1#reading-and-writing-data-in-r)
+- [Background to Python](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Background_of_Python)
+- [Set up](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Set_Up)
+- [Data types in Python](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Data_Types_and_Functions_in_Python)
+- [Reading and writing in Python](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Reading_and_Writing_in_Python)
 
 
 ---
@@ -215,19 +98,21 @@ As python is used by many fields, it is a useful language for adapting novel app
 such as deep learning methods for scRNAseq or Image Analysis
 
 
-![TIOBE](https://en.wikipedia.org/wiki/TIOBE_index#/media/File:Tiobeindex.png)
+![TIOBE](imgs/Tiobeindex.png)
 
 ---
 ## Pyhton vs R
 
-Though R has long been the key coding language in bioinformatics, python is growing in use. 
+Though R has long been the cornerstone of bioinformatics, python is growing in use. 
 
 Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e Scanpy. 
 
-![comparison](imgs/scanpy_vs_seurat.png)
+![comparison](imgs/scanpy_vs_seurat.png, out.width="50%"}
+
+
 
 ---
-## Pyhton vs R
+## Python vs R
 
 Table here of strangths of each
 
@@ -772,6 +657,13 @@ Tuples are another type of object in python. They look and behave a lot like lis
 
 When making a tuple you use parentheses instead of square brackets. 
 
+
+```{python}
+my_list = ['a','b','c','d','e']
+my_list[0] = 'z'
+my_list
+```
+
 ```{python, eval=F}
 my_tuple = ('a','b','c','d','e')
 my_tuple[0] = 'z'
@@ -784,12 +676,6 @@ try:
 except Exception as e:
   print(e)
   
-```
-
-```{python}
-my_list = ['a','b','c','d','e']
-my_list[0] = 'z'
-my_list
 ```
 
 ---
@@ -884,6 +770,8 @@ my_dict['language']
 my_dict.get('language')
 ```
 
+---
+## Dictionaries
 
 ```{python}
 
@@ -910,7 +798,6 @@ my_dict
 ---
 ## Concatenating Dictionaries
 
-
 ```{python}
 dict_1 = {'my_list': [1,2,3],
   'my_tuple': (4,5,6),}
@@ -918,7 +805,9 @@ dict_1 = {'my_list': [1,2,3],
 dict_2 = {'a': 1, 'b': 2}
 ```
 
-Unpacking operator
+There are 3 options:
+
+* Unpacking operator
 
 ```{python}
 
@@ -927,7 +816,10 @@ dict_3
 
 ```
 
-Merge with pipe
+---
+## Concatenating Dictionaries
+
+* Merge with pipe
 
 ```{python}
 
@@ -936,7 +828,10 @@ dict_3
 
 ```
 
-Update function
+---
+## Concatenating Dictionaries
+
+* Update function
 
 ```{python}
 
@@ -1132,6 +1027,7 @@ myFirstFunction(num1=2, num2=3)
 
 ```
 
+---
 ## Variable scope in functions
 
 Variables defined in the arguments or within the function exist only within the environment of the function.
@@ -1182,7 +1078,7 @@ num3
 
 ```
 
-
+---
 ## Local vs Global scope
 
 * Functions have local scope. This means they have access to global variables can be used anywhere and local variables which were made within the function. 
@@ -1214,307 +1110,6 @@ myFirstFunction(5,10)
 
 
 ---
-## Control Statements
-
-There are several ways to control how your code is evaluated. There are two main classes:
-
-Conditional branching (if,else)
-Loops (for, while)
-
-
-<span style="color:green">While</span> I'm analysing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use Python <span style="color:red">else</span> I will use a calculator.
-
----
-## Conditional Branching
-
-Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
-
-In Python, we use the if statement with the logical to be evaluated immediately after. The  dependent code is indicated by a colon, new line and indentation.
-
-```{python}
-
-x = True
-if x:
-  print("x is true")
-
-```
-
-```{python}
-
-x = False
-if x:
-  print("x is true")
-
-```
-
----
-## Conditional Branching
-
-More often, we construct the logical value within the if statement itself. This can be termed the condition.
-
-```{python}
-
-x = 10
-y = 4
-if x > y:
-  print("The value of x is",x,"which is greater than", y)
-
-```
-The message is printed above because x is greater than y.
-
-
-```{python}
-y = 20
-if x > y:
-  print("The value of x is",x,"which is greater than", y)
-
-```
-
-x is now no longer greater than y, so no message is printed.
-
-We really still want a message telling us what was the result of the condition.
-
----
-## else following an if
-
-If we want to perform an operation when the condition is false we can follow the *if* statement with an *else* statement.
-
-
-```{python}
-
-x = 3
-if x < 5:
-  print(x, "is less than to 5")
-else:
-  print(x, "is greater than or equal to 5")
-
-```
-
-```{python}
-
-x = 10
-if x < 5:
-  print(x, "is less than to 5")
-else:
-  print(x, "is greater than or equal to 5")
-
-```
-
----
-## else if = elif
-
-We may wish to execute different procedures under multiple conditions. This can be controlled using the *elif* following an initial *if* statement.
-
-```{python}
-
-x = 5
-if x < 5:
-  print(x, "is less than to 5")
-elif x > 5:
-  print(x, "is greater than 5")
-else:
-  print(x, "is 5")
-
-```
-
----
-## Loops
-
-While and for loops iterate over a block of code, and keep rerunning it. 
-
-*While* loops do this while a specific condition is met (or until that condition is not met).
-
-*For* loops will do this for a given number of iterations.
-
----
-## While Loop
-
-While loops have a similar structure to if statements. We start by designating the while loop, ten follow with the logical to be evaluated immediately after. The  dependent code is indicated by a colon, new line and indentation.
-
-```{python}
-
-x = 1
-while x < 3:
-  print("x is",x)
-  x = x+1
-
-```
-
----
-## For Loop
-
-For loops do not have a condtional. Instead you supply an object that you want to be iterate over. This can be a list, tuple, dictionary, set or string. Here we use a list. 
-
-```{python}
-
-x = ['Alpha','Bravo','Charlie']
-for i in x:
-  print(i)
-
-```
-
-
----
-## for and range()
-
-The range() function provides us with a nice input for our for loops. It returns a sequence of numbers, starting from 0 and stops before the specified number.
-
-```{python}
-for i in range(3):
-  print("i is", i)
-
-```
-
----
-## Looping through indices
-
-When we have a numeric range, we can use it to index out from existing objects. This often allows for more complex code evaluation. 
-
-```{python}
-
-geneName = ["Ikzf1","Myc","Igll1"]
-expression = [10.4, 4.3, 6.5]
-iterations = len(geneName)
-
-for i in range(iterations):
-  print(geneName[i]," has an TPM of ",expression[i])
-
-```
-
-
----
-## Loops and conditionals
-
-Loops can be combined with conditional statements to allow for complex control of their execution over Python objects. Though these can be tough to read and create, by keeping an eye of the hierarchy of identation we can follow the logic. 
-
-```{python}
-x = range(8)
-
-for i in range(8):
-  if i > 5:
-    print("Number",i,"is greater than 5")
-  elif i == 5:
-    print("Number",i,"is  5") 
-  else:
-    print("Number",i,"is less than 5") 
-
-```
-
----
-## Breaking loops
-
-We can use conditionals to exit a loop if a condition is satisfied, just like a while loop.
-
-```{python}
-x = range(8)
-
-for i in range(8):
-  if i > 5:
-    print("Number",i,"is greater than 5")
-  elif i == 5:
-    print("Number",i,"is  5")
-    break
-  else:
-    print("Number",i,"is less than 5") 
-
-```
-
-
-
-
-
-
-
-
-Day 1:
-- Set up - install, conda, vs etc
-- Basic interaction - interactive vs scripts, .py files vs Jupyter notebooks (vs Quarto?)
-- Data types:
-  * str, int, float
-  * List
-  * Tuple
-  * Library
-  * Include indexing, modification and concatenation for each
-  * arrays and numpy?
-  * sets, comparison to lists (ordered vs unordered)
--Variables (defining, changing values)
--Using existing functions (ex: print)
--Defining your own functions and calling them (with example using variables)
--Interpreting error messages
--Finding and understanding python documentation online  
-
-Day 2: 
-- Reading/Writing (and working directory)
-- Control Statements
-  * if
-  * for
-  * while
-- List comprehension This I could take or leave, I would rather use the time to teach them new functionalities rather than shorten ones they already know
--Example of making a more complex function that uses:
-Data read/writing
-Control statements
-Ex: read in data, do some conditional mathematical manipulation/data cleaning, write to a file
- 
-- Regex Do you mean the re package? If so I am not sure this is useful to the beginner Python user - maybe something to mention when talking about string operations but I don't know that I would go deeply into this. If you think it's useful though I am open to it.
-- Plotting
--Showcase/discussion of other useful packages and what they can be used for (no need to use them, but just discuss) (pandas, scipy, scikit learn, biopython, etc.)
-
-
-
-
-
-
-## Slide Structure
-
-We use the a double has/pound for slides. This is important for hierarchy. If you use 1 it will work for the slides, but will mess up the single page version.
-
-
-## Left/Right alignment
-
-To show things side by side on a slide you can use pull left/right. t is important to keep the tab on the second square bracket. On single page it will just be one after the other:
-
-.pull-left[
-This will be on left of slide
-  ] 
-  
-.pull-right[
-This will be on right
-
- ]
-
-
-## Data from external sources
-
-everything in the rmd is relative to the inst/extdata directory so you have some data to load in, just put it in the data directory, read it in along the path. 
-The structure is maintained for those attending the course and download the package using the instructions. The same rules are followed for imgs and scripts that you may call.
-
-
-
---
-## Exercises
-The following few slides show you how to structure exercise slides.
-
-We often have several exercise slides per session. So you can just copy and paste and change the directory to the appropriate name. All 3 file types are made from you single exercise Rmd. 
-
----
-## Time for an exercise!
-
-??? exercise description here?? [here](../../exercises/exercises/MyExercise1_exercises.html)
-
----
-## Answers to exercise
-
-Answers can be found [here](../../exercises/answers/MyExercise1_answers.html)
-
-R code for solutions can be found [here](../../exercises/answers/MyExercise1_answers.R)
-
-## Exercise again
-
-So we can have some more sections here describing some new important topic
-
-Then more exercises
-
----
 ## Time for an exercise!
 
 ??? exercise description here?? [here](../../exercises/exercises/MyExercise2_exercises.html)
@@ -1525,3 +1120,6 @@ Then more exercises
 Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
 
 R code for solutions can be found [here](../../exercises/answers/MyExercise2_answers.R)
+
+--- 
+## Further Support

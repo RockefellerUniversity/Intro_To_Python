@@ -1,7 +1,7 @@
 ---
 title: "Introduction to Python, Session 3: Data Visualization <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
 author: "Rockefeller University, Markus Library (Claire Warner)"
-date: "6/7/2024"
+date: "http://rockefelleruniversity.github.io/Intro_To_Python/"
 output: 
   html_document:
     toc: true # table of content true
@@ -11,8 +11,20 @@ output:
     theme: united  # many options for theme, this one is my favorite.
     highlight: tango  # specifies the syntax highlighting style
 params:
-  isSlides: "yes"
+  isSlides: "no"
 ---
+
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides != "yes"){
+  cat("# Introduction to Python
+
+---
+"    
+  )
+  
+}
+
+```
 
 ##  Data Visualization with Python
 

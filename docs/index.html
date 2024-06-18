@@ -358,6 +358,20 @@ div.tocify {
         </li>
       </ul>
     </li>
+    <li class="dropdown-submenu">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Session3</a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <a href="presentations/slides/Session3.html">Slide</a>
+        </li>
+        <li>
+          <a href="presentations/singlepage/Session3.html">Single Page</a>
+        </li>
+        <li>
+          <a href="presentations/r_code/Session3.R">Code</a>
+        </li>
+      </ul>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -438,7 +452,7 @@ class="email">brc@rockefeller.edu</a></h4>
 <p><br></p>
 <div id="course-integrity" class="section level3">
 <h3>Course Integrity</h3>
-<p><strong>This course is compiled automatically on <em>2024-06-12</em>
+<p><strong>This course is compiled automatically on <em>2024-06-18</em>
 </strong> <br> <a
 href="https://github.com/RockefellerUniversity/Intro_To_Python/actions?query=workflow%3AselfTest"><img src="https://github.com/RockefellerUniversity/Intro_To_Python/workflows/selfTest/badge.svg"></a></p>
 <p><strong>The course is tested and available on MacOS, Windows and
@@ -492,25 +506,27 @@ class="section level4">
 <h4><strong>Install Python and required Python packages</strong></h4>
 <p>We can use the installed Miniconda to manage the installs of python
 and its pacakges. First we will create an environment. You can name this
-whatever you want. You will run this in terminal.
-<code>{sh} conda create -n intro_to_python conda activate intro_to_python conda install python</code></p>
-<pre><code>
-Python packages can be installed from several places. The main two options are conda and pip.  
-##### From conda
-```{sh}
-conda install scipy
+whatever you want. You will run this in terminal.</p>
+<pre><code>conda create -n intro_to_python
+conda activate intro_to_python
+conda install python</code></pre>
+<p>Python packages can be installed from several places. The main two
+options are conda and pip.</p>
+<div id="from-conda" class="section level5">
+<h5>From conda</h5>
+<pre><code>conda install scipy
 conda install numpy
-conda install pandas
+conda install seaborn
 conda install matplotlib</code></pre>
-<pre><code>
-##### From pip
-```{sh}
-conda install pip
+</div>
+<div id="from-pip" class="section level5">
+<h5>From pip</h5>
+<pre><code>conda install pip
 pip install scipy
 pip install numpy
-pip install pandas
+pip install seaborn
 pip install matplotlib</code></pre>
-<p>```</p>
+</div>
 </div>
 <div id="download-the-material" class="section level4">
 <h4><strong>Download the material</strong></h4>
@@ -570,6 +586,30 @@ href="presentations/singlepage/Session2.html"><strong>Single
 Page</strong></a></p>
 <p>The code use in the presentations can be found at <a
 href="presentations/r_code/Session2.R"><strong>R code</strong></a></p>
+<p><br></p>
+</div>
+</div>
+<div id="introduction-to-python-session-3" class="section level4">
+<h4><strong>Introduction to Python, Session 3</strong></h4>
+<p>In session 3 we cover the basics of plotting, introducing a variety
+of plot types and customization options.</p>
+<p>Session sections:</p>
+<ul>
+<li>Matplotlib package to generate a variety of plot types</li>
+<li>Customization of plots</li>
+<li>Seaborn library for advanced plotting</li>
+</ul>
+<iframe src="presentations/slides/Session3.html" width="100%" height="400" title="Session3">
+</iframe>
+<div id="links-to-presentations-2" class="section level5">
+<h5><em>Links to presentations:</em></h5>
+<p>The html slide presentation can be found at this link <a
+href="presentations/slides/Session3.html"><strong>Slide</strong></a></p>
+<p>The single page html presentation can be found at this link <a
+href="presentations/singlepage/Session3.html"><strong>Single
+Page</strong></a></p>
+<p>The code use in the presentations can be found at <a
+href="presentations/r_code/Session3.R"><strong>R code</strong></a></p>
 <p><br><br></p>
 </div>
 </div>
