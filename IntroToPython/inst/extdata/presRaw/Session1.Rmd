@@ -42,7 +42,7 @@ if(params$isSlides != "yes"){
 ```{r, eval=T, echo=F, warning=F, message=F}
 library(IntroToPython)
 library(reticulate)
-py_install(c("matplotlib", "numpy", "scipy","seaborn"))
+suppressMessages(py_install(c("matplotlib", "numpy", "scipy","seaborn")))
 ```
 
 ---
@@ -107,7 +107,7 @@ Though R has long been the cornerstone of bioinformatics, python is growing in u
 
 Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e Scanpy. 
 
-![comparison](imgs/scanpy_vs_seurat.png, out.width="50%"}
+![comparison](imgs/scanpy_vs_seurat.png, out.width="50%")
 
 
 
@@ -217,8 +217,10 @@ Lastly we can install python.
 We also want some specific Python packages. These mostly contain functions that are not present in the base Python distribution. 
 
 ```{sh, eval=F}
-conda install 
-
+conda install numpy
+conda install scipy
+conda install matplotlib
+conda install seaborn
 
 ```
 
@@ -264,7 +266,7 @@ There are several options for python. But Jupyter Notebook is best know. Quarto 
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
-# Data Types and Functions in Python
+# Varaibles and Functions in Python
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
@@ -272,7 +274,7 @@ if(params$isSlides == "yes"){
 "    
   )
 }else{
-  cat("# Data Types and Functions in Python
+  cat("# Varaibles and Functions in Python
       
 ---
 "    
@@ -382,7 +384,7 @@ round(number)
 ---
 ## Variables
 
-There are many kinds of variables. The most basic types are: *str*,*float* and *int*. You can always check what kind you have with the *type()* function.
+There are many kinds of variables. The most basic types are: *str*,*float*, *int* and *boolean*. You can always check what kind you have with the *type()* function.
 
 ```{python}
 greeting = 'Hello!'
@@ -398,14 +400,20 @@ type(number )
 newnumber = round(number)
 newnumber
 ```
+
 ```{python}
 type(newnumber)
+```
+
+```{python}
+boolean = True
+type(boolean)
 ```
 
 ---
 ## Variables Coercion
 
-We can manually set the type using: *str()*, *float()* and *int()*. 
+We can manually set the type using: *str()*, *float()*, *int()* and *bool()*. 
 
 ```{python}
 string_number = str(number)
@@ -421,6 +429,12 @@ float_string_number
 ```{python}
 int_float_string_number = int(float_string_number)
 int_float_string_number 
+
+```
+
+```{python}
+int_float_string_number_boolean = bool(float_string_number)
+int_float_string_number_boolean
 
 ```
 
@@ -465,6 +479,30 @@ newgreeting3
 ```{python}
 newgreeting4 = 'Hi' * 5
 newgreeting4
+```
+
+
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Data Objects
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Data Objects
+
+---
+"    
+  )
+  
+}
+
 ```
 
 ---
@@ -532,14 +570,6 @@ my_strs[2:]
 ```
 
 
-```{python}
-my_strs[0] = 'z'
-```
-
-
-make an error on purpose
-
-
 ---
 ## Complex Lists
 
@@ -558,6 +588,8 @@ my_lists[2][1][0]
 
 ---
 ## Indexing Lists
+
+We can use the assignment we have been using this whole time to break open this nested list structure. 
 
 
 ```{python}
@@ -592,7 +624,7 @@ biglist
 ---
 ## Functions and lists
 
-There are many useful functions for working with lists. Many of these functions work directly on the list. This means you don't need to assign the result back to the object. The structure is VARIABLE.function(). Here we use the append function to extend our list.
+There are many useful functions for working with lists. Many of these functions work directly on the list. This means you don't need to assign the result back to the object. The structure is VARIABLE.function(). These are called attributes. Here we use the append function to extend our list.
 
 ```{python}
 my_strs.append('f')
@@ -629,6 +661,11 @@ my_strs
 del(my_strs[3])
 my_strs
 ```
+
+---
+## Functions and lists
+
+There are many useful functions built into the base version of python. 
 
 
 * .index() reveals which position in the list is the supplied argument
@@ -690,7 +727,7 @@ Most of the time the error messages are very clear. And if they are not a quick 
 ---
 ## Tuple/List coercion
 
-As with str/int/float you can easily convert a list to a tuple and vice versa. Simply use the *list()* and *tuple()* functions. 
+As with str/int/float/bool you can easily convert a list to a tuple and vice versa. Simply use the *list()* and *tuple()* functions. 
 
 ```{python}
 my_list = ['a','b','c','d','e']
@@ -718,11 +755,11 @@ type(my_list_tuple_list)
 ---
 ## Dictionaries
 
-Another data type are dictionaries. Dcionaries are made of key:value pairs. 
+Another data type are dictionaries. Dictionaries are made of key:value pairs. 
 
 A key is some kind of identifier, typically a short string. The value is a corresponding piece of data that is often more complex. 
 
-This structure allows the organiztion of your data, and you can gives you the ability to grab out values using the key.
+This structure allows the organization of your data, and you can gives you the ability to grab out values using the key.
   
 ---
 ## Dictionaries
@@ -740,6 +777,8 @@ my_dict
 ---
 ## Dictionaries
 
+There are attribute functions that we can use to access the keys and values from our dictionary. 
+
 ```{python}
 my_dict.keys()
 ```
@@ -750,10 +789,6 @@ my_dict.keys()
 my_dict.values()
 ```
 
-```{python}
-
-my_dict.items()
-```
 
 ---
 ## Dictionaries
@@ -914,7 +949,215 @@ myset1.difference(myset2)
 * A list allows duplicate elements and maintains their order
 * A set ensures element uniqueness without any guaranteed order
 
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
 
+# NumPy: A python library for arrays
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# NumPy: A python library for arrays
+      
+---
+"    
+  )
+  
+}
+
+```
+
+## NumPy
+
+Many of the data types we have looked at thus far are either one-dimensional, or get quite complex when built up into multidimensional data frames. These can become relatively slow and cumbersome to work with if you have large datasets. 
+
+NumPy is a Python library used for working with arrays, that are common in biological data. It is not included in the base distribution of Python so it has to be installed and loaded in separately. We installed NumPy earlier. Here we load it into our python session with *import*.
+
+```{python}
+import numpy
+```
+
+Often an alias is used when you import a library. Here we are importing NumPy *as* np.
+
+```{python}
+import numpy as np
+```
+
+
+---
+## NumPy array
+
+Within our imported NumPy library we have many different functions. Here we will use the *array()* function to create an array. In this case we are essentially are creating a list (square brackets), than coercing it into an array. 
+
+```{python}
+arr = np.array([1, 2, 3, 4, 5])
+
+type(arr)
+```
+
+```{python}
+arr
+```
+
+---
+## Adding Dimensions
+
+It is possible to create many kinds of arrays, with differing dimensionality. They can be 1D,2D,3D etc. Typically we think about 2D arrays as this is often the rectangular data we deal with. 
+
+Here we again create a list to coerce into a array. This time we have a list of lists. Each list will become equivalent to a row in our array.
+
+
+```{python}
+
+arr = np.array([["Patient1","Patient2","Patient3"],[34, 29, 40], [True,False,True]])
+arr
+
+```
+
+We can find out the dimension attribute by using *ndim*. In this case we have rectangular data so it is two dimensions. 
+
+```{python}
+
+arr.ndim
+
+```
+
+---
+## Indexing Arrays
+
+We can use same square brackets we used for other data objects to index our arrays. The big difference is we now have 2 dimensions. We therefore need to provide 2 indexes, separated by a comma. 
+
+The first number will correspond to row. The second number will correspond to row.
+
+```{python}
+arr[0,2]
+```
+
+---
+## Slicing Arrays
+
+We can also do more complex indexing operations like slicing, to get ranges of values from our array.
+
+
+```{python}
+arr[:,2]
+
+```
+
+```{python}
+arr[0,1:3]
+
+```
+
+---
+## Data Types and arrays
+
+In most data objects we have looked as so far there are limited types of data: *str*,*float*, *int* and *boolean*. Arrays accept all of these. We can always check the type with the *dtype* attribute.
+
+```{python}
+
+arr = np.array([34, 29, 40])
+arr.dtype
+
+```
+
+```{python}
+
+arr = np.array([True,False,True])
+arr.dtype
+
+```
+
+---
+## Data Types and arrays
+
+When you create the array you can specify what type you want the data to be. This can coerce the input data. 
+
+```{python}
+
+arr = np.array([34, 29, 40], dtype='S')
+
+arr
+
+```
+
+
+```{python}
+arr = np.array(['a', '2', '3'], dtype='i')
+
+
+newarr = arr.astype('i')
+
+```
+
+
+---
+## Joining Arrays
+
+```{pyhton}
+arr1 = np.array([1, 2, 3])
+
+arr2 = np.array([4, 5, 6])
+
+arr = np.concatenate((arr1, arr2))
+
+import numpy as np
+
+arr1 = np.array([[1, 2], [3, 4]])
+
+arr2 = np.array([[5, 6], [7, 8]])
+
+arr = np.concatenate((arr1, arr2), axis=1)
+
+print(arr)
+
+
+arr1 = np.array([1, 2, 3])
+
+arr2 = np.array([4, 5, 6])
+
+arr = np.stack((arr1, arr2), axis=1)
+
+print(arr)\\h/vstack
+```
+
+
+---
+## other things
+
+pi, cos sine, exp etc
+
+stores lots of math variables 
+
+
+
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Custom Functions
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Custom Functions
+      
+---
+"    
+  )
+  
+}
+
+```
 
 ---
 ## Making functions
