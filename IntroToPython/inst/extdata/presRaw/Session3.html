@@ -119,7 +119,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Today’s goals:</p>
 <ul>
 <li>Introduce Python’s utilities for data visualization</li>
-<li>Learn how to customize several types of plots for publication-worthy data visualizations</li>
+<li>Learn how to produce and customize several types of plots for publication-worthy data visualizations</li>
 <li>Explore online documentation</li>
 </ul>
 <hr>
@@ -135,6 +135,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Customize your plot using the built-in options for the function you used to plot (found in documentation).</li>
 <li>Render your plot using <code>show()</code> and save or export it if you wish.</li>
 </ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="workflow.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Data visualization workflow.</figcaption>
+</figure>
+</div>
 <hr>
 </section>
 <section id="matplotlib" class="level2">
@@ -219,9 +225,12 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)</code></pre>
 <section id="advanced-subplot-options" class="level2">
 <h2 class="anchored" data-anchor-id="advanced-subplot-options">Advanced Subplot Options</h2>
 <ul>
+<li>Other <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html"><code>subplots()</code></a> options:
+<ul>
 <li><code>width_ratios</code> and <code>height_ratios</code> to adjust the relative sizes of rows and columns</li>
 <li><code>sharex</code> and <code>sharey</code> to force subplots to share an x or y axis</li>
-<li><code>gridspec</code> for arbitrary/custom subplots (ex: different number of plots in each row)</li>
+</ul></li>
+<li><a href="https://matplotlib.org/stable/users/explain/axes/arranging_axes.html"><code>gridspec</code></a> for arbitrary/custom subplots (ex: different number of plots in each row)</li>
 </ul>
 <hr>
 </section>
@@ -286,8 +295,11 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)</code></pre>
 <section id="named-colors" class="level2">
 <h2 class="anchored" data-anchor-id="named-colors">Named Colors</h2>
 <p>Python has a number of named colors. You can also specify hex or RGB color codes as strings.</p>
-<div data-align="center">
-<p><img src="C:/Users/Claire/Documents/GitHub/Intro_To_Python/IntroToPython/inst/extdata/imgs/named_colors.png" alt="igv" height="300" width="600"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="named_colors.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Matplotlib named colors</figcaption>
+</figure>
 </div>
 <p>Using these colors and the list of parameters below, take a second to customize your plot of weight vs height.</p>
 <ul>
@@ -360,17 +372,15 @@ ax.set_ylabel("Y Data Label")</code></pre>
 </div>
 <hr>
 </section>
-<section id="plotting-a-continuous-function" class="level2">
-<h2 class="anchored" data-anchor-id="plotting-a-continuous-function">Plotting a Continuous Function</h2>
-<p>Another common type of plot is a line plot. Line plots can be created using the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html"><code>plot()</code></a> function. The essential arguments of <code>plot()</code> are the lists of arrays of x and y values.</p>
-<p>Let’s use <code>plot()</code> to add a line of best fit to out weight vs height data for both sexes. First, we will create a new figure and plot the data using <code>scatter()</code>, as before.</p>
+<section id="scatter-plot-of-sex-separated-data" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot-of-sex-separated-data">Scatter Plot of Sex-Separated Data</h2>
 <div class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>)</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
@@ -401,6 +411,9 @@ ax.set_ylabel("Y Data Label")</code></pre>
 </ul>
 <p>Let’s give it a try!</p>
 <hr>
+</section>
+<section id="get-the-fit-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="get-the-fit-parameters">Get the Fit Parameters</h2>
 <div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -411,11 +424,23 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>popt_m, pcov_m <span class="op">=</span> curve_fit(f<span class="op">=</span>line, xdata<span class="op">=</span>weight_m, ydata<span class="op">=</span>height_m)</span>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>popt_f, pcov_f <span class="op">=</span> curve_fit(f<span class="op">=</span>line, xdata<span class="op">=</span>weight_f, ydata<span class="op">=</span>height_f)</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(popt_m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(popt_m)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>m_m, b_m <span class="op">=</span> popt_m</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>m_f, b_f <span class="op">=</span> popt_f</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(m_m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[8.17836998e-02 1.68572508e+02]</code></pre>
+<pre><code>[8.17836998e-02 1.68572508e+02]
+0.08178369979831057</code></pre>
 </div>
 </div>
+<hr>
+</section>
+<section id="plotting-a-continuous-function" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-a-continuous-function">Plotting a Continuous Function</h2>
+<p>Another common type of plot is a line plot. Line plots can be created using the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html"><code>plot()</code></a> function. The essential arguments of <code>plot()</code> are the lists of arrays of x and y values.</p>
+<p>Let’s use <code>plot()</code> to add a line of best fit to out weight vs height data for both sexes.</p>
 <hr>
 </section>
 <section id="plotting-the-lines-1" class="level2">
@@ -454,8 +479,8 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <h3 class="anchored" data-anchor-id="plotting-the-lines-2">Plotting the Lines 2</h3>
 <p>Now that we have our x values, we can plug them into the linear function we have defined, <code>line(x, m, b)</code>, including the values for the fit parameters we found using <code>curve_fit()</code>. Let’s define our y values to plot in the following way:</p>
 <div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>y_male <span class="op">=</span> line(x, popt_m[<span class="dv">0</span>], popt_m[<span class="dv">1</span>])</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y_female <span class="op">=</span> line(x, popt_f[<span class="dv">0</span>], popt_f[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>y_m <span class="op">=</span> line(x, m_m, b_m)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y_f <span class="op">=</span> line(x, m_f, b_f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
@@ -468,19 +493,20 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>)</span>
 <span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_male, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_female, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="Session3_files/figure-html/cell-15-output-1.png" width="827" height="376"></p>
 </div>
@@ -495,11 +521,11 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Female'</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_male, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_female, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
 <span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -524,11 +550,11 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Female'</span>)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_male, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_female, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -556,11 +582,11 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label<span class="op">=</span><span class="st">'Female'</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_male, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_female, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
@@ -629,11 +655,6 @@ ax.set_ylabel("Y Data Label")</code></pre>
 </div>
 <hr>
 </section>
-<section id="applications-with-seaborn" class="level2">
-<h2 class="anchored" data-anchor-id="applications-with-seaborn">Applications with Seaborn</h2>
-<p>Seaborn is used a lot in the context of data science, and it plays very nicely with Pandas (another library used for manipulating tabular data).</p>
-<hr>
-</section>
 <section id="saving-and-exporting" class="level2">
 <h2 class="anchored" data-anchor-id="saving-and-exporting">Saving and Exporting</h2>
 <p>Now that we have created several figures, we may want to save and export them. To do this, we will apply the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html"><code>savefig()</code></a> function to our figure. This function takes your desired filepath as an input, as well as other optional parameters such as <code>dpi</code> (resolution), sizing, and transparency. Let’s save our most recent figure. We will also use <code>fig.tight_layout()</code> to remove any added white space and ensure that all nothing is cut off.</p>
@@ -643,63 +664,86 @@ ax.set_ylabel("Y Data Label")</code></pre>
 </div>
 <hr>
 </section>
-<section id="color-maps" class="level2">
-<h2 class="anchored" data-anchor-id="color-maps">Color Maps</h2>
-<p>Rather than using a single color to plot your data, you may want to use a color map. This is particularly true for things like heatmaps, or when you are displaying an image. To do this, you can use existing <a href="https://matplotlib.org/stable/gallery/color/colormap_reference.html">colormaps</a> within <code>matplotlib</code>, or <a href="https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation">create your own</a>.</p>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">4</span>))</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">200</span>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">200</span>)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>xx, yy <span class="op">=</span> np.meshgrid(x, y)</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>zz <span class="op">=</span> np.cos(xx)<span class="op">*</span>np.sin(yy)</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.pcolormesh(zz, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>fig.colorbar(im, ax<span class="op">=</span>ax)</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-22-output-1.png" width="435" height="342"></p>
-</div>
+<section id="colormaps" class="level2">
+<h2 class="anchored" data-anchor-id="colormaps">Colormaps</h2>
+<p>Rather than using a single color to plot your data, you may want to use a colormap. This is particularly true for things like heatmaps, or when you are displaying an image. To do this, you can use existing <a href="https://matplotlib.org/stable/gallery/color/colormap_reference.html">colormaps</a> within <code>matplotlib</code>, or <a href="https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation">create your own</a>.</p>
+<hr>
+</section>
+<section id="choosing-a-colormap" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-a-colormap">Choosing a Colormap</h2>
+<p>Sometimes you might need to visualize data with a <a href="https://matplotlib.org/stable/users/explain/colors/colormaps.html">colormap</a>. In this case, it’s important to choose one that is visually faithful to the scale, translated well to greyscale (printing), and that is accessible to those with common forms of color blindness. It turns out that people have thought about this problem <em>a lot</em> and have come up with some color maps that do a great job at maximizing these properties.</p>
+<p>It’s also important to note that some color schemes that may seem natural to use (especially rainbow/jet) actually tend to skew our perceptions of the data values and therefore are not recommended.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="monalisa.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Mona Lisa in original, jet, and viridis.</figcaption>
+</figure>
 </div>
 <hr>
 </section>
-<section id="accessible-color-maps" class="level2">
-<h2 class="anchored" data-anchor-id="accessible-color-maps">Accessible Color Maps</h2>
-<p>When you are using colors to plot your data, and in particular when you are using <a href="https://matplotlib.org/stable/users/explain/colors/colormaps.html">color maps</a>, it is important to choose one that is faithful to the scale, and that is accessible to those with common forms of color blindness. It turns out that people have thought about this problem <em>a lot</em> and have come up with some color maps that do a great job at maximizing these properties.</p>
+<section id="viridis" class="level2">
+<h2 class="anchored" data-anchor-id="viridis">Viridis</h2>
 <p>My personal favourite is called <em>viridis</em> (watch the launch video <a href="https://www.youtube.com/watch?v=xAoljeRJ3lU&amp;ab_channel=Enthought">here</a> - surprisingly interesting), but there is actually a selection of these schemes available.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="c:/Users/Claire/Documents/GitHub/Intro_To_Python/IntroToPython/inst/extdata/imgs/viridis.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Alt text</figcaption>
-</figure>
-</div>
-<p>It’s also important to note that some color schemes that may seem natural to use (black to white and rainbow) actually tend to skew our perceptions of the data values and therefore are not recommended.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="c:/Users/Claire/Documents/GitHub/Intro_To_Python/IntroToPython/inst/extdata/imgs/monalisa.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Alt text</figcaption>
+<p><img src="viridis.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Perceptually uniform colormaps.</figcaption>
 </figure>
 </div>
 <hr>
 </section>
-<section id="example-scatter-plot-with-color-map" class="level2">
-<h2 class="anchored" data-anchor-id="example-scatter-plot-with-color-map">Example: Scatter Plot with Color Map</h2>
+<section id="colors-and-accessibility-in-other-plots" class="level2">
+<h2 class="anchored" data-anchor-id="colors-and-accessibility-in-other-plots">Colors and Accessibility in Other Plots</h2>
+<p>When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white translation (for example, if people print in black and white) in mind. Using different dashes in lines and shapes in markers is also a good way to do this! <img src="scatter_accessible.png" class="img-fluid" alt="Accessibility matters for all types of data visualization!"></p>
+<hr>
+</section>
+<section id="color-maps-in-seaborn" class="level2">
+<h2 class="anchored" data-anchor-id="color-maps-in-seaborn">Color Maps in Seaborn</h2>
+<p>Let’s use the <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html"><code>heatmap()</code></a> function from Seaborn to generate a plot of the time progression of three genes.</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">4</span>))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>g1 <span class="op">=</span> [<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.7</span>]</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>g2 <span class="op">=</span> [<span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>]</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>g3 <span class="op">=</span> [<span class="fl">0.0</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>]</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>g4 <span class="op">=</span> [<span class="fl">0.9</span>, <span class="fl">0.6</span>, <span class="fl">0.4</span>]</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>g5 <span class="op">=</span> [<span class="fl">0.5</span>, <span class="fl">0.6</span>, <span class="fl">0.5</span>]</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [g1, g2, g3, g4, g5]</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>sns.heatmap(data, linewidth <span class="op">=</span> <span class="fl">0.5</span>, cmap <span class="op">=</span> <span class="st">'viridis'</span>, annot <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Time"</span>)</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Gene"</span>)</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Gene Progression"</span>)</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[0.2, 0.5, 0.7], [0.4, 0.3, 0.4], [0.0, 0.1, 0.2], [0.9, 0.6, 0.4], [0.5, 0.6, 0.5]]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-22-output-2.png" width="421" height="376"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="color-maps-in-matplotlib" class="level2">
+<h2 class="anchored" data-anchor-id="color-maps-in-matplotlib">Color Maps in Matplotlib</h2>
 <p>Let’s make a scatter plot with weight vs height again, but make the color of the points defined by the ratio of weight to height.</p>
 <div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>ratio <span class="op">=</span> weight<span class="op">/</span>height</span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.scatter(weight, height, c<span class="op">=</span>ratio, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>fig.colorbar(im, ax<span class="op">=</span>ax)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Weight vs Height"</span>)</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>ratio <span class="op">=</span> weight<span class="op">/</span>height</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.scatter(weight, height, c<span class="op">=</span>ratio, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>fig.colorbar(im, ax<span class="op">=</span>ax)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Weight vs Height"</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="Session3_files/figure-html/cell-23-output-1.png" width="506" height="376"></p>
 </div>
@@ -711,19 +755,20 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <p>We have learned how to write many lines of code to generate and customize a single figure. This is nice, but we want to be practical. In fact, you can put all of your plotting code inside a function that will allow you to automate the production of figures within your workflows. Let’s write a function called <code>plot_data()</code> that can recreate the previous plot and accepts <code>weight</code>, <code>height</code> and <code>filename</code> as its arguments.</p>
 <p>This way, you can call this function with different datasets and it will return a consistently-formatted plot for each.</p>
 <div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_data(weight, height, filename):</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  ratio <span class="op">=</span> weight<span class="op">/</span>height</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  im <span class="op">=</span> ax.scatter(weight, height, c<span class="op">=</span>ratio, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  fig.colorbar(im, ax<span class="op">=</span>ax)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  ax.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  ax.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  ax.set_title(<span class="st">"Weight vs Height"</span>)</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  fig.tight_layout()</span>
-<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  fig.savefig(filename <span class="op">+</span> <span class="st">".pdf"</span>, bbox_inches <span class="op">=</span> <span class="st">"tight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_data(weight, height, filename):</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  ratio <span class="op">=</span> weight<span class="op">/</span>height</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  im <span class="op">=</span> ax.scatter(weight, height, c<span class="op">=</span>ratio, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  fig.colorbar(im, ax<span class="op">=</span>ax)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  ax.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  ax.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  ax.set_title(<span class="st">"Weight vs Height"</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  fig.tight_layout()</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  fig.savefig(filename <span class="op">+</span> <span class="st">".pdf"</span>, bbox_inches <span class="op">=</span> <span class="st">"tight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<hr>
 </section>
 
 </main>

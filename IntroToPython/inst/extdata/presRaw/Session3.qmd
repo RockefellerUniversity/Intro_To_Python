@@ -19,7 +19,7 @@ params:
 Today's goals:
 
 - Introduce Python's utilities for data visualization
-- Learn how to customize several types of plots for publication-worthy data visualizations
+- Learn how to produce and customize several types of plots for publication-worthy data visualizations
 - Explore online documentation
 
 ---
@@ -34,6 +34,8 @@ In general, the recipe for creating a figure is as follows:
 4. Plot the data on the appropriate axis or axes using functions such as `plot()`, `scatter()`, `bar()`, etc..
 5. Customize your plot using the built-in options for the function you used to plot (found in documentation).
 6. Render your plot using `show()` and save or export it if you wish.
+
+![Data visualization workflow.](workflow.png)
 
 ---
 
@@ -123,9 +125,10 @@ plt.show()
 
 ## Advanced Subplot Options
 
-- `width_ratios` and `height_ratios`  to adjust the relative sizes of rows and columns 
-- `sharex` and `sharey` to force subplots to share an x or y axis 
-- `gridspec` for arbitrary/custom subplots (ex: different number of plots in each row)
+- Other [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) options:
+  - `width_ratios` and `height_ratios`  to adjust the relative sizes of rows and columns 
+  - `sharex` and `sharey` to force subplots to share an x or y axis 
+- [`gridspec`](https://matplotlib.org/stable/users/explain/axes/arranging_axes.html) for arbitrary/custom subplots (ex: different number of plots in each row)
 
 ---
 
@@ -173,17 +176,14 @@ Take a look at the options in the [`scatter()`](https://matplotlib.org/stable/ap
 - `linewidths`: width of the marker outline. Enter number in pts.
 - `edgecolors`: color of the marker outline. Enter as a string, similar to the value of `c`.
 - `alpha`: transparency (0 = transparent, 1 = opaque)
+
 ---
 
 ## Named Colors
 
 Python has a number of named colors. You can also specify hex or RGB color codes as strings. 
 
-<div align="center">
-
-<img src="C:/Users/Claire/Documents/GitHub/Intro_To_Python/IntroToPython/inst/extdata/imgs/named_colors.png" alt="igv" height="300" width="600">
-
-</div>
+![Matplotlib named colors](named_colors.png)
 
 Using these colors and the list of parameters below, take a second to customize your plot of weight vs height.
 
@@ -259,19 +259,15 @@ for i in range(len(sex)):
 
 ---
 
-## Plotting a Continuous Function
-
-Another common type of plot is a line plot. Line plots can be created using the [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) function. The essential arguments of `plot()` are the lists of arrays of x and y values.
-
-Let's use `plot()` to add a line of best fit to out weight vs height data for both sexes. First, we will create a new figure and plot the data using `scatter()`, as before.
+## Scatter Plot of Sex-Separated Data
 
 ```{python}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
 # Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5)
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5)
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
 
 ax1.set_title("Height vs Weight")
 ax1.set_xlabel("Weight (kg)")
@@ -306,6 +302,8 @@ Let's give it a try!
 
 ---
 
+## Get the Fit Parameters
+
 ```{python}
 from scipy.optimize import curve_fit 
 
@@ -317,9 +315,22 @@ popt_m, pcov_m = curve_fit(f=line, xdata=weight_m, ydata=height_m)
 popt_f, pcov_f = curve_fit(f=line, xdata=weight_f, ydata=height_f)
 
 print(popt_m)
+
+m_m, b_m = popt_m
+m_f, b_f = popt_f
+
+print(m_m)
 ```
 
 --- 
+
+## Plotting a Continuous Function
+
+Another common type of plot is a line plot. Line plots can be created using the [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) function. The essential arguments of `plot()` are the lists of arrays of x and y values.
+
+Let's use `plot()` to add a line of best fit to out weight vs height data for both sexes. 
+
+---
 
 ## Plotting the Lines 1
 
@@ -341,8 +352,8 @@ print(x)
 Now that we have our x values, we can plug them into the linear function we have defined, `line(x, m, b)`, including the values for the fit parameters we found using `curve_fit()`. Let's define our y values to plot in the following way:
 
 ```{python}
-y_male = line(x, popt_m[0], popt_m[1])
-y_female = line(x, popt_f[0], popt_f[1])
+y_m = line(x, m_m, b_m)
+y_f = line(x, m_f, b_f)
 ```
 
 ---
@@ -356,11 +367,12 @@ Finally, we can put it all together. Take the code we have created for our 1x2 s
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
 # Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5)
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5)
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
 
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
+
+ax1.plot(x, y_m, c = 'royalblue')
+ax1.plot(x, y_f, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
 
@@ -382,11 +394,11 @@ Finally, we would like to add a legend to this plot now that it contains multipl
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
 # Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's', label = 'Male')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o', label = 'Female')
 
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
+ax1.plot(x, y_m, c = 'royalblue')
+ax1.plot(x, y_f, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
 
@@ -410,11 +422,11 @@ Another common plot type is a histogram. We are going to put a histogram of heig
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
 # Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's', label = 'Male')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o', label = 'Female')
 
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
+ax1.plot(x, y_m, c = 'royalblue')
+ax1.plot(x, y_f, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
 
@@ -429,6 +441,7 @@ ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5)
 
 plt.show()
 ```
+
 ---
 
 ## Finishing Touches
@@ -440,11 +453,11 @@ Finally, let's add a legend, axis labels, and title to the histogram.
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
 # Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's', label = 'Male')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o', label = 'Female')
 
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
+ax1.plot(x, y_m, c = 'royalblue')
+ax1.plot(x, y_f, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
 
@@ -508,12 +521,6 @@ plt.show()
 
 --- 
 
-## Applications with Seaborn
-
-Seaborn is used a lot in the context of data science, and it plays very nicely with Pandas (another library used for manipulating tabular data). 
-
----
-
 ## Saving and Exporting 
 
 Now that we have created several figures, we may want to save and export them. To do this, we will apply the [`savefig()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html) function to our figure. This function takes your desired filepath as an input, as well as other optional parameters such as `dpi` (resolution), sizing, and transparency. Let's save our most recent figure. We will also use `fig.tight_layout()` to remove any added white space and ensure that all nothing is cut off.
@@ -525,22 +532,59 @@ fig.savefig("my_violin_plot.pdf", bbox_inches = "tight")
 
 ---
 
-## Color Maps 
+## Colormaps
 
-Rather than using a single color to plot your data, you may want to use a color map. This is particularly true for things like heatmaps, or when you are displaying an image. To do this, you can use existing [colormaps](https://matplotlib.org/stable/gallery/color/colormap_reference.html) within `matplotlib`, or [create your own](https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation).
+Rather than using a single color to plot your data, you may want to use a colormap. This is particularly true for things like heatmaps, or when you are displaying an image. To do this, you can use existing [colormaps](https://matplotlib.org/stable/gallery/color/colormap_reference.html) within `matplotlib`, or [create your own](https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation).
+
+---
+
+## Choosing a Colormap
+
+Sometimes you might need to visualize data with a [colormap](https://matplotlib.org/stable/users/explain/colors/colormaps.html). In this case, it's important to choose one that is visually faithful to the scale, translated well to greyscale (printing), and that is accessible to those with common forms of color blindness. It turns out that people have thought about this problem *a lot* and have come up with some color maps that do a great job at maximizing these properties. 
+
+It's also important to note that some color schemes that may seem natural to use (especially rainbow/jet) actually tend to skew our perceptions of the data values and therefore are not recommended. 
+
+![Mona Lisa in original, jet, and viridis.](monalisa.png)
+
+---
+
+## Viridis
+
+My personal favourite is called *viridis* (watch the launch video [here](https://www.youtube.com/watch?v=xAoljeRJ3lU&ab_channel=Enthought) - surprisingly interesting), but there is actually a selection of these schemes available.
+
+![Perceptually uniform colormaps.](viridis.png)
+
+---
+
+## Colors and Accessibility in Other Plots
+
+When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white translation (for example, if people print in black and white) in mind. Using different dashes in lines and shapes in markers is also a good way to do this!
+![Accessibility matters for all types of data visualization!](scatter_accessible.png)
+
+---
+
+## Color Maps in Seaborn
+
+Let's use the [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html) function from Seaborn to generate a plot of the time progression of three genes.
 
 ```{python}
 fig, ax = plt.subplots(figsize = (5,4))
 
-x = np.linspace(-5, 5, 200)
-y = np.linspace(-5, 5, 200)
+g1 = [0.2, 0.5, 0.7]
+g2 = [0.4, 0.3, 0.4]
+g3 = [0.0, 0.1, 0.2]
+g4 = [0.9, 0.6, 0.4]
+g5 = [0.5, 0.6, 0.5]
 
-xx, yy = np.meshgrid(x, y)
+data = [g1, g2, g3, g4, g5]
 
-zz = np.cos(xx)*np.sin(yy)
+print(data)
 
-im = ax.pcolormesh(zz, cmap='viridis')
-fig.colorbar(im, ax=ax)
+sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
+
+ax.set_xlabel("Time")
+ax.set_ylabel("Gene")
+ax.set_title("Gene Progression")
 
 plt.show()
 
@@ -548,21 +592,7 @@ plt.show()
 
 ---
 
-## Accessible Color Maps
-
-When you are using colors to plot your data, and in particular when you are using [color maps](https://matplotlib.org/stable/users/explain/colors/colormaps.html), it is important to choose one that is faithful to the scale, and that is accessible to those with common forms of color blindness. It turns out that people have thought about this problem *a lot* and have come up with some color maps that do a great job at maximizing these properties. 
-
-My personal favourite is called *viridis* (watch the launch video [here](https://www.youtube.com/watch?v=xAoljeRJ3lU&ab_channel=Enthought) - surprisingly interesting), but there is actually a selection of these schemes available.
-
-![Alt text](c:/Users/Claire/Documents/GitHub/Intro_To_Python/IntroToPython/inst/extdata/imgs/viridis.png)
-
-It's also important to note that some color schemes that may seem natural to use (black to white and rainbow) actually tend to skew our perceptions of the data values and therefore are not recommended. 
-
-![Alt text](c:/Users/Claire/Documents/GitHub/Intro_To_Python/IntroToPython/inst/extdata/imgs/monalisa.png)
-
----
-
-## Example: Scatter Plot with Color Map
+## Color Maps in Matplotlib
 
 Let's make a scatter plot with weight vs height again, but make the color of the points defined by the ratio of weight to height.
 
@@ -602,3 +632,5 @@ def plot_data(weight, height, filename):
   fig.tight_layout()
   fig.savefig(filename + ".pdf", bbox_inches = "tight")
 ```
+
+---
