@@ -1089,9 +1089,20 @@ arr
 
 ```{python}
 arr = np.array(['a', '2', '3'], dtype='i')
+```
 
+```{python, eval=F, echo=T}
 
 newarr = arr.astype('i')
+
+```
+
+```{python, eval=T, echo=F}
+try:
+  newarr = arr.astype('i')
+except Exception as e:
+  print(e)
+
 
 ```
 
