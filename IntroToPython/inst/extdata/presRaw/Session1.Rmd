@@ -42,7 +42,7 @@ if(params$isSlides != "yes"){
 ```{r, eval=T, echo=F, warning=F, message=F}
 library(IntroToPython)
 library(reticulate)
-suppressMessages(py_install(c("matplotlib", "numpy", "scipy","seaborn")))
+py_suppress_warnings(py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet"))
 ```
 
 ---
@@ -107,8 +107,7 @@ Though R has long been the cornerstone of bioinformatics, python is growing in u
 
 Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e Scanpy. 
 
-![comparison](imgs/scanpy_vs_seurat.png, out.width="50%")
-
+<img src="iimgs/scanpy_vs_seurat.png" alt="comparison" height="300" width="400">
 
 
 ---
@@ -505,7 +504,6 @@ if(params$isSlides == "yes"){
 
 ```
 
----
 ## Lists
 
 Python has many options for storing data. The simplest is a list. Lists are denoted with square brackets. 
@@ -1138,13 +1136,33 @@ print(arr)\\h/vstack
 
 
 ---
-## other things
+## Mathematical Functions
 
-pi, cos sine, exp etc
+NumPy is not just for arrays. Many mathematical functions are already included in base Python (we met round() earlier). When you import NumPy you gain access to a lot more. 
 
-stores lots of math variables 
+Mathematical constants: 
+* pi - np.pi 
 
+Mathematical functions: 
+* Exponents and logs - np.exp(my_array), np.log(my_array)
+* Powers and roots - np.sqrt(my_array)
+* Trigonometery - np.sin(my_array) 
+* Element-wise operators - np.add(my_array1, my_array2)
 
+---
+## Which Data Objects?
+
+So which data objects do you use?
+
+As with most of programming there are often multiple ways to do things and often the optimal data object will be very context dependent. Most of the time you will be working with different Python libraries and functions, each with different preferences for the input/output data object. This will help define which object is appropriate for you. 
+
+Here is a rough guide:
+
+Lists - Great general hold all that is very flexible. 
+Tuples - If you want to create an immutable version of a list as some kind of reference.
+Sets - Similar to Tuples, but if you do not want any repeating values. 
+Dictionaries - If you have complex data i.e. different shape and size, and you will have some kind of key/lookup values
+Arrays - When you have rectangular data i.e. a table
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -1169,7 +1187,6 @@ if(params$isSlides == "yes"){
 
 ```
 
----
 ## Making functions
 
 Key parts:
@@ -1197,8 +1214,6 @@ def myFirstFunction(num1, num2):
 myResult = myFirstFunction(num1=2, num2=3)
 myResult
 ```
-
-
 
 ---
 ## Returning multiple values
@@ -1314,6 +1329,7 @@ except Exception as e:
 
 ```
 
+---
 ## Variable scope in functions
 
 If a function makes changes to variables defined in the global environment they will not be updated in the global environment.
@@ -1367,6 +1383,7 @@ myFirstFunction(5,10)
 
 ??? exercise description here?? [here](../../exercises/exercises/MyExercise2_exercises.html)
 
+
 ---
 ## Answers to exercise
 
@@ -1374,9 +1391,19 @@ Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
 
 R code for solutions can be found [here](../../exercises/answers/MyExercise2_answers.R)
 
+
 --- 
 ## Further Support
 
+When you hit bugs:
+  * Google
+  * Stackoverflow
+  * Biostars
+  * Reach out on [GitHub](https://github.com/RockefellerUniversity/Intro_To_Python/issues)
+
+Other Reference Material:
+ * [Harvard's Python Course](https://cs50.harvard.edu/python/2022/)
+ * [Geeks For Geeks](https://www.geeksforgeeks.org/getting-started-with-python-programming/)
 
 
 
