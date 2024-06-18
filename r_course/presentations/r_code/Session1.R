@@ -21,7 +21,7 @@ if(params$isSlides != "yes"){
 ## ----eval=T, echo=F, warning=F, message=F-------------------------------------
 library(IntroToPython)
 library(reticulate)
-py_install(c("matplotlib", "numpy", "scipy","seaborn"))
+suppressMessages(py_install(c("matplotlib", "numpy", "scipy","seaborn")))
 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
@@ -77,15 +77,17 @@ if(params$isSlides == "yes"){
 ## 
 ## 
 
-## conda install
-## 
+## conda install numpy
+## conda install scipy
+## conda install matplotlib
+## conda install seaborn
 ## 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
-# Data Types and Functions in Python
+# Varaibles and Functions in Python
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
@@ -93,7 +95,7 @@ if(params$isSlides == "yes"){
 "    
   )
 }else{
-  cat("# Data Types and Functions in Python
+  cat("# Varaibles and Functions in Python
       
 ---
 "    
@@ -133,7 +135,11 @@ if(params$isSlides == "yes"){
 
 ## newnumber = round(number)
 ## newnumber
+
 ## type(newnumber)
+
+## boolean = True
+## type(boolean)
 
 ## string_number = str(number)
 ## string_number
@@ -144,6 +150,10 @@ if(params$isSlides == "yes"){
 
 ## int_float_string_number = int(float_string_number)
 ## int_float_string_number
+## 
+
+## int_float_string_number_boolean = bool(float_string_number)
+## int_float_string_number_boolean
 ## 
 
 ## greeting = 'Hello!'
@@ -166,6 +176,28 @@ if(params$isSlides == "yes"){
 
 ## newgreeting4 = 'Hi' * 5
 ## newgreeting4
+
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Data Objects
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Data Objects
+
+---
+"    
+  )
+  
+}
+
+
 
 ## 
 ## my_strs = ['a','b','c','d','e']
@@ -193,8 +225,6 @@ if(params$isSlides == "yes"){
 ## my_strs[2:-1]
 
 ## my_strs[2:]
-
-## my_strs[0] = 'z'
 
 ## my_lists = ["a",['b1','b2'], ['c1',['c2']]]
 ## my_lists
@@ -280,9 +310,6 @@ if(params$isSlides == "yes"){
 ## my_dict.values()
 
 ## 
-## my_dict.items()
-
-## 
 ## my_dict['my_list']
 
 ## 
@@ -356,6 +383,129 @@ if(params$isSlides == "yes"){
 ## myset1 = {1, 2, 3, 4}
 ## myset2 = {3, 4, 5, 6}
 ## myset1.difference(myset2)
+
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# NumPy: A python library for arrays
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# NumPy: A python library for arrays
+      
+---
+"    
+  )
+  
+}
+
+
+
+## import numpy
+
+## import numpy as np
+
+## arr = np.array([1, 2, 3, 4, 5])
+## 
+## type(arr)
+
+## arr
+
+## 
+## arr = np.array([["Patient1","Patient2","Patient3"],[34, 29, 40], [True,False,True]])
+## arr
+## 
+
+## 
+## arr.ndim
+## 
+
+## arr[0,2]
+
+## arr[:,2]
+## 
+
+## arr[0,1:3]
+## 
+
+## 
+## arr = np.array([34, 29, 40])
+## arr.dtype
+## 
+
+## 
+## arr = np.array([True,False,True])
+## arr.dtype
+## 
+
+## 
+## arr = np.array([34, 29, 40], dtype='S')
+## 
+## arr
+## 
+
+## 
+## arr = np.array(['a', '2', '3'], dtype='i')
+## 
+
+## try:
+##   arr = np.array(['a', '2', '3'], dtype='i')
+## except Exception as e:
+##   print(e)
+## 
+
+## arr1 = np.array([1, 2, 3])
+## 
+## arr2 = np.array([4, 5, 6])
+## 
+## arr = np.concatenate((arr1, arr2))
+## 
+
+## import numpy as np
+## 
+## arr1 = np.array([[1, 2], [3, 4]])
+## 
+## arr2 = np.array([[5, 6], [7, 8]])
+## 
+## arr = np.concatenate((arr1, arr2), axis=1)
+## 
+## print(arr)
+
+## 
+## arr1 = np.array([1, 2, 3])
+## 
+## arr2 = np.array([4, 5, 6])
+## 
+## arr = np.stack((arr1, arr2), axis=1)
+## 
+## print(arr)\\h/vstack
+
+## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Custom Functions
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Custom Functions
+      
+---
+"    
+  )
+  
+}
+
+
 
 ## def myFirstFunction(num1, num2):
 ##   sumNum = num1 + num2
