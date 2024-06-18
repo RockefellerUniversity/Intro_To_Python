@@ -1076,7 +1076,7 @@ arr.dtype
 ---
 ## Data Types and arrays
 
-When you create the array you can specify what type you want the data to be. This can coerce the input data. 
+When you create the array you can specify what type you want the data to be. This can coerce the input data ... within reason. 
 
 ```{python}
 
@@ -1086,26 +1086,19 @@ arr
 
 ```
 
-
-```{python}
-arr = np.array(['a', '2', '3'], dtype='i')
-```
-
 ```{python, eval=F, echo=T}
 
-newarr = arr.astype('i')
+arr = np.array(['a', '2', '3'], dtype='i')
 
 ```
 
 ```{python, eval=T, echo=F}
 try:
-  newarr = arr.astype('i')
+  arr = np.array(['a', '2', '3'], dtype='i')
 except Exception as e:
   print(e)
 
-
 ```
-
 
 ---
 ## Joining Arrays
@@ -1117,6 +1110,10 @@ arr2 = np.array([4, 5, 6])
 
 arr = np.concatenate((arr1, arr2))
 
+```
+
+
+```{pyhton}
 import numpy as np
 
 arr1 = np.array([[1, 2], [3, 4]])
@@ -1126,7 +1123,9 @@ arr2 = np.array([[5, 6], [7, 8]])
 arr = np.concatenate((arr1, arr2), axis=1)
 
 print(arr)
+```
 
+```{pyhton}
 
 arr1 = np.array([1, 2, 3])
 
@@ -1377,3 +1376,7 @@ R code for solutions can be found [here](../../exercises/answers/MyExercise2_ans
 
 --- 
 ## Further Support
+
+
+
+
