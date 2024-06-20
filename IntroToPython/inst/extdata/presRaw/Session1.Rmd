@@ -113,16 +113,17 @@ Though there are core utility packages that have been around a long time such as
 ---
 ## Python vs R
 
-Table here of strangths of each
+The strengths discussed when considering these languages are clear. That said, in both cases Python and R can handle their supposed weaknesses. 
 
 
-https://microbenotes.com/python-r-programming-language-bioinformatics/
-https://medium.com/@hamza_33678/programming-for-bioinformatics-r-vs-python-52969a1f7a49
+```{r}
+toshow <- cbind(c("Plotting", "Statistics","Bioconductor"),c("Large Data","Machine Learning","Most Popular Language"))
 
- Biopython, ML and scRNAseq
- image analysis
+colnames(toshow) <- c("R","Python")
+knitr::kable(toshow)
+```
 
-
+Realms of Python specifically relevant to those who are interested in Bioinformatics include Biopython, PyMOL, sciKit, scanPy, and Image Analysis.
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -239,26 +240,65 @@ When you want to automate something, i.e. an analysis workflow, you will write a
 
 You can run python from within your terminal/command prompt. This will give you access to the python console.
 
-Many people prefer to sue an Integrated Development Environment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, and access to many customizablefeature in additional panes. 
+Many people prefer to sue an Integrated Development Environment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, and access to many customizable features in additional panes. 
 
-We will be using VS code from Windows. 
+Examples include RStudio, pyCharm, Xcode etc. 
+
+We will be using Visual Studio Code from Windows. 
 
 
 ---
 ## Navigating VS Code
 
+When you open VS Code it will asks you what you want to do. VS Code can be used with many programming languages, but you often install extensions to enable it to support the formatting for that language. 
+
+Click on the *Extension* icon on the side tab (View > Extension also works). Search for Python, and install the appropriate extension.
+
+.pull-left[
+![extensions](imgs/extensions.png)
+  ]
+
+.pull-right[
+![extensions2](imgs/extensions2.png)
+  ]
 
 ---
-## Keeping Your Code Nice - Notebooks
+## Navigating VS Code
 
-There exists many ways in which to store your code. Most fo the time we are not writing scripts that are production level which we will reude. Instead you will be doing an analysis of a some data. 
+Now VS Code is all set up for python we want to mkae sure it using the right python i.e. the python we ave just installed.
 
-Notebooks give you a means to tie the code and the result of the code together into a single file. 
+Click on the search bar and type:
 
-There are several options for python. But Jupyter Notebook is best know. Quarto is growing in popularity as its universal and language agnostic. 
+```
+>Python: Select Interpreter
+```
+
+.pull-left[
+![extensions](imgs/select_interpreter.png)
+  ]
+
+.pull-right[
+![extensions2](imgs/select_interpreter2.png)
+  ]
 
 
+---
+## Open a python script
 
+We are now all set up. We will now create a python script. Just click *New File...* on the Welcome Page (or File > New File...), then choose python script. 
+
+In this scripting panel we have opened we often will type code, and build scripts. 
+
+---
+## Open a python console
+
+As we mentioned before we will be working with our Python interactively. This means we need a Python console to work with.
+
+We can manually open one up by Terminal > New Terminal.
+
+Once the Terminal is open, you can then just open Python, by typing *python* into the new terminal window. 
+
+There is is an easier shortcut to do this. Once you start developing code the easiest way to open it is to use the *Tab + Enter* shortcut. 
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -273,7 +313,7 @@ if(params$isSlides == "yes"){
 "    
   )
 }else{
-  cat("# Varaibles and Functions in Python
+  cat("# Variables and Functions in Python
       
 ---
 "    
@@ -299,7 +339,7 @@ At its simplest you can just use python as a fancy calculator:
 ---
 ## Functions
 
-To take things further there are many functions built-in to python. These are saved chun ks of code that will do a task based on the arguments you provide. You can tell there is a function when there is a string immediately followed by a set of parenthesis:
+To take things further there are many functions built-in to python. These are saved chunks of code that will do a task based on the arguments you provide. You can tell there is a function when there is a string immediately followed by a set of parenthesis:
 
 *myfunction()*
 
@@ -312,7 +352,7 @@ round(3.14159)
 ---
 ## Help with functions
 
-To get help with a function you can use the *help()* function. This will open up the help page for this function. Hopefully this will contain information about what arguments it are accepted and what is returned by the function. In this case we can see there is an additonal optional argument *ndigits*. This has a default value of **None**.
+To get help with a function you can use the *help()* function. This will open up the help page for this function. Hopefully this will contain information about what arguments it are accepted and what is returned by the function. In this case we can see there is an additional optional argument *ndigits*. This has a default value of **None**.
 
 ```{python}
 help(round)
