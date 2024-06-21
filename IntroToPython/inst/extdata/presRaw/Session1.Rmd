@@ -42,7 +42,7 @@ if(params$isSlides != "yes"){
 ```{r, eval=T, echo=F, warning=F, message=F}
 library(IntroToPython)
 library(reticulate)
-py_install(c("matplotlib", "numpy", "scipy","seaborn"))
+py_suppress_warnings(py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet"))
 ```
 
 ---
@@ -107,23 +107,23 @@ Though R has long been the cornerstone of bioinformatics, python is growing in u
 
 Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e Scanpy. 
 
-![comparison](imgs/scanpy_vs_seurat.png, out.width="50%"}
-
+<img src="iimgs/scanpy_vs_seurat.png" alt="comparison" height="300" width="400">
 
 
 ---
 ## Python vs R
 
-Table here of strangths of each
+The strengths discussed when considering these languages are clear. That said, in both cases Python and R can handle their supposed weaknesses. 
 
 
-https://microbenotes.com/python-r-programming-language-bioinformatics/
-https://medium.com/@hamza_33678/programming-for-bioinformatics-r-vs-python-52969a1f7a49
+```{r}
+toshow <- cbind(c("Plotting", "Statistics","Bioconductor"),c("Large Data","Machine Learning","Most Popular Language"))
 
- Biopython, ML and scRNAseq
- image analysis
+colnames(toshow) <- c("R","Python")
+knitr::kable(toshow)
+```
 
-
+Realms of Python specifically relevant to those who are interested in Bioinformatics include Biopython, PyMOL, sciKit, scanPy, and Image Analysis.
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -217,8 +217,10 @@ Lastly we can install python.
 We also want some specific Python packages. These mostly contain functions that are not present in the base Python distribution. 
 
 ```{sh, eval=F}
-conda install 
-
+conda install numpy
+conda install scipy
+conda install matplotlib
+conda install seaborn
 
 ```
 
@@ -238,33 +240,72 @@ When you want to automate something, i.e. an analysis workflow, you will write a
 
 You can run python from within your terminal/command prompt. This will give you access to the python console.
 
-Many people prefer to sue an Integrated Development Environment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, and access to many customizablefeature in additional panes. 
+Many people prefer to sue an Integrated Development Environment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, and access to many customizable features in additional panes. 
 
-We will be using VS code from Windows. 
+Examples include RStudio, pyCharm, Xcode etc. 
+
+We will be using Visual Studio Code from Windows. 
 
 
 ---
 ## Navigating VS Code
 
+When you open VS Code it will asks you what you want to do. VS Code can be used with many programming languages, but you often install extensions to enable it to support the formatting for that language. 
+
+Click on the *Extension* icon on the side tab (View > Extension also works). Search for Python, and install the appropriate extension.
+
+.pull-left[
+![extensions](imgs/extensions.png)
+  ]
+
+.pull-right[
+![extensions2](imgs/extensions2.png)
+  ]
 
 ---
-## Keeping Your Code Nice - Notebooks
+## Navigating VS Code
 
-There exists many ways in which to store your code. Most fo the time we are not writing scripts that are production level which we will reude. Instead you will be doing an analysis of a some data. 
+Now VS Code is all set up for python we want to mkae sure it using the right python i.e. the python we ave just installed.
 
-Notebooks give you a means to tie the code and the result of the code together into a single file. 
+Click on the search bar and type:
 
-There are several options for python. But Jupyter Notebook is best know. Quarto is growing in popularity as its universal and language agnostic. 
+```
+>Python: Select Interpreter
+```
+
+.pull-left[
+![extensions](imgs/select_interpreter.png)
+  ]
+
+.pull-right[
+![extensions2](imgs/select_interpreter2.png)
+  ]
 
 
+---
+## Open a python script
 
+We are now all set up. We will now create a python script. Just click *New File...* on the Welcome Page (or File > New File...), then choose python script. 
+
+In this scripting panel we have opened we often will type code, and build scripts. 
+
+---
+## Open a python console
+
+As we mentioned before we will be working with our Python interactively. This means we need a Python console to work with.
+
+We can manually open one up by Terminal > New Terminal.
+
+Once the Terminal is open, you can then just open Python, by typing *python* into the new terminal window. 
+
+There is is an easier shortcut to do this. Once you start developing code the easiest way to open it is to use the *Tab + Enter* shortcut. 
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
-# Data Types and Functions in Python
+# Varaibles and Functions in Python
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
@@ -272,7 +313,7 @@ if(params$isSlides == "yes"){
 "    
   )
 }else{
-  cat("# Data Types and Functions in Python
+  cat("# Variables and Functions in Python
       
 ---
 "    
@@ -298,7 +339,7 @@ At its simplest you can just use python as a fancy calculator:
 ---
 ## Functions
 
-To take things further there are many functions built-in to python. These are saved chun ks of code that will do a task based on the arguments you provide. You can tell there is a function when there is a string immediately followed by a set of parenthesis:
+To take things further there are many functions built-in to python. These are saved chunks of code that will do a task based on the arguments you provide. You can tell there is a function when there is a string immediately followed by a set of parenthesis:
 
 *myfunction()*
 
@@ -311,7 +352,7 @@ round(3.14159)
 ---
 ## Help with functions
 
-To get help with a function you can use the *help()* function. This will open up the help page for this function. Hopefully this will contain information about what arguments it are accepted and what is returned by the function. In this case we can see there is an additonal optional argument *ndigits*. This has a default value of **None**.
+To get help with a function you can use the *help()* function. This will open up the help page for this function. Hopefully this will contain information about what arguments it are accepted and what is returned by the function. In this case we can see there is an additional optional argument *ndigits*. This has a default value of **None**.
 
 ```{python}
 help(round)
@@ -382,7 +423,7 @@ round(number)
 ---
 ## Variables
 
-There are many kinds of variables. The most basic types are: *str*,*float* and *int*. You can always check what kind you have with the *type()* function.
+There are many kinds of variables. The most basic types are: *str*,*float*, *int* and *boolean*. You can always check what kind you have with the *type()* function.
 
 ```{python}
 greeting = 'Hello!'
@@ -398,14 +439,20 @@ type(number )
 newnumber = round(number)
 newnumber
 ```
+
 ```{python}
 type(newnumber)
+```
+
+```{python}
+boolean = True
+type(boolean)
 ```
 
 ---
 ## Variables Coercion
 
-We can manually set the type using: *str()*, *float()* and *int()*. 
+We can manually set the type using: *str()*, *float()*, *int()* and *bool()*. 
 
 ```{python}
 string_number = str(number)
@@ -421,6 +468,12 @@ float_string_number
 ```{python}
 int_float_string_number = int(float_string_number)
 int_float_string_number 
+
+```
+
+```{python}
+int_float_string_number_boolean = bool(float_string_number)
+int_float_string_number_boolean
 
 ```
 
@@ -467,7 +520,30 @@ newgreeting4 = 'Hi' * 5
 newgreeting4
 ```
 
+
 ---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Data Objects
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Data Objects
+
+---
+"    
+  )
+  
+}
+
+```
+
 ## Lists
 
 Python has many options for storing data. The simplest is a list. Lists are denoted with square brackets. 
@@ -532,14 +608,6 @@ my_strs[2:]
 ```
 
 
-```{python}
-my_strs[0] = 'z'
-```
-
-
-make an error on purpose
-
-
 ---
 ## Complex Lists
 
@@ -558,6 +626,8 @@ my_lists[2][1][0]
 
 ---
 ## Indexing Lists
+
+We can use the assignment we have been using this whole time to break open this nested list structure. 
 
 
 ```{python}
@@ -592,7 +662,7 @@ biglist
 ---
 ## Functions and lists
 
-There are many useful functions for working with lists. Many of these functions work directly on the list. This means you don't need to assign the result back to the object. The structure is VARIABLE.function(). Here we use the append function to extend our list.
+There are many useful functions for working with lists. Many of these functions work directly on the list. This means you don't need to assign the result back to the object. The structure is VARIABLE.function(). These are called attributes. Here we use the append function to extend our list.
 
 ```{python}
 my_strs.append('f')
@@ -629,6 +699,11 @@ my_strs
 del(my_strs[3])
 my_strs
 ```
+
+---
+## Functions and lists
+
+There are many useful functions built into the base version of python. 
 
 
 * .index() reveals which position in the list is the supplied argument
@@ -690,7 +765,7 @@ Most of the time the error messages are very clear. And if they are not a quick 
 ---
 ## Tuple/List coercion
 
-As with str/int/float you can easily convert a list to a tuple and vice versa. Simply use the *list()* and *tuple()* functions. 
+As with str/int/float/bool you can easily convert a list to a tuple and vice versa. Simply use the *list()* and *tuple()* functions. 
 
 ```{python}
 my_list = ['a','b','c','d','e']
@@ -718,11 +793,11 @@ type(my_list_tuple_list)
 ---
 ## Dictionaries
 
-Another data type are dictionaries. Dcionaries are made of key:value pairs. 
+Another data type are dictionaries. Dictionaries are made of key:value pairs. 
 
 A key is some kind of identifier, typically a short string. The value is a corresponding piece of data that is often more complex. 
 
-This structure allows the organiztion of your data, and you can gives you the ability to grab out values using the key.
+This structure allows the organization of your data, and you can gives you the ability to grab out values using the key.
   
 ---
 ## Dictionaries
@@ -740,6 +815,8 @@ my_dict
 ---
 ## Dictionaries
 
+There are attribute functions that we can use to access the keys and values from our dictionary. 
+
 ```{python}
 my_dict.keys()
 ```
@@ -750,10 +827,6 @@ my_dict.keys()
 my_dict.values()
 ```
 
-```{python}
-
-my_dict.items()
-```
 
 ---
 ## Dictionaries
@@ -914,9 +987,246 @@ myset1.difference(myset2)
 * A list allows duplicate elements and maintains their order
 * A set ensures element uniqueness without any guaranteed order
 
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# NumPy: A python library for arrays
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# NumPy: A python library for arrays
+      
+---
+"    
+  )
+  
+}
+
+```
+
+## NumPy
+
+Many of the data types we have looked at thus far are either one-dimensional, or get quite complex when built up into multidimensional data frames. These can become relatively slow and cumbersome to work with if you have large datasets. 
+
+NumPy is a Python library used for working with arrays, that are common in biological data. It is not included in the base distribution of Python so it has to be installed and loaded in separately. We installed NumPy earlier. Here we load it into our python session with *import*.
+
+```{python}
+import numpy
+```
+
+Often an alias is used when you import a library. Here we are importing NumPy *as* np.
+
+```{python}
+import numpy as np
+```
 
 
 ---
+## NumPy array
+
+Within our imported NumPy library we have many different functions. Here we will use the *array()* function to create an array. In this case we are essentially are creating a list (square brackets), than coercing it into an array. 
+
+```{python}
+arr = np.array([1, 2, 3, 4, 5])
+
+type(arr)
+```
+
+```{python}
+arr
+```
+
+---
+## Adding Dimensions
+
+It is possible to create many kinds of arrays, with differing dimensionality. They can be 1D,2D,3D etc. Typically we think about 2D arrays as this is often the rectangular data we deal with. 
+
+Here we again create a list to coerce into a array. This time we have a list of lists. Each list will become equivalent to a row in our array.
+
+
+```{python}
+
+arr = np.array([["Patient1","Patient2","Patient3"],[34, 29, 40], [True,False,True]])
+arr
+
+```
+
+We can find out the dimension attribute by using *ndim*. In this case we have rectangular data so it is two dimensions. 
+
+```{python}
+
+arr.ndim
+
+```
+
+---
+## Indexing Arrays
+
+We can use same square brackets we used for other data objects to index our arrays. The big difference is we now have 2 dimensions. We therefore need to provide 2 indexes, separated by a comma. 
+
+The first number will correspond to row. The second number will correspond to row.
+
+```{python}
+arr[0,2]
+```
+
+---
+## Slicing Arrays
+
+We can also do more complex indexing operations like slicing, to get ranges of values from our array.
+
+
+```{python}
+arr[:,2]
+
+```
+
+```{python}
+arr[0,1:3]
+
+```
+
+---
+## Data Types and arrays
+
+In most data objects we have looked as so far there are limited types of data: *str*,*float*, *int* and *boolean*. Arrays accept all of these. We can always check the type with the *dtype* attribute.
+
+```{python}
+
+arr = np.array([34, 29, 40])
+arr.dtype
+
+```
+
+```{python}
+
+arr = np.array([True,False,True])
+arr.dtype
+
+```
+
+---
+## Data Types and arrays
+
+When you create the array you can specify what type you want the data to be. This can coerce the input data ... within reason. 
+
+```{python}
+
+arr = np.array([34, 29, 40], dtype='S')
+
+arr
+
+```
+
+```{python, eval=F, echo=T}
+
+arr = np.array(['a', '2', '3'], dtype='i')
+
+```
+
+```{python, eval=T, echo=F}
+try:
+  arr = np.array(['a', '2', '3'], dtype='i')
+except Exception as e:
+  print(e)
+
+```
+
+---
+## Joining Arrays
+
+```{pyhton}
+arr1 = np.array([1, 2, 3])
+
+arr2 = np.array([4, 5, 6])
+
+arr = np.concatenate((arr1, arr2))
+
+```
+
+
+```{pyhton}
+import numpy as np
+
+arr1 = np.array([[1, 2], [3, 4]])
+
+arr2 = np.array([[5, 6], [7, 8]])
+
+arr = np.concatenate((arr1, arr2), axis=1)
+
+print(arr)
+```
+
+```{pyhton}
+
+arr1 = np.array([1, 2, 3])
+
+arr2 = np.array([4, 5, 6])
+
+arr = np.stack((arr1, arr2), axis=1)
+
+print(arr)\\h/vstack
+```
+
+
+---
+## Mathematical Functions
+
+NumPy is not just for arrays. Many mathematical functions are already included in base Python (we met round() earlier). When you import NumPy you gain access to a lot more. 
+
+Mathematical constants: 
+* pi - np.pi 
+
+Mathematical functions: 
+* Exponents and logs - np.exp(my_array), np.log(my_array)
+* Powers and roots - np.sqrt(my_array)
+* Trigonometery - np.sin(my_array) 
+* Element-wise operators - np.add(my_array1, my_array2)
+
+---
+## Which Data Objects?
+
+So which data objects do you use?
+
+As with most of programming there are often multiple ways to do things and often the optimal data object will be very context dependent. Most of the time you will be working with different Python libraries and functions, each with different preferences for the input/output data object. This will help define which object is appropriate for you. 
+
+Here is a rough guide:
+
+Lists - Great general hold all that is very flexible. 
+Tuples - If you want to create an immutable version of a list as some kind of reference.
+Sets - Similar to Tuples, but if you do not want any repeating values. 
+Dictionaries - If you have complex data i.e. different shape and size, and you will have some kind of key/lookup values
+Arrays - When you have rectangular data i.e. a table
+
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Custom Functions
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Custom Functions
+      
+---
+"    
+  )
+  
+}
+
+```
+
 ## Making functions
 
 Key parts:
@@ -944,8 +1254,6 @@ def myFirstFunction(num1, num2):
 myResult = myFirstFunction(num1=2, num2=3)
 myResult
 ```
-
-
 
 ---
 ## Returning multiple values
@@ -1061,6 +1369,7 @@ except Exception as e:
 
 ```
 
+---
 ## Variable scope in functions
 
 If a function makes changes to variables defined in the global environment they will not be updated in the global environment.
@@ -1114,6 +1423,7 @@ myFirstFunction(5,10)
 
 ??? exercise description here?? [here](../../exercises/exercises/MyExercise2_exercises.html)
 
+
 ---
 ## Answers to exercise
 
@@ -1121,5 +1431,19 @@ Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
 
 R code for solutions can be found [here](../../exercises/answers/MyExercise2_answers.R)
 
+
 --- 
 ## Further Support
+
+When you hit bugs:
+  * Google
+  * Stackoverflow
+  * Biostars
+  * Reach out on [GitHub](https://github.com/RockefellerUniversity/Intro_To_Python/issues)
+
+Other Reference Material:
+ * [Harvard's Python Course](https://cs50.harvard.edu/python/2022/)
+ * [Geeks For Geeks](https://www.geeksforgeeks.org/getting-started-with-python-programming/)
+
+
+

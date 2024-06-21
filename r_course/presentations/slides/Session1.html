@@ -93,7 +93,7 @@ Though R has long been the cornerstone of bioinformatics, python is growing in u
 
 Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e Scanpy. 
 
-![comparison](imgs/scanpy_vs_seurat.png, out.width="50%"}
+![comparison](imgs/scanpy_vs_seurat.png, out.width="50%")
 
 
 
@@ -191,7 +191,10 @@ We also want some specific Python packages. These mostly contain functions that 
 
 
 ``` sh
-conda install 
+conda install numpy
+conda install scipy
+conda install matplotlib
+conda install seaborn
 
 ```
 
@@ -235,7 +238,7 @@ There are several options for python. But Jupyter Notebook is best know. Quarto 
 ---
 class: inverse, center, middle
 
-# Data Types and Functions in Python
+# Varaibles and Functions in Python
 
 &lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
 
@@ -396,7 +399,7 @@ round(number)
 ---
 ## Variables
 
-There are many kinds of variables. The most basic types are: *str*,*float* and *int*. You can always check what kind you have with the *type()* function.
+There are many kinds of variables. The most basic types are: *str*,*float*, *int* and *boolean*. You can always check what kind you have with the *type()* function.
 
 
 ``` python
@@ -428,6 +431,7 @@ newnumber
 ## 3
 ```
 
+
 ``` python
 type(newnumber)
 ```
@@ -436,10 +440,20 @@ type(newnumber)
 ## &lt;class 'int'&gt;
 ```
 
+
+``` python
+boolean = True
+type(boolean)
+```
+
+```
+## &lt;class 'bool'&gt;
+```
+
 ---
 ## Variables Coercion
 
-We can manually set the type using: *str()*, *float()* and *int()*. 
+We can manually set the type using: *str()*, *float()*, *int()* and *bool()*. 
 
 
 ``` python
@@ -469,6 +483,16 @@ int_float_string_number
 
 ```
 ## 3
+```
+
+
+``` python
+int_float_string_number_boolean = bool(float_string_number)
+int_float_string_number_boolean
+```
+
+```
+## True
 ```
 
 ---
@@ -530,6 +554,16 @@ newgreeting4
 ```
 ## 'HiHiHiHiHi'
 ```
+
+
+---
+class: inverse, center, middle
+
+# Data Objects
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
 
 ---
 ## Lists
@@ -635,15 +669,6 @@ my_strs[2:]
 ```
 
 
-
-``` python
-my_strs[0] = 'z'
-```
-
-
-make an error on purpose
-
-
 ---
 ## Complex Lists
 
@@ -672,6 +697,8 @@ my_lists[2][1][0]
 
 ---
 ## Indexing Lists
+
+We can use the assignment we have been using this whole time to break open this nested list structure. 
 
 
 
@@ -720,7 +747,7 @@ biglist
 ```
 
 ```
-## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
+## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
 ```
 
 
@@ -731,7 +758,7 @@ biglist
 ```
 
 ```
-## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
+## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
 ```
 
 
@@ -741,13 +768,13 @@ biglist
 ```
 
 ```
-## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
+## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
 ```
 
 ---
 ## Functions and lists
 
-There are many useful functions for working with lists. Many of these functions work directly on the list. This means you don't need to assign the result back to the object. The structure is VARIABLE.function(). Here we use the append function to extend our list.
+There are many useful functions for working with lists. Many of these functions work directly on the list. This means you don't need to assign the result back to the object. The structure is VARIABLE.function(). These are called attributes. Here we use the append function to extend our list.
 
 
 ``` python
@@ -756,7 +783,7 @@ my_strs
 ```
 
 ```
-## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f']
+## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f']
 ```
 
 
@@ -766,7 +793,7 @@ my_strs
 ```
 
 ```
-## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
+## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
 ```
 
 ---
@@ -783,7 +810,7 @@ my_strs
 ```
 
 ```
-## ['z', 'b', 'c', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
+## ['a', 'b', 'c', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
 ```
 
 * remove() inserts an argument into a specfic postion in the list
@@ -795,7 +822,7 @@ my_strs
 ```
 
 ```
-## ['z', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
+## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
 ```
 
 * del() inserts an argument into a specfic postion in the list
@@ -807,8 +834,13 @@ my_strs
 ```
 
 ```
-## ['z', 'b', 'c', 'e', 1, 2, 3, 4, 5, 'f', 1]
+## ['a', 'b', 'c', 'e', 1, 2, 3, 4, 5, 'f', 1]
 ```
+
+---
+## Functions and lists
+
+There are many useful functions built into the base version of python. 
 
 
 * .index() reveals which position in the list is the supplied argument
@@ -896,7 +928,7 @@ Most of the time the error messages are very clear. And if they are not a quick 
 ---
 ## Tuple/List coercion
 
-As with str/int/float you can easily convert a list to a tuple and vice versa. Simply use the *list()* and *tuple()* functions. 
+As with str/int/float/bool you can easily convert a list to a tuple and vice versa. Simply use the *list()* and *tuple()* functions. 
 
 
 ``` python
@@ -948,11 +980,11 @@ type(my_list_tuple_list)
 ---
 ## Dictionaries
 
-Another data type are dictionaries. Dcionaries are made of key:value pairs. 
+Another data type are dictionaries. Dictionaries are made of key:value pairs. 
 
 A key is some kind of identifier, typically a short string. The value is a corresponding piece of data that is often more complex. 
 
-This structure allows the organiztion of your data, and you can gives you the ability to grab out values using the key.
+This structure allows the organization of your data, and you can gives you the ability to grab out values using the key.
   
 ---
 ## Dictionaries
@@ -975,6 +1007,8 @@ my_dict
 ---
 ## Dictionaries
 
+There are attribute functions that we can use to access the keys and values from our dictionary. 
+
 
 ``` python
 my_dict.keys()
@@ -994,14 +1028,6 @@ my_dict.values()
 ## dict_values([[1, 2, 3], (4, 5, 6), 'python', 'scRNAseq'])
 ```
 
-
-``` python
-my_dict.items()
-```
-
-```
-## dict_items([('my_list', [1, 2, 3]), ('my_tuple', (4, 5, 6)), ('language', 'python'), ('technique', 'scRNAseq')])
-```
 
 ---
 ## Dictionaries
@@ -1147,7 +1173,7 @@ myset
 ```
 
 ```
-## {'a', 'c', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ``` python
@@ -1156,7 +1182,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ---
@@ -1169,7 +1195,7 @@ myset
 ```
 
 ```
-## {'c', 'd', 'a', 'b'}
+## {'a', 'b', 'd', 'c'}
 ```
 
 
@@ -1179,7 +1205,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ---
@@ -1207,7 +1233,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ---
@@ -1242,7 +1268,238 @@ myset1.difference(myset2)
 * A list allows duplicate elements and maintains their order
 * A set ensures element uniqueness without any guaranteed order
 
+---
+class: inverse, center, middle
 
+# NumPy: A python library for arrays
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+## NumPy
+
+Many of the data types we have looked at thus far are either one-dimensional, or get quite complex when built up into multidimensional data frames. These can become relatively slow and cumbersome to work with if you have large datasets. 
+
+NumPy is a Python library used for working with arrays, that are common in biological data. It is not included in the base distribution of Python so it has to be installed and loaded in separately. We installed NumPy earlier. Here we load it into our python session with *import*.
+
+
+``` python
+import numpy
+```
+
+Often an alias is used when you import a library. Here we are importing NumPy *as* np.
+
+
+``` python
+import numpy as np
+```
+
+
+---
+## NumPy array
+
+Within our imported NumPy library we have many different functions. Here we will use the *array()* function to create an array. In this case we are essentially are creating a list (square brackets), than coercing it into an array. 
+
+
+``` python
+arr = np.array([1, 2, 3, 4, 5])
+
+type(arr)
+```
+
+```
+## &lt;class 'numpy.ndarray'&gt;
+```
+
+
+``` python
+arr
+```
+
+```
+## array([1, 2, 3, 4, 5])
+```
+
+---
+## Adding Dimensions
+
+It is possible to create many kinds of arrays, with differing dimensionality. They can be 1D,2D,3D etc. Typically we think about 2D arrays as this is often the rectangular data we deal with. 
+
+Here we again create a list to coerce into a array. This time we have a list of lists. Each list will become equivalent to a row in our array.
+
+
+
+``` python
+arr = np.array([["Patient1","Patient2","Patient3"],[34, 29, 40], [True,False,True]])
+arr
+```
+
+```
+## array([['Patient1', 'Patient2', 'Patient3'],
+##        ['34', '29', '40'],
+##        ['True', 'False', 'True']], dtype='&lt;U21')
+```
+
+We can find out the dimension attribute by using *ndim*. In this case we have rectangular data so it is two dimensions. 
+
+
+``` python
+arr.ndim
+```
+
+```
+## 2
+```
+
+---
+## Indexing Arrays
+
+We can use same square brackets we used for other data objects to index our arrays. The big difference is we now have 2 dimensions. We therefore need to provide 2 indexes, separated by a comma. 
+
+The first number will correspond to row. The second number will correspond to row.
+
+
+``` python
+arr[0,2]
+```
+
+```
+## np.str_('Patient3')
+```
+
+---
+## Slicing Arrays
+
+We can also do more complex indexing operations like slicing, to get ranges of values from our array.
+
+
+
+``` python
+arr[:,2]
+```
+
+```
+## array(['Patient3', '40', 'True'], dtype='&lt;U21')
+```
+
+
+``` python
+arr[0,1:3]
+```
+
+```
+## array(['Patient2', 'Patient3'], dtype='&lt;U21')
+```
+
+---
+## Data Types and arrays
+
+In most data objects we have looked as so far there are limited types of data: *str*,*float*, *int* and *boolean*. Arrays accept all of these. We can always check the type with the *dtype* attribute.
+
+
+``` python
+arr = np.array([34, 29, 40])
+arr.dtype
+```
+
+```
+## dtype('int64')
+```
+
+
+``` python
+arr = np.array([True,False,True])
+arr.dtype
+```
+
+```
+## dtype('bool')
+```
+
+---
+## Data Types and arrays
+
+When you create the array you can specify what type you want the data to be. This can coerce the input data ... within reason. 
+
+
+``` python
+arr = np.array([34, 29, 40], dtype='S')
+
+arr
+```
+
+```
+## array([b'34', b'29', b'40'], dtype='|S2')
+```
+
+
+``` python
+arr = np.array(['a', '2', '3'], dtype='i')
+```
+
+
+```
+## invalid literal for int() with base 10: 'a'
+```
+
+---
+## Joining Arrays
+
+
+``` pyhton
+arr1 = np.array([1, 2, 3])
+
+arr2 = np.array([4, 5, 6])
+
+arr = np.concatenate((arr1, arr2))
+
+```
+
+
+
+``` pyhton
+import numpy as np
+
+arr1 = np.array([[1, 2], [3, 4]])
+
+arr2 = np.array([[5, 6], [7, 8]])
+
+arr = np.concatenate((arr1, arr2), axis=1)
+
+print(arr)
+```
+
+
+``` pyhton
+
+arr1 = np.array([1, 2, 3])
+
+arr2 = np.array([4, 5, 6])
+
+arr = np.stack((arr1, arr2), axis=1)
+
+print(arr)\\h/vstack
+```
+
+
+---
+## other things
+
+pi, cos sine, exp etc
+
+stores lots of math variables 
+
+
+
+---
+class: inverse, center, middle
+
+# Custom Functions
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
 
 ---
 ## Making functions
@@ -1455,6 +1712,10 @@ R code for solutions can be found [here](../../exercises/answers/MyExercise2_ans
 
 --- 
 ## Further Support
+
+
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
