@@ -14,18 +14,6 @@ params:
   isSlides: "no"
 ---
 
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides != "yes"){
-  cat("# Introduction to Python
-
----
-"    
-  )
-  
-}
-
-```
-
 ##  Data Visualization with Python
 
 Today's goals:
@@ -46,6 +34,8 @@ In general, the recipe for creating a figure is as follows:
 4. Plot the data on the appropriate axis or axes using functions such as `plot()`, `scatter()`, `bar()`, etc..
 5. Customize your plot using the built-in options for the function you used to plot (found in documentation).
 6. Render your plot using `show()` and save or export it if you wish.
+
+---
 
 ![Data visualization workflow.](workflow.png)
 
@@ -71,17 +61,23 @@ import matplotlib.pyplot as plt
 
 In Python, the best way to make a figure is by using the [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) function to define a figure and set(s) of axes. The reason we use the `subplots()` function is that it makes it easy to add multiple plots/axes to a figure, which is commonly done in the visualization of scientific data. To define a figure, you can write
 
+```{python, eval = False}
+fig, ax = plt.subplots()
+```
+
+---
+
+## The First Plot
+
 ```{python}
 fig, ax = plt.subplots()
 ```
 
 ---
 
-## Figures, Plots, and Subplots
+## A Closer Look
 
-Let's take a closer look: 
-
-```
+```{python, eval = False}
 fig, ax = plt.subplots()
 ```
 
@@ -100,11 +96,25 @@ Let's visit the documentation and take a look at the options.
 - At the bottom of your code, type `plt.show()` to render your plot
 
 ```{python}
-fig, ax = plt.subplots(figsize=(2, 3))
+fig, ax = plt.subplots(figsize=(3, 2))
 plt.show()
 ```
 
 ---
+
+## Axis Limits
+
+- You can also set the limits of your axes
+
+```{python}
+fig, ax = plt.subplots(figsize=(3, 2))
+ax.set_xlim(-3, 4)
+ax.set_ylim(6, 10)
+plt.show()
+```
+
+---
+
 
 ## Multiple Subplots
 
@@ -115,7 +125,7 @@ Looking at the [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotl
 
 You can then define a corresponding axis for each subplot. Below is the code to generate two horizontally (`fig1`) and vertically (`fig2`) stacked subplots.
 
-```
+```{python, eval = False}
 fig1, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
 
 fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)
@@ -127,11 +137,17 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)
 
 Let's make a 2x2 grid of subplots. Note that we use nested brackets to specify the positions of each subplot within the figure.
 
-```{python}
+```{python, eval=False}
 fig, ((ax_nw, ax_ne), (ax_sw, ax_se)) = plt.subplots(nrows=2, ncols=2)
 
 plt.show()
 ```
+
+---
+
+## Arranging Subplots
+
+![](4x4grid.png)
 
 ---
 
@@ -148,10 +164,20 @@ plt.show()
 
 Now that we can make figures and axes, let's grab some data to plot. We are going to use some patient data that contains sex ('Male' or 'Female'), weight (kg) and height (cm). We will then have 3 arrays of data to work with.
 
-```{python}
+```{python, eval=False}
 import numpy as np
 sex, height, weight = np.genfromtxt('../data/height-weight.csv', unpack = True, delimiter = ",", skip_header=True, dtype=None, encoding='UTF-8')
+
 print(sex)
+print(height)
+```
+
+```{python, echo=False}
+import numpy as np
+sex, height, weight = np.genfromtxt('../data/height-weight.csv', unpack = True, delimiter = ",", skip_header=True, dtype=None, encoding='UTF-8')
+
+print(sex)
+print(height)
 ```
 
 ---
@@ -161,6 +187,18 @@ print(sex)
 Scatter plots are used for displaying discrete data points, where each point has a set of coordinates $(x,y)$. If you want to plot data points $(x_1, y_1), (x_2, y_2) ... (x_n, y_n)$ from lists $x = (x_1, x_2,...,x_n)$ and $y = (y_1, y_2,...,y_n)$, you can use the [`scatter()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html) function, applied to the axis you want to plot on.
 
 Let's create a plot of height vs weight using our patient data.
+
+```{python, eval=False}
+fig, ax = plt.subplots(figsize=(3, 3))
+
+ax.scatter(x=weight, y=height)
+
+plt.show()
+```
+
+---
+
+## Scatter Plots
 
 ```{python}
 fig, ax = plt.subplots(figsize=(3, 3))
@@ -172,15 +210,19 @@ plt.show()
 
 ---
 
-## A Note on Error Bars
+## Error Bars
 
-Confusingly, matplotlib has a separate function to create a scatter plot with error bars. To do so, you can use the  [`errorbar()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html) function. This takes the usual `x` and `y` arguments for coordinates, as well as additional `xerr` and `yerr` arguments for the error bar values. It also contains similar options to `scatter()` for customizing the data points and error bars.
+Confusingly, matplotlib has a separate function to create a scatter plot with error bars. To do so, you can use the  [`errorbar()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html) function. 
+
+This takes the usual `x` and `y` arguments for coordinates, as well as additional `xerr` and `yerr` arguments for the error bar values. 
+
+It also contains similar options to `scatter()` for customizing the data points and error bars.
 
 ---
 
 ## Customizing Scatter Plots
 
-Take a look at the options in the [`scatter()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html) documentation. Soem common parameters you could use to customize your scatter plot are:
+Take a look at the options in the [`scatter()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html) documentation. Some common parameters you could use to customize your scatter plot are:
 
 - `s`: marker size in points ^2 (don't ask why...). 
 - `color (c)`: marker color. Enter a string that could include a named color, RBG code, or hex color code. Find a full guide to specifying colors [here](https://matplotlib.org/stable/users/explain/colors/colors.html#colors-def).
@@ -197,6 +239,10 @@ Python has a number of named colors. You can also specify hex or RGB color codes
 
 ![Matplotlib named colors](named_colors.png)
 
+---
+
+## Customize Your Plot
+
 Using these colors and the list of parameters below, take a second to customize your plot of weight vs height.
 
 - `s`: marker size in points ^2 (don't ask why...). 
@@ -208,7 +254,7 @@ Using these colors and the list of parameters below, take a second to customize 
 
 ---
 
-## Custom Plot
+## Customized Plot
 
 ```{python}
 fig, ax = plt.subplots(figsize=(3, 3))
@@ -224,7 +270,7 @@ plt.show()
 
 Let's add a title and some axis labels to our plot. To do this, we can use the following functions:
 
-```
+```{python, eval=False}
 ax.set_title("My Title")
 ax.set_xlabel("X Data Label")
 ax.set_ylabel("Y Data Label")
@@ -273,11 +319,33 @@ for i in range(len(sex)):
 
 ## Scatter Plot of Sex-Separated Data
 
-```{python}
+Now we are going to generate a 2x1 subplot and create some visualizations for this modified data.
+
+```{python, eval=False}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
-# Plot data
+# Plot data on ax1
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
+
+ax1.set_title("Height vs Weight")
+ax1.set_xlabel("Weight (kg)")
+ax1.set_ylabel("Height (cm)")
+
+plt.show()
+
+```
+
+---
+
+## Resulting Plot
+
+```{python, echo=False}
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+
+# Plot data on ax1
 ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
 ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
 
@@ -299,7 +367,11 @@ $y(x) = mx+b$,
 
 where $m$ is the slope and $b$ is the intercept. Today we will be using [`curve_fit()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html) from the `scipy.optimize` package to generate a best fit line for the Male and Female height vs weight data. 
 
-`curve_fit()` takes as input:
+---
+
+## curve_fit
+
+`curve_fit()` takes as inputs:
 
 - `f`: A function $f(x, m, b)$ (which we will define to be a line, but can be any single-variable function with an arbitrary number of fit parameters) 
 - `xdata` and `ydata`, the data points we are fitting to (weight and height arrays)
@@ -348,7 +420,13 @@ Let's use `plot()` to add a line of best fit to out weight vs height data for bo
 
 Now that we have the slopes and intercepts of each line of best fit, we can use [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) to plot them on our axes (`ax1`). `plot()` behaves exactly like scatter, in the sense that it accepts a list of x values and a list of y values. However, it will just plot these coordinates and connect them with a straight line. 
 
-First, we need to make our list of x coordinates. Let's make a list using the `np.linspace()` function. `np.linspace()` takes 3 arguments: `start`, `stop`, and `num`, and returns a list that begins at `start` and ends at `stop` with `num` evenly-spaced points.
+---
+
+## X Coordinates
+
+First, we need to make our list of x coordinates. Let's make a list using the `np.linspace()` function. 
+
+`np.linspace()` takes 3 arguments: `start`, `stop`, and `num`, and returns a list that begins at `start` and ends at `stop` with `num` evenly-spaced points.
 
 Let's define our x values:
 
@@ -359,22 +437,48 @@ print(x)
 
 ---
 
-### Plotting the Lines 2
+## Y Coordinates
 
 Now that we have our x values, we can plug them into the linear function we have defined, `line(x, m, b)`, including the values for the fit parameters we found using `curve_fit()`. Let's define our y values to plot in the following way:
 
 ```{python}
 y_m = line(x, m_m, b_m)
 y_f = line(x, m_f, b_f)
+print(y_f)
 ```
 
 ---
 
-## Plotting the Lines 3
+## Plotting the Lines 
 
 Finally, we can put it all together. Take the code we have created for our 1x2 subplot and add in the lines of best fit on `ax1`.
 
-```{python}
+```{python, eval=False}
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+
+# Plot data
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
+
+
+ax1.plot(x, y_m, c = 'royalblue')
+ax1.plot(x, y_f, c = 'magenta')
+
+ax1.set_title("Height vs Weight")
+
+ax1.set_xlabel("Weight (kg)")
+
+ax1.set_ylabel("Height (cm)")
+
+plt.show()
+```
+
+---
+
+## Plotting the Lines
+
+```{python, echo=False}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -399,9 +503,43 @@ plt.show()
 
 ## Adding a Legend
 
-Finally, we would like to add a legend to this plot now that it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. By adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function, we will automatically generate a legend. You  can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today.
+Finally, we would like to add a legend to this plot now that it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. 
 
-```{python}
+By adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function, we will automatically generate a legend. 
+
+You  can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today.
+
+---
+
+## Adding a Legend
+
+```{python, eval=False}
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+
+# Plot data
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's', label = 'Male')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o', label = 'Female')
+
+ax1.plot(x, y_m, c = 'royalblue')
+ax1.plot(x, y_f, c = 'magenta')
+
+ax1.set_title("Height vs Weight")
+
+ax1.set_xlabel("Weight (kg)")
+
+ax1.set_ylabel("Height (cm)")
+
+ax1.legend()
+
+plt.show()
+```
+
+---
+
+## Adding a Legend
+
+```{python, echo=False}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -427,9 +565,46 @@ plt.show()
 
 ## Histograms 
 
-Another common plot type is a histogram. We are going to put a histogram of height distributions by sex in the blank subplot. We will do this using the [`plt.hist()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html) function. At a minimum, `hist()` takes the data points you wish to plot as an argument. You may also specify the `bins` argument as an integer (the default is 10). Let's take our previous plot and add histograms for the male and female height distributions, each with 5 bins.
+Another common plot type is a histogram. We are going to put a histogram of height distributions by sex in the blank subplot. We will do this using the [`plt.hist()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html) function. 
 
-```{python}
+At a minimum, `hist()` takes the data points you wish to plot as an argument. You may also specify the `bins` argument as an integer (the default is 10). 
+
+Let's take our previous plot and add histograms for the male and female height distributions to `ax2`, each with 5 bins.
+
+---
+
+## Plotting Histograms
+
+```{python, eval=False}
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+
+# Plot data
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's', label = 'Male')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o', label = 'Female')
+
+ax1.plot(x, y_m, c = 'royalblue')
+ax1.plot(x, y_f, c = 'magenta')
+
+ax1.set_title("Height vs Weight")
+
+ax1.set_xlabel("Weight (kg)")
+
+ax1.set_ylabel("Height (cm)")
+
+ax1.legend()
+
+ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5)
+ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5)
+
+plt.show()
+```
+
+---
+
+## Plotting Histograms
+
+```{python, echo=False}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -460,7 +635,42 @@ plt.show()
 
 Finally, let's add a legend, axis labels, and title to the histogram.
 
-```{python}
+```{python, eval = False}
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+
+# Plot data
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's', label = 'Male')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o', label = 'Female')
+
+ax1.plot(x, y_m, c = 'royalblue')
+ax1.plot(x, y_f, c = 'magenta')
+
+ax1.set_title("Height vs Weight")
+
+ax1.set_xlabel("Weight (kg)")
+
+ax1.set_ylabel("Height (cm)")
+
+ax1.legend()
+
+ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5, label = 'Male')
+ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5, label = 'Female')
+
+ax2.set_ylabel('Count')
+ax2.set_xlabel('Height (cm)')
+ax2.legend()
+
+ax2.set_title('Height Distributions by Sex')
+
+plt.show()
+```
+
+---
+
+## Finishing Touches
+
+```{python, echo = False}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -495,7 +705,11 @@ plt.show()
 
 ## Seaborn
 
-`matplotlib.pyplot` is the bread and butter of data visualization in Python, and allows you near-arbitrary degrees of customization for your plots. However, the [`seaborn`](https://seaborn.pydata.org/) library was developed using `matplotlib` to make nice-looking plots with less code. We are going to use it to make a violin plot, because that is something that `matplotlib.pyplot` does not do a nice job of. 
+`matplotlib.pyplot` is the bread and butter of data visualization in Python, and allows you near-arbitrary degrees of customization for your plots. 
+
+However, the [`seaborn`](https://seaborn.pydata.org/) library was developed using `matplotlib` to make nice-looking plots with less code. Note: Seaborn plays especially nicely with Pandas! 
+
+We are going to use it to make a violin plot, because that is something that `matplotlib.pyplot` does not do a nice job of. 
 
 ---
 
@@ -503,12 +717,29 @@ plt.show()
 
 We are going to make a violin plot of our patient weight distributions by sex. To do this, we will use the [`violinplot()`](https://seaborn.pydata.org/generated/seaborn.violinplot.html) function from the `seaborn` library.
 
-```{python}
+```{python, eval=False}
 import seaborn as sns
 
 fig, ax = plt.subplots(figsize = (4, 4))
 
 sns.violinplot(weight_m, ax = ax)
+
+plt.show()
+
+```
+
+---
+
+## Violin Plots
+
+```{python, echo=False}
+import seaborn as sns
+
+fig, ax = plt.subplots(figsize = (4, 4))
+
+sns.violinplot(weight_m, ax = ax)
+
+plt.show()
 
 ```
 
@@ -518,7 +749,24 @@ sns.violinplot(weight_m, ax = ax)
 
 Let's add the other dataset and make it nicer.
 
-```{python}
+```{python, eval=False}
+fig, ax = plt.subplots(figsize = (4, 4))
+
+sns.violinplot(weight_m, ax = ax, color = 'royalblue', alpha = 0.5, linewidth=0, label = "Male")
+sns.violinplot(weight_f, ax = ax, color = 'magenta', alpha = 0.5, linewidth=0, label = "Female")
+
+ax.set_ylabel('Weight (kg)')
+ax.set_title("Weight Distribution by Sex")
+ax.legend()
+
+plt.show()
+```
+
+---
+
+## Make it Nice
+
+```{python, echo=False}
 fig, ax = plt.subplots(figsize = (4, 4))
 
 sns.violinplot(weight_m, ax = ax, color = 'royalblue', alpha = 0.5, linewidth=0, label = "Male")
@@ -546,17 +794,21 @@ fig.savefig("my_violin_plot.pdf", bbox_inches = "tight")
 
 ## Colormaps
 
-Rather than using a single color to plot your data, you may want to use a colormap. This is particularly true for things like heatmaps, or when you are displaying an image. To do this, you can use existing [colormaps](https://matplotlib.org/stable/gallery/color/colormap_reference.html) within `matplotlib`, or [create your own](https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation).
+Rather than using a single color to plot your data, you may want to use a colormap. This is particularly true for things like heatmaps, or when you are displaying an image. 
+
+To do this, you can use existing [colormaps](https://matplotlib.org/stable/gallery/color/colormap_reference.html) within `matplotlib`, or [create your own](https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation).
 
 ---
 
 ## Choosing a Colormap
 
-Sometimes you might need to visualize data with a [colormap](https://matplotlib.org/stable/users/explain/colors/colormaps.html). In this case, it's important to choose one that is visually faithful to the scale, translated well to greyscale (printing), and that is accessible to those with common forms of color blindness. It turns out that people have thought about this problem *a lot* and have come up with some color maps that do a great job at maximizing these properties. 
+It's important to choose a [colormap](https://matplotlib.org/stable/users/explain/colors/colormaps.html) that is:
 
-It's also important to note that some color schemes that may seem natural to use (especially rainbow/jet) actually tend to skew our perceptions of the data values and therefore are not recommended. 
-
-![Mona Lisa in original, jet, and viridis.](monalisa.png)
+- Visually faithful to the scale
+- Translates well to greyscale (printing)
+- Is accessible to those with common forms of color blindness. 
+  
+It turns out that people have thought about this problem *a lot* and have come up with some color maps that do a great job at maximizing these properties. 
 
 ---
 
@@ -568,27 +820,51 @@ My personal favourite is called *viridis* (watch the launch video [here](https:/
 
 ---
 
+## We Hate Jet!
+
+Some color schemes that may seem natural to use (especially rainbow/jet) actually tend to skew our perceptions of the data values and therefore are not recommended. 
+
+![Mona Lisa in original, jet, and viridis.](monalisa.png)
+
+---
+
 ## Colors and Accessibility in Other Plots
 
-When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white translation (for example, if people print in black and white) in mind. Using different dashes in lines and shapes in markers is also a good way to do this!
+When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white conversion in mind. Using different dashes in lines and shapes in markers is also a good way to do this!
+
 ![Accessibility matters for all types of data visualization!](scatter_accessible.png)
 
 ---
 
-## Color Maps in Seaborn
+## Colormaps in Seaborn
 
 Let's use the [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html) function from Seaborn to generate a plot of the time progression of three genes.
 
-```{python}
+```{python, eval=False}
 fig, ax = plt.subplots(figsize = (5,4))
 
-g1 = [0.2, 0.5, 0.7]
-g2 = [0.4, 0.3, 0.4]
-g3 = [0.0, 0.1, 0.2]
-g4 = [0.9, 0.6, 0.4]
-g5 = [0.5, 0.6, 0.5]
+data = np.genfromtxt('../data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
 
-data = [g1, g2, g3, g4, g5]
+print(data)
+
+sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
+
+ax.set_xlabel("Time")
+ax.set_ylabel("Gene")
+ax.set_title("Gene Progression")
+
+plt.show()
+
+```
+
+---
+
+## Heatmap Plot
+
+```{python, echo=False}
+fig, ax = plt.subplots(figsize = (5,4))
+
+data = np.genfromtxt('../data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
 
 print(data)
 
@@ -608,7 +884,7 @@ plt.show()
 
 Let's make a scatter plot with weight vs height again, but make the color of the points defined by the ratio of weight to height.
 
-```{python}
+```{python, eval=False}
 # Generate figure and axes
 fig, ax = plt.subplots(figsize=(6, 4))
 ratio = weight/height
@@ -624,25 +900,29 @@ plt.show()
 
 ---
 
-## Plotting with Functions
+## Scatter Plot with Colormap
 
-We have learned how to write many lines of code to generate and customize a single figure. This is nice, but we want to be practical. In fact, you can put all of your plotting code inside a function that will allow you to automate the production of figures within your workflows. Let's write a function called `plot_data()` that can recreate the previous plot and accepts `weight`, `height` and `filename` as its arguments.
+```{python, echo=False}
+# Generate figure and axes
+fig, ax = plt.subplots(figsize=(6, 4))
+ratio = weight/height
+im = ax.scatter(weight, height, c=ratio, cmap='viridis')
+fig.colorbar(im, ax=ax)
 
-This way, you can call this function with different datasets and it will return a consistently-formatted plot for each.
+ax.set_xlabel("Weight (kg)")
+ax.set_ylabel("Height (cm)")
+ax.set_title("Weight vs Height")
 
-```{python}
-def plot_data(weight, height, filename):
-  fig, ax = plt.subplots(figsize=(6, 4))
-  ratio = weight/height
-  im = ax.scatter(weight, height, c=ratio, cmap='viridis')
-  fig.colorbar(im, ax=ax)
-
-  ax.set_xlabel("Weight (kg)")
-  ax.set_ylabel("Height (cm)")
-  ax.set_title("Weight vs Height")
-  
-  fig.tight_layout()
-  fig.savefig(filename + ".pdf", bbox_inches = "tight")
+plt.show()
 ```
+
+---
+
+## Data Visualization Resources
+
+- [Matplotlib Cheatsheets and Handouts](https://matplotlib.org/cheatsheets/)
+- Matplotlib [Tutorials](https://matplotlib.org/stable/tutorials/index.html) and [User Guide](https://matplotlib.org/stable/users/index.html)
+- [Fundamentals of Data Visualization by Claus O. Wilke](https://clauswilke.com/dataviz/)  
+
 
 ---

@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Rockefeller University, Markus Library (Claire Warner)">
-<meta name="dcterms.date" content="2024-06-07">
 
 <title>Introduction to Python, Session 3: Data Visualization    </title>
 <style>
@@ -104,7 +103,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 7, 2024</p>
+      <p class="date">Invalid Date</p>
     </div>
   </div>
   
@@ -135,6 +134,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Customize your plot using the built-in options for the function you used to plot (found in documentation).</li>
 <li>Render your plot using <code>show()</code> and save or export it if you wish.</li>
 </ol>
+<hr>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="workflow.png" class="img-fluid figure-img"></p>
@@ -167,10 +167,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <hr>
 </section>
-<section id="figures-plots-and-subplots-1" class="level2">
-<h2 class="anchored" data-anchor-id="figures-plots-and-subplots-1">Figures, Plots, and Subplots</h2>
-<p>Let’s take a closer look:</p>
-<pre><code>fig, ax = plt.subplots()</code></pre>
+<section id="the-first-plot" class="level2">
+<h2 class="anchored" data-anchor-id="the-first-plot">The First Plot</h2>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-4-output-1.png" width="581" height="416"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="a-closer-look" class="level2">
+<h2 class="anchored" data-anchor-id="a-closer-look">A Closer Look</h2>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-5-output-1.png" width="581" height="416"></p>
+</div>
+</div>
 <ul>
 <li><code>fig</code> is your figure (think: shape and size of your plot)</li>
 <li><code>ax</code> is your set of axes where you will plot your data and customize how the plot looks</li>
@@ -187,11 +201,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>You can specify the size of the figure using the <code>figsize=([width], [height])</code> option (dimensions will be in inches)</li>
 <li>At the bottom of your code, type <code>plt.show()</code> to render your plot</li>
 </ul>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-4-output-1.png" width="209" height="268"></p>
+<p><img src="Session3_files/figure-html/cell-6-output-1.png" width="283" height="194"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="axis-limits" class="level2">
+<h2 class="anchored" data-anchor-id="axis-limits">Axis Limits</h2>
+<ul>
+<li>You can also set the limits of your axes</li>
+</ul>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ax.set_xlim(<span class="op">-</span><span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylim(<span class="dv">6</span>, <span class="dv">10</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-7-output-1.png" width="273" height="194"></p>
 </div>
 </div>
 <hr>
@@ -204,22 +234,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>nrows</code> for the number of rows</li>
 </ul>
 <p>You can then define a corresponding axis for each subplot. Below is the code to generate two horizontally (<code>fig1</code>) and vertically (<code>fig2</code>) stacked subplots.</p>
-<pre><code>fig1, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
-
-fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)</code></pre>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig1, (ax1, ax2) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>fig2, (ax3, ax4) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-8-output-1.png" width="581" height="416"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-8-output-2.png" width="581" height="416"></p>
+</div>
+</div>
 <hr>
 </section>
 <section id="example-with-4-subplots" class="level2">
 <h2 class="anchored" data-anchor-id="example-with-4-subplots">Example with 4 Subplots</h2>
 <p>Let’s make a 2x2 grid of subplots. Note that we use nested brackets to specify the positions of each subplot within the figure.</p>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fig, ((ax_nw, ax_ne), (ax_sw, ax_se)) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, ((ax_nw, ax_ne), (ax_sw, ax_se)) <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">2</span>, ncols<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-5-output-1.png" width="581" height="416"></p>
+<p><img src="Session3_files/figure-html/cell-9-output-1.png" width="581" height="416"></p>
 </div>
 </div>
+<hr>
+</section>
+<section id="arranging-subplots" class="level2">
+<h2 class="anchored" data-anchor-id="arranging-subplots">Arranging Subplots</h2>
+<p><img src="4x4grid.png" class="img-fluid"></p>
 <hr>
 </section>
 <section id="advanced-subplot-options" class="level2">
@@ -237,10 +280,12 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)</code></pre>
 <section id="importing-data" class="level2">
 <h2 class="anchored" data-anchor-id="importing-data">Importing Data</h2>
 <p>Now that we can make figures and axes, let’s grab some data to plot. We are going to use some patient data that contains sex (‘Male’ or ‘Female’), weight (kg) and height (cm). We will then have 3 arrays of data to work with.</p>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sex, height, weight <span class="op">=</span> np.genfromtxt(<span class="st">'../data/height-weight.csv'</span>, unpack <span class="op">=</span> <span class="va">True</span>, delimiter <span class="op">=</span> <span class="st">","</span>, skip_header<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="va">None</span>, encoding<span class="op">=</span><span class="st">'UTF-8'</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sex, height, weight <span class="op">=</span> np.genfromtxt(<span class="st">'../data/height-weight.csv'</span>, unpack <span class="op">=</span> <span class="va">True</span>, delimiter <span class="op">=</span> <span class="st">","</span>, skip_header<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="va">None</span>, encoding<span class="op">=</span><span class="st">'UTF-8'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sex)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>['Male' 'Male' 'Male' 'Male' 'Female' 'Female' 'Female' 'Female' 'Male'
  'Male' 'Female' 'Female' 'Male' 'Female' 'Female' 'Male' 'Male' 'Male'
@@ -253,7 +298,48 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)</code></pre>
  'Female' 'Female' 'Male' 'Male' 'Female' 'Male' 'Female' 'Male' 'Male'
  'Female' 'Female' 'Female' 'Female' 'Male' 'Female' 'Female' 'Female'
  'Female' 'Male' 'Female' 'Male' 'Male' 'Male' 'Female' 'Male' 'Female'
- 'Female' 'Female' 'Female' 'Female' 'Female']</code></pre>
+ 'Female' 'Female' 'Female' 'Female' 'Female']
+[182.87 179.12 169.15 175.66 164.47 158.27 161.69 165.84 181.32 167.37
+ 160.06 166.48 175.39 164.7  163.79 181.13 169.24 176.22 174.09 180.11
+ 179.24 161.92 169.85 160.57 168.24 177.75 183.21 167.75 181.15 181.56
+ 160.03 165.62 181.64 159.67 177.03 163.35 175.21 160.8  166.46 157.95
+ 180.61 159.52 163.01 165.8  170.03 157.16 164.58 163.47 185.43 165.34
+ 163.45 163.97 161.38 160.09 178.64 159.78 161.57 161.83 169.66 166.84
+ 159.32 170.51 161.84 171.41 166.75 166.19 169.16 157.01 167.51 160.47
+ 162.33 175.67 174.25 158.94 172.72 159.23 176.54 184.34 163.94 160.09
+ 162.32 162.59 171.94 158.07 158.35 162.18 159.38 171.45 163.17 183.1
+ 177.14 171.08 159.33 185.43 162.65 159.44 164.11 159.13 160.58 164.88]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sex, height, weight <span class="op">=</span> np.genfromtxt(<span class="st">'../data/height-weight.csv'</span>, unpack <span class="op">=</span> <span class="va">True</span>, delimiter <span class="op">=</span> <span class="st">","</span>, skip_header<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="va">None</span>, encoding<span class="op">=</span><span class="st">'UTF-8'</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sex)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['Male' 'Male' 'Male' 'Male' 'Female' 'Female' 'Female' 'Female' 'Male'
+ 'Male' 'Female' 'Female' 'Male' 'Female' 'Female' 'Male' 'Male' 'Male'
+ 'Male' 'Male' 'Male' 'Female' 'Male' 'Female' 'Female' 'Male' 'Male'
+ 'Male' 'Male' 'Male' 'Female' 'Male' 'Male' 'Female' 'Male' 'Female'
+ 'Male' 'Female' 'Male' 'Female' 'Male' 'Female' 'Female' 'Female'
+ 'Female' 'Female' 'Female' 'Female' 'Male' 'Female' 'Female' 'Female'
+ 'Female' 'Female' 'Male' 'Female' 'Female' 'Female' 'Male' 'Male'
+ 'Female' 'Male' 'Female' 'Male' 'Male' 'Female' 'Male' 'Female' 'Male'
+ 'Female' 'Female' 'Male' 'Male' 'Female' 'Male' 'Female' 'Male' 'Male'
+ 'Female' 'Female' 'Female' 'Female' 'Male' 'Female' 'Female' 'Female'
+ 'Female' 'Male' 'Female' 'Male' 'Male' 'Male' 'Female' 'Male' 'Female'
+ 'Female' 'Female' 'Female' 'Female' 'Female']
+[182.87 179.12 169.15 175.66 164.47 158.27 161.69 165.84 181.32 167.37
+ 160.06 166.48 175.39 164.7  163.79 181.13 169.24 176.22 174.09 180.11
+ 179.24 161.92 169.85 160.57 168.24 177.75 183.21 167.75 181.15 181.56
+ 160.03 165.62 181.64 159.67 177.03 163.35 175.21 160.8  166.46 157.95
+ 180.61 159.52 163.01 165.8  170.03 157.16 164.58 163.47 185.43 165.34
+ 163.45 163.97 161.38 160.09 178.64 159.78 161.57 161.83 169.66 166.84
+ 159.32 170.51 161.84 171.41 166.75 166.19 169.16 157.01 167.51 160.47
+ 162.33 175.67 174.25 158.94 172.72 159.23 176.54 184.34 163.94 160.09
+ 162.32 162.59 171.94 158.07 158.35 162.18 159.38 171.45 163.17 183.1
+ 177.14 171.08 159.33 185.43 162.65 159.44 164.11 159.13 160.58 164.88]</code></pre>
 </div>
 </div>
 <hr>
@@ -262,26 +348,42 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)</code></pre>
 <h2 class="anchored" data-anchor-id="scatter-plots">Scatter Plots</h2>
 <p>Scatter plots are used for displaying discrete data points, where each point has a set of coordinates <span class="math inline">\((x,y)\)</span>. If you want to plot data points <span class="math inline">\((x_1, y_1), (x_2, y_2) ... (x_n, y_n)\)</span> from lists <span class="math inline">\(x = (x_1, x_2,...,x_n)\)</span> and <span class="math inline">\(y = (y_1, y_2,...,y_n)\)</span>, you can use the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html"><code>scatter()</code></a> function, applied to the axis you want to plot on.</p>
 <p>Let’s create a plot of height vs weight using our patient data.</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(x<span class="op">=</span>weight, y<span class="op">=</span>height)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(x<span class="op">=</span>weight, y<span class="op">=</span>height)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-7-output-1.png" width="277" height="263"></p>
+<p><img src="Session3_files/figure-html/cell-12-output-1.png" width="277" height="263"></p>
 </div>
 </div>
 <hr>
 </section>
-<section id="a-note-on-error-bars" class="level2">
-<h2 class="anchored" data-anchor-id="a-note-on-error-bars">A Note on Error Bars</h2>
-<p>Confusingly, matplotlib has a separate function to create a scatter plot with error bars. To do so, you can use the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html"><code>errorbar()</code></a> function. This takes the usual <code>x</code> and <code>y</code> arguments for coordinates, as well as additional <code>xerr</code> and <code>yerr</code> arguments for the error bar values. It also contains similar options to <code>scatter()</code> for customizing the data points and error bars.</p>
+<section id="scatter-plots-1" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plots-1">Scatter Plots</h2>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(x<span class="op">=</span>weight, y<span class="op">=</span>height)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-13-output-1.png" width="277" height="263"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="error-bars" class="level2">
+<h2 class="anchored" data-anchor-id="error-bars">Error Bars</h2>
+<p>Confusingly, matplotlib has a separate function to create a scatter plot with error bars. To do so, you can use the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html"><code>errorbar()</code></a> function.</p>
+<p>This takes the usual <code>x</code> and <code>y</code> arguments for coordinates, as well as additional <code>xerr</code> and <code>yerr</code> arguments for the error bar values.</p>
+<p>It also contains similar options to <code>scatter()</code> for customizing the data points and error bars.</p>
 <hr>
 </section>
 <section id="customizing-scatter-plots" class="level2">
 <h2 class="anchored" data-anchor-id="customizing-scatter-plots">Customizing Scatter Plots</h2>
-<p>Take a look at the options in the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html"><code>scatter()</code></a> documentation. Soem common parameters you could use to customize your scatter plot are:</p>
+<p>Take a look at the options in the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html"><code>scatter()</code></a> documentation. Some common parameters you could use to customize your scatter plot are:</p>
 <ul>
 <li><code>s</code>: marker size in points ^2 (don’t ask why…).</li>
 <li><code>color (c)</code>: marker color. Enter a string that could include a named color, RBG code, or hex color code. Find a full guide to specifying colors <a href="https://matplotlib.org/stable/users/explain/colors/colors.html#colors-def">here</a>.</li>
@@ -301,6 +403,10 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)</code></pre>
 <figcaption class="figure-caption">Matplotlib named colors</figcaption>
 </figure>
 </div>
+<hr>
+</section>
+<section id="customize-your-plot" class="level2">
+<h2 class="anchored" data-anchor-id="customize-your-plot">Customize Your Plot</h2>
 <p>Using these colors and the list of parameters below, take a second to customize your plot of weight vs height.</p>
 <ul>
 <li><code>s</code>: marker size in points ^2 (don’t ask why…).</li>
@@ -312,16 +418,16 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)</code></pre>
 </ul>
 <hr>
 </section>
-<section id="custom-plot" class="level2">
-<h2 class="anchored" data-anchor-id="custom-plot">Custom Plot</h2>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(weight, height, s<span class="op">=</span><span class="dv">49</span>, color<span class="op">=</span><span class="st">"lavender"</span>, marker<span class="op">=</span><span class="st">"d"</span>, linewidths<span class="op">=</span><span class="dv">1</span>, edgecolors<span class="op">=</span><span class="st">"mediumpurple"</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="customized-plot" class="level2">
+<h2 class="anchored" data-anchor-id="customized-plot">Customized Plot</h2>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(weight, height, s<span class="op">=</span><span class="dv">49</span>, color<span class="op">=</span><span class="st">"lavender"</span>, marker<span class="op">=</span><span class="st">"d"</span>, linewidths<span class="op">=</span><span class="dv">1</span>, edgecolors<span class="op">=</span><span class="st">"mediumpurple"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-8-output-1.png" width="277" height="263"></p>
+<p><img src="Session3_files/figure-html/cell-14-output-1.png" width="277" height="263"></p>
 </div>
 </div>
 <hr>
@@ -329,26 +435,31 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)</code></pre>
 <section id="titles-and-axis-labels" class="level2">
 <h2 class="anchored" data-anchor-id="titles-and-axis-labels">Titles and Axis Labels</h2>
 <p>Let’s add a title and some axis labels to our plot. To do this, we can use the following functions:</p>
-<pre><code>ax.set_title("My Title")
-ax.set_xlabel("X Data Label")
-ax.set_ylabel("Y Data Label")</code></pre>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"My Title"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"X Data Label"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Y Data Label"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>Text(8.533333333333337, 0.5, 'Y Data Label')</code></pre>
+</div>
+</div>
 <p>Be sure to add all of this code before the <code>plt.show()</code> line, which renders the plot. Anything after <code>show()</code> will not be applied to the figure you see.</p>
 <hr>
 </section>
 <section id="add-your-labels" class="level2">
 <h2 class="anchored" data-anchor-id="add-your-labels">Add Your Labels</h2>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(weight, height, s<span class="op">=</span><span class="dv">49</span>, color<span class="op">=</span><span class="st">"lavender"</span>, marker<span class="op">=</span><span class="st">"d"</span>, linewidths<span class="op">=</span><span class="dv">1</span>, edgecolors<span class="op">=</span><span class="st">"mediumpurple"</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Height vs Weight"</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>ax.scatter(weight, height, s<span class="op">=</span><span class="dv">49</span>, color<span class="op">=</span><span class="st">"lavender"</span>, marker<span class="op">=</span><span class="st">"d"</span>, linewidths<span class="op">=</span><span class="dv">1</span>, edgecolors<span class="op">=</span><span class="st">"mediumpurple"</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-9-output-1.png" width="296" height="302"></p>
+<p><img src="Session3_files/figure-html/cell-16-output-1.png" width="296" height="302"></p>
 </div>
 </div>
 <hr>
@@ -356,39 +467,61 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <section id="manipulating-our-data" class="level2">
 <h2 class="anchored" data-anchor-id="manipulating-our-data">Manipulating our Data</h2>
 <p>Let’s separate our weight and height data by sex. Can you see what the code below does?</p>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>height_m <span class="op">=</span> []</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>height_f <span class="op">=</span> []</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>weight_m <span class="op">=</span> []</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>weight_f <span class="op">=</span> []</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(sex)):</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> sex[i] <span class="op">==</span> <span class="st">'Male'</span>:</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>        height_m.append(height[i])</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        weight_m.append(weight[i])</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>        height_f.append(height[i])</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        weight_f.append(weight[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>height_m <span class="op">=</span> []</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>height_f <span class="op">=</span> []</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>weight_m <span class="op">=</span> []</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>weight_f <span class="op">=</span> []</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(sex)):</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> sex[i] <span class="op">==</span> <span class="st">'Male'</span>:</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        height_m.append(height[i])</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        weight_m.append(weight[i])</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        height_f.append(height[i])</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        weight_f.append(weight[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
 <section id="scatter-plot-of-sex-separated-data" class="level2">
 <h2 class="anchored" data-anchor-id="scatter-plot-of-sex-separated-data">Scatter Plot of Sex-Separated Data</h2>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Now we are going to generate a 2x1 subplot and create some visualizations for this modified data.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data on ax1</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-11-output-1.png" width="827" height="376"></p>
+<p><img src="Session3_files/figure-html/cell-18-output-1.png" width="827" height="376"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="resulting-plot" class="level2">
+<h2 class="anchored" data-anchor-id="resulting-plot">Resulting Plot</h2>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data on ax1</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-19-output-1.png" width="827" height="376"></p>
 </div>
 </div>
 <hr>
@@ -398,7 +531,11 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <p>Lines of best fit (also called linear regressions) are useful tools for finding trends in scattered data. A line of best fit will follow the equation</p>
 <p><span class="math inline">\(y(x) = mx+b\)</span>,</p>
 <p>where <span class="math inline">\(m\)</span> is the slope and <span class="math inline">\(b\)</span> is the intercept. Today we will be using <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html"><code>curve_fit()</code></a> from the <code>scipy.optimize</code> package to generate a best fit line for the Male and Female height vs weight data.</p>
-<p><code>curve_fit()</code> takes as input:</p>
+<hr>
+</section>
+<section id="curve_fit" class="level2">
+<h2 class="anchored" data-anchor-id="curve_fit">curve_fit</h2>
+<p><code>curve_fit()</code> takes as inputs:</p>
 <ul>
 <li><code>f</code>: A function <span class="math inline">\(f(x, m, b)\)</span> (which we will define to be a line, but can be any single-variable function with an arbitrary number of fit parameters)</li>
 <li><code>xdata</code> and <code>ydata</code>, the data points we are fitting to (weight and height arrays)</li>
@@ -414,22 +551,22 @@ ax.set_ylabel("Y Data Label")</code></pre>
 </section>
 <section id="get-the-fit-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="get-the-fit-parameters">Get the Fit Parameters</h2>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># define the function with the independent variable first, followed by fit parameters</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> line(x, m, b):</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>  m <span class="op">*</span> x <span class="op">+</span> b</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>popt_m, pcov_m <span class="op">=</span> curve_fit(f<span class="op">=</span>line, xdata<span class="op">=</span>weight_m, ydata<span class="op">=</span>height_m)</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>popt_f, pcov_f <span class="op">=</span> curve_fit(f<span class="op">=</span>line, xdata<span class="op">=</span>weight_f, ydata<span class="op">=</span>height_f)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(popt_m)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>m_m, b_m <span class="op">=</span> popt_m</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>m_f, b_f <span class="op">=</span> popt_f</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(m_m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># define the function with the independent variable first, followed by fit parameters</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> line(x, m, b):</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>  m <span class="op">*</span> x <span class="op">+</span> b</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>popt_m, pcov_m <span class="op">=</span> curve_fit(f<span class="op">=</span>line, xdata<span class="op">=</span>weight_m, ydata<span class="op">=</span>height_m)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>popt_f, pcov_f <span class="op">=</span> curve_fit(f<span class="op">=</span>line, xdata<span class="op">=</span>weight_f, ydata<span class="op">=</span>height_f)</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(popt_m)</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>m_m, b_m <span class="op">=</span> popt_m</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>m_f, b_f <span class="op">=</span> popt_f</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(m_m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[8.17836998e-02 1.68572508e+02]
 0.08178369979831057</code></pre>
@@ -446,11 +583,16 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <section id="plotting-the-lines-1" class="level2">
 <h2 class="anchored" data-anchor-id="plotting-the-lines-1">Plotting the Lines 1</h2>
 <p>Now that we have the slopes and intercepts of each line of best fit, we can use <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html"><code>plot()</code></a> to plot them on our axes (<code>ax1</code>). <code>plot()</code> behaves exactly like scatter, in the sense that it accepts a list of x values and a list of y values. However, it will just plot these coordinates and connect them with a straight line.</p>
-<p>First, we need to make our list of x coordinates. Let’s make a list using the <code>np.linspace()</code> function. <code>np.linspace()</code> takes 3 arguments: <code>start</code>, <code>stop</code>, and <code>num</code>, and returns a list that begins at <code>start</code> and ends at <code>stop</code> with <code>num</code> evenly-spaced points.</p>
+<hr>
+</section>
+<section id="x-coordinates" class="level2">
+<h2 class="anchored" data-anchor-id="x-coordinates">X Coordinates</h2>
+<p>First, we need to make our list of x coordinates. Let’s make a list using the <code>np.linspace()</code> function.</p>
+<p><code>np.linspace()</code> takes 3 arguments: <code>start</code>, <code>stop</code>, and <code>num</code>, and returns a list that begins at <code>start</code> and ends at <code>stop</code> with <code>num</code> evenly-spaced points.</p>
 <p>Let’s define our x values:</p>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(start<span class="op">=</span><span class="dv">60</span>, stop<span class="op">=</span><span class="dv">100</span>, num<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(start<span class="op">=</span><span class="dv">60</span>, stop<span class="op">=</span><span class="dv">100</span>, num<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[ 60.          60.4040404   60.80808081  61.21212121  61.61616162
   62.02020202  62.42424242  62.82828283  63.23232323  63.63636364
@@ -475,101 +617,222 @@ ax.set_ylabel("Y Data Label")</code></pre>
 </div>
 </div>
 <hr>
-<section id="plotting-the-lines-2" class="level3">
-<h3 class="anchored" data-anchor-id="plotting-the-lines-2">Plotting the Lines 2</h3>
+</section>
+<section id="y-coordinates" class="level2">
+<h2 class="anchored" data-anchor-id="y-coordinates">Y Coordinates</h2>
 <p>Now that we have our x values, we can plug them into the linear function we have defined, <code>line(x, m, b)</code>, including the values for the fit parameters we found using <code>curve_fit()</code>. Let’s define our y values to plot in the following way:</p>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>y_m <span class="op">=</span> line(x, m_m, b_m)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y_f <span class="op">=</span> line(x, m_f, b_f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>y_m <span class="op">=</span> line(x, m_m, b_m)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>y_f <span class="op">=</span> line(x, m_f, b_f)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y_f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[160.41398235 160.48126686 160.54855137 160.61583589 160.6831204
+ 160.75040491 160.81768942 160.88497394 160.95225845 161.01954296
+ 161.08682747 161.15411199 161.2213965  161.28868101 161.35596552
+ 161.42325004 161.49053455 161.55781906 161.62510357 161.69238809
+ 161.7596726  161.82695711 161.89424162 161.96152614 162.02881065
+ 162.09609516 162.16337967 162.23066419 162.2979487  162.36523321
+ 162.43251772 162.49980224 162.56708675 162.63437126 162.70165577
+ 162.76894029 162.8362248  162.90350931 162.97079382 163.03807833
+ 163.10536285 163.17264736 163.23993187 163.30721638 163.3745009
+ 163.44178541 163.50906992 163.57635443 163.64363895 163.71092346
+ 163.77820797 163.84549248 163.912777   163.98006151 164.04734602
+ 164.11463053 164.18191505 164.24919956 164.31648407 164.38376858
+ 164.4510531  164.51833761 164.58562212 164.65290663 164.72019115
+ 164.78747566 164.85476017 164.92204468 164.9893292  165.05661371
+ 165.12389822 165.19118273 165.25846725 165.32575176 165.39303627
+ 165.46032078 165.5276053  165.59488981 165.66217432 165.72945883
+ 165.79674335 165.86402786 165.93131237 165.99859688 166.0658814
+ 166.13316591 166.20045042 166.26773493 166.33501944 166.40230396
+ 166.46958847 166.53687298 166.60415749 166.67144201 166.73872652
+ 166.80601103 166.87329554 166.94058006 167.00786457 167.07514908]</code></pre>
+</div>
 </div>
 <hr>
 </section>
-</section>
-<section id="plotting-the-lines-3" class="level2">
-<h2 class="anchored" data-anchor-id="plotting-the-lines-3">Plotting the Lines 3</h2>
+<section id="plotting-the-lines" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-the-lines">Plotting the Lines</h2>
 <p>Finally, we can put it all together. Take the code we have created for our 1x2 subplot and add in the lines of best fit on <code>ax1</code>.</p>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>)</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-15-output-1.png" width="827" height="376"></p>
+<p><img src="Session3_files/figure-html/cell-23-output-1.png" width="827" height="376"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="plotting-the-lines-2" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-the-lines-2">Plotting the Lines</h2>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>)</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-18"><a href="#cb29-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-24-output-1.png" width="827" height="376"></p>
 </div>
 </div>
 <hr>
 </section>
 <section id="adding-a-legend" class="level2">
 <h2 class="anchored" data-anchor-id="adding-a-legend">Adding a Legend</h2>
-<p>Finally, we would like to add a legend to this plot now that it contains multiple datasets. We can do this using the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html"><code>legend()</code></a> function. By adding a parameter called <code>label</code> as a string in each plot we would like to include in the legend, and then calling the <code>legend()</code> function, we will automatically generate a legend. You can pass arguments to this function to specify the formatting and location of the legend, but we’ll skip that part today.</p>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, we would like to add a legend to this plot now that it contains multiple datasets. We can do this using the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html"><code>legend()</code></a> function.</p>
+<p>By adding a parameter called <code>label</code> as a string in each plot we would like to include in the legend, and then calling the <code>legend()</code> function, we will automatically generate a legend.</p>
+<p>You can pass arguments to this function to specify the formatting and location of the legend, but we’ll skip that part today.</p>
+<hr>
+</section>
+<section id="adding-a-legend-1" class="level2">
+<h2 class="anchored" data-anchor-id="adding-a-legend-1">Adding a Legend</h2>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-16-output-1.png" width="827" height="376"></p>
+<p><img src="Session3_files/figure-html/cell-25-output-1.png" width="827" height="376"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="adding-a-legend-2" class="level2">
+<h2 class="anchored" data-anchor-id="adding-a-legend-2">Adding a Legend</h2>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-26-output-1.png" width="827" height="376"></p>
 </div>
 </div>
 <hr>
 </section>
 <section id="histograms" class="level2">
 <h2 class="anchored" data-anchor-id="histograms">Histograms</h2>
-<p>Another common plot type is a histogram. We are going to put a histogram of height distributions by sex in the blank subplot. We will do this using the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html"><code>plt.hist()</code></a> function. At a minimum, <code>hist()</code> takes the data points you wish to plot as an argument. You may also specify the <code>bins</code> argument as an integer (the default is 10). Let’s take our previous plot and add histograms for the male and female height distributions, each with 5 bins.</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_m, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_f, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Another common plot type is a histogram. We are going to put a histogram of height distributions by sex in the blank subplot. We will do this using the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html"><code>plt.hist()</code></a> function.</p>
+<p>At a minimum, <code>hist()</code> takes the data points you wish to plot as an argument. You may also specify the <code>bins</code> argument as an integer (the default is 10).</p>
+<p>Let’s take our previous plot and add histograms for the male and female height distributions to <code>ax2</code>, each with 5 bins.</p>
+<hr>
+</section>
+<section id="plotting-histograms" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-histograms">Plotting Histograms</h2>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_m, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_f, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-17-output-1.png" width="816" height="376"></p>
+<p><img src="Session3_files/figure-html/cell-27-output-1.png" width="816" height="376"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="plotting-histograms-1" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-histograms-1">Plotting Histograms</h2>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_m, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_f, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>)</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-28-output-1.png" width="816" height="376"></p>
 </div>
 </div>
 <hr>
@@ -577,60 +840,114 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <section id="finishing-touches" class="level2">
 <h2 class="anchored" data-anchor-id="finishing-touches">Finishing Touches</h2>
 <p>Finally, let’s add a legend, axis labels, and title to the histogram.</p>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_m, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_f, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'Count'</span>)</span>
-<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Height (cm)'</span>)</span>
-<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Height Distributions by Sex'</span>)</span>
-<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_m, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_f, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Height (cm)'</span>)</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Height Distributions by Sex'</span>)</span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-18-output-1.png" width="816" height="376"></p>
+<p><img src="Session3_files/figure-html/cell-29-output-1.png" width="816" height="376"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="finishing-touches-1" class="level2">
+<h2 class="anchored" data-anchor-id="finishing-touches-1">Finishing Touches</h2>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols <span class="op">=</span> <span class="dv">2</span>, nrows <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot data</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_m, height_m, c <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'s'</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>ax1.scatter(weight_f, height_f, c <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, marker <span class="op">=</span> <span class="st">'o'</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_m, c <span class="op">=</span> <span class="st">'royalblue'</span>)</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y_f, c <span class="op">=</span> <span class="st">'magenta'</span>)</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"Height vs Weight"</span>)</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>ax1.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>ax1.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>ax1.legend()</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_m, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label <span class="op">=</span> <span class="st">'Male'</span>)</span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>ax2.hist(height_f, bins<span class="op">=</span><span class="dv">5</span>, color <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, label <span class="op">=</span> <span class="st">'Female'</span>)</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>ax2.set_ylabel(<span class="st">'Count'</span>)</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>ax2.set_xlabel(<span class="st">'Height (cm)'</span>)</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>ax2.legend()</span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">'Height Distributions by Sex'</span>)</span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-30-output-1.png" width="816" height="376"></p>
 </div>
 </div>
 <hr>
 </section>
 <section id="seaborn" class="level2">
 <h2 class="anchored" data-anchor-id="seaborn">Seaborn</h2>
-<p><code>matplotlib.pyplot</code> is the bread and butter of data visualization in Python, and allows you near-arbitrary degrees of customization for your plots. However, the <a href="https://seaborn.pydata.org/"><code>seaborn</code></a> library was developed using <code>matplotlib</code> to make nice-looking plots with less code. We are going to use it to make a violin plot, because that is something that <code>matplotlib.pyplot</code> does not do a nice job of.</p>
+<p><code>matplotlib.pyplot</code> is the bread and butter of data visualization in Python, and allows you near-arbitrary degrees of customization for your plots.</p>
+<p>However, the <a href="https://seaborn.pydata.org/"><code>seaborn</code></a> library was developed using <code>matplotlib</code> to make nice-looking plots with less code. Note: Seaborn plays especially nicely with Pandas!</p>
+<p>We are going to use it to make a violin plot, because that is something that <code>matplotlib.pyplot</code> does not do a nice job of.</p>
 <hr>
 </section>
 <section id="violin-plots" class="level2">
 <h2 class="anchored" data-anchor-id="violin-plots">Violin Plots</h2>
 <p>We are going to make a violin plot of our patient weight distributions by sex. To do this, we will use the <a href="https://seaborn.pydata.org/generated/seaborn.violinplot.html"><code>violinplot()</code></a> function from the <code>seaborn</code> library.</p>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>, <span class="dv">4</span>))</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>sns.violinplot(weight_m, ax <span class="op">=</span> ax)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>&lt;Axes: &gt;</code></pre>
-</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>sns.violinplot(weight_m, ax <span class="op">=</span> ax)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-19-output-2.png" width="351" height="320"></p>
+<p><img src="Session3_files/figure-html/cell-31-output-1.png" width="351" height="320"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="violin-plots-1" class="level2">
+<h2 class="anchored" data-anchor-id="violin-plots-1">Violin Plots</h2>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>sns.violinplot(weight_m, ax <span class="op">=</span> ax)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-32-output-1.png" width="351" height="320"></p>
 </div>
 </div>
 <hr>
@@ -638,19 +955,38 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <section id="make-it-nice" class="level2">
 <h2 class="anchored" data-anchor-id="make-it-nice">Make it Nice</h2>
 <p>Let’s add the other dataset and make it nicer.</p>
-<div class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>, <span class="dv">4</span>))</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>sns.violinplot(weight_m, ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth<span class="op">=</span><span class="dv">0</span>, label <span class="op">=</span> <span class="st">"Male"</span>)</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>sns.violinplot(weight_f, ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth<span class="op">=</span><span class="dv">0</span>, label <span class="op">=</span> <span class="st">"Female"</span>)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Weight (kg)'</span>)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Weight Distribution by Sex"</span>)</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>sns.violinplot(weight_m, ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth<span class="op">=</span><span class="dv">0</span>, label <span class="op">=</span> <span class="st">"Male"</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>sns.violinplot(weight_f, ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth<span class="op">=</span><span class="dv">0</span>, label <span class="op">=</span> <span class="st">"Female"</span>)</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Weight (kg)'</span>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Weight Distribution by Sex"</span>)</span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-20-output-1.png" width="370" height="340"></p>
+<p><img src="Session3_files/figure-html/cell-33-output-1.png" width="370" height="340"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="make-it-nice-1" class="level2">
+<h2 class="anchored" data-anchor-id="make-it-nice-1">Make it Nice</h2>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>, <span class="dv">4</span>))</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>sns.violinplot(weight_m, ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">'royalblue'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth<span class="op">=</span><span class="dv">0</span>, label <span class="op">=</span> <span class="st">"Male"</span>)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>sns.violinplot(weight_f, ax <span class="op">=</span> ax, color <span class="op">=</span> <span class="st">'magenta'</span>, alpha <span class="op">=</span> <span class="fl">0.5</span>, linewidth<span class="op">=</span><span class="dv">0</span>, label <span class="op">=</span> <span class="st">"Female"</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">'Weight (kg)'</span>)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Weight Distribution by Sex"</span>)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>ax.legend()</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-34-output-1.png" width="370" height="340"></p>
 </div>
 </div>
 <hr>
@@ -658,27 +994,27 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <section id="saving-and-exporting" class="level2">
 <h2 class="anchored" data-anchor-id="saving-and-exporting">Saving and Exporting</h2>
 <p>Now that we have created several figures, we may want to save and export them. To do this, we will apply the <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.savefig.html"><code>savefig()</code></a> function to our figure. This function takes your desired filepath as an input, as well as other optional parameters such as <code>dpi</code> (resolution), sizing, and transparency. Let’s save our most recent figure. We will also use <code>fig.tight_layout()</code> to remove any added white space and ensure that all nothing is cut off.</p>
-<div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"my_violin_plot.pdf"</span>, bbox_inches <span class="op">=</span> <span class="st">"tight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"my_violin_plot.pdf"</span>, bbox_inches <span class="op">=</span> <span class="st">"tight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 </section>
 <section id="colormaps" class="level2">
 <h2 class="anchored" data-anchor-id="colormaps">Colormaps</h2>
-<p>Rather than using a single color to plot your data, you may want to use a colormap. This is particularly true for things like heatmaps, or when you are displaying an image. To do this, you can use existing <a href="https://matplotlib.org/stable/gallery/color/colormap_reference.html">colormaps</a> within <code>matplotlib</code>, or <a href="https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation">create your own</a>.</p>
+<p>Rather than using a single color to plot your data, you may want to use a colormap. This is particularly true for things like heatmaps, or when you are displaying an image.</p>
+<p>To do this, you can use existing <a href="https://matplotlib.org/stable/gallery/color/colormap_reference.html">colormaps</a> within <code>matplotlib</code>, or <a href="https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation">create your own</a>.</p>
 <hr>
 </section>
 <section id="choosing-a-colormap" class="level2">
 <h2 class="anchored" data-anchor-id="choosing-a-colormap">Choosing a Colormap</h2>
-<p>Sometimes you might need to visualize data with a <a href="https://matplotlib.org/stable/users/explain/colors/colormaps.html">colormap</a>. In this case, it’s important to choose one that is visually faithful to the scale, translated well to greyscale (printing), and that is accessible to those with common forms of color blindness. It turns out that people have thought about this problem <em>a lot</em> and have come up with some color maps that do a great job at maximizing these properties.</p>
-<p>It’s also important to note that some color schemes that may seem natural to use (especially rainbow/jet) actually tend to skew our perceptions of the data values and therefore are not recommended.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="monalisa.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Mona Lisa in original, jet, and viridis.</figcaption>
-</figure>
-</div>
+<p>It’s important to choose a <a href="https://matplotlib.org/stable/users/explain/colors/colormaps.html">colormap</a> that is:</p>
+<ul>
+<li>Visually faithful to the scale</li>
+<li>Translates well to greyscale (printing)</li>
+<li>Is accessible to those with common forms of color blindness.</li>
+</ul>
+<p>It turns out that people have thought about this problem <em>a lot</em> and have come up with some color maps that do a great job at maximizing these properties.</p>
 <hr>
 </section>
 <section id="viridis" class="level2">
@@ -692,39 +1028,83 @@ ax.set_ylabel("Y Data Label")</code></pre>
 </div>
 <hr>
 </section>
-<section id="colors-and-accessibility-in-other-plots" class="level2">
-<h2 class="anchored" data-anchor-id="colors-and-accessibility-in-other-plots">Colors and Accessibility in Other Plots</h2>
-<p>When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white translation (for example, if people print in black and white) in mind. Using different dashes in lines and shapes in markers is also a good way to do this! <img src="scatter_accessible.png" class="img-fluid" alt="Accessibility matters for all types of data visualization!"></p>
+<section id="we-hate-jet" class="level2">
+<h2 class="anchored" data-anchor-id="we-hate-jet">We Hate Jet!</h2>
+<p>Some color schemes that may seem natural to use (especially rainbow/jet) actually tend to skew our perceptions of the data values and therefore are not recommended.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="monalisa.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Mona Lisa in original, jet, and viridis.</figcaption>
+</figure>
+</div>
 <hr>
 </section>
-<section id="color-maps-in-seaborn" class="level2">
-<h2 class="anchored" data-anchor-id="color-maps-in-seaborn">Color Maps in Seaborn</h2>
+<section id="colors-and-accessibility-in-other-plots" class="level2">
+<h2 class="anchored" data-anchor-id="colors-and-accessibility-in-other-plots">Colors and Accessibility in Other Plots</h2>
+<p>When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white conversion in mind. Using different dashes in lines and shapes in markers is also a good way to do this!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="scatter_accessible.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Accessibility matters for all types of data visualization!</figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="colormaps-in-seaborn" class="level2">
+<h2 class="anchored" data-anchor-id="colormaps-in-seaborn">Colormaps in Seaborn</h2>
 <p>Let’s use the <a href="https://seaborn.pydata.org/generated/seaborn.heatmap.html"><code>heatmap()</code></a> function from Seaborn to generate a plot of the time progression of three genes.</p>
-<div class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">4</span>))</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>g1 <span class="op">=</span> [<span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="fl">0.7</span>]</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>g2 <span class="op">=</span> [<span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.4</span>]</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>g3 <span class="op">=</span> [<span class="fl">0.0</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span>]</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>g4 <span class="op">=</span> [<span class="fl">0.9</span>, <span class="fl">0.6</span>, <span class="fl">0.4</span>]</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>g5 <span class="op">=</span> [<span class="fl">0.5</span>, <span class="fl">0.6</span>, <span class="fl">0.5</span>]</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> [g1, g2, g3, g4, g5]</span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>sns.heatmap(data, linewidth <span class="op">=</span> <span class="fl">0.5</span>, cmap <span class="op">=</span> <span class="st">'viridis'</span>, annot <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Time"</span>)</span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Gene"</span>)</span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Gene Progression"</span>)</span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">4</span>))</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.genfromtxt(<span class="st">'../data/gene_data.csv'</span>, unpack <span class="op">=</span> <span class="va">True</span>, delimiter <span class="op">=</span> <span class="st">","</span>, skip_header<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>sns.heatmap(data, linewidth <span class="op">=</span> <span class="fl">0.5</span>, cmap <span class="op">=</span> <span class="st">'viridis'</span>, annot <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Time"</span>)</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Gene"</span>)</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Gene Progression"</span>)</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[0.2, 0.5, 0.7], [0.4, 0.3, 0.4], [0.0, 0.1, 0.2], [0.9, 0.6, 0.4], [0.5, 0.6, 0.5]]</code></pre>
+<pre><code>[[0.2 0.3 0.5 0.6 0.7]
+ [0.3 0.4 0.4 0.5 0.4]
+ [0.  0.1 0.2 0.2 0.1]
+ [0.9 0.7 0.6 0.5 0.4]
+ [0.6 0.3 0.5 0.7 0.4]]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-22-output-2.png" width="421" height="376"></p>
+<p><img src="Session3_files/figure-html/cell-36-output-2.png" width="421" height="376"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="heatmap-plot" class="level2">
+<h2 class="anchored" data-anchor-id="heatmap-plot">Heatmap Plot</h2>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">4</span>))</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.genfromtxt(<span class="st">'../data/gene_data.csv'</span>, unpack <span class="op">=</span> <span class="va">True</span>, delimiter <span class="op">=</span> <span class="st">","</span>, skip_header<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data)</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>sns.heatmap(data, linewidth <span class="op">=</span> <span class="fl">0.5</span>, cmap <span class="op">=</span> <span class="st">'viridis'</span>, annot <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Time"</span>)</span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Gene"</span>)</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Gene Progression"</span>)</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[0.2 0.3 0.5 0.6 0.7]
+ [0.3 0.4 0.4 0.5 0.4]
+ [0.  0.1 0.2 0.2 0.1]
+ [0.9 0.7 0.6 0.5 0.4]
+ [0.6 0.3 0.5 0.7 0.4]]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-37-output-2.png" width="421" height="376"></p>
 </div>
 </div>
 <hr>
@@ -732,41 +1112,207 @@ ax.set_ylabel("Y Data Label")</code></pre>
 <section id="color-maps-in-matplotlib" class="level2">
 <h2 class="anchored" data-anchor-id="color-maps-in-matplotlib">Color Maps in Matplotlib</h2>
 <p>Let’s make a scatter plot with weight vs height again, but make the color of the points defined by the ratio of weight to height.</p>
-<div class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>ratio <span class="op">=</span> weight<span class="op">/</span>height</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.scatter(weight, height, c<span class="op">=</span>ratio, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>fig.colorbar(im, ax<span class="op">=</span>ax)</span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Weight vs Height"</span>)</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>ratio <span class="op">=</span> weight<span class="op">/</span>height</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.scatter(weight, height, c<span class="op">=</span>ratio, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>fig.colorbar(im, ax<span class="op">=</span>ax)</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Weight vs Height"</span>)</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="Session3_files/figure-html/cell-23-output-1.png" width="506" height="376"></p>
+<p><img src="Session3_files/figure-html/cell-38-output-1.png" width="506" height="376"></p>
 </div>
 </div>
 <hr>
 </section>
-<section id="plotting-with-functions" class="level2">
-<h2 class="anchored" data-anchor-id="plotting-with-functions">Plotting with Functions</h2>
-<p>We have learned how to write many lines of code to generate and customize a single figure. This is nice, but we want to be practical. In fact, you can put all of your plotting code inside a function that will allow you to automate the production of figures within your workflows. Let’s write a function called <code>plot_data()</code> that can recreate the previous plot and accepts <code>weight</code>, <code>height</code> and <code>filename</code> as its arguments.</p>
-<p>This way, you can call this function with different datasets and it will return a consistently-formatted plot for each.</p>
-<div class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_data(weight, height, filename):</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  ratio <span class="op">=</span> weight<span class="op">/</span>height</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  im <span class="op">=</span> ax.scatter(weight, height, c<span class="op">=</span>ratio, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  fig.colorbar(im, ax<span class="op">=</span>ax)</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  ax.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  ax.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  ax.set_title(<span class="st">"Weight vs Height"</span>)</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  fig.tight_layout()</span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  fig.savefig(filename <span class="op">+</span> <span class="st">".pdf"</span>, bbox_inches <span class="op">=</span> <span class="st">"tight"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="scatter-plot-with-colormap" class="level2">
+<h2 class="anchored" data-anchor-id="scatter-plot-with-colormap">Scatter Plot with Colormap</h2>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate figure and axes</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>ratio <span class="op">=</span> weight<span class="op">/</span>height</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> ax.scatter(weight, height, c<span class="op">=</span>ratio, cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>fig.colorbar(im, ax<span class="op">=</span>ax)</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Weight (kg)"</span>)</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Height (cm)"</span>)</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Weight vs Height"</span>)</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-39-output-1.png" width="506" height="376"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="data-visualization-resources" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualization-resources">Data Visualization Resources</h2>
+<ul>
+<li><a href="https://matplotlib.org/cheatsheets/">Matplotlib Cheatsheets and Handouts</a></li>
+<li>Matplotlib <a href="https://matplotlib.org/stable/tutorials/index.html">Tutorials</a> and <a href="https://matplotlib.org/stable/users/index.html">User Guide</a></li>
+<li><a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization by Claus O. Wilke</a></li>
+</ul>
+<hr>
+</section>
+<section id="exercise" class="level2">
+<h2 class="anchored" data-anchor-id="exercise">Exercise</h2>
+<p>We have learned how to write many lines of code to generate and customize a single figure. This is nice, but we want to be practical. In fact, you can put all of your plotting code inside a function that will allow you to automate the production of figures within your workflows. This way, you can call this function with different datasets and it will return a consistently-formatted plot for each.</p>
+<p>The following is an exercise that should bring together many of the concepts that you have learned over the past two days. You will:</p>
+<ol type="1">
+<li>Import data from a csv file</li>
+<li>Manipulate the data by separating it into subsets</li>
+<li>Write a function that generates a plot</li>
+<li>Use a for loop to automaticalyl generate a plot for each subset of data</li>
+</ol>
+<p>The data we will be working with is gene expression data. There are a number of genes listed, and each gene has an associated expression and length, as well as a Gene Ontology (GO) term. The first task will be to read in the data using <code>genfromtxt()</code>. The data is stored in the file called “gene_expression.csv”.</p>
+<p>The data is arranged as follows:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>geneName</th>
+<th>expression</th>
+<th>geneLength</th>
+<th>goterm</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gene_1</td>
+<td>2560</td>
+<td>20</td>
+<td>GO:Biosynthetic Process</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>The geneName category ranges from Gene_1 to Gene_30. expression and geneLength are numerical values, and goterm is a string with possible values “GO:Biosynthetic Process”, “GO:Metabolic Process” and “GO:Catabolic Process”.</p>
+<p>First, import this data into numpy arrays. You should have four arrays, one for each column. Hont: You may have to specify the <code>dtype</code> and <code>encoding</code> options (as shown before) to deal with the variety of data types.</p>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>name, expression, length, goterm <span class="op">=</span> np.genfromtxt(<span class="st">'../data/gene_expression.csv'</span>, unpack<span class="op">=</span><span class="va">True</span>, delimiter<span class="op">=</span><span class="st">','</span>, skip_header<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span><span class="va">None</span>, encoding<span class="op">=</span><span class="st">'UTF-8'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that we have the data, we need to sort it. We want to make a separate plot for each GO term (Biosynthetic, Metabolic, and Catabolic Processes). Create empty lists for the gene names, expressions, and lengths for each GO term. For example:</p>
+<pre><code>name_bio = []
+exp_bio = []
+len_bio = []
+... and so on</code></pre>
+<p>Then, use a for loop to go through the unsorted data and append each value ot the correct list.</p>
+<pre><code>for i=0 to 29: #remember 0-indexing
+  if goterm[i] == "GO:Biosynthetic Process":
+    append name[i] to name_bio
+    etc...
+  elif goterm[i] == "GO:Metabolic Process":
+    etc...
+  else:
+    etc...</code></pre>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>name_bio <span class="op">=</span> []</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>exp_bio <span class="op">=</span> []</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>len_bio <span class="op">=</span> []</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>name_meta <span class="op">=</span> []</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>exp_meta <span class="op">=</span> []</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>len_meta <span class="op">=</span> []</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>name_cat <span class="op">=</span> []</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>exp_cat <span class="op">=</span> []</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>len_cat <span class="op">=</span> []</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(name)):</span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> goterm[i] <span class="op">==</span> <span class="st">"GO:Biosynthetic Process"</span>:</span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>    name_bio.append(name[i])</span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>    exp_bio.append(expression[i])</span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>    len_bio.append(length[i])</span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">elif</span> goterm[i] <span class="op">==</span> <span class="st">"GO:Metabolic Process"</span>:</span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>    name_meta.append(name[i])</span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>    exp_meta.append(expression[i])</span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a>    len_meta.append(length[i])</span>
+<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a>    name_cat.append(name[i])</span>
+<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a>    exp_cat.append(expression[i])</span>
+<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a>    len_cat.append(length[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You should now have 9 lists, each of length 10, corresponding to the sorted data. Try printing the lists, and their lengths, to make sure you have everything sorted properly.</p>
+<p>Now, we will write some code that will plot one of the datasets (let’s choose the Biosynthetic Process dataset). We are going to generate a scatter plot of Expression vs Length. Choose whatever colors and markers you’d like, and be sure to include a title and axis labels.</p>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>,<span class="dv">3</span>))</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>ax.scatter(exp_bio, len_bio, c <span class="op">=</span> <span class="st">"lightgreen"</span>)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Gene Expression"</span>)</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>ax.set_ylabel(<span class="st">"Gene Length"</span>)</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">"Biosynthetic Processes"</span>)</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-42-output-1.png" width="384" height="302"></p>
+</div>
+</div>
+<p>Once you have code that generates a nice figure, let’s put it inside a function. Define a function that takes three variables: the <code>x data</code> and <code>y data</code> to be plotted, and the <code>name</code> you would like to save the figure as. This function should plot the data and save the plot with the specified name.</p>
+<p>Hint: think about how you can use string operations to automatically generate a title for your plot as well as a file name!</p>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_data(xdata, ydata, name):</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>,<span class="dv">3</span>))</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  ax.scatter(xdata, ydata, c <span class="op">=</span> <span class="st">"lightgreen"</span>)</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  ax.set_xlabel(<span class="st">"Gene Expression"</span>)</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  ax.set_ylabel(<span class="st">"Gene Length"</span>)</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  ax.set_title(name)</span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>  fig.tight_layout()</span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  fig.savefig(name <span class="op">+</span> <span class="st">".pdf"</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now that you have a function, we would like to call it to plot the data. Create a for loop that will iterate over the three datasets and plot them.</p>
+<p>Hint: You may need to create some new lists to store the <code>name</code> parameter, as well as the data lists you would like to iterate over.</p>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>xdata <span class="op">=</span> [exp_bio, exp_cat, exp_meta]</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>ydata <span class="op">=</span> [len_bio, len_cat, len_meta]</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> [<span class="st">"Biosynthetic Processes"</span>, <span class="st">"Catabolic Processes"</span>, <span class="st">"Metabolic Processes"</span>]</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(xdata)):</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>  plot_data(xdata[i], ydata[i], names[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-44-output-1.png" width="374" height="278"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-44-output-2.png" width="374" height="278"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-44-output-3.png" width="374" height="278"></p>
+</div>
+</div>
+<hr>
+</section>
+<section id="final-adjustments" class="level2">
+<h2 class="anchored" data-anchor-id="final-adjustments">Final Adjustments</h2>
+<p>We want to be able to compare our data directly - let’s make all of them plotted on the same scale. Set vertical and horizontal axis limits of (-200, 5200). You will need to edit your function and caLL it again.</p>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_data(xdata, ydata, name):</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>,<span class="dv">3</span>))</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  ax.scatter(xdata, ydata, c <span class="op">=</span> <span class="st">"lightgreen"</span>)</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>  ax.set_xlabel(<span class="st">"Gene Expression"</span>)</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>  ax.set_ylabel(<span class="st">"Gene Length"</span>)</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>  ax.set_title(name)</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>  ax.set_xlim(<span class="op">-</span><span class="dv">200</span>, <span class="dv">5200</span>)</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>  ax.set_ylim(<span class="op">-</span><span class="dv">200</span>, <span class="dv">5200</span>)</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a>  fig.tight_layout()</span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>  fig.savefig(name <span class="op">+</span> <span class="st">".pdf"</span>, bbox_inches<span class="op">=</span><span class="st">'tight'</span>)</span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(xdata)):</span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>  plot_data(xdata[i], ydata[i], names[i])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-45-output-1.png" width="374" height="278"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-45-output-2.png" width="374" height="278"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Session3_files/figure-html/cell-45-output-3.png" width="374" height="278"></p>
+</div>
 </div>
 <hr>
 </section>
