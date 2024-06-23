@@ -38,10 +38,10 @@ if(params$isSlides != "yes"){
 
 ```
 
-```{r, eval=T, echo=F, warning=F, message=F}
+```{r, eval=T, echo=F, warning=F, message=F, hide=T}
 library(IntroToPython)
 library(reticulate)
-suppressMessages(py_install(c("matplotlib", "numpy", "scipy","seaborn")))
+py_suppress_warnings(py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet"))
 ```
 
 ---

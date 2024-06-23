@@ -21,6 +21,11 @@ params:
   isSlides: "no"
 ---
 
+```{r,include=FALSE}
+suppressPackageStartupMessages(require(knitr))
+knitr::opts_chunk$set(echo = TRUE, tidy = T)
+```
+
 ```{r, eval=T, echo=F, warning=F, message=F}
 library(IntroToPython)
 library(reticulate)
@@ -38,7 +43,6 @@ if(params$isSlides != "yes"){
 }
 
 ```
-
 
 
 ##  Data Visualization with Python
