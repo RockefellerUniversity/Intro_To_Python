@@ -58,7 +58,7 @@ name, expression, length, goterm = np.genfromtxt('data/gene_expression.csv', unp
 
 Now that we have the data, we need to sort it. We want to make a separate plot for each GO term (Biosynthetic, Metabolic, and Catabolic Processes). Create empty lists for the gene names, expressions, and lengths for each GO term. For example:
 
-```{python, eval=False}
+```{python, eval=F}
 name_bio = []
 exp_bio = []
 len_bio = []
@@ -67,7 +67,7 @@ len_bio = []
 
 Then, use a for loop to go through the unsorted data and append each value ot the correct list.
 
-```{python, eval=False}
+```{python, eval=F}
 for i=0 to 29: #remember 0-indexing
   if goterm[i] == "GO:Biosynthetic Process":
     append name[i] to name_bio
