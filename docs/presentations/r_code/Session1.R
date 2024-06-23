@@ -6,6 +6,12 @@ suppressPackageStartupMessages(require(knitr))
 knitr::opts_chunk$set(echo = TRUE, tidy = T)
 
 
+## ----eval=T, echo=F, warning=F, message=F, hide=T-----------------------------
+library(IntroToPython)
+library(reticulate)
+py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
+
+
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides != "yes"){
   cat("# Introduction to Python
@@ -16,12 +22,6 @@ if(params$isSlides != "yes"){
   
 }
 
-
-
-## ----eval=T, echo=F, warning=F, message=F-------------------------------------
-library(IntroToPython)
-library(reticulate)
-suppressMessages(py_install(c("matplotlib", "numpy", "scipy","seaborn")))
 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
@@ -44,6 +44,13 @@ if(params$isSlides == "yes"){
   
 }
 
+
+
+## -----------------------------------------------------------------------------
+toshow <- cbind(c("Plotting", "Statistics","Bioconductor"),c("Large Data","Machine Learning","Most Popular Language"))
+
+colnames(toshow) <- c("R","Python")
+knitr::kable(toshow)
 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
@@ -87,7 +94,7 @@ if(params$isSlides == "yes"){
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
-# Varaibles and Functions in Python
+# Variables and Functions
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
@@ -95,7 +102,7 @@ if(params$isSlides == "yes"){
 "    
   )
 }else{
-  cat("# Varaibles and Functions in Python
+  cat("# Variables and Functions
       
 ---
 "    
@@ -466,7 +473,6 @@ if(params$isSlides == "yes"){
 ## arr = np.concatenate((arr1, arr2))
 ## 
 
-## import numpy as np
 ## 
 ## arr1 = np.array([[1, 2], [3, 4]])
 ## 
@@ -474,16 +480,12 @@ if(params$isSlides == "yes"){
 ## 
 ## arr = np.concatenate((arr1, arr2), axis=1)
 ## 
-## print(arr)
+## arr
 
 ## 
-## arr1 = np.array([1, 2, 3])
+## arr = np.concatenate((arr1, arr2), axis=0)
 ## 
-## arr2 = np.array([4, 5, 6])
-## 
-## arr = np.stack((arr1, arr2), axis=1)
-## 
-## print(arr)\\h/vstack
+## arr
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides == "yes"){

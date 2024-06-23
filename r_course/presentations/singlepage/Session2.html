@@ -1576,20 +1576,425 @@ Centre</h4>
 <p>?? can add a recap to link to keypoints in first session?? Session 1
 covered introduction to R data types and import/export of data.</p>
 <ul>
-<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#background-to-r">Background
-to R</a></li>
-<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#data_types_in_r">Data
-types in R</a></li>
-<li><a href="https://rockefelleruniversity.github.io/Intro_To_R_1Day/r_course/presentations/singlepage/introToR_Session1.html#reading-and-writing-data-in-r">Reading
-and writing in R</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Background_of_Python">Background
+to Python</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Set_Up">Set
+up</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Variables_and_Functions">Variables
+and Functions</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Data_Objects">Data
+Objects</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Custom_Functions">Custom
+Functions</a></li>
 </ul>
 </div>
-<div id="control-statements" class="section level2">
+<div id="session-overview" class="section level2">
+<h2>Session Overview</h2>
+<ul>
+<li><a href="http://rockefelleruniversity.github.io/Intro_To_Python/">Course
+Home Page</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session2.html#Reading_and_Writing_Files">Reading
+and Writing Files</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session2.html#Control_Statements">Control
+Statements</a></li>
+</ul>
+</div>
+</div>
+<div id="reading-and-writing-files" class="section level1">
+<h1>Reading and Writing Files</h1>
+<hr />
+<div id="readingwriting-files" class="section level2">
+<h2>Reading/writing files</h2>
+<p>Most of the time, you will not be generating data in Python but will
+be importing data from external files.</p>
+<p>A standard format for this data is a table:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Gene_Name
+</th>
+<th style="text-align:right;">
+Sample_1.hi
+</th>
+<th style="text-align:right;">
+Sample_2.hi
+</th>
+<th style="text-align:right;">
+Sample_3.hi
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Gene_a
+</td>
+<td style="text-align:right;">
+3.369471
+</td>
+<td style="text-align:right;">
+3.639907
+</td>
+<td style="text-align:right;">
+4.902267
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gene_b
+</td>
+<td style="text-align:right;">
+4.334403
+</td>
+<td style="text-align:right;">
+5.134900
+</td>
+<td style="text-align:right;">
+5.717949
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gene_c
+</td>
+<td style="text-align:right;">
+5.182492
+</td>
+<td style="text-align:right;">
+4.218335
+</td>
+<td style="text-align:right;">
+4.196474
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gene_d
+</td>
+<td style="text-align:right;">
+2.978602
+</td>
+<td style="text-align:right;">
+3.747950
+</td>
+<td style="text-align:right;">
+2.894367
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gene_e
+</td>
+<td style="text-align:right;">
+9.857333
+</td>
+<td style="text-align:right;">
+10.889669
+</td>
+<td style="text-align:right;">
+9.972323
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gene_f
+</td>
+<td style="text-align:right;">
+11.114157
+</td>
+<td style="text-align:right;">
+10.406926
+</td>
+<td style="text-align:right;">
+11.006961
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gene_g
+</td>
+<td style="text-align:right;">
+10.442704
+</td>
+<td style="text-align:right;">
+10.892064
+</td>
+<td style="text-align:right;">
+10.123833
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Gene_h
+</td>
+<td style="text-align:right;">
+9.170737
+</td>
+<td style="text-align:right;">
+10.735350
+</td>
+<td style="text-align:right;">
+8.187716
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="working-directory" class="section level2">
+<h2>Working Directory</h2>
+<p>If you are reading in data, you need to know from which vantage point
+your computer is looking. The view point of your computer is the Working
+Directory.</p>
+<p>There are several utilities in the os (operating system) package.
+First lets check our current Working Directory using
+<code>getcwd</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>os.getcwd()</span></code></pre></div>
+<pre><code>## &#39;/__w/Intro_To_Python/Intro_To_Python/extdata&#39;</code></pre>
+</div>
+<div id="working-directory-1" class="section level2">
+<h2>Working Directory</h2>
+<p>To set our Working Directory we can use the <code>chdir</code>
+function. Let’s navigate to the course material that we downloaded.
+There are some example data sets there.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>os.chdir(<span class="st">&quot;/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>os.listdir()</span></code></pre></div>
+<pre><code>## [&#39;data&#39;, &#39;imgs&#39;, &#39;presRaw&#39;, &#39;_course.yml&#39;, &#39;customCSS&#39;, &#39;height-weight_female.csv&#39;, &#39;Descriptions&#39;]</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>os.listdir(<span class="st">&quot;data&quot;</span>)</span></code></pre></div>
+<pre><code>## [&#39;myresult.RData&#39;, &#39;gene_expression.csv&#39;, &#39;readThisTable.csv&#39;, &#39;ToRead.csv&#39;, &#39;height-weight.csv&#39;, &#39;gene_data.csv&#39;]</code></pre>
+</div>
+<div id="reading" class="section level2">
+<h2>Reading</h2>
+<p>There are many ways to read in data. Most of the time we are
+importing simple 2D tables, so we want to generate a NumPy array using
+the <code>genfromtxt()</code> function.</p>
+<p>Here we are reading a csv file (Comma-Separated Values). This means
+each value in our file is separated by a comma. So when we read the file
+we will specify that the delimiter is a comma.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>my_table <span class="op">=</span> np.genfromtxt(<span class="st">&quot;data/ToRead.csv&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;,&quot;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="bu">type</span>(my_table)</span></code></pre></div>
+<pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>my_table</span></code></pre></div>
+<pre><code>## array([[ 4.5702372 ,  3.23046698,  3.35182734,  3.93087741,  4.09824666,
+##          4.41872599],
+##        [ 3.56173302,  3.63228533,  3.58752332,  4.18528704,  1.38097605,
+##          5.93699012],
+##        [ 3.79727358,  2.87446167,  4.01691555,  4.17577191,  1.98826299,
+##          3.78091724],
+##        [ 3.39824235,  4.41520211,  4.89356109,  8.4323419 ,  9.60915099,
+##          9.01986467],
+##        [10.12878671, 10.22407116,  8.94581254,  2.93617444,  3.89292402,
+##          0.91920785],
+##        [ 8.4743968 ,  8.612628  ,  7.17082986,  3.29935093,  2.57586964,
+##          2.54277726],
+##        [10.01002009, 10.31235402, 11.60328984,  9.93070417,  7.74879528,
+##          9.79882378],
+##        [ 9.39999242, 10.33284375,  9.37821714, 10.06519963, 10.78861857,
+##         10.24532579]])</code></pre>
+</div>
+<div id="reading-1" class="section level2">
+<h2>Reading</h2>
+<p>Here we try to read in a more complex file. This data is a mixture of
+characters and numbers. The <code>dtype</code> argument can be used to
+specify the <a href="https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes">format
+of the data</a> we are reading in. This data also has column titles, so
+we will skip over those with <code>skip_header</code>.</p>
+<p>The data set contains:</p>
+<ul>
+<li><strong>Sex</strong> - <strong>U</strong>nicode string</li>
+<li><strong>Height</strong> - <strong>f</strong>loat</li>
+<li><strong>Weight</strong> - <strong>f</strong>loat</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>dtype <span class="op">=</span> [<span class="st">&#39;U10&#39;</span> , <span class="st">&#39;f&#39;</span>, <span class="st">&#39;f&#39;</span> ]</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>my_table2 <span class="op">=</span> np.genfromtxt(<span class="st">&#39;data/height-weight.csv&#39;</span>, delimiter <span class="op">=</span> <span class="st">&quot;,&quot;</span>, skip_header<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span>dtype)</span></code></pre></div>
+</div>
+<div id="reading-2" class="section level2">
+<h2>Reading</h2>
+<p>When you read in an array with multiple data formats it does not
+automatically make a 2D array, instead a 1D array containing other
+arrays.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>my_table2</span></code></pre></div>
+<pre><code>## array([(&#39;Male&#39;, 182.87, 76.57), (&#39;Male&#39;, 179.12, 80.43),
+##        (&#39;Male&#39;, 169.15, 75.48), (&#39;Male&#39;, 175.66, 94.54),
+##        (&#39;Female&#39;, 164.47, 71.78), (&#39;Female&#39;, 158.27, 69.9 ),
+##        (&#39;Female&#39;, 161.69, 68.85), (&#39;Female&#39;, 165.84, 70.44),
+##        (&#39;Male&#39;, 181.32, 76.9 ), (&#39;Male&#39;, 167.37, 79.06),
+##        (&#39;Female&#39;, 160.06, 72.37), (&#39;Female&#39;, 166.48, 67.34),
+##        (&#39;Male&#39;, 175.39, 92.22), (&#39;Female&#39;, 164.7 , 75.69),
+##        (&#39;Female&#39;, 163.79, 65.76), (&#39;Male&#39;, 181.13, 72.33),
+##        (&#39;Male&#39;, 169.24, 73.3 ), (&#39;Male&#39;, 176.22, 97.67),
+##        (&#39;Male&#39;, 174.09, 72.2 ), (&#39;Male&#39;, 180.11, 75.72),
+##        (&#39;Male&#39;, 179.24, 75.54), (&#39;Female&#39;, 161.92, 69.92),
+##        (&#39;Male&#39;, 169.85, 90.63), (&#39;Female&#39;, 160.57, 63.54),
+##        (&#39;Female&#39;, 168.24, 69.57), (&#39;Male&#39;, 177.75, 74.84),
+##        (&#39;Male&#39;, 183.21, 83.36), (&#39;Male&#39;, 167.75, 82.06),
+##        (&#39;Male&#39;, 181.15, 83.93), (&#39;Male&#39;, 181.56, 79.54),
+##        (&#39;Female&#39;, 160.03, 64.3 ), (&#39;Male&#39;, 165.62, 76.72),
+##        (&#39;Male&#39;, 181.64, 96.91), (&#39;Female&#39;, 159.67, 71.88),
+##        (&#39;Male&#39;, 177.03, 74.04), (&#39;Female&#39;, 163.35, 70.46),
+##        (&#39;Male&#39;, 175.21, 83.65), (&#39;Female&#39;, 160.8 , 64.77),
+##        (&#39;Male&#39;, 166.46, 76.83), (&#39;Female&#39;, 157.95, 67.41),
+##        (&#39;Male&#39;, 180.61, 83.59), (&#39;Female&#39;, 159.52, 67.99),
+##        (&#39;Female&#39;, 163.01, 65.19), (&#39;Female&#39;, 165.8 , 71.77),
+##        (&#39;Female&#39;, 170.03, 66.68), (&#39;Female&#39;, 157.16, 69.64),
+##        (&#39;Female&#39;, 164.58, 72.99), (&#39;Female&#39;, 163.47, 72.89),
+##        (&#39;Male&#39;, 185.43, 87.23), (&#39;Female&#39;, 165.34, 70.84),
+##        (&#39;Female&#39;, 163.45, 67.67), (&#39;Female&#39;, 163.97, 66.71),
+##        (&#39;Female&#39;, 161.38, 73.55), (&#39;Female&#39;, 160.09, 65.93),
+##        (&#39;Male&#39;, 178.64, 97.05), (&#39;Female&#39;, 159.78, 68.31),
+##        (&#39;Female&#39;, 161.57, 67.92), (&#39;Female&#39;, 161.83, 66.03),
+##        (&#39;Male&#39;, 169.66, 77.3 ), (&#39;Male&#39;, 166.84, 88.25),
+##        (&#39;Female&#39;, 159.32, 64.92), (&#39;Male&#39;, 170.51, 84.35),
+##        (&#39;Female&#39;, 161.84, 69.97), (&#39;Male&#39;, 171.41, 81.7 ),
+##        (&#39;Male&#39;, 166.75, 79.06), (&#39;Female&#39;, 166.19, 67.46),
+##        (&#39;Male&#39;, 169.16, 90.08), (&#39;Female&#39;, 157.01, 66.56),
+##        (&#39;Male&#39;, 167.51, 84.15), (&#39;Female&#39;, 160.47, 68.2 ),
+##        (&#39;Female&#39;, 162.33, 66.47), (&#39;Male&#39;, 175.67, 88.82),
+##        (&#39;Male&#39;, 174.25, 80.93), (&#39;Female&#39;, 158.94, 65.14),
+##        (&#39;Male&#39;, 172.72, 67.62), (&#39;Female&#39;, 159.23, 69.96),
+##        (&#39;Male&#39;, 176.54, 90.76), (&#39;Male&#39;, 184.34, 90.41),
+##        (&#39;Female&#39;, 163.94, 71.47), (&#39;Female&#39;, 160.09, 68.94),
+##        (&#39;Female&#39;, 162.32, 72.72), (&#39;Female&#39;, 162.59, 69.76),
+##        (&#39;Male&#39;, 171.94, 82.11), (&#39;Female&#39;, 158.07, 69.8 ),
+##        (&#39;Female&#39;, 158.35, 69.72), (&#39;Female&#39;, 162.18, 67.81),
+##        (&#39;Female&#39;, 159.38, 70.37), (&#39;Male&#39;, 171.45, 84.29),
+##        (&#39;Female&#39;, 163.17, 64.47), (&#39;Male&#39;, 183.1 , 82.47),
+##        (&#39;Male&#39;, 177.14, 88.7 ), (&#39;Male&#39;, 171.08, 72.51),
+##        (&#39;Female&#39;, 159.33, 70.68), (&#39;Male&#39;, 185.43, 73.63),
+##        (&#39;Female&#39;, 162.65, 73.99), (&#39;Female&#39;, 159.44, 66.21),
+##        (&#39;Female&#39;, 164.11, 70.66), (&#39;Female&#39;, 159.13, 66.96),
+##        (&#39;Female&#39;, 160.58, 71.49), (&#39;Female&#39;, 164.88, 68.07)],
+##       dtype=[(&#39;f0&#39;, &#39;&lt;U10&#39;), (&#39;f1&#39;, &#39;&lt;f4&#39;), (&#39;f2&#39;, &#39;&lt;f4&#39;)])</code></pre>
+</div>
+<div id="reading-3" class="section level2">
+<h2>Reading</h2>
+<p>While reading we can also assign our data into multiple objects using
+the <code>unpack</code> argument. Here we assign each column into it’s
+own separate array.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>sex, height, weight <span class="op">=</span> np.genfromtxt(<span class="st">&#39;data/height-weight.csv&#39;</span>, unpack <span class="op">=</span> <span class="va">True</span>, delimiter <span class="op">=</span> <span class="st">&quot;,&quot;</span>, skip_header<span class="op">=</span><span class="va">True</span>, dtype<span class="op">=</span>dtype)</span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>sex</span></code></pre></div>
+<pre><code>## array([&#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##        &#39;Female&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;,
+##        &#39;Female&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Female&#39;,
+##        &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;,
+##        &#39;Female&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Male&#39;,
+##        &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##        &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##        &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##        &#39;Male&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Male&#39;,
+##        &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Male&#39;,
+##        &#39;Male&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Female&#39;,
+##        &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##        &#39;Female&#39;, &#39;Male&#39;, &#39;Female&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Male&#39;, &#39;Female&#39;,
+##        &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;],
+##       dtype=&#39;&lt;U10&#39;)</code></pre>
+</div>
+<div id="reading-4" class="section level2">
+<h2>Reading</h2>
+<p>An alternative to setting the data type explicitly, you can let
+genfromtxt determine it automatically by setting the dtype to
+<code>None</code>. This works pretty well most of the time.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a></span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>sex, height, weight <span class="op">=</span> np.genfromtxt(<span class="st">&#39;data/height-weight.csv&#39;</span>, delimiter <span class="op">=</span> <span class="st">&quot;,&quot;</span>, skip_header<span class="op">=</span><span class="va">True</span>, unpack <span class="op">=</span> <span class="va">True</span>, dtype<span class="op">=</span><span class="va">None</span>)</span></code></pre></div>
+</div>
+<div id="quick-recap" class="section level2">
+<h2>Quick Recap</h2>
+<p>Once you have performed some analysis you will want to export it into
+a new file.</p>
+<p>Let’s do some quick processing based on what we learned yesterday.
+First we will make a 2D array.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>new_array <span class="op">=</span> np.array([sex, height, weight])</span></code></pre></div>
+<p>Next we do a logical test to see which entries in uor first row are
+Female.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>to_subset <span class="op">=</span> new_array[<span class="dv">0</span>,:]<span class="op">==</span><span class="st">&quot;Female&quot;</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>to_subset</span></code></pre></div>
+<pre><code>## array([False, False, False, False,  True,  True,  True,  True, False,
+##        False,  True,  True, False,  True,  True, False, False, False,
+##        False, False, False,  True, False,  True,  True, False, False,
+##        False, False, False,  True, False, False,  True, False,  True,
+##        False,  True, False,  True, False,  True,  True,  True,  True,
+##         True,  True,  True, False,  True,  True,  True,  True,  True,
+##        False,  True,  True,  True, False, False,  True, False,  True,
+##        False, False,  True, False,  True, False,  True,  True, False,
+##        False,  True, False,  True, False, False,  True,  True,  True,
+##         True, False,  True,  True,  True,  True, False,  True, False,
+##        False, False,  True, False,  True,  True,  True,  True,  True,
+##         True])</code></pre>
+</div>
+<div id="quick-recap-1" class="section level2">
+<h2>Quick Recap</h2>
+<p>We can use the boolean array we created to subset our array, based on
+whether they are <code>Female</code> or not.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>subset_array <span class="op">=</span> new_array[:,to_subset]</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>subset_array </span></code></pre></div>
+<pre><code>## array([[&#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##         &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##         &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##         &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##         &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##         &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##         &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##         &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##         &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;,
+##         &#39;Female&#39;],
+##        [&#39;164.47&#39;, &#39;158.27&#39;, &#39;161.69&#39;, &#39;165.84&#39;, &#39;160.06&#39;, &#39;166.48&#39;,
+##         &#39;164.7&#39;, &#39;163.79&#39;, &#39;161.92&#39;, &#39;160.57&#39;, &#39;168.24&#39;, &#39;160.03&#39;,
+##         &#39;159.67&#39;, &#39;163.35&#39;, &#39;160.8&#39;, &#39;157.95&#39;, &#39;159.52&#39;, &#39;163.01&#39;,
+##         &#39;165.8&#39;, &#39;170.03&#39;, &#39;157.16&#39;, &#39;164.58&#39;, &#39;163.47&#39;, &#39;165.34&#39;,
+##         &#39;163.45&#39;, &#39;163.97&#39;, &#39;161.38&#39;, &#39;160.09&#39;, &#39;159.78&#39;, &#39;161.57&#39;,
+##         &#39;161.83&#39;, &#39;159.32&#39;, &#39;161.84&#39;, &#39;166.19&#39;, &#39;157.01&#39;, &#39;160.47&#39;,
+##         &#39;162.33&#39;, &#39;158.94&#39;, &#39;159.23&#39;, &#39;163.94&#39;, &#39;160.09&#39;, &#39;162.32&#39;,
+##         &#39;162.59&#39;, &#39;158.07&#39;, &#39;158.35&#39;, &#39;162.18&#39;, &#39;159.38&#39;, &#39;163.17&#39;,
+##         &#39;159.33&#39;, &#39;162.65&#39;, &#39;159.44&#39;, &#39;164.11&#39;, &#39;159.13&#39;, &#39;160.58&#39;,
+##         &#39;164.88&#39;],
+##        [&#39;71.78&#39;, &#39;69.9&#39;, &#39;68.85&#39;, &#39;70.44&#39;, &#39;72.37&#39;, &#39;67.34&#39;, &#39;75.69&#39;,
+##         &#39;65.76&#39;, &#39;69.92&#39;, &#39;63.54&#39;, &#39;69.57&#39;, &#39;64.3&#39;, &#39;71.88&#39;, &#39;70.46&#39;,
+##         &#39;64.77&#39;, &#39;67.41&#39;, &#39;67.99&#39;, &#39;65.19&#39;, &#39;71.77&#39;, &#39;66.68&#39;, &#39;69.64&#39;,
+##         &#39;72.99&#39;, &#39;72.89&#39;, &#39;70.84&#39;, &#39;67.67&#39;, &#39;66.71&#39;, &#39;73.55&#39;, &#39;65.93&#39;,
+##         &#39;68.31&#39;, &#39;67.92&#39;, &#39;66.03&#39;, &#39;64.92&#39;, &#39;69.97&#39;, &#39;67.46&#39;, &#39;66.56&#39;,
+##         &#39;68.2&#39;, &#39;66.47&#39;, &#39;65.14&#39;, &#39;69.96&#39;, &#39;71.47&#39;, &#39;68.94&#39;, &#39;72.72&#39;,
+##         &#39;69.76&#39;, &#39;69.8&#39;, &#39;69.72&#39;, &#39;67.81&#39;, &#39;70.37&#39;, &#39;64.47&#39;, &#39;70.68&#39;,
+##         &#39;73.99&#39;, &#39;66.21&#39;, &#39;70.66&#39;, &#39;66.96&#39;, &#39;71.49&#39;, &#39;68.07&#39;]],
+##       dtype=&#39;&lt;U32&#39;)</code></pre>
+<p>Then export the subset array with the <code>savetxt</code> function.
+This has similar arguments to <code>genfromtxt</code>. A key addition is
+<code>fmt</code>, the format in which the data is saved. You can specify
+scientific notation, significant digits or in our case simply that we
+will use a string.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a></span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>np.savetxt(<span class="st">&quot;height-weight_female.csv&quot;</span>, subset_array, delimiter<span class="op">=</span><span class="st">&#39;,&#39;</span>, fmt<span class="op">=</span><span class="st">&#39;</span><span class="sc">%s</span><span class="st">&#39;</span>)</span></code></pre></div>
+</div>
+<div id="complex-readingwriting" class="section level2">
+<h2>Complex reading/writing</h2>
+<p>Though a lot of the time we may use these NumPy approaches, there are
+specific functions dedicated to a variety of data types.</p>
+<p>The most common is <a href="https://pandas.pydata.org/docs/getting_started/index.html#getting-started">pandas</a>.
+This is a specialized library for managing data frames. It also has the
+ability to read/write from excel spreadsheets.</p>
+<p><a href="https://biopython.org/">BioPython</a> has a range of
+utilities for managing biological data types i.e. fasta, fastq, etc.</p>
+</div>
+</div>
+<div id="control-statements" class="section level1">
+<h1>Control Statements</h1>
+<hr />
+<div id="control-statements-1" class="section level2">
 <h2>Control Statements</h2>
 <p>There are several ways to control how your code is evaluated. There
 are two main classes:</p>
-<p>Conditional branching (if,else) Loops (for, while)</p>
-<p><span style="color:green">While</span> I’m analysing data, <span style="color:red">if</span> I need to execute complex statistical
+<ul>
+<li>Conditional branching (if,else)<br />
+</li>
+<li>Loops (for, while)</li>
+</ul>
+<p><span style="color:green">While</span> I’m analyzing data, <span style="color:red">if</span> I need to execute complex statistical
 procedures on the data I will use Python <span style="color:red">else</span> I will use a calculator.</p>
 </div>
 <div id="conditional-branching" class="section level2">
@@ -1597,30 +2002,30 @@ procedures on the data I will use Python <span style="color:red">else</span> I w
 <p>Conditional branching is the evaluation of a logical to determine
 whether a chunk of code is executed.</p>
 <p>In Python, we use the if statement with the logical to be evaluated
-immediately after. The dependent code is indicated by a colon, new line
+immediately after. Thedependent code is indicated by a colon, new line
 and indentation.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>x <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="cf">if</span> x:</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is true&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>x <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="cf">if</span> x:</span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is true&quot;</span>)</span></code></pre></div>
 <pre><code>## x is true</code></pre>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>x <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="cf">if</span> x:</span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is true&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>x <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a><span class="cf">if</span> x:</span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is true&quot;</span>)</span></code></pre></div>
 </div>
 <div id="conditional-branching-1" class="section level2">
 <h2>Conditional Branching</h2>
 <p>More often, we construct the logical value within the if statement
 itself. This can be termed the condition.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> y:</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The value of x is&quot;</span>,x,<span class="st">&quot;which is greater than&quot;</span>, y)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> y:</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The value of x is&quot;</span>,x,<span class="st">&quot;which is greater than&quot;</span>, y)</span></code></pre></div>
 <pre><code>## The value of x is 10 which is greater than 4</code></pre>
 <p>The message is printed above because x is greater than y.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> y:</span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The value of x is&quot;</span>,x,<span class="st">&quot;which is greater than&quot;</span>, y)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> y:</span>
+<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The value of x is&quot;</span>,x,<span class="st">&quot;which is greater than&quot;</span>, y)</span></code></pre></div>
 <p>x is now no longer greater than y, so no message is printed.</p>
 <p>We really still want a message telling us what was the result of the
 condition.</p>
@@ -1628,63 +2033,65 @@ condition.</p>
 <div id="else-following-an-if" class="section level2">
 <h2>else following an if</h2>
 <p>If we want to perform an operation when the condition is false we can
-follow the <em>if</em> statement with an <em>else</em> statement.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than or equal to 5&quot;</span>)</span></code></pre></div>
+follow the <code>if</code> statement with an <code>else</code>
+statement.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than or equal to 5&quot;</span>)</span></code></pre></div>
 <pre><code>## 3 is less than to 5</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than or equal to 5&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
+<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than or equal to 5&quot;</span>)</span></code></pre></div>
 <pre><code>## 10 is greater than or equal to 5</code></pre>
 </div>
 <div id="else-if-elif" class="section level2">
 <h2>else if = elif</h2>
 <p>We may wish to execute different procedures under multiple
-conditions. This can be controlled using the <em>elif</em> following an
-initial <em>if</em> statement.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="cf">elif</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than 5&quot;</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is 5&quot;</span>)</span></code></pre></div>
+conditions. This can be controlled using the <code>elif</code> following
+an initial <code>if</code> statement.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb35-3"><a href="#cb35-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" tabindex="-1"></a><span class="cf">elif</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb35-5"><a href="#cb35-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than 5&quot;</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb35-7"><a href="#cb35-7" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is 5&quot;</span>)</span></code></pre></div>
 <pre><code>## 5 is 5</code></pre>
 </div>
 <div id="loops" class="section level2">
 <h2>Loops</h2>
 <p>While and for loops iterate over a block of code, and keep rerunning
 it.</p>
-<p><em>While</em> loops do this while a specific condition is met (or
-until that condition is not met).</p>
-<p><em>For</em> loops will do this for a given number of iterations.</p>
+<p><code>While</code> loops do this while a specific condition is met
+(or until that condition is not met).</p>
+<p><code>For</code> loops will do this for a given number of
+iterations.</p>
 </div>
 <div id="while-loop" class="section level2">
-<h2>While Loop</h2>
+<h2>While loop</h2>
 <p>While loops have a similar structure to if statements. We start by
 designating the while loop, ten follow with the logical to be evaluated
 immediately after. The dependent code is indicated by a colon, new line
 and indentation.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="dv">3</span>:</span>
-<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is&quot;</span>,x)</span>
-<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>  x <span class="op">=</span> x<span class="op">+</span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is&quot;</span>,x)</span>
+<span id="cb37-4"><a href="#cb37-4" tabindex="-1"></a>  x <span class="op">=</span> x<span class="op">+</span><span class="dv">1</span></span></code></pre></div>
 <pre><code>## x is 1
 ## x is 2</code></pre>
 </div>
 <div id="for-loop" class="section level2">
-<h2>For Loop</h2>
-<p>For loops do not have a condtional. Instead you supply an object that
-you want to be iterate over. This can be a list, tuple, dictionary, set
-or string. Here we use a list.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">&#39;Alpha&#39;</span>,<span class="st">&#39;Bravo&#39;</span>,<span class="st">&#39;Charlie&#39;</span>]</span>
-<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
-<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code></pre></div>
+<h2>For loop</h2>
+<p>For loops do not have a conditional. Instead you supply an object
+that you want to be iterate over. This can be a list, tuple, dictionary,
+set or string. Here we use a list.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">&#39;Alpha&#39;</span>,<span class="st">&#39;Bravo&#39;</span>,<span class="st">&#39;Charlie&#39;</span>]</span>
+<span id="cb39-2"><a href="#cb39-2" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
+<span id="cb39-3"><a href="#cb39-3" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code></pre></div>
 <pre><code>## Alpha
 ## Bravo
 ## Charlie</code></pre>
@@ -1694,8 +2101,8 @@ or string. Here we use a list.</p>
 <p>The range() function provides us with a nice input for our for loops.
 It returns a sequence of numbers, starting from 0 and stops before the
 specified number.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;i is&quot;</span>, i)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;i is&quot;</span>, i)</span></code></pre></div>
 <pre><code>## i is 0
 ## i is 1
 ## i is 2</code></pre>
@@ -1705,12 +2112,12 @@ specified number.</p>
 <p>When we have a numeric range, we can use it to index out from
 existing objects. This often allows for more complex code
 evaluation.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>geneName <span class="op">=</span> [<span class="st">&quot;Ikzf1&quot;</span>,<span class="st">&quot;Myc&quot;</span>,<span class="st">&quot;Igll1&quot;</span>]</span>
-<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a>expression <span class="op">=</span> [<span class="fl">10.4</span>, <span class="fl">4.3</span>, <span class="fl">6.5</span>]</span>
-<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>iterations <span class="op">=</span> <span class="bu">len</span>(geneName)</span>
-<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(iterations):</span>
-<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a>  <span class="bu">print</span>(geneName[i],<span class="st">&quot; has an TPM of &quot;</span>,expression[i])</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a>geneName <span class="op">=</span> [<span class="st">&quot;Ikzf1&quot;</span>,<span class="st">&quot;Myc&quot;</span>,<span class="st">&quot;Igll1&quot;</span>]</span>
+<span id="cb43-2"><a href="#cb43-2" tabindex="-1"></a>expression <span class="op">=</span> [<span class="fl">10.4</span>, <span class="fl">4.3</span>, <span class="fl">6.5</span>]</span>
+<span id="cb43-3"><a href="#cb43-3" tabindex="-1"></a>iterations <span class="op">=</span> <span class="bu">len</span>(geneName)</span>
+<span id="cb43-4"><a href="#cb43-4" tabindex="-1"></a></span>
+<span id="cb43-5"><a href="#cb43-5" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(iterations):</span>
+<span id="cb43-6"><a href="#cb43-6" tabindex="-1"></a>  <span class="bu">print</span>(geneName[i],<span class="st">&quot; has an TPM of &quot;</span>,expression[i])</span></code></pre></div>
 <pre><code>## Ikzf1  has an TPM of  10.4
 ## Myc  has an TPM of  4.3
 ## Igll1  has an TPM of  6.5</code></pre>
@@ -1718,18 +2125,46 @@ evaluation.</p>
 <div id="loops-and-conditionals" class="section level2">
 <h2>Loops and conditionals</h2>
 <p>Loops can be combined with conditional statements to allow for
-complex control of their execution over Python objects. Though these can
-be tough to read and create, by keeping an eye of the hierarchy of
-identation we can follow the logic.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">range</span>(<span class="dv">8</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
-<span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is greater than 5&quot;</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" tabindex="-1"></a>  <span class="cf">elif</span> i <span class="op">==</span> <span class="dv">5</span>:</span>
-<span id="cb22-7"><a href="#cb22-7" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is  5&quot;</span>) </span>
-<span id="cb22-8"><a href="#cb22-8" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb22-9"><a href="#cb22-9" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is less than 5&quot;</span>) </span></code></pre></div>
+complex control of their execution over Python objects.</p>
+<p>To help us write complex code we often use pseudocode as a starting
+point.</p>
+</div>
+<div id="pseudocode" class="section level2">
+<h2>Pseudocode</h2>
+<p>When we write pseudocode we are trying to write out each
+computational step in a human readbale way.</p>
+<p>It is important to be specific, simple, concise and include the
+control structures that would be in your final code.</p>
+<pre><code>
+for 0 to 7
+  if value is greater than 5
+    print the value and a statement saying it is greater than 5
+  else if value is 5
+    print the value and a statement saying it is equal to 5
+  else if value is less than 5
+    print the value and a statement saying it is less than 5
+
+</code></pre>
+</div>
+<div id="loops-and-conditionals-1" class="section level2">
+<h2>Loops and conditionals</h2>
+<p>Though these can be tough to read and create, by starting with
+pseudocode and keeping an eye of the hierarchy of indentation we can
+follow the logic.</p>
+<pre><code>for 0 to 7
+  if value is greater than 5
+    print the value and a statement saying it is greater than 5
+  else if value is 5
+    print the value and a statement saying it is equal to 5
+  else if value is less than 5
+    print the value and a statement saying it is less than 5</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
+<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is greater than 5&quot;</span>)</span>
+<span id="cb47-4"><a href="#cb47-4" tabindex="-1"></a>  <span class="cf">elif</span> i <span class="op">==</span> <span class="dv">5</span>:</span>
+<span id="cb47-5"><a href="#cb47-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is  5&quot;</span>) </span>
+<span id="cb47-6"><a href="#cb47-6" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb47-7"><a href="#cb47-7" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is less than 5&quot;</span>) </span></code></pre></div>
 <pre><code>## Number 0 is less than 5
 ## Number 1 is less than 5
 ## Number 2 is less than 5
@@ -1743,22 +2178,50 @@ identation we can follow the logic.</p>
 <h2>Breaking loops</h2>
 <p>We can use conditionals to exit a loop if a condition is satisfied,
 just like a while loop.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">range</span>(<span class="dv">8</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
-<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is greater than 5&quot;</span>)</span>
-<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>  <span class="cf">elif</span> i <span class="op">==</span> <span class="dv">5</span>:</span>
-<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is  5&quot;</span>)</span>
-<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is less than 5&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">range</span>(<span class="dv">8</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
+<span id="cb49-4"><a href="#cb49-4" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb49-5"><a href="#cb49-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is greater than 5&quot;</span>)</span>
+<span id="cb49-6"><a href="#cb49-6" tabindex="-1"></a>  <span class="cf">elif</span> i <span class="op">==</span> <span class="dv">5</span>:</span>
+<span id="cb49-7"><a href="#cb49-7" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is  5&quot;</span>)</span>
+<span id="cb49-8"><a href="#cb49-8" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb49-9"><a href="#cb49-9" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb49-10"><a href="#cb49-10" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is less than 5&quot;</span>) </span></code></pre></div>
 <pre><code>## Number 0 is less than 5
 ## Number 1 is less than 5
 ## Number 2 is less than 5
 ## Number 3 is less than 5
 ## Number 4 is less than 5
 ## Number 5 is  5</code></pre>
+</div>
+<div id="time-for-an-exercise" class="section level2">
+<h2>Time for an exercise!</h2>
+<p>??? exercise description here?? <a href="../../exercises/exercises/MyExercise2_exercises.html">here</a></p>
+</div>
+<div id="answers-to-exercise" class="section level2">
+<h2>Answers to exercise</h2>
+<p>Answers can be found <a href="../../exercises/answers/MyExercise2_answers.html">here</a></p>
+</div>
+<div id="an-extra-note" class="section level2">
+<h2>An extra note</h2>
+<p>Keeping Your Code Nice can be annoying. There exists many ways in
+which to store your code. Most of the time we are not writing scripts
+that are production level. Instead you will be doing an analysis of a
+data set and making decisions in an interactive manner.</p>
+<p>Notebooks give you a means to tie the code, the analysis decisions
+and the result of the code together into a single file.</p>
+<p>There are several options for python. But Jupyter Notebook is best
+known for Python. Quarto is growing in popularity as its universal and
+language agnostic.</p>
+</div>
+<div id="further-support" class="section level2">
+<h2>Further Support</h2>
+<p>When you hit bugs: * Google * Stackoverflow * Biostars * Reach out on
+<a href="https://github.com/RockefellerUniversity/Intro_To_Python/issues">GitHub</a></p>
+<p>Other Reference Material: * <a href="https://cs50.harvard.edu/python/2022/">Harvard’s Python Course</a>
+* <a href="https://www.geeksforgeeks.org/getting-started-with-python-programming/">Geeks
+For Geeks</a></p>
 </div>
 </div>
 

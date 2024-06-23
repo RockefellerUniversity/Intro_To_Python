@@ -1,6 +1,11 @@
 params <-
 list(isSlides = "no")
 
+## ----include=FALSE------------------------------------------------------------
+suppressPackageStartupMessages(require(knitr))
+knitr::opts_chunk$set(echo = TRUE, tidy = T)
+
+
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
 if(params$isSlides != "yes"){
   cat("# Introduction to Python
@@ -13,12 +18,13 @@ if(params$isSlides != "yes"){
 
 
 
-## ----eval=T, echo=F, warning=F, message=F-------------------------------------
+## ----eval=T, echo=F, warning=F, message=F, hide=T-----------------------------
 library(IntroToPython)
 library(reticulate)
-py_install(c("matplotlib", "numpy", "scipy","seaborn"))
+py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 
 
+## import matplotlib
 ## import matplotlib.pyplot as plt
 
 ## fig, ax = plt.subplots()
@@ -83,6 +89,20 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"))
 ## plt.show()
 ## 
 
+## # Generate figure and axes
+## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+## 
+## # Plot data
+## ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5)
+## ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5)
+## 
+## ax1.set_title("Height vs Weight")
+## ax1.set_xlabel("Weight (kg)")
+## ax1.set_ylabel("Height (cm)")
+## 
+## plt.show()
+## 
+
 ## from scipy.optimize import curve_fit
 ## 
 ## # define the function with the independent variable first, followed by fit parameters
@@ -99,6 +119,24 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"))
 
 ## y_male = line(x, popt_m[0], popt_m[1])
 ## y_female = line(x, popt_f[0], popt_f[1])
+
+## # Generate figure and axes
+## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+## 
+## # Plot data
+## ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5)
+## ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5)
+## 
+## ax1.plot(x, y_male, c = 'royalblue')
+## ax1.plot(x, y_female, c = 'magenta')
+## 
+## ax1.set_title("Height vs Weight")
+## 
+## ax1.set_xlabel("Weight (kg)")
+## 
+## ax1.set_ylabel("Height (cm)")
+## 
+## plt.show()
 
 ## # Generate figure and axes
 ## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
@@ -156,6 +194,23 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"))
 ## 
 ## ax1.legend()
 ## 
+## plt.show()
+
+## # Generate figure and axes
+## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+## 
+## # Plot data
+## ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
+## ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
+## 
+## ax1.plot(x, y_male, c = 'royalblue')
+## ax1.plot(x, y_female, c = 'magenta')
+## 
+## ax1.set_title("Height vs Weight")
+## ax1.set_xlabel("Weight (kg)")
+## ax1.set_ylabel("Height (cm)")
+## ax1.legend()
+## 
 ## ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5)
 ## ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5)
 ## 
@@ -172,20 +227,51 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"))
 ## ax1.plot(x, y_female, c = 'magenta')
 ## 
 ## ax1.set_title("Height vs Weight")
-## 
 ## ax1.set_xlabel("Weight (kg)")
-## 
 ## ax1.set_ylabel("Height (cm)")
-## 
 ## ax1.legend()
 ## 
+## ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5)
+## ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5)
+## 
+## plt.show()
+
+## 
+## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+## ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
+## ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
+## ax1.plot(x, y_male, c = 'royalblue')
+## ax1.plot(x, y_female, c = 'magenta')
+## ax1.set_title("Height vs Weight")
+## ax1.set_xlabel("Weight (kg)")
+## ax1.set_ylabel("Height (cm)")
+## ax1.legend()
 ## ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5, label = 'Male')
 ## ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5, label = 'Female')
 ## 
 ## ax2.set_ylabel('Count')
 ## ax2.set_xlabel('Height (cm)')
 ## ax2.legend()
+## ax2.set_title('Height Distributions by Sex')
 ## 
+## plt.show()
+
+## 
+## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+## ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
+## ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
+## ax1.plot(x, y_male, c = 'royalblue')
+## ax1.plot(x, y_female, c = 'magenta')
+## ax1.set_title("Height vs Weight")
+## ax1.set_xlabel("Weight (kg)")
+## ax1.set_ylabel("Height (cm)")
+## ax1.legend()
+## ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5, label = 'Male')
+## ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5, label = 'Female')
+## 
+## ax2.set_ylabel('Count')
+## ax2.set_xlabel('Height (cm)')
+## ax2.legend()
 ## ax2.set_title('Height Distributions by Sex')
 ## 
 ## plt.show()
@@ -225,6 +311,33 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"))
 ## 
 ## plt.show()
 ## 
+
+## fig, ax = plt.subplots(figsize = (5,4))
+## 
+## x = np.linspace(-5, 5, 200)
+## y = np.linspace(-5, 5, 200)
+## 
+## xx, yy = np.meshgrid(x, y)
+## 
+## zz = np.cos(xx)*np.sin(yy)
+## 
+## im = ax.pcolormesh(zz, cmap='viridis')
+## fig.colorbar(im, ax=ax)
+## 
+## plt.show()
+## 
+
+## # Generate figure and axes
+## fig, ax = plt.subplots(figsize=(6, 4))
+## ratio = weight/height
+## im = ax.scatter(weight, height, c=ratio, cmap='viridis')
+## fig.colorbar(im, ax=ax)
+## 
+## ax.set_xlabel("Weight (kg)")
+## ax.set_ylabel("Height (cm)")
+## ax.set_title("Weight vs Height")
+## 
+## plt.show()
 
 ## # Generate figure and axes
 ## fig, ax = plt.subplots(figsize=(6, 4))

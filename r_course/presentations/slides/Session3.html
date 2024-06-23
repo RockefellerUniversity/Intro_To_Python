@@ -33,9 +33,12 @@ class: center, middle, inverse, title-slide
 
 
 
+
+
 ```
 ## Using virtual environment '/github/home/.virtualenvs/r-reticulate' ...
 ```
+
 
 ##  Data Visualization with Python
 
@@ -71,7 +74,9 @@ Matplotlib is Python's library for visualization. It has extensive documentation
 To import matplotlib.pyplot, simply type `import matplotlib.pyplot as plt` at the top of your code. You can then refer to the library as `plt` in your code as needed. Note that this isn't strictly necessary, but you will find that this is an almost-universal naming convention (other libraries follow similar conventions too).
 
 
+
 ``` python
+import matplotlib
 import matplotlib.pyplot as plt
 ```
 
@@ -86,7 +91,7 @@ In Python, the best way to make a figure is by using the [`subplots()`](https://
 fig, ax = plt.subplots()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-4-1.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -118,10 +123,10 @@ fig, ax = plt.subplots(figsize=(2, 3))
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-5-3.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-6-3.png)&lt;!-- --&gt;
+
 
 ---
-
 ## Multiple Subplots
 
 Looking at the [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) documentation again, we can see that we can specify the number and arrangement of subplots we want:
@@ -137,8 +142,8 @@ fig1, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
 fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)
 ```
 
---- 
 
+--- 
 ## Example with 4 Subplots
 
 Let's make a 2x2 grid of subplots. Note that we use nested brackets to specify the positions of each subplot within the figure.
@@ -150,10 +155,10 @@ fig, ((ax_nw, ax_ne), (ax_sw, ax_se)) = plt.subplots(nrows=2, ncols=2)
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-6-5.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-7-5.png)&lt;!-- --&gt;
+
 
 ---
-
 ## Advanced Subplot Options
 
 - `width_ratios` and `height_ratios`  to adjust the relative sizes of rows and columns 
@@ -205,7 +210,7 @@ ax.scatter(x=weight, y=height)
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-8-7.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-9-7.png)&lt;!-- --&gt;
 
 ---
 
@@ -217,7 +222,7 @@ Confusingly, matplotlib has a separate function to create a scatter plot with er
 
 ## Customizing Scatter Plots
 
-Take a look at the options in the [`scatter()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html) documentation. Soem common parameters you could use to customize your scatter plot are:
+Take a look at the options in the [`scatter()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html) documentation. Some common parameters you could use to customize your scatter plot are:
 
 - `s`: marker size in points ^2 (don't ask why...). 
 - `color (c)`: marker color. Enter a string that could include a named color, RBG code, or hex color code. Find a full guide to specifying colors [here](https://matplotlib.org/stable/users/explain/colors/colors.html#colors-def).
@@ -225,8 +230,8 @@ Take a look at the options in the [`scatter()`](https://matplotlib.org/stable/ap
 - `linewidths`: width of the marker outline. Enter number in pts.
 - `edgecolors`: color of the marker outline. Enter as a string, similar to the value of `c`.
 - `alpha`: transparency (0 = transparent, 1 = opaque)
----
 
+---
 ## Named Colors
 
 Python has a number of named colors. You can also specify hex or RGB color codes as strings. 
@@ -236,6 +241,11 @@ Python has a number of named colors. You can also specify hex or RGB color codes
 &lt;img src="imgs/named_colors.png" alt="igv" height="300" width="600"&gt;
 
 &lt;/div&gt;
+
+Using these colors and the list of parameters below, take a second to customize your plot of weight vs height.
+
+---
+## Parameters
 
 Using these colors and the list of parameters below, take a second to customize your plot of weight vs height.
 
@@ -259,7 +269,7 @@ ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edg
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-9-9.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-10-9.png)&lt;!-- --&gt;
 
 ---
 
@@ -292,7 +302,7 @@ ax.set_ylabel("Height (cm)")
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-10-11.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-11-11.png)&lt;!-- --&gt;
 
 ---
 
@@ -340,10 +350,15 @@ ax1.set_ylabel("Height (cm)")
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-12-13.png)&lt;!-- --&gt;
 
 ---
+## Plotting a Continuous Function
 
+
+![](Session3_files/figure-html/unnamed-chunk-14-13.png)&lt;!-- --&gt;
+
+
+---
 ## Lines of Best Fit
 
 Lines of best fit (also called linear regressions) are useful tools for finding trends in scattered data. A line of best fit will follow the equation 
@@ -363,9 +378,12 @@ where `\(m\)` is the slope and `\(b\)` is the intercept. Today we will be using 
 - Optimal parameters of `\(m\)` and `\(b\)` (or whichever fit parameters you have defined in your function)
 - Other information about the quality of the fit (covariance matrix)
 
-Let's give it a try!
+
 
 ---
+## Lines of Best Fit
+
+Let's give it a try!
 
 
 ``` python
@@ -385,8 +403,7 @@ print(popt_m)
 ## [8.17836998e-02 1.68572508e+02]
 ```
 
---- 
-
+---
 ## Plotting the Lines 1
 
 Now that we have the slopes and intercepts of each line of best fit, we can use [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) to plot them on our axes (`ax1`). `plot()` behaves exactly like scatter, in the sense that it accepts a list of x values and a list of y values. However, it will just plot these coordinates and connect them with a straight line. 
@@ -425,8 +442,7 @@ print(x)
 ```
 
 ---
-
-### Plotting the Lines 2
+## Plotting the Lines 2
 
 Now that we have our x values, we can plug them into the linear function we have defined, `line(x, m, b)`, including the values for the fit parameters we found using `curve_fit()`. Let's define our y values to plot in the following way:
 
@@ -437,7 +453,6 @@ y_female = line(x, popt_f[0], popt_f[1])
 ```
 
 ---
-
 ## Plotting the Lines 3
 
 Finally, we can put it all together. Take the code we have created for our 1x2 subplot and add in the lines of best fit on `ax1`.
@@ -463,10 +478,14 @@ ax1.set_ylabel("Height (cm)")
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-16-15.png)&lt;!-- --&gt;
+---
+## Plotting the Lines 3
+
+![](Session3_files/figure-html/unnamed-chunk-19-15.png)&lt;!-- --&gt;
+
+
 
 ---
-
 ## Adding a Legend
 
 Finally, we would like to add a legend to this plot now that it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. By adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function, we will automatically generate a legend. You  can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today.
@@ -494,10 +513,12 @@ ax1.legend()
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-17-17.png)&lt;!-- --&gt;
+---
+## Adding a Legend
+
+![](Session3_files/figure-html/unnamed-chunk-21-17.png)&lt;!-- --&gt;
 
 ---
-
 ## Histograms 
 
 Another common plot type is a histogram. We are going to put a histogram of height distributions by sex in the blank subplot. We will do this using the [`plt.hist()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html) function. At a minimum, `hist()` takes the data points you wish to plot as an argument. You may also specify the `bins` argument as an integer (the default is 10). Let's take our previous plot and add histograms for the male and female height distributions, each with 5 bins.
@@ -515,11 +536,8 @@ ax1.plot(x, y_male, c = 'royalblue')
 ax1.plot(x, y_female, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
-
 ax1.set_xlabel("Weight (kg)")
-
 ax1.set_ylabel("Height (cm)")
-
 ax1.legend()
 
 ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5)
@@ -528,46 +546,43 @@ ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5)
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-18-19.png)&lt;!-- --&gt;
 ---
+## Histograms 
 
+![](Session3_files/figure-html/unnamed-chunk-23-19.png)&lt;!-- --&gt;
+
+
+---
 ## Finishing Touches
 
 Finally, let's add a legend, axis labels, and title to the histogram.
 
 
 ``` python
-# Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
-
-# Plot data
 ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
 ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
-
 ax1.plot(x, y_male, c = 'royalblue')
 ax1.plot(x, y_female, c = 'magenta')
-
 ax1.set_title("Height vs Weight")
-
 ax1.set_xlabel("Weight (kg)")
-
 ax1.set_ylabel("Height (cm)")
-
 ax1.legend()
-
 ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5, label = 'Male')
 ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5, label = 'Female')
 
 ax2.set_ylabel('Count')
 ax2.set_xlabel('Height (cm)')
 ax2.legend()
-
 ax2.set_title('Height Distributions by Sex')
 
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-19-21.png)&lt;!-- --&gt;
+---
+## Finishing Touches
+
+![](Session3_files/figure-html/unnamed-chunk-25-21.png)&lt;!-- --&gt;
 
 ---
 
@@ -590,7 +605,7 @@ fig, ax = plt.subplots(figsize = (4, 4))
 sns.violinplot(weight_m, ax = ax)
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-20-23.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-26-23.png)&lt;!-- --&gt;
 
 ---
 
@@ -612,7 +627,7 @@ ax.legend()
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-21-25.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-27-25.png)&lt;!-- --&gt;
 
 --- 
 
@@ -633,7 +648,6 @@ fig.savefig("my_violin_plot.pdf", bbox_inches = "tight")
 ```
 
 ---
-
 ## Color Maps 
 
 Rather than using a single color to plot your data, you may want to use a color map. This is particularly true for things like heatmaps, or when you are displaying an image. To do this, you can use existing [colormaps](https://matplotlib.org/stable/gallery/color/colormap_reference.html) within `matplotlib`, or [create your own](https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation).
@@ -651,20 +665,21 @@ zz = np.cos(xx)*np.sin(yy)
 
 im = ax.pcolormesh(zz, cmap='viridis')
 fig.colorbar(im, ax=ax)
-```
 
-```
-## &lt;matplotlib.colorbar.Colorbar object at 0x7f3b9694aa70&gt;
-```
-
-``` python
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-23-27.png)&lt;!-- --&gt;
+---
+## Color Maps 
+
+
+```
+## &lt;matplotlib.colorbar.Colorbar object at 0x7f7f38cb5750&gt;
+```
+
+![](Session3_files/figure-html/unnamed-chunk-30-27.png)&lt;!-- --&gt;
 
 ---
-
 ## Accessible Color Maps
 
 When you are using colors to plot your data, and in particular when you are using [color maps](https://matplotlib.org/stable/users/explain/colors/colormaps.html), it is important to choose one that is faithful to the scale, and that is accessible to those with common forms of color blindness. It turns out that people have thought about this problem *a lot* and have come up with some color maps that do a great job at maximizing these properties. 
@@ -673,12 +688,14 @@ My personal favourite is called *viridis* (watch the launch video [here](https:/
 
 ![Alt text](imgs/viridis.png)
 
+---
+## Accessible Color Maps
+
 It's also important to note that some color schemes that may seem natural to use (black to white and rainbow) actually tend to skew our perceptions of the data values and therefore are not recommended. 
 
 ![Alt text](imgs/monalisa.png)
 
 ---
-
 ## Example: Scatter Plot with Color Map
 
 Let's make a scatter plot with weight vs height again, but make the color of the points defined by the ratio of weight to height.
@@ -693,7 +710,7 @@ fig.colorbar(im, ax=ax)
 ```
 
 ```
-## &lt;matplotlib.colorbar.Colorbar object at 0x7f3b96857ca0&gt;
+## &lt;matplotlib.colorbar.Colorbar object at 0x7f7f38bb31c0&gt;
 ```
 
 ``` python
@@ -704,7 +721,33 @@ ax.set_title("Weight vs Height")
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-24-29.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-31-29.png)&lt;!-- --&gt;
+
+---
+## Example: Scatter Plot with Color Map
+
+
+``` python
+# Generate figure and axes
+fig, ax = plt.subplots(figsize=(6, 4))
+ratio = weight/height
+im = ax.scatter(weight, height, c=ratio, cmap='viridis')
+fig.colorbar(im, ax=ax)
+```
+
+```
+## &lt;matplotlib.colorbar.Colorbar object at 0x7f7f38a86b60&gt;
+```
+
+``` python
+ax.set_xlabel("Weight (kg)")
+ax.set_ylabel("Height (cm)")
+ax.set_title("Weight vs Height")
+
+plt.show()
+```
+
+![](Session3_files/figure-html/unnamed-chunk-32-31.png)&lt;!-- --&gt;
 
 ---
 
@@ -729,6 +772,27 @@ def plot_data(weight, height, filename):
   fig.tight_layout()
   fig.savefig(filename + ".pdf", bbox_inches = "tight")
 ```
+
+
+
+---
+## Time for an exercise!
+
+??? exercise description here?? [here](../../exercises/exercises/MyExercise2_exercises.html)
+
+---
+## Answers to exercise
+
+Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
+
+R code for solutions can be found [here](../../exercises/answers/MyExercise2_answers.R)
+
+--- 
+## Further Support
+
+* Reach out on [GitHub](https://github.com/RockefellerUniversity/Intro_To_Python/issues)
+* Harvard's Python Course: https://cs50.harvard.edu/python/2022/
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
