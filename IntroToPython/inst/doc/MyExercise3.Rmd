@@ -16,6 +16,11 @@ toMessage <- ifelse(!is.null(params$toMessage),params$toMessage,FALSE)
 message(toMessage)
 ```
 
+```{r, eval=T, echo=F, warning=F, message=F, hide=T}
+library(IntroToPython)
+library(reticulate)
+py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
+```
 
 <p>&nbsp;</p>
 
@@ -44,10 +49,10 @@ The geneName category ranges from Gene_1 to Gene_30. expression and geneLength a
 
 First, import this data into numpy arrays. You should have four arrays, one for each column. Hont: You may have to specify the `dtype` and `encoding` options (as shown before) to deal with the variety of data types.
 
-```{python,echo=toMessage}
+```{python, echo=toMessage}
 ## Add the solution in here. This will only be included in the exercise sections. This is controlled by the echo=toMessage in the markdown header  ie:
 
-name, expression, length, goterm = np.genfromtxt('../data/gene_expression.csv', unpack=True, delimiter=',', skip_header=True, dtype=None, encoding='UTF-8')
+name, expression, length, goterm = np.genfromtxt('data/gene_expression.csv', unpack=True, delimiter=',', skip_header=True, dtype=None, encoding='UTF-8')
 
 ```
 
