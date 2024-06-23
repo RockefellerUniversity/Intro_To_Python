@@ -26,6 +26,12 @@ suppressPackageStartupMessages(require(knitr))
 knitr::opts_chunk$set(echo = TRUE, tidy = T)
 ```
 
+```{r, eval=T, echo=F, warning=F, message=F, hide=T}
+library(IntroToPython)
+library(reticulate)
+py_suppress_warnings(py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet"))
+```
+
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides != "yes"){
   cat("# Introduction to Python
@@ -38,12 +44,6 @@ if(params$isSlides != "yes"){
 
 ```
 
-
-```{r, eval=T, echo=F, warning=F, message=F, hide=T}
-library(IntroToPython)
-library(reticulate)
-py_suppress_warnings(py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet"))
-```
 
 ---
 ## Session Overview
