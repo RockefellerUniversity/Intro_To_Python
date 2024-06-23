@@ -297,7 +297,7 @@ Another common type of plot is a line plot. Line plots can be created using the 
 
 Let's use `plot()` to add a line of best fit to out weight vs height data for both sexes. First, we will create a new figure and plot the data using `scatter()`, as before.
 
-```{python, eval=F}
+```{python, eval=F, echo=T}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -404,7 +404,7 @@ y_female = line(x, popt_f[0], popt_f[1])
 
 Finally, we can put it all together. Take the code we have created for our 1x2 subplot and add in the lines of best fit on `ax1`.
 
-```{python, eval=F}
+```{python, eval=F, echo=T}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -454,7 +454,7 @@ plt.show()
 
 Finally, we would like to add a legend to this plot now that it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. By adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function, we will automatically generate a legend. You  can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today.
 
-```{python, eval=F}
+```{python, eval=F, echo=T}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -506,7 +506,7 @@ plt.show()
 
 Another common plot type is a histogram. We are going to put a histogram of height distributions by sex in the blank subplot. We will do this using the [`plt.hist()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html) function. At a minimum, `hist()` takes the data points you wish to plot as an argument. You may also specify the `bins` argument as an integer (the default is 10). Let's take our previous plot and add histograms for the male and female height distributions, each with 5 bins.
 
-```{python, eval=F}
+```{python, eval=F, echo=T}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -668,7 +668,7 @@ fig.savefig("my_violin_plot.pdf", bbox_inches = "tight")
 
 Rather than using a single color to plot your data, you may want to use a color map. This is particularly true for things like heatmaps, or when you are displaying an image. To do this, you can use existing [colormaps](https://matplotlib.org/stable/gallery/color/colormap_reference.html) within `matplotlib`, or [create your own](https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation).
 
-```{python, eval=F}}
+```{python, eval=F}
 fig, ax = plt.subplots(figsize = (5,4))
 
 x = np.linspace(-5, 5, 200)
