@@ -78,15 +78,9 @@ Matplotlib is Python's library for visualization. It has extensive documentation
 
 To import matplotlib.pyplot, simply type `import matplotlib.pyplot as plt` at the top of your code. You can then refer to the library as `plt` in your code as needed. Note that this isn't strictly necessary, but you will find that this is an almost-universal naming convention (other libraries follow similar conventions too).
 
-```{python, echo=F}
-import numpy as np
-```
-
-```{python, echo=F}
-from matplotlib import pyplot as plt
-```
 
 ```{python}
+import matplotlib
 import matplotlib.pyplot as plt
 ```
 
