@@ -84,7 +84,7 @@ import matplotlib.pyplot as plt
 
 In Python, the best way to make a figure is by using the [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) function to define a figure and set(s) of axes. The reason we use the `subplots()` function is that it makes it easy to add multiple plots/axes to a figure, which is commonly done in the visualization of scientific data. To define a figure, you can write
 
-```{python, fig-height=5, fig-width=3}
+```{python, fig.height=5, fig.width=3}
 fig, ax = plt.subplots()
 ```
 
