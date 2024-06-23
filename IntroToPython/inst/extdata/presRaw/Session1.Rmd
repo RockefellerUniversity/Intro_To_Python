@@ -39,20 +39,20 @@ if(params$isSlides != "yes"){
 ```
 
 
-```{r, eval=T, echo=F, warning=F, message=F}
+```{r, eval=T, echo=F, warning=F, message=F, hide=T}
 library(IntroToPython)
 library(reticulate)
 py_suppress_warnings(py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet"))
 ```
 
 ---
-## Overview
+## Session Overview
 
-- [Course Home Page](http://rockefelleruniversity.github.io/Intro_To_Python/)
 - [Background to Python](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Background_of_Python)
 - [Set up](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Set_Up)
-- [Data types in Python](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Data_Types_and_Functions_in_Python)
-- [Reading and writing in Python](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Reading_and_Writing_in_Python)
+- [Variables and Functions](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Variables_and_Functions)
+- [Data Objects](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Data_Objects)
+- [Custom Functions](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Custom_Functions)
 
 
 ---
@@ -84,10 +84,12 @@ Python is a high-level, general-purpose programming language.
 
 Guido van Rossum began working on Python in the late 1980s as a successor to the ABC programming language and first released it in 1991 
 
-One of the most noticeable differences comes from the emphasis on code readability:
+One of the most noticeable differences comes from the emphasis on code readability;
 it uses significant indentation 
 
-Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions. While Python 2.7 and older is officially unsupported some tools require it. 
+Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions. Python 2.7 and older is officially unsupported but some tools require it. 
+
+![python](imgs/Python.png)
 
 ---
 ## What is Python to you?
@@ -107,7 +109,7 @@ Though R has long been the cornerstone of bioinformatics, python is growing in u
 
 Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e Scanpy. 
 
-<img src="iimgs/scanpy_vs_seurat.png" alt="comparison" height="300" width="400">
+<img src="imgs/scanpy_vs_seurat.png" alt="comparison" height="300" width="400">
 
 
 ---
@@ -246,13 +248,15 @@ Examples include RStudio, pyCharm, Xcode etc.
 
 We will be using Visual Studio Code from Windows. 
 
+![TIOBE](imgs/vs.png)
+
 
 ---
 ## Navigating VS Code
 
 When you open VS Code it will asks you what you want to do. VS Code can be used with many programming languages, but you often install extensions to enable it to support the formatting for that language. 
 
-Click on the *Extension* icon on the side tab (View > Extension also works). Search for Python, and install the appropriate extension.
+Click on the `Extension` icon on the side tab (View > Extension also works). Search for Python, and install the appropriate extension.
 
 .pull-left[
 ![extensions](imgs/extensions.png)
@@ -265,7 +269,7 @@ Click on the *Extension* icon on the side tab (View > Extension also works). Sea
 ---
 ## Navigating VS Code
 
-Now VS Code is all set up for python we want to mkae sure it using the right python i.e. the python we ave just installed.
+Now VS Code is all set up for python we want to make sure it using the right python i.e. the python we ave just installed.
 
 Click on the search bar and type:
 
@@ -285,7 +289,7 @@ Click on the search bar and type:
 ---
 ## Open a python script
 
-We are now all set up. We will now create a python script. Just click *New File...* on the Welcome Page (or File > New File...), then choose python script. 
+We are now all set up. We will now create a python script. Just click `New File...` on the Welcome Page (or File > New File...), then choose python script. 
 
 In this scripting panel we have opened we often will type code, and build scripts. 
 
@@ -296,16 +300,16 @@ As we mentioned before we will be working with our Python interactively. This me
 
 We can manually open one up by Terminal > New Terminal.
 
-Once the Terminal is open, you can then just open Python, by typing *python* into the new terminal window. 
+Once the Terminal is open, you can then just open Python, by typing `python` into the new terminal window. 
 
-There is is an easier shortcut to do this. Once you start developing code the easiest way to open it is to use the *Tab + Enter* shortcut. 
+There is is an easier shortcut to do this. Once you start developing code the easiest way to open it is to use the `Tab + Enter` shortcut. 
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
 
-# Varaibles and Functions in Python
+# Varaibles and Functions
 
 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
 
@@ -313,7 +317,7 @@ if(params$isSlides == "yes"){
 "    
   )
 }else{
-  cat("# Variables and Functions in Python
+  cat("# Variables and Functions
       
 ---
 "    
@@ -341,7 +345,7 @@ At its simplest you can just use python as a fancy calculator:
 
 To take things further there are many functions built-in to python. These are saved chunks of code that will do a task based on the arguments you provide. You can tell there is a function when there is a string immediately followed by a set of parenthesis:
 
-*myfunction()*
+`myfunction()`
 
 Here we use the round function:
 
@@ -352,7 +356,7 @@ round(3.14159)
 ---
 ## Help with functions
 
-To get help with a function you can use the *help()* function. This will open up the help page for this function. Hopefully this will contain information about what arguments it are accepted and what is returned by the function. In this case we can see there is an additional optional argument *ndigits*. This has a default value of **None**.
+To get help with a function you can use the `help()` function. This will open up the help page for this function. Hopefully this will contain information about what arguments it are accepted and what is returned by the function. In this case we can see there is an additional optional argument `ndigits`. This has a default value of `None`.
 
 ```{python}
 help(round)
@@ -377,7 +381,7 @@ round(ndigits=3, number=3.14159)
 ---
 ## Variables
 
-Often you will want to save something in your environment for use later on. We do this by creating a variable by assignment with the **=** sign.
+Often you will want to save something in your environment for use later on. We do this by creating a variable by assignment with the `=` sign.
 
 ```{python}
 greeting = 'Hello!'
@@ -423,7 +427,7 @@ round(number)
 ---
 ## Variables
 
-There are many kinds of variables. The most basic types are: *str*,*float*, *int* and *boolean*. You can always check what kind you have with the *type()* function.
+There are many kinds of variables. The most basic types are: `str`,`float`, `int` and `boolean`. You can always check what kind you have with the `type()` function.
 
 ```{python}
 greeting = 'Hello!'
@@ -452,7 +456,7 @@ type(boolean)
 ---
 ## Variables Coercion
 
-We can manually set the type using: *str()*, *float()*, *int()* and *bool()*. 
+We can manually set the type using: `str()`, `float()`, `int()` and `bool()`. 
 
 ```{python}
 string_number = str(number)
@@ -587,13 +591,13 @@ my_strs[0]
 ---
 ## Indexing Lists
 
-Sometimes we have a long list, but we know we want the final value. We can use a *-* to indicate how far from the end we want to index.
+Sometimes we have a long list, but we know we want the final value. We can use a `-` to indicate how far from the end we want to index.
 
 ```{python}
 my_strs[-1]
 ```
 
-We can also create a sublist by slicing our list with the *:*.
+We can also create a sublist by slicing our list with the `:`.
 
 ```{python}
 my_strs[2:4]
@@ -679,21 +683,21 @@ my_strs
 
 There are many useful functions built into the base version of python. 
 
-* .insert() inserts an argument into a specfic postion in the list
+* `.insert()` inserts an argument into a specfic postion in the list
 
 ```{python}
 my_strs.insert(3,'c')
 my_strs
 ```
 
-* remove() inserts an argument into a specfic postion in the list
+* `.remove()` inserts an argument into a specfic postion in the list
 
 ```{python}
 my_strs.remove('c')
 my_strs
 ```
 
-* del() inserts an argument into a specfic postion in the list
+* `.del()` inserts an argument into a specfic postion in the list
 
 ```{python}
 del(my_strs[3])
@@ -706,13 +710,13 @@ my_strs
 There are many useful functions built into the base version of python. 
 
 
-* .index() reveals which position in the list is the supplied argument
+* `.index()` reveals which position in the list is the supplied argument
 
 ```{python}
 my_strs.index('c')
 ```
 
-* .sort() will sort your list
+* `.sort()` will sort your list
 
 ```{python}
 my_list = [1,4,9,4,11,12,6]
@@ -765,7 +769,7 @@ Most of the time the error messages are very clear. And if they are not a quick 
 ---
 ## Tuple/List coercion
 
-As with str/int/float/bool you can easily convert a list to a tuple and vice versa. Simply use the *list()* and *tuple()* functions. 
+As with str/int/float/bool you can easily convert a list to a tuple and vice versa. Simply use the `list()` and `tuple()` functions. 
 
 ```{python}
 my_list = ['a','b','c','d','e']
@@ -1014,13 +1018,13 @@ if(params$isSlides == "yes"){
 
 Many of the data types we have looked at thus far are either one-dimensional, or get quite complex when built up into multidimensional data frames. These can become relatively slow and cumbersome to work with if you have large datasets. 
 
-NumPy is a Python library used for working with arrays, that are common in biological data. It is not included in the base distribution of Python so it has to be installed and loaded in separately. We installed NumPy earlier. Here we load it into our python session with *import*.
+NumPy is a Python library used for working with arrays, that are common in biological data. It is not included in the base distribution of Python so it has to be installed and loaded in separately. We installed NumPy earlier. Here we load it into our python session with `import`.
 
 ```{python}
 import numpy
 ```
 
-Often an alias is used when you import a library. Here we are importing NumPy *as* np.
+Often an alias is used when you import a library. Here we are importing NumPy `as` np.
 
 ```{python}
 import numpy as np
@@ -1030,7 +1034,7 @@ import numpy as np
 ---
 ## NumPy array
 
-Within our imported NumPy library we have many different functions. Here we will use the *array()* function to create an array. In this case we are essentially are creating a list (square brackets), than coercing it into an array. 
+Within our imported NumPy library we have many different functions. Here we will use the `array()` function to create an array. In this case we are essentially are creating a list (square brackets), than coercing it into an array. 
 
 ```{python}
 arr = np.array([1, 2, 3, 4, 5])
@@ -1057,7 +1061,7 @@ arr
 
 ```
 
-We can find out the dimension attribute by using *ndim*. In this case we have rectangular data so it is two dimensions. 
+We can find out the dimension attribute by using `ndim`. In this case we have rectangular data so it is two dimensions. 
 
 ```{python}
 
@@ -1095,7 +1099,7 @@ arr[0,1:3]
 ---
 ## Data Types and arrays
 
-In most data objects we have looked as so far there are limited types of data: *str*,*float*, *int* and *boolean*. Arrays accept all of these. We can always check the type with the *dtype* attribute.
+In most data objects we have looked as so far there are limited types of data: `str`,`float`, `int` and `boolean`. Arrays accept all of these. We can always check the type with the `dtype` attribute.
 
 ```{python}
 
@@ -1141,6 +1145,8 @@ except Exception as e:
 ---
 ## Joining Arrays
 
+NumPy arrays can easily be joined together with the `concatenate` function. These are a simple 1D arrays. 
+
 ```{pyhton}
 arr1 = np.array([1, 2, 3])
 
@@ -1150,9 +1156,12 @@ arr = np.concatenate((arr1, arr2))
 
 ```
 
+---
+## Joining Arrays
+
+2D arrays can be merged just as easily. The orientation of the merge can be controlled using the `axis` argument.
 
 ```{pyhton}
-import numpy as np
 
 arr1 = np.array([[1, 2], [3, 4]])
 
@@ -1160,18 +1169,14 @@ arr2 = np.array([[5, 6], [7, 8]])
 
 arr = np.concatenate((arr1, arr2), axis=1)
 
-print(arr)
+arr
 ```
 
 ```{pyhton}
 
-arr1 = np.array([1, 2, 3])
+arr = np.concatenate((arr1, arr2), axis=0)
 
-arr2 = np.array([4, 5, 6])
-
-arr = np.stack((arr1, arr2), axis=1)
-
-print(arr)\\h/vstack
+arr
 ```
 
 
@@ -1229,6 +1234,8 @@ if(params$isSlides == "yes"){
 
 ## Making functions
 
+Often we will want to define our own functions. This way we can easily repeat the same process. 
+
 Key parts:
 * function name
 * arguments
@@ -1238,13 +1245,11 @@ Key parts:
 ---
 ## Making functions
 
-Function structure:
-
-def - indicates you will define a function
-function name - in this case *myFirstFunction*
-arguments - any arguments that the function expects in parentheses
-code - the start of the code is indicated by a colon, new line and indentation
-return - this is the result that you wish to be delivered from the function
+`def` - indicates you will define a function
+`function name` - in this case *myFirstFunction*
+`arguments` - any arguments that the function expects in parentheses
+`code` - the start of the code is indicated by a colon, new line and indentation
+`return` - this is the result that you wish to be delivered from the function
 
 ```{python}
 def myFirstFunction(num1, num2):
@@ -1338,7 +1343,7 @@ myFirstFunction(num1=2, num2=3)
 ---
 ## Variable scope in functions
 
-Variables defined in the arguments or within the function exist only within the environment of the function.
+Variables that are defined in the arguments or within the function exist only within the environment of the function. If we try and use the argument outside of the function it will not work.
 
 ```{python, eval=F, echo=T}
 
@@ -1390,7 +1395,7 @@ num3
 ---
 ## Local vs Global scope
 
-* Functions have local scope. This means they have access to global variables can be used anywhere and local variables which were made within the function. 
+* Functions have local scope. This means they have access to global variables (which can be used anywhere) and local variables which were made within the function. 
 
 * Once you exit the function you are in the console you are back to a global scope. Local variables can not be accessed at this point. 
 
@@ -1429,7 +1434,6 @@ myFirstFunction(5,10)
 
 Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
 
-R code for solutions can be found [here](../../exercises/answers/MyExercise2_answers.R)
 
 
 --- 
