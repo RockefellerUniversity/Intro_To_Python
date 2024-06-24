@@ -87,51 +87,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.150048 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.130060 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.722431 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.416907 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.796330 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.041014 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.330457 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.182378 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.411119 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.624695 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.937648 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.421405 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.030345 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.651665 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.904500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.911882 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.447659 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.522191 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.907545 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.458366 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.381584 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.632339 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.657209 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.358293 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.489850 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.457796 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.427481 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.670761 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.617192 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.184857 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.221604 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 12.318731 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.270861 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.477459 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.752183 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.188100 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.785709 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.935561 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.225129 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.263301 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.177241 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.690824 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.400828 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.612625 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.995481 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.491151 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.301317 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.623611 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -144,14 +144,18 @@ If you are reading in data, you need to know from which vantage point your compu
 There are several utilities in the os (operating system) package. First lets check our current Working Directory using `getcwd`. 
 
 
-
 ``` python
 import os
+```
+
+
+
+``` python
 os.getcwd()
 ```
 
 ```
-## '/__w/Intro_To_Python/Intro_To_Python/extdata'
+## '/Users/mattpaul/'
 ```
 
 ---
@@ -348,9 +352,27 @@ An alternative to setting the data type explicitly, you can let genfromtxt deter
 
 
 ``` python
-
 sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None)
 
+sex
+```
+
+```
+## array(['Male', 'Male', 'Male', 'Male', 'Female', 'Female', 'Female',
+##        'Female', 'Male', 'Male', 'Female', 'Female', 'Male', 'Female',
+##        'Female', 'Male', 'Male', 'Male', 'Male', 'Male', 'Male', 'Female',
+##        'Male', 'Female', 'Female', 'Male', 'Male', 'Male', 'Male', 'Male',
+##        'Female', 'Male', 'Male', 'Female', 'Male', 'Female', 'Male',
+##        'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Female',
+##        'Female', 'Female', 'Female', 'Female', 'Male', 'Female', 'Female',
+##        'Female', 'Female', 'Female', 'Male', 'Female', 'Female', 'Female',
+##        'Male', 'Male', 'Female', 'Male', 'Female', 'Male', 'Male',
+##        'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Male',
+##        'Male', 'Female', 'Male', 'Female', 'Male', 'Male', 'Female',
+##        'Female', 'Female', 'Female', 'Male', 'Female', 'Female', 'Female',
+##        'Female', 'Male', 'Female', 'Male', 'Male', 'Male', 'Female',
+##        'Male', 'Female', 'Female', 'Female', 'Female', 'Female', 'Female'],
+##       dtype='&lt;U6')
 ```
 
 
@@ -367,7 +389,7 @@ Let's do some quick processing based on what we learned yesterday. First we will
 new_array = np.array([sex, height, weight])
 ```
 
-Next we do a logical test to see which entries in uor first row are Female.
+Next we do a logical test to see which entries in our first row are Female.
 
 
 ``` python
@@ -463,7 +485,6 @@ class: inverse, center, middle
 ---
 
 
----
 ## Control Statements
 
 There are several ways to control how your code is evaluated. There are two main classes:
@@ -786,7 +807,7 @@ Notebooks give you a means to tie the code, the analysis decisions and the resul
 
 There are several options for python. But Jupyter Notebook is best known for Python. Quarto is growing in popularity as its universal and language agnostic.
 
---- 
+---
 ## Further Support
 
 When you hit bugs:
