@@ -32,7 +32,7 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 
 ## fig, ax = plt.subplots()
 
-## fig, ax = plt.subplots(figsize=(2, 3))
+## fig, ax = plt.subplots(figsize=(4, 3))
 ## plt.show()
 
 ## fig, ax = plt.subplots(figsize=(3, 2))
@@ -58,13 +58,13 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ## 
 ## plt.show()
 
-## fig, ax = plt.subplots(figsize=(3, 3))
+## fig, ax = plt.subplots(figsize=(5, 5))
 ## 
 ## ax.scatter(x=weight, y=height)
 ## 
 ## plt.show()
 
-## fig, ax = plt.subplots(figsize=(3, 3))
+## fig, ax = plt.subplots(figsize=(5, 5))
 ## 
 ## ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 ## 
@@ -74,7 +74,7 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ## ax.set_xlabel("X Data Label")
 ## ax.set_ylabel("Y Data Label")
 
-## fig, ax = plt.subplots(figsize=(3, 3))
+## fig, ax = plt.subplots(figsize=(4, 4))
 ## 
 ## ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 ## 
@@ -316,6 +316,17 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ## 
 ## plt.show()
 
+## fig, ax = plt.subplots(figsize = (6, 5))
+## 
+## sns.violinplot(weight_m, ax = ax, color = 'royalblue', alpha = 0.5, linewidth=0, label = "Male")
+## sns.violinplot(weight_f, ax = ax, color = 'magenta', alpha = 0.5, linewidth=0, label = "Female")
+## 
+## ax.set_ylabel('Weight (kg)')
+## ax.set_title("Weight Distribution by Sex")
+## ax.legend()
+## 
+## plt.show()
+
 ## fig.tight_layout()
 ## fig.savefig("my_violin_plot.pdf", bbox_inches = "tight")
 
@@ -324,22 +335,7 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ## data = np.genfromtxt('data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
 ## 
 ## print(data)
-## 
-## sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
-## 
-## ax.set_xlabel("Time")
-## ax.set_ylabel("Gene")
-## ax.set_title("Gene Progression")
-## 
-## plt.show()
-## 
 
-## fig, ax = plt.subplots(figsize = (5,4))
-## 
-## data = np.genfromtxt('data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
-## 
-## print(data)
-## 
 ## sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
 ## 
 ## ax.set_xlabel("Time")
@@ -365,6 +361,7 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ## fig, ax = plt.subplots(figsize=(6, 4))
 ## ratio = weight/height
 ## im = ax.scatter(weight, height, c=ratio, cmap='viridis')
+## 
 ## fig.colorbar(im, ax=ax)
 ## 
 ## ax.set_xlabel("Weight (kg)")

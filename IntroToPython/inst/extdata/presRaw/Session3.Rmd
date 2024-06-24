@@ -225,7 +225,7 @@ plt.show()
 ## Scatter Plots
 
 ```{python}
-fig, ax = plt.subplots(figsize=(5, 5))
+fig, ax = plt.subplots(figsize=(6, 4))
 
 ax.scatter(x=weight, y=height)
 
@@ -281,7 +281,7 @@ Using these colors and the list of parameters below, take a second to customize 
 ## Customized Plot
 
 ```{python}
-fig, ax = plt.subplots(figsize=(5, 5))
+fig, ax = plt.subplots(figsize=(6, 4))
 
 ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 
@@ -307,7 +307,7 @@ Be sure to add all of this code before the `plt.show()` line, which renders the 
 ## Add Your Labels
 
 ```{python}
-fig, ax = plt.subplots(figsize=(4, 4))
+fig, ax = plt.subplots(figsize=(6, 4))
 
 ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 
@@ -722,7 +722,7 @@ sns.violinplot(weight_m, ax = ax)
 
 Let's add the other dataset and make it nicer.
 
-```{python, eval=T}
+```{python, eval=F}
 fig, ax = plt.subplots(figsize = (4, 4))
 
 sns.violinplot(weight_m, ax = ax, color = 'royalblue', alpha = 0.5, linewidth=0, label = "Male")
@@ -813,7 +813,7 @@ Some color schemes that may seem natural to use (especially rainbow/jet) actuall
 When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white conversion in mind. Using different dashes in lines and shapes in markers is also a good way to do this!
 
 
-<img src="imgs/scatter_accessible.png" alt="Accessibility matters for all types of data visualization!" height="200" width="200">
+<img src="imgs/scatter_accessible.png" alt="Accessibility matters for all types of data visualization!" height="400" width="400">
 
 
 
@@ -824,7 +824,7 @@ When you are creating any plot with multiple datasets/colors, keep colorblindnes
 Let's use the [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html) function from Seaborn to generate a plot of the time progression of three genes.
 
 ```{python, eval=T}
-fig, ax = plt.subplots(figsize = (5,4))
+
 
 data = np.genfromtxt('data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
 
@@ -837,12 +837,11 @@ print(data)
 ## Heatmap Plot
 
 ```{python, echo=T}
+fig, ax = plt.subplots(figsize = (4,3))
 sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
-
 ax.set_xlabel("Time")
 ax.set_ylabel("Gene")
 ax.set_title("Gene Progression")
-
 plt.show()
 
 ```
@@ -890,13 +889,13 @@ plt.show()
 ---
 ## Time for an exercise!
 
-Exercises around plotting can be found [here](../../exercises/exercises/MyExercise3_exercises.html)
+Exercises around plotting can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/exercises/MyExercise3_exercise.html)
 
 
 ---
 ## Answers to exercise
 
-Answers can be found [here](../../exercises/answers/MyExercise3_answers.html)
+Answers can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/answers/MyExercise3_answers.html)
 
 ---
 ## Data Visualization Resources
