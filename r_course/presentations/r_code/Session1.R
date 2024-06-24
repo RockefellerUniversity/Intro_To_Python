@@ -420,20 +420,20 @@ if(params$isSlides == "yes"){
 ## arr
 
 ## 
-## arr = np.array([["Patient1","Patient2","Patient3"],[34, 29, 40], [True,False,True]])
-## arr
+## arr_2d = np.array([["Patient1",34,True],["Patient2", 29, True], ["Patient3",41,False]])
+## arr_2d
 ## 
 
 ## 
-## arr.ndim
+## arr_2d.ndim
 ## 
 
-## arr[0,2]
+## arr_2d[0,2]
 
-## arr[:,2]
+## arr_2d[:,2]
 ## 
 
-## arr[0,1:3]
+## arr_2d[0,1:3]
 ## 
 
 ## 
@@ -461,6 +461,21 @@ if(params$isSlides == "yes"){
 ## except Exception as e:
 ##   print(e)
 ## 
+
+## arr_2d
+
+## arr_2d[[True,False,True],:]
+## 
+
+## arr_2d
+
+## temp_arr = arr_2d[:,1].astype('i')
+## temp_arr
+
+## sub_idx = temp_arr >30
+## sub_idx
+
+## arr_2d[sub_idx,:]
 
 ## arr1 = np.array([1, 2, 3])
 ## 

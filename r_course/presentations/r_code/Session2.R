@@ -59,6 +59,9 @@ kable(minRepdf[,1:4], format='html')
 
 
 ## import os
+## 
+
+## 
 ## os.getcwd()
 ## 
 
@@ -99,7 +102,7 @@ kable(minRepdf[,1:4], format='html')
 ## 
 ## sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None)
 ## 
-## 
+## sex
 
 ## 
 ## new_array = np.array([sex, height, weight])
