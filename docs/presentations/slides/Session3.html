@@ -132,7 +132,7 @@ Let's visit the documentation and take a look at the options.
 
 
 ``` python
-fig, ax = plt.subplots(figsize=(2, 3))
+fig, ax = plt.subplots(figsize=(4, 3))
 plt.show()
 ```
 
@@ -198,8 +198,6 @@ fig, ((ax_nw, ax_ne), (ax_sw, ax_se)) = plt.subplots(nrows=2, ncols=2)
 
 plt.show()
 ```
-
-![](Session3_files/figure-html/unnamed-chunk-11-7.png)&lt;!-- --&gt;
 
 
 ---
@@ -268,14 +266,14 @@ plt.show()
 
 
 ``` python
-fig, ax = plt.subplots(figsize=(3, 3))
+fig, ax = plt.subplots(figsize=(5, 5))
 
 ax.scatter(x=weight, y=height)
 
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-14-9.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-14-7.png)&lt;!-- --&gt;
 
 
 ---
@@ -327,14 +325,14 @@ Using these colors and the list of parameters below, take a second to customize 
 
 
 ``` python
-fig, ax = plt.subplots(figsize=(3, 3))
+fig, ax = plt.subplots(figsize=(5, 5))
 
 ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-15-11.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-15-9.png)&lt;!-- --&gt;
 
 ---
 
@@ -357,7 +355,7 @@ Be sure to add all of this code before the `plt.show()` line, which renders the 
 
 
 ``` python
-fig, ax = plt.subplots(figsize=(3, 3))
+fig, ax = plt.subplots(figsize=(4, 4))
 
 ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 
@@ -368,7 +366,7 @@ ax.set_ylabel("Height (cm)")
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-17-13.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-17-11.png)&lt;!-- --&gt;
 
 ---
 
@@ -420,7 +418,7 @@ plt.show()
 
 ## Resulting Plot
 
-![](Session3_files/figure-html/unnamed-chunk-20-15.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-20-13.png)&lt;!-- --&gt;
 
 
 ---
@@ -565,7 +563,7 @@ plt.show()
 ---
 ## Plotting the Lines 
 
-![](Session3_files/figure-html/unnamed-chunk-25-17.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-25-15.png)&lt;!-- --&gt;
 
 
 
@@ -609,7 +607,7 @@ plt.show()
 ---
 ## Adding a Legend
 
-![](Session3_files/figure-html/unnamed-chunk-27-19.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-27-17.png)&lt;!-- --&gt;
 
 ---
 ## Histograms 
@@ -650,7 +648,7 @@ plt.show()
 ---
 ## Histograms 
 
-![](Session3_files/figure-html/unnamed-chunk-29-21.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-29-19.png)&lt;!-- --&gt;
 
 
 ---
@@ -683,7 +681,7 @@ plt.show()
 ---
 ## Finishing Touches
 
-![](Session3_files/figure-html/unnamed-chunk-31-23.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-31-21.png)&lt;!-- --&gt;
 
 ---
 
@@ -710,7 +708,7 @@ fig, ax = plt.subplots(figsize = (4, 4))
 sns.violinplot(weight_m, ax = ax)
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-32-25.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-32-23.png)&lt;!-- --&gt;
 
 ---
 
@@ -732,7 +730,19 @@ ax.legend()
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-33-27.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-33-25.png)&lt;!-- --&gt;
+
+
+---
+
+## Make it Nice
+
+
+Let's add the other dataset and make it nicer.
+
+![](Session3_files/figure-html/unnamed-chunk-34-27.png)&lt;!-- --&gt;
+
+
 
 ---
 
@@ -789,7 +799,9 @@ Some color schemes that may seem natural to use (especially rainbow/jet) actuall
 
 When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white conversion in mind. Using different dashes in lines and shapes in markers is also a good way to do this!
 
-![Accessibility matters for all types of data visualization!](imgs/scatter_accessible.png)
+
+&lt;img src="imgs/scatter_accessible.png" alt="Accessibility matters for all types of data visualization!" height="200" width="200"&gt;
+
 
 
 ---
@@ -805,20 +817,7 @@ fig, ax = plt.subplots(figsize = (5,4))
 data = np.genfromtxt('data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
 
 print(data)
-
-sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
-
-ax.set_xlabel("Time")
-ax.set_ylabel("Gene")
-ax.set_title("Gene Progression")
-
-plt.show()
 ```
-
----
-
-## Heatmap Plot
-
 
 ```
 ## [[0.2 0.3 0.5 0.6 0.7]
@@ -829,6 +828,24 @@ plt.show()
 ```
 
 ![](Session3_files/figure-html/unnamed-chunk-36-29.png)&lt;!-- --&gt;
+
+
+---
+
+## Heatmap Plot
+
+
+``` python
+sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
+
+ax.set_xlabel("Time")
+ax.set_ylabel("Gene")
+ax.set_title("Gene Progression")
+
+plt.show()
+```
+
+![](Session3_files/figure-html/unnamed-chunk-37-31.png)&lt;!-- --&gt;
 
 ---
 
@@ -857,10 +874,10 @@ plt.show()
 
 
 ```
-## &lt;matplotlib.colorbar.Colorbar object at 0x7fa653dcbeb0&gt;
+## &lt;matplotlib.colorbar.Colorbar object at 0x7f7296f14c10&gt;
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-38-31.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-39-33.png)&lt;!-- --&gt;
 
 
 ---
