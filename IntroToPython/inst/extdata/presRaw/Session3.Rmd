@@ -111,7 +111,7 @@ fig, ax = plt.subplots()
 
 ## A Closer Look
 
-```{python, eval = False}
+```{python, eval = F}
 fig, ax = plt.subplots()
 ```
 
@@ -345,7 +345,7 @@ for i in range(len(sex)):
 
 Now we are going to generate a 2x1 subplot and create some visualizations for this modified data.
 
-```{python, eval=False}
+```{python, eval=F}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -367,7 +367,7 @@ plt.show()
 
 ## Resulting Plot
 
-```{python, echo=False}
+```{python, echo=F}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -798,7 +798,7 @@ When you are creating any plot with multiple datasets/colors, keep colorblindnes
 
 Let's use the [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html) function from Seaborn to generate a plot of the time progression of three genes.
 
-```{python, eval=False}
+```{python, eval=F}
 fig, ax = plt.subplots(figsize = (5,4))
 
 data = np.genfromtxt('../data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
@@ -819,7 +819,7 @@ plt.show()
 
 ## Heatmap Plot
 
-```{python, echo=False}
+```{python, echo=F}
 fig, ax = plt.subplots(figsize = (5,4))
 
 data = np.genfromtxt('../data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
@@ -842,7 +842,7 @@ plt.show()
 
 Let's make a scatter plot with weight vs height again, but make the color of the points defined by the ratio of weight to height.
 
-```{python, eval=False}
+```{python, eval=F}
 # Generate figure and axes
 fig, ax = plt.subplots(figsize=(6, 4))
 ratio = weight/height
@@ -860,7 +860,7 @@ plt.show()
 
 ## Scatter Plot with Colormap
 
-```{python, echo=False}
+```{python, echo=F}
 # Generate figure and axes
 fig, ax = plt.subplots(figsize=(6, 4))
 ratio = weight/height
