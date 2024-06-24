@@ -1162,11 +1162,11 @@ except Exception as e:
 Booleans can be used to directly subset arrays. `True` entries are kept.
 
 ```{python}
-arr
+arr_2d
 ```
 
 ```{python}
-arr[:,[True,False,True]]
+arr_2d[[True,False,True],:]
 
 ```
 
@@ -1193,6 +1193,7 @@ temp_arr
 sub_idx = temp_arr >30
 sub_idx
 ```
+
 ```{python}
 arr_2d[sub_idx,:]
 ```
