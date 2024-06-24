@@ -46,7 +46,7 @@ if(params$isSlides == "yes"){
 
 
 
-## -----------------------------------------------------------------------------
+## ----echo=F-------------------------------------------------------------------
 toshow <- cbind(c("Plotting", "Statistics","Bioconductor"),c("Large Data","Machine Learning","Most Popular Language"))
 
 colnames(toshow) <- c("R","Python")
@@ -332,10 +332,6 @@ if(params$isSlides == "yes"){
 ## 'metadata' in my_dict.keys()
 ## 
 ## 'metadata' in my_dict
-## 
-
-## 
-## 'scRNAseq' in my_dict.values()
 ## 
 
 ## dict_1 = {'my_list': [1,2,3],

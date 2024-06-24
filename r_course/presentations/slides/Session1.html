@@ -75,7 +75,7 @@ it uses significant indentation
 
 Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions. Python 2.7 and older is officially unsupported but some tools require it. 
 
-![python](imgs/Python.png)
+&lt;img src="imgs/Python.png" alt="python" height="200" width="300"&gt;
 
 ---
 ## What is Python to you?
@@ -95,7 +95,7 @@ Though R has long been the cornerstone of bioinformatics, python is growing in u
 
 Though there are core utility packages that have been around a long time such as Biopython. It is the new technique-specific packages that are driving the surging popularity of python i.e Scanpy. 
 
-&lt;img src="imgs/scanpy_vs_seurat.png" alt="comparison" height="300" width="400"&gt;
+&lt;img src="imgs/scanpy_vs_seurat.png" alt="comparison" height="350" width="450"&gt;
 
 
 ---
@@ -105,23 +105,13 @@ The strengths discussed when considering these languages are clear. That said, i
 
 
 
-``` r
-toshow &lt;- cbind(c("Plotting", "Statistics", "Bioconductor"), c("Large Data", "Machine Learning",
-    "Most Popular Language"))
-
-colnames(toshow) &lt;- c("R", "Python")
-knitr::kable(toshow)
-```
-
-
-
 |R            |Python                |
 |:------------|:---------------------|
 |Plotting     |Large Data            |
 |Statistics   |Machine Learning      |
 |Bioconductor |Most Popular Language |
 
-Realms of Python specifically relevant to those who are interested in Bioinformatics include Biopython, PyMOL, sciKit, scanPy, and Image Analysis.
+Realms of Python specifically relevant to those who are interested in Bioinformatics include [Biopython](https://biopython.org/), [PyMOL](https://www.pymol.org/), [sciKit](https://scikit-learn.org/stable/), [scanPy](https://scanpy.readthedocs.io/en/stable/), and Image Analysis.
 
 ---
 class: inverse, center, middle
@@ -720,7 +710,6 @@ my_strs[2:]
 ## ['c', 'd', 'e']
 ```
 
-
 ---
 ## Complex Lists
 
@@ -1034,12 +1023,14 @@ type(my_list_tuple_list)
 
 Another data type are dictionaries. Dictionaries are made of key:value pairs. 
 
-A key is some kind of identifier, typically a short string. The value is a corresponding piece of data that is often more complex. 
+A key is some kind of unique identifier, typically a short string. The value is a corresponding piece of data that is often more complex. 
 
 This structure allows the organization of your data, and you can gives you the ability to grab out values using the key.
   
 ---
 ## Dictionaries
+
+Dictionaries are made with the curly brackets. Each entry consists of a pair of objects. The `key` identifier, and the `value`. Here you can see we have multiple types and shapes of daata contained in our `values`. 
 
 
 ``` python
@@ -1082,8 +1073,9 @@ my_dict.values()
 
 
 ---
-## Dictionaries
+## Dictionary indexes
 
+We can index our dictionary using the key values and the square brackets, similar to other objects. 
 
 ``` python
 my_dict['my_list']
@@ -1092,6 +1084,8 @@ my_dict['my_list']
 ```
 ## [1, 2, 3]
 ```
+
+We can also use the `.get()` attribute.
 
 
 ``` python
@@ -1113,6 +1107,8 @@ my_dict.get('language')
 ---
 ## Dictionaries
 
+It is easy to add additional entries with the `.setdefault()` attribute. We just provide a new `key/value` pair.
+
 
 ``` python
 my_dict.setdefault('metadata', True)
@@ -1129,6 +1125,8 @@ my_dict
 ```
 ## {'my_list': [1, 2, 3], 'my_tuple': (4, 5, 6), 'language': 'python', 'technique': 'scRNAseq', 'metadata': True}
 ```
+
+We check our addition using the `in` operator. This performs a logical test. We can test specifically on the keys, or the dictionary as a whole. 
 
 
 ``` python
@@ -1149,17 +1147,10 @@ my_dict
 
 
 
-``` python
-'scRNAseq' in my_dict.values()
-```
-
-```
-## True
-```
-
-
 ---
 ## Concatenating Dictionaries
+
+Often we want to stick multiple dictionaries together. 
 
 
 ``` python
@@ -1171,7 +1162,7 @@ dict_2 = {'a': 1, 'b': 2}
 
 There are 3 options:
 
-* Unpacking operator
+1) Unpacking operator
 
 
 ``` python
@@ -1186,7 +1177,7 @@ dict_3
 ---
 ## Concatenating Dictionaries
 
-* Merge with pipe
+2) Merge with pipe
 
 
 ``` python
@@ -1201,7 +1192,7 @@ dict_3
 ---
 ## Concatenating Dictionaries
 
-* Update function
+3) Update function
 
 
 ``` python
@@ -1218,6 +1209,8 @@ dict_1
 ---
 ## Sets
 
+The last object type within base Python are sets. These are unordered and each entry is unique. Sets can be created using the curly brackets, or by coercing another object using the `set()` function.
+
 
 ``` python
 myset = {"a", "b", "c"}
@@ -1225,7 +1218,7 @@ myset
 ```
 
 ```
-## {'a', 'b', 'c'}
+## {'b', 'c', 'a'}
 ```
 
 ``` python
@@ -1234,11 +1227,13 @@ myset
 ```
 
 ```
-## {'a', 'b', 'c'}
+## {'b', 'c', 'a'}
 ```
 
 ---
 ## Sets can be modified
+
+The `.add()/remove()` attributes allow the easy modification of sets.
 
 
 ``` python
@@ -1247,7 +1242,7 @@ myset
 ```
 
 ```
-## {'a', 'b', 'c', 'd'}
+## {'b', 'd', 'c', 'a'}
 ```
 
 
@@ -1257,7 +1252,7 @@ myset
 ```
 
 ```
-## {'a', 'b', 'c'}
+## {'b', 'c', 'a'}
 ```
 
 ---
@@ -1278,6 +1273,8 @@ myset[0]
 ---
 ## Sets are unique
 
+Even if you provide duplicate entries to a set, the set wil only contain unique values. 
+
 
 ``` python
 myset = set(["a", "b", "c","c","c"])
@@ -1285,11 +1282,13 @@ myset
 ```
 
 ```
-## {'a', 'b', 'c'}
+## {'b', 'c', 'a'}
 ```
 
 ---
 ## Sets have specific functions
+
+Sets are really useful for checking intersections between two objects. 
 
 
 ``` python
@@ -1568,11 +1567,11 @@ As with most of programming there are often multiple ways to do things and often
 
 Here is a rough guide:
 
-Lists - Great general hold all that is very flexible. 
-Tuples - If you want to create an immutable version of a list as some kind of reference.
-Sets - Similar to Tuples, but if you do not want any repeating values. 
-Dictionaries - If you have complex data i.e. different shape and size, and you will have some kind of key/lookup values
-Arrays - When you have rectangular data i.e. a table
+* Lists - Great general hold all that is very flexible.  
+* Tuples - If you want to create an immutable version of a list as some kind of reference.  
+* Sets - Similar to Tuples, but if you do not want any repeating values.   
+* Dictionaries - If you have complex data i.e. different shape and size, and you will have some kind of key/lookup values. 
+* Arrays - When you have rectangular data i.e. a table. 
 
 ---
 class: inverse, center, middle
@@ -1596,11 +1595,11 @@ Key parts:
 ---
 ## Making functions
 
-`def` - indicates you will define a function
-`function name` - in this case *myFirstFunction*
-`arguments` - any arguments that the function expects in parentheses
-`code` - the start of the code is indicated by a colon, new line and indentation
-`return` - this is the result that you wish to be delivered from the function
+* `def` - indicates you will define a function. 
+* `function name` - in this case *myFirstFunction*. 
+* `arguments` - any arguments that the function expects in parentheses. 
+* `code` - the start of the code is indicated by a colon, new line and indentation. 
+* `return` - this is the result that you wish to be delivered from the function. 
 
 
 ``` python
@@ -1789,9 +1788,7 @@ myFirstFunction(5,10)
 
 Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
 
-
-
---- 
+---
 ## Further Support
 
 When you hit bugs:
