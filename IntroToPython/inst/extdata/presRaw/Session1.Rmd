@@ -1089,7 +1089,7 @@ We can use same square brackets we used for other data objects to index our arra
 The first number will correspond to row. The second number will correspond to row.
 
 ```{python}
-arr[0,2]
+arr_2d[0,2]
 ```
 
 ---
@@ -1099,7 +1099,7 @@ We can also do more complex indexing operations like slicing, to get ranges of v
 
 
 ```{python}
-arr[:,2]
+arr_2d[:,2]
 
 ```
 
