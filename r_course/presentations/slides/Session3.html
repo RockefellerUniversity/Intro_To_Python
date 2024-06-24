@@ -61,11 +61,17 @@ In general, the recipe for creating a figure is as follows:
 5. Customize your plot using the built-in options for the function you used to plot (found in documentation).
 6. Render your plot using `show()` and save or export it if you wish.
 
+
+---
+
+![Data visualization workflow.](imgs/workflow.png)
+
 ---
 
 ## Matplotlib
 
 Matplotlib is Python's library for visualization. It has extensive documentation available [online](https://matplotlib.org/stable/), including many [tutorials](https://matplotlib.org/stable/tutorials/index.html). Within Matplotlib, you will mostly be working with `pyplot` to generate simple plots. You can view the documentation for pyplot [here](https://matplotlib.org/stable/api/pyplot_summary.html#module-matplotlib.pyplot). Each function within pyplot has detailed descriptions of the arguments it takes - these will be very useful when you would like to customize your plots.
+
 
 ---
 
@@ -76,7 +82,6 @@ To import matplotlib.pyplot, simply type `import matplotlib.pyplot as plt` at th
 
 
 ``` python
-import matplotlib
 import matplotlib.pyplot as plt
 ```
 
@@ -95,11 +100,21 @@ fig, ax = plt.subplots()
 
 ---
 
-## Figures, Plots, and Subplots
+## The First Plot
 
-Let's take a closer look: 
 
+``` python
+fig, ax = plt.subplots()
 ```
+
+![](Session3_files/figure-html/unnamed-chunk-6-3.png)&lt;!-- --&gt;
+
+---
+
+## A Closer Look
+
+
+``` python
 fig, ax = plt.subplots()
 ```
 
@@ -123,7 +138,37 @@ fig, ax = plt.subplots(figsize=(2, 3))
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-6-3.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-8-5.png)&lt;!-- --&gt;
+
+---
+
+## Axis Limits
+
+- You can also set the limits of your axes
+
+
+``` python
+fig, ax = plt.subplots(figsize=(3, 2))
+ax.set_xlim(-3, 4)
+```
+
+```
+## (-3.0, 4.0)
+```
+
+``` python
+ax.set_ylim(6, 10)
+```
+
+```
+## (6.0, 10.0)
+```
+
+``` python
+plt.show()
+```
+
+![](Session3_files/figure-html/unnamed-chunk-9-7.png)&lt;!-- --&gt;
 
 
 ---
@@ -136,7 +181,8 @@ Looking at the [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotl
 
 You can then define a corresponding axis for each subplot. Below is the code to generate two horizontally (`fig1`) and vertically (`fig2`) stacked subplots.
 
-```
+
+``` python
 fig1, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
 
 fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)
@@ -155,15 +201,23 @@ fig, ((ax_nw, ax_ne), (ax_sw, ax_se)) = plt.subplots(nrows=2, ncols=2)
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-7-5.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-11-9.png)&lt;!-- --&gt;
+
+
+---
+
+## Arranging Subplots
+
+![](imgs/4x4grid.png)
 
 
 ---
 ## Advanced Subplot Options
 
-- `width_ratios` and `height_ratios`  to adjust the relative sizes of rows and columns 
-- `sharex` and `sharey` to force subplots to share an x or y axis 
-- `gridspec` for arbitrary/custom subplots (ex: different number of plots in each row)
+- Other [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) options:
+  - `width_ratios` and `height_ratios`  to adjust the relative sizes of rows and columns 
+  - `sharex` and `sharey` to force subplots to share an x or y axis 
+- [`gridspec`](https://matplotlib.org/stable/users/explain/axes/arranging_axes.html) for arbitrary/custom subplots (ex: different number of plots in each row)
 
 ---
 
@@ -210,13 +264,31 @@ ax.scatter(x=weight, y=height)
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-9-7.png)&lt;!-- --&gt;
+---
+
+## Scatter Plots
+
+
+``` python
+fig, ax = plt.subplots(figsize=(3, 3))
+
+ax.scatter(x=weight, y=height)
+
+plt.show()
+```
+
+![](Session3_files/figure-html/unnamed-chunk-14-11.png)&lt;!-- --&gt;
+
 
 ---
 
-## A Note on Error Bars
+## Error Bars
 
-Confusingly, matplotlib has a separate function to create a scatter plot with error bars. To do so, you can use the  [`errorbar()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html) function. This takes the usual `x` and `y` arguments for coordinates, as well as additional `xerr` and `yerr` arguments for the error bar values. It also contains similar options to `scatter()` for customizing the data points and error bars.
+Confusingly, matplotlib has a separate function to create a scatter plot with error bars. To do so, you can use the  [`errorbar()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html) function. 
+
+This takes the usual `x` and `y` arguments for coordinates, as well as additional `xerr` and `yerr` arguments for the error bar values. 
+
+It also contains similar options to `scatter()` for customizing the data points and error bars.
 
 ---
 
@@ -232,20 +304,15 @@ Take a look at the options in the [`scatter()`](https://matplotlib.org/stable/ap
 - `alpha`: transparency (0 = transparent, 1 = opaque)
 
 ---
+
 ## Named Colors
 
 Python has a number of named colors. You can also specify hex or RGB color codes as strings. 
 
-&lt;div align="center"&gt;
-
-&lt;img src="imgs/named_colors.png" alt="igv" height="300" width="600"&gt;
-
-&lt;/div&gt;
-
-Using these colors and the list of parameters below, take a second to customize your plot of weight vs height.
+![Matplotlib named colors](imgs/named_colors.png)
 
 ---
-## Parameters
+## Customize Your Plot
 
 Using these colors and the list of parameters below, take a second to customize your plot of weight vs height.
 
@@ -258,7 +325,7 @@ Using these colors and the list of parameters below, take a second to customize 
 
 ---
 
-## Custom Plot
+## Customized Plot
 
 
 ``` python
@@ -269,7 +336,7 @@ ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edg
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-10-9.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-15-13.png)&lt;!-- --&gt;
 
 ---
 
@@ -277,7 +344,8 @@ plt.show()
 
 Let's add a title and some axis labels to our plot. To do this, we can use the following functions:
 
-```
+
+``` python
 ax.set_title("My Title")
 ax.set_xlabel("X Data Label")
 ax.set_ylabel("Y Data Label")
@@ -302,7 +370,7 @@ ax.set_ylabel("Height (cm)")
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-11-11.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-17-15.png)&lt;!-- --&gt;
 
 ---
 
@@ -328,20 +396,18 @@ for i in range(len(sex)):
 
 ---
 
-## Plotting a Continuous Function
+## Scatter Plot of Sex-Separated Data
 
-Another common type of plot is a line plot. Line plots can be created using the [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) function. The essential arguments of `plot()` are the lists of arrays of x and y values.
-
-Let's use `plot()` to add a line of best fit to out weight vs height data for both sexes. First, we will create a new figure and plot the data using `scatter()`, as before.
+Now we are going to generate a 2x1 subplot and create some visualizations for this modified data.
 
 
 ``` python
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
-# Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5)
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5)
+# Plot data on ax1
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
 
 ax1.set_title("Height vs Weight")
 ax1.set_xlabel("Weight (kg)")
@@ -351,11 +417,12 @@ plt.show()
 ```
 
 
+
 ---
-## Plotting a Continuous Function
 
+## Resulting Plot
 
-![](Session3_files/figure-html/unnamed-chunk-14-13.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-20-17.png)&lt;!-- --&gt;
 
 
 ---
@@ -366,6 +433,10 @@ Lines of best fit (also called linear regressions) are useful tools for finding 
 `\(y(x) = mx+b\)`,
 
 where `\(m\)` is the slope and `\(b\)` is the intercept. Today we will be using [`curve_fit()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html) from the `scipy.optimize` package to generate a best fit line for the Male and Female height vs weight data. 
+
+---
+
+## curve_fit
 
 `curve_fit()` takes as input:
 
@@ -378,12 +449,13 @@ where `\(m\)` is the slope and `\(b\)` is the intercept. Today we will be using 
 - Optimal parameters of `\(m\)` and `\(b\)` (or whichever fit parameters you have defined in your function)
 - Other information about the quality of the fit (covariance matrix)
 
+Let's give it a try!
 
 
 ---
-## Lines of Best Fit
+## Get the Fit Parameters
 
-Let's give it a try!
+
 
 
 ``` python
@@ -403,10 +475,23 @@ print(popt_m)
 ## [8.17836998e-02 1.68572508e+02]
 ```
 
+--- 
+
+## Plotting a Continuous Function
+
+Another common type of plot is a line plot. Line plots can be created using the [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) function. The essential arguments of `plot()` are the lists of arrays of x and y values.
+
+Let's use `plot()` to add a line of best fit to out weight vs height data for both sexes. 
+
+
 ---
-## Plotting the Lines 1
+## Plotting the Lines
 
 Now that we have the slopes and intercepts of each line of best fit, we can use [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) to plot them on our axes (`ax1`). `plot()` behaves exactly like scatter, in the sense that it accepts a list of x values and a list of y values. However, it will just plot these coordinates and connect them with a straight line. 
+
+---
+
+## X Coordinates
 
 First, we need to make our list of x coordinates. Let's make a list using the `np.linspace()` function. `np.linspace()` takes 3 arguments: `start`, `stop`, and `num`, and returns a list that begins at `start` and ends at `stop` with `num` evenly-spaced points.
 
@@ -442,7 +527,8 @@ print(x)
 ```
 
 ---
-## Plotting the Lines 2
+
+## Y Coordinates
 
 Now that we have our x values, we can plug them into the linear function we have defined, `line(x, m, b)`, including the values for the fit parameters we found using `curve_fit()`. Let's define our y values to plot in the following way:
 
@@ -453,7 +539,7 @@ y_female = line(x, popt_f[0], popt_f[1])
 ```
 
 ---
-## Plotting the Lines 3
+## Plotting the Lines 
 
 Finally, we can put it all together. Take the code we have created for our 1x2 subplot and add in the lines of best fit on `ax1`.
 
@@ -479,16 +565,25 @@ plt.show()
 ```
 
 ---
-## Plotting the Lines 3
+## Plotting the Lines 
 
-![](Session3_files/figure-html/unnamed-chunk-19-15.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-25-19.png)&lt;!-- --&gt;
 
 
 
 ---
 ## Adding a Legend
 
-Finally, we would like to add a legend to this plot now that it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. By adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function, we will automatically generate a legend. You  can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today.
+Finally, we would like to add a legend to this plot now that it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. 
+
+By adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function, we will automatically generate a legend. 
+
+You can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today.
+
+---
+
+## Adding a Legend
+
 
 
 ``` python
@@ -516,12 +611,20 @@ plt.show()
 ---
 ## Adding a Legend
 
-![](Session3_files/figure-html/unnamed-chunk-21-17.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-27-21.png)&lt;!-- --&gt;
 
 ---
 ## Histograms 
 
-Another common plot type is a histogram. We are going to put a histogram of height distributions by sex in the blank subplot. We will do this using the [`plt.hist()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html) function. At a minimum, `hist()` takes the data points you wish to plot as an argument. You may also specify the `bins` argument as an integer (the default is 10). Let's take our previous plot and add histograms for the male and female height distributions, each with 5 bins.
+Another common plot type is a histogram. We are going to put a histogram of height distributions by sex in the blank subplot. We will do this using the [`plt.hist()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html) function. 
+
+At a minimum, `hist()` takes the data points you wish to plot as an argument. You may also specify the `bins` argument as an integer (the default is 10). 
+
+Let's take our previous plot and add histograms for the male and female height distributions, each with 5 bins.
+
+---
+
+## Plotting Histograms
 
 
 ``` python
@@ -549,7 +652,7 @@ plt.show()
 ---
 ## Histograms 
 
-![](Session3_files/figure-html/unnamed-chunk-23-19.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-29-23.png)&lt;!-- --&gt;
 
 
 ---
@@ -582,13 +685,17 @@ plt.show()
 ---
 ## Finishing Touches
 
-![](Session3_files/figure-html/unnamed-chunk-25-21.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-31-25.png)&lt;!-- --&gt;
 
 ---
 
 ## Seaborn
 
-`matplotlib.pyplot` is the bread and butter of data visualization in Python, and allows you near-arbitrary degrees of customization for your plots. However, the [`seaborn`](https://seaborn.pydata.org/) library was developed using `matplotlib` to make nice-looking plots with less code. We are going to use it to make a violin plot, because that is something that `matplotlib.pyplot` does not do a nice job of. 
+`matplotlib.pyplot` is the bread and butter of data visualization in Python, and allows you near-arbitrary degrees of customization for your plots.
+
+However, the [`seaborn`](https://seaborn.pydata.org/) library was developed using `matplotlib` to make nice-looking plots with less code. 
+
+We are going to use it to make a violin plot, because that is something that `matplotlib.pyplot` does not do a nice job of. 
 
 ---
 
@@ -605,7 +712,7 @@ fig, ax = plt.subplots(figsize = (4, 4))
 sns.violinplot(weight_m, ax = ax)
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-26-23.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-32-27.png)&lt;!-- --&gt;
 
 ---
 
@@ -627,13 +734,7 @@ ax.legend()
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-27-25.png)&lt;!-- --&gt;
-
---- 
-
-## Applications with Seaborn
-
-Seaborn is used a lot in the context of data science, and it plays very nicely with Pandas (another library used for manipulating tabular data). 
+![](Session3_files/figure-html/unnamed-chunk-33-29.png)&lt;!-- --&gt;
 
 ---
 
@@ -648,55 +749,92 @@ fig.savefig("my_violin_plot.pdf", bbox_inches = "tight")
 ```
 
 ---
-## Color Maps 
+## Colormaps
 
-Rather than using a single color to plot your data, you may want to use a color map. This is particularly true for things like heatmaps, or when you are displaying an image. To do this, you can use existing [colormaps](https://matplotlib.org/stable/gallery/color/colormap_reference.html) within `matplotlib`, or [create your own](https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation).
+Rather than using a single color to plot your data, you may want to use a color map. This is particularly true for things like heatmaps, or when you are displaying an image. 
+
+To do this, you can use existing [colormaps](https://matplotlib.org/stable/gallery/color/colormap_reference.html) within `matplotlib`, or [create your own](https://matplotlib.org/stable/users/explain/colors/colormap-manipulation.html#colormap-manipulation).
+
+
+---
+
+## Choosing a Colormap
+
+It's important to choose a [colormap](https://matplotlib.org/stable/users/explain/colors/colormaps.html) that is:
+
+- Visually faithful to the scale
+- Translates well to greyscale (printing)
+- Is accessible to those with common forms of color blindness. 
+  
+It turns out that people have thought about this problem *a lot* and have come up with some color maps that do a great job at maximizing these properties.
+
+---
+
+## Viridis
+
+My personal favourite is called *viridis* (watch the launch video [here](https://www.youtube.com/watch?v=xAoljeRJ3lU&amp;ab_channel=Enthought) - surprisingly interesting), but there is actually a selection of these schemes available.
+
+![Perceptually uniform colormaps.](imgs/viridis.png)
+
+
+---
+
+## We Hate Jet!
+
+Some color schemes that may seem natural to use (especially rainbow/jet) actually tend to skew our perceptions of the data values and therefore are not recommended. 
+
+![Mona Lisa in original, jet, and viridis.](imgs/monalisa.png)
+
+---
+
+## Colors and Accessibility in Other Plots
+
+When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white conversion in mind. Using different dashes in lines and shapes in markers is also a good way to do this!
+
+![Accessibility matters for all types of data visualization!](imgs/scatter_accessible.png)
+
+
+---
+
+## Colormaps in Seaborn
+
+Let's use the [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html) function from Seaborn to generate a plot of the time progression of three genes.
 
 
 ``` python
 fig, ax = plt.subplots(figsize = (5,4))
 
-x = np.linspace(-5, 5, 200)
-y = np.linspace(-5, 5, 200)
+data = np.genfromtxt('data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
 
-xx, yy = np.meshgrid(x, y)
+print(data)
 
-zz = np.cos(xx)*np.sin(yy)
+sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
 
-im = ax.pcolormesh(zz, cmap='viridis')
-fig.colorbar(im, ax=ax)
+ax.set_xlabel("Time")
+ax.set_ylabel("Gene")
+ax.set_title("Gene Progression")
 
 plt.show()
 ```
 
 ---
-## Color Maps 
+
+## Heatmap Plot
 
 
 ```
-## &lt;matplotlib.colorbar.Colorbar object at 0x7f7f38cb5750&gt;
+## [[0.2 0.3 0.5 0.6 0.7]
+##  [0.3 0.4 0.4 0.5 0.4]
+##  [0.  0.1 0.2 0.2 0.1]
+##  [0.9 0.7 0.6 0.5 0.4]
+##  [0.6 0.3 0.5 0.7 0.4]]
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-30-27.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-36-31.png)&lt;!-- --&gt;
 
 ---
-## Accessible Color Maps
 
-When you are using colors to plot your data, and in particular when you are using [color maps](https://matplotlib.org/stable/users/explain/colors/colormaps.html), it is important to choose one that is faithful to the scale, and that is accessible to those with common forms of color blindness. It turns out that people have thought about this problem *a lot* and have come up with some color maps that do a great job at maximizing these properties. 
-
-My personal favourite is called *viridis* (watch the launch video [here](https://www.youtube.com/watch?v=xAoljeRJ3lU&amp;ab_channel=Enthought) - surprisingly interesting), but there is actually a selection of these schemes available.
-
-![Alt text](imgs/viridis.png)
-
----
-## Accessible Color Maps
-
-It's also important to note that some color schemes that may seem natural to use (black to white and rainbow) actually tend to skew our perceptions of the data values and therefore are not recommended. 
-
-![Alt text](imgs/monalisa.png)
-
----
-## Example: Scatter Plot with Color Map
+## Color Maps in Matplotlib
 
 Let's make a scatter plot with weight vs height again, but make the color of the points defined by the ratio of weight to height.
 
@@ -707,13 +845,7 @@ fig, ax = plt.subplots(figsize=(6, 4))
 ratio = weight/height
 im = ax.scatter(weight, height, c=ratio, cmap='viridis')
 fig.colorbar(im, ax=ax)
-```
 
-```
-## &lt;matplotlib.colorbar.Colorbar object at 0x7f7f38bb31c0&gt;
-```
-
-``` python
 ax.set_xlabel("Weight (kg)")
 ax.set_ylabel("Height (cm)")
 ax.set_title("Weight vs Height")
@@ -721,64 +853,23 @@ ax.set_title("Weight vs Height")
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-31-29.png)&lt;!-- --&gt;
-
----
-## Example: Scatter Plot with Color Map
-
-
-``` python
-# Generate figure and axes
-fig, ax = plt.subplots(figsize=(6, 4))
-ratio = weight/height
-im = ax.scatter(weight, height, c=ratio, cmap='viridis')
-fig.colorbar(im, ax=ax)
-```
-
-```
-## &lt;matplotlib.colorbar.Colorbar object at 0x7f7f38a86b60&gt;
-```
-
-``` python
-ax.set_xlabel("Weight (kg)")
-ax.set_ylabel("Height (cm)")
-ax.set_title("Weight vs Height")
-
-plt.show()
-```
-
-![](Session3_files/figure-html/unnamed-chunk-32-31.png)&lt;!-- --&gt;
-
 ---
 
-## Plotting with Functions
-
-We have learned how to write many lines of code to generate and customize a single figure. This is nice, but we want to be practical. In fact, you can put all of your plotting code inside a function that will allow you to automate the production of figures within your workflows. Let's write a function called `plot_data()` that can recreate the previous plot and accepts `weight`, `height` and `filename` as its arguments.
-
-This way, you can call this function with different datasets and it will return a consistently-formatted plot for each.
+## Scatter Plot with Colormap
 
 
-``` python
-def plot_data(weight, height, filename):
-  fig, ax = plt.subplots(figsize=(6, 4))
-  ratio = weight/height
-  im = ax.scatter(weight, height, c=ratio, cmap='viridis')
-  fig.colorbar(im, ax=ax)
-
-  ax.set_xlabel("Weight (kg)")
-  ax.set_ylabel("Height (cm)")
-  ax.set_title("Weight vs Height")
-  
-  fig.tight_layout()
-  fig.savefig(filename + ".pdf", bbox_inches = "tight")
+```
+## &lt;matplotlib.colorbar.Colorbar object at 0x7ff3cdbdb9a0&gt;
 ```
 
+![](Session3_files/figure-html/unnamed-chunk-38-33.png)&lt;!-- --&gt;
 
 
 ---
 ## Time for an exercise!
 
 ??? exercise description here?? [here](../../exercises/exercises/MyExercise2_exercises.html)
+
 
 ---
 ## Answers to exercise
@@ -788,10 +879,12 @@ Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
 R code for solutions can be found [here](../../exercises/answers/MyExercise2_answers.R)
 
 --- 
-## Further Support
+## Data Visualization Resources
 
-* Reach out on [GitHub](https://github.com/RockefellerUniversity/Intro_To_Python/issues)
-* Harvard's Python Course: https://cs50.harvard.edu/python/2022/
+- [Matplotlib Cheatsheets and Handouts](https://matplotlib.org/cheatsheets/)
+- Matplotlib [Tutorials](https://matplotlib.org/stable/tutorials/index.html) and [User Guide](https://matplotlib.org/stable/users/index.html)
+- [Fundamentals of Data Visualization by Claus O. Wilke](https://clauswilke.com/dataviz/)  
+
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

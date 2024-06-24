@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Introduction to R, Session 1    </title>
+    <title>Introduction to Python, Session 1    </title>
     <meta charset="utf-8" />
     <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
     <script src="libs/header-attrs-2.27/header-attrs.js"></script>
@@ -14,7 +14,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# Introduction to R, Session 1<br />
+# Introduction to Python, Session 1<br />
 <html><br />
 <br />
 <hr color='#EB811B' size=1px width=796px><br />
@@ -89,7 +89,7 @@ such as deep learning methods for scRNAseq or Image Analysis
 ![TIOBE](imgs/Tiobeindex.png)
 
 ---
-## Pyhton vs R
+## Python vs R
 
 Though R has long been the cornerstone of bioinformatics, python is growing in use. 
 
@@ -1225,7 +1225,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ``` python
@@ -1234,7 +1234,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ---
@@ -1247,7 +1247,7 @@ myset
 ```
 
 ```
-## {'c', 'd', 'a', 'b'}
+## {'a', 'b', 'c', 'd'}
 ```
 
 
@@ -1257,7 +1257,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ---
@@ -1285,7 +1285,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ---
@@ -1501,13 +1501,12 @@ arr = np.array(['a', '2', '3'], dtype='i')
 NumPy arrays can easily be joined together with the `concatenate` function. These are a simple 1D arrays. 
 
 
-``` pyhton
+``` python
 arr1 = np.array([1, 2, 3])
 
 arr2 = np.array([4, 5, 6])
 
 arr = np.concatenate((arr1, arr2))
-
 ```
 
 ---
@@ -1516,8 +1515,7 @@ arr = np.concatenate((arr1, arr2))
 2D arrays can be merged just as easily. The orientation of the merge can be controlled using the `axis` argument.
 
 
-``` pyhton
-
+``` python
 arr1 = np.array([[1, 2], [3, 4]])
 
 arr2 = np.array([[5, 6], [7, 8]])
@@ -1527,12 +1525,23 @@ arr = np.concatenate((arr1, arr2), axis=1)
 arr
 ```
 
+```
+## array([[1, 2, 5, 6],
+##        [3, 4, 7, 8]])
+```
 
-``` pyhton
 
+``` python
 arr = np.concatenate((arr1, arr2), axis=0)
 
 arr
+```
+
+```
+## array([[1, 2],
+##        [3, 4],
+##        [5, 6],
+##        [7, 8]])
 ```
 
 

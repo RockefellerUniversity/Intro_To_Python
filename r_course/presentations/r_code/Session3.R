@@ -24,13 +24,25 @@ library(reticulate)
 py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 
 
-## import matplotlib
 ## import matplotlib.pyplot as plt
+
+## fig, ax = plt.subplots()
+
+## fig, ax = plt.subplots()
 
 ## fig, ax = plt.subplots()
 
 ## fig, ax = plt.subplots(figsize=(2, 3))
 ## plt.show()
+
+## fig, ax = plt.subplots(figsize=(3, 2))
+## ax.set_xlim(-3, 4)
+## ax.set_ylim(6, 10)
+## plt.show()
+
+## fig1, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)
+## 
+## fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)
 
 ## fig, ((ax_nw, ax_ne), (ax_sw, ax_se)) = plt.subplots(nrows=2, ncols=2)
 ## 
@@ -48,9 +60,19 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 
 ## fig, ax = plt.subplots(figsize=(3, 3))
 ## 
+## ax.scatter(x=weight, y=height)
+## 
+## plt.show()
+
+## fig, ax = plt.subplots(figsize=(3, 3))
+## 
 ## ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 ## 
 ## plt.show()
+
+## ax.set_title("My Title")
+## ax.set_xlabel("X Data Label")
+## ax.set_ylabel("Y Data Label")
 
 ## fig, ax = plt.subplots(figsize=(3, 3))
 ## 
@@ -78,9 +100,9 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ## # Generate figure and axes
 ## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 ## 
-## # Plot data
-## ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5)
-## ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5)
+## # Plot data on ax1
+## ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+## ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
 ## 
 ## ax1.set_title("Height vs Weight")
 ## ax1.set_xlabel("Weight (kg)")
@@ -92,9 +114,9 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ## # Generate figure and axes
 ## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 ## 
-## # Plot data
-## ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5)
-## ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5)
+## # Plot data on ax1
+## ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+## ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
 ## 
 ## ax1.set_title("Height vs Weight")
 ## ax1.set_xlabel("Weight (kg)")
@@ -299,30 +321,30 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 
 ## fig, ax = plt.subplots(figsize = (5,4))
 ## 
-## x = np.linspace(-5, 5, 200)
-## y = np.linspace(-5, 5, 200)
+## data = np.genfromtxt('data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
 ## 
-## xx, yy = np.meshgrid(x, y)
+## print(data)
 ## 
-## zz = np.cos(xx)*np.sin(yy)
+## sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
 ## 
-## im = ax.pcolormesh(zz, cmap='viridis')
-## fig.colorbar(im, ax=ax)
+## ax.set_xlabel("Time")
+## ax.set_ylabel("Gene")
+## ax.set_title("Gene Progression")
 ## 
 ## plt.show()
 ## 
 
 ## fig, ax = plt.subplots(figsize = (5,4))
 ## 
-## x = np.linspace(-5, 5, 200)
-## y = np.linspace(-5, 5, 200)
+## data = np.genfromtxt('data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
 ## 
-## xx, yy = np.meshgrid(x, y)
+## print(data)
 ## 
-## zz = np.cos(xx)*np.sin(yy)
+## sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
 ## 
-## im = ax.pcolormesh(zz, cmap='viridis')
-## fig.colorbar(im, ax=ax)
+## ax.set_xlabel("Time")
+## ax.set_ylabel("Gene")
+## ax.set_title("Gene Progression")
 ## 
 ## plt.show()
 ## 
@@ -350,16 +372,3 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ## ax.set_title("Weight vs Height")
 ## 
 ## plt.show()
-
-## def plot_data(weight, height, filename):
-##   fig, ax = plt.subplots(figsize=(6, 4))
-##   ratio = weight/height
-##   im = ax.scatter(weight, height, c=ratio, cmap='viridis')
-##   fig.colorbar(im, ax=ax)
-## 
-##   ax.set_xlabel("Weight (kg)")
-##   ax.set_ylabel("Height (cm)")
-##   ax.set_title("Weight vs Height")
-## 
-##   fig.tight_layout()
-##   fig.savefig(filename + ".pdf", bbox_inches = "tight")
