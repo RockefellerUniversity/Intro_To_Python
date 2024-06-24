@@ -715,7 +715,7 @@ There are many useful functions built into the base version of python.
 my_strs.index('c')
 ```
 
-* `.sort()` will sort your list
+* `.sort()` will sort your list. This works both with numerical and string data.
 
 ```{python}
 my_list = [1,4,9,4,11,12,6]

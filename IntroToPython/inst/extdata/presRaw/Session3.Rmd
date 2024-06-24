@@ -130,7 +130,7 @@ Let's visit the documentation and take a look at the options.
 - At the bottom of your code, type `plt.show()` to render your plot
 
 ```{python}
-fig, ax = plt.subplots(figsize=(2, 3))
+fig, ax = plt.subplots(figsize=(4, 3))
 plt.show()
 ```
 
@@ -140,7 +140,7 @@ plt.show()
 
 - You can also set the limits of your axes
 
-```{python}
+```{python, warning=F, message=F}
 fig, ax = plt.subplots(figsize=(3, 2))
 ax.set_xlim(-3, 4)
 ax.set_ylim(6, 10)
@@ -170,7 +170,7 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)
 
 Let's make a 2x2 grid of subplots. Note that we use nested brackets to specify the positions of each subplot within the figure.
 
-```{python, fig.height=5, fig.width=3}
+```{python, fig.height=5, fig.width=3, eval=F}
 fig, ((ax_nw, ax_ne), (ax_sw, ax_se)) = plt.subplots(nrows=2, ncols=2)
 
 plt.show()
@@ -225,7 +225,7 @@ plt.show()
 ## Scatter Plots
 
 ```{python}
-fig, ax = plt.subplots(figsize=(3, 3))
+fig, ax = plt.subplots(figsize=(5, 5))
 
 ax.scatter(x=weight, y=height)
 
@@ -281,7 +281,7 @@ Using these colors and the list of parameters below, take a second to customize 
 ## Customized Plot
 
 ```{python}
-fig, ax = plt.subplots(figsize=(3, 3))
+fig, ax = plt.subplots(figsize=(5, 5))
 
 ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 
@@ -307,7 +307,7 @@ Be sure to add all of this code before the `plt.show()` line, which renders the 
 ## Add Your Labels
 
 ```{python}
-fig, ax = plt.subplots(figsize=(3, 3))
+fig, ax = plt.subplots(figsize=(4, 4))
 
 ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 
@@ -722,7 +722,7 @@ sns.violinplot(weight_m, ax = ax)
 
 Let's add the other dataset and make it nicer.
 
-```{python}
+```{python, eval=T}
 fig, ax = plt.subplots(figsize = (4, 4))
 
 sns.violinplot(weight_m, ax = ax, color = 'royalblue', alpha = 0.5, linewidth=0, label = "Male")
@@ -734,6 +734,29 @@ ax.legend()
 
 plt.show()
 ```
+
+
+---
+
+## Make it Nice
+
+
+Let's add the other dataset and make it nicer.
+
+```{python, echo=F}
+fig, ax = plt.subplots(figsize = (6, 5))
+
+sns.violinplot(weight_m, ax = ax, color = 'royalblue', alpha = 0.5, linewidth=0, label = "Male")
+sns.violinplot(weight_f, ax = ax, color = 'magenta', alpha = 0.5, linewidth=0, label = "Female")
+
+ax.set_ylabel('Weight (kg)')
+ax.set_title("Weight Distribution by Sex")
+ax.legend()
+
+plt.show()
+```
+
+
 
 ---
 
@@ -789,7 +812,9 @@ Some color schemes that may seem natural to use (especially rainbow/jet) actuall
 
 When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white conversion in mind. Using different dashes in lines and shapes in markers is also a good way to do this!
 
-![Accessibility matters for all types of data visualization!](imgs/scatter_accessible.png)
+
+<img src="imgs/scatter_accessible.png" alt="Accessibility matters for all types of data visualization!" height="200" width="200">
+
 
 
 ---
@@ -798,34 +823,20 @@ When you are creating any plot with multiple datasets/colors, keep colorblindnes
 
 Let's use the [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap.html) function from Seaborn to generate a plot of the time progression of three genes.
 
-```{python, eval=F}
+```{python, eval=T}
 fig, ax = plt.subplots(figsize = (5,4))
 
 data = np.genfromtxt('data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
 
 print(data)
-
-sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
-
-ax.set_xlabel("Time")
-ax.set_ylabel("Gene")
-ax.set_title("Gene Progression")
-
-plt.show()
-
 ```
+
 
 ---
 
 ## Heatmap Plot
 
-```{python, echo=F}
-fig, ax = plt.subplots(figsize = (5,4))
-
-data = np.genfromtxt('data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
-
-print(data)
-
+```{python, echo=T}
 sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
 
 ax.set_xlabel("Time")
@@ -865,6 +876,7 @@ plt.show()
 fig, ax = plt.subplots(figsize=(6, 4))
 ratio = weight/height
 im = ax.scatter(weight, height, c=ratio, cmap='viridis')
+
 fig.colorbar(im, ax=ax)
 
 ax.set_xlabel("Weight (kg)")
