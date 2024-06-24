@@ -44,7 +44,7 @@ library(reticulate)
 py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ```
 
-
+---
 ##  Data Visualization with Python
 
 Today's goals:
@@ -69,7 +69,7 @@ In general, the recipe for creating a figure is as follows:
 
 ---
 
-![Data visualization workflow.](imgs/workflow.png)
+![Data visualization workflow](imgs/workflow.png)
 
 ---
 
@@ -95,7 +95,7 @@ import matplotlib.pyplot as plt
 
 In Python, the best way to make a figure is by using the [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) function to define a figure and set(s) of axes. The reason we use the `subplots()` function is that it makes it easy to add multiple plots/axes to a figure, which is commonly done in the visualization of scientific data. To define a figure, you can write
 
-```{python, fig.height=5, fig.width=3}
+```{python, eval=F}
 fig, ax = plt.subplots()
 ```
 
@@ -165,7 +165,7 @@ fig2, (ax3, ax4) = plt.subplots(nrows=2, ncols=1)
 ```
 
 
---- 
+---
 ## Example with 4 Subplots
 
 Let's make a 2x2 grid of subplots. Note that we use nested brackets to specify the positions of each subplot within the figure.
@@ -429,7 +429,7 @@ popt_f, pcov_f = curve_fit(f=line, xdata=weight_f, ydata=height_f)
 print(popt_m)
 ```
 
---- 
+---
 
 ## Plotting a Continuous Function
 
@@ -878,17 +878,15 @@ plt.show()
 ---
 ## Time for an exercise!
 
-??? exercise description here?? [here](../../exercises/exercises/MyExercise2_exercises.html)
+Exercises around plotting can be found [here](../../exercises/exercises/MyExercise3_exercises.html)
 
 
 ---
 ## Answers to exercise
 
-Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
+Answers can be found [here](../../exercises/answers/MyExercise3_answers.html)
 
-R code for solutions can be found [here](../../exercises/answers/MyExercise2_answers.R)
-
---- 
+---
 ## Data Visualization Resources
 
 - [Matplotlib Cheatsheets and Handouts](https://matplotlib.org/cheatsheets/)

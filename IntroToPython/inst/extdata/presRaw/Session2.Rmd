@@ -113,11 +113,20 @@ If you are reading in data, you need to know from which vantage point your compu
 
 There are several utilities in the os (operating system) package. First lets check our current Working Directory using `getcwd`. 
 
-
 ```{python}
 import os
+
+```
+
+
+```{python, eval=F}
+
 os.getcwd()
 
+```
+
+```
+## '/Users/mattpaul/'
 ```
 
 ---
@@ -215,7 +224,7 @@ An alternative to setting the data type explicitly, you can let genfromtxt deter
 
 sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None)
 
-
+sex
 ```
 
 
@@ -231,7 +240,7 @@ Let's do some quick processing based on what we learned yesterday. First we will
 new_array = np.array([sex, height, weight])
 ```
 
-Next we do a logical test to see which entries in uor first row are Female.
+Next we do a logical test to see which entries in our first row are Female.
 
 ```{python}
 to_subset = new_array[0,:]=="Female"
@@ -294,7 +303,6 @@ if(params$isSlides == "yes"){
 ```
 
 
----
 ## Control Statements
 
 There are several ways to control how your code is evaluated. There are two main classes:
@@ -563,7 +571,7 @@ Notebooks give you a means to tie the code, the analysis decisions and the resul
 
 There are several options for python. But Jupyter Notebook is best known for Python. Quarto is growing in popularity as its universal and language agnostic.
 
---- 
+---
 ## Further Support
 
 When you hit bugs:
