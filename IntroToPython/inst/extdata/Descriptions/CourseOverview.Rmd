@@ -4,7 +4,7 @@
 ### Course Integrity
 **This course is compiled automatically on _`r Sys.Date()`_ **
 <br>
-[<img src="https://github.com/RockefellerUniversity/Intro_To_Python/workflows/selfTest/badge.svg">](https://github.com/RockefellerUniversity/Intro_To_Python/actions?query=workflow%3AselfTest)
+[![compilation-check](https://github.com/RockefellerUniversity/Intro_To_Python/actions/workflows/selfTest.yml/badge.svg)](https://github.com/RockefellerUniversity/Intro_To_Python/actions/workflows/selfTest.yml)
 
 **The course is tested and available on MacOS, Windows and Ubuntu Linux**
 <br>
