@@ -2062,21 +2062,21 @@ our list.</p>
 <p>There are many useful functions built into the base version of
 python.</p>
 <ul>
-<li><code>.insert()</code> inserts an argument into a specfic postion in
-the list</li>
+<li><code>.insert()</code> inserts an argument into a specific position
+in the list</li>
 </ul>
 <div class="sourceCode" id="cb94"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" tabindex="-1"></a>my_strs.insert(<span class="dv">3</span>,<span class="st">&#39;c&#39;</span>)</span>
 <span id="cb94-2"><a href="#cb94-2" tabindex="-1"></a>my_strs</span></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;f&#39;, 1]</code></pre>
 <ul>
-<li><code>.remove()</code> inserts an argument into a specfic postion in
-the list</li>
+<li><code>.remove()</code> removes something from the list. It will only
+remove the first instance though.</li>
 </ul>
 <div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" tabindex="-1"></a>my_strs.remove(<span class="st">&#39;c&#39;</span>)</span>
 <span id="cb96-2"><a href="#cb96-2" tabindex="-1"></a>my_strs</span></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;f&#39;, 1]</code></pre>
 <ul>
-<li><code>.del()</code> inserts an argument into a specfic postion in
+<li><code>.del()</code> removes an argument from a specific position in
 the list</li>
 </ul>
 <div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" tabindex="-1"></a><span class="kw">del</span>(my_strs[<span class="dv">3</span>])</span>
@@ -2271,7 +2271,7 @@ or by coercing another object using the <code>set()</code> function.</p>
 modification of sets.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1" tabindex="-1"></a>myset.add(<span class="st">&quot;d&quot;</span>)</span>
 <span id="cb151-2"><a href="#cb151-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;d&#39;, &#39;b&#39;, &#39;a&#39;, &#39;c&#39;}</code></pre>
+<pre><code>## {&#39;b&#39;, &#39;a&#39;, &#39;d&#39;, &#39;c&#39;}</code></pre>
 <div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="#cb153-1" tabindex="-1"></a>myset.remove(<span class="st">&quot;d&quot;</span>)</span>
 <span id="cb153-2"><a href="#cb153-2" tabindex="-1"></a>myset</span></code></pre></div>
 <pre><code>## {&#39;b&#39;, &#39;a&#39;, &#39;c&#39;}</code></pre>
@@ -2369,7 +2369,7 @@ In this case we have rectangular data so it is two dimensions.</p>
 index our arrays. The big difference is we now have 2 dimensions. We
 therefore need to provide 2 indexes, separated by a comma.</p>
 <p>The first number will correspond to row. The second number will
-correspond to row.</p>
+correspond to column.</p>
 <div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="#cb175-1" tabindex="-1"></a>arr_2d[<span class="dv">0</span>,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## np.str_(&#39;True&#39;)</code></pre>
 </div>
