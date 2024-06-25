@@ -682,21 +682,21 @@ my_strs
 
 There are many useful functions built into the base version of python. 
 
-* `.insert()` inserts an argument into a specfic postion in the list
+* `.insert()` inserts an argument into a specific position in the list
 
 ```{python}
 my_strs.insert(3,'c')
 my_strs
 ```
 
-* `.remove()` inserts an argument into a specfic postion in the list
+* `.remove()` removes something from the list. It will only remove the first instance though. 
 
 ```{python}
 my_strs.remove('c')
 my_strs
 ```
 
-* `.del()` inserts an argument into a specfic postion in the list
+* `.del()` removes an argument from a specific position in the list
 
 ```{python}
 del(my_strs[3])
@@ -1082,7 +1082,7 @@ arr_2d.ndim
 
 We can use same square brackets we used for other data objects to index our arrays. The big difference is we now have 2 dimensions. We therefore need to provide 2 indexes, separated by a comma. 
 
-The first number will correspond to row. The second number will correspond to row.
+The first number will correspond to row. The second number will correspond to column.
 
 ```{python}
 arr_2d[0,2]
