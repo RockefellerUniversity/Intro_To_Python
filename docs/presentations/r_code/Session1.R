@@ -381,10 +381,9 @@ if(params$isSlides == "yes"){
 
 ## myset1 = {1, 2, 3, 4}
 ## myset2 = {3, 4, 5, 6}
+## 
+## myset1.intersection(myset2)
 ## myset1.union(myset2)
-
-## myset1 = {1, 2, 3, 4}
-## myset2 = {3, 4, 5, 6}
 ## myset1.difference(myset2)
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
