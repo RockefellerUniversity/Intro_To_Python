@@ -12,26 +12,27 @@ params:
 ---
 
 ```{r, setup,include=FALSE}
-toMessage <- ifelse(!is.null(params$toMessage),params$toMessage,FALSE)
+toMessage <- ifelse(!is.null(params$toMessage), params$toMessage, FALSE)
 message(toMessage)
 ```
 
 
 <p>&nbsp;</p>
-These exercises are about data types and custom functions from Session 1 [??Topic Name??](https://rockefelleruniversity.github.io/Intro_To_Python/). 
+These exercises are about data types and custom functions from Session 1 [session1](https://rockefelleruniversity.github.io/Intro_To_Python/). 
+
 
 **Exercise 1** - **Functions**
 
 - Look up what the `pow()` function does and how it works.
 
-```{python,echo=toMessage}
+```{python, echo=toMessage}
 help(pow)
 
 ```
 
 - Use the `pow()` function to calculate 4^13.3
 
-```{python,echo=toMessage}
+```{python, echo=toMessage}
 pow(4,13.3)
 
 ```
@@ -267,5 +268,4 @@ def mean_and_minOfNumbers(number1, number2):
 mean_and_minOfNumbers(1,3)
 ```
 
-```
 
