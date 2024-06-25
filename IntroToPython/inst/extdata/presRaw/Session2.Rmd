@@ -555,12 +555,13 @@ for i in range(8):
 ---
 ## Time for an exercise!
 
-??? exercise description here?? [here](../../exercises/exercises/MyExercise2_exercises.html)
+Exercises around control structures can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/exercises/MyExercise2_exercise.html)
+
 
 ---
 ## Answers to exercise
 
-Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
+Answers can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/answers/MyExercise2_answers.html)
 
 ---
 ##  An extra note
