@@ -1218,7 +1218,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ``` python
@@ -1227,7 +1227,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ---
@@ -1242,7 +1242,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b', 'd'}
+## {'a', 'b', 'd', 'c'}
 ```
 
 
@@ -1252,7 +1252,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ---
@@ -1282,7 +1282,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'a', 'b', 'c'}
 ```
 
 ---
@@ -1294,18 +1294,23 @@ Sets are really useful for checking intersections between two objects.
 ``` python
 myset1 = {1, 2, 3, 4}
 myset2 = {3, 4, 5, 6}
+
+myset1.intersection(myset2)
+```
+
+```
+## {3, 4}
+```
+
+``` python
 myset1.union(myset2)
 ```
 
 ```
 ## {1, 2, 3, 4, 5, 6}
 ```
- 
- 
 
 ``` python
-myset1 = {1, 2, 3, 4}
-myset2 = {3, 4, 5, 6}
 myset1.difference(myset2)
 ```
 
@@ -1866,13 +1871,13 @@ myFirstFunction(5,10)
 ---
 ## Time for an exercise!
 
-??? exercise description here?? [here](../../exercises/exercises/MyExercise2_exercises.html)
+Exercises around data types can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/exercises/MyExercise1_exercise.html)
 
 
 ---
 ## Answers to exercise
 
-Answers can be found [here](../../exercises/answers/MyExercise2_answers.html)
+Answers can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/answers/MyExercise1_answers.html)
 
 ---
 ## Further Support
