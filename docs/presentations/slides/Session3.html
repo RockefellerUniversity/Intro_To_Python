@@ -266,7 +266,7 @@ plt.show()
 
 
 ``` python
-fig, ax = plt.subplots(figsize=(5, 5))
+fig, ax = plt.subplots(figsize=(6, 4))
 
 ax.scatter(x=weight, y=height)
 
@@ -325,7 +325,7 @@ Using these colors and the list of parameters below, take a second to customize 
 
 
 ``` python
-fig, ax = plt.subplots(figsize=(5, 5))
+fig, ax = plt.subplots(figsize=(6, 4))
 
 ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 
@@ -355,7 +355,7 @@ Be sure to add all of this code before the `plt.show()` line, which renders the 
 
 
 ``` python
-fig, ax = plt.subplots(figsize=(4, 4))
+fig, ax = plt.subplots(figsize=(6, 4))
 
 ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
 
@@ -730,8 +730,6 @@ ax.legend()
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-33-25.png)&lt;!-- --&gt;
-
 
 ---
 
@@ -740,7 +738,7 @@ plt.show()
 
 Let's add the other dataset and make it nicer.
 
-![](Session3_files/figure-html/unnamed-chunk-34-27.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-34-25.png)&lt;!-- --&gt;
 
 
 
@@ -800,7 +798,7 @@ Some color schemes that may seem natural to use (especially rainbow/jet) actuall
 When you are creating any plot with multiple datasets/colors, keep colorblindness and black-white conversion in mind. Using different dashes in lines and shapes in markers is also a good way to do this!
 
 
-&lt;img src="imgs/scatter_accessible.png" alt="Accessibility matters for all types of data visualization!" height="200" width="200"&gt;
+&lt;img src="imgs/scatter_accessible.png" alt="Accessibility matters for all types of data visualization!" height="400" width="400"&gt;
 
 
 
@@ -812,8 +810,6 @@ Let's use the [`heatmap()`](https://seaborn.pydata.org/generated/seaborn.heatmap
 
 
 ``` python
-fig, ax = plt.subplots(figsize = (5,4))
-
 data = np.genfromtxt('data/gene_data.csv', unpack = True, delimiter = ",", skip_header=True)
 
 print(data)
@@ -827,8 +823,6 @@ print(data)
 ##  [0.6 0.3 0.5 0.7 0.4]]
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-36-29.png)&lt;!-- --&gt;
-
 
 ---
 
@@ -836,16 +830,15 @@ print(data)
 
 
 ``` python
+fig, ax = plt.subplots(figsize = (4,3))
 sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
-
 ax.set_xlabel("Time")
 ax.set_ylabel("Gene")
 ax.set_title("Gene Progression")
-
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-37-31.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-37-27.png)&lt;!-- --&gt;
 
 ---
 
@@ -874,22 +867,22 @@ plt.show()
 
 
 ```
-## &lt;matplotlib.colorbar.Colorbar object at 0x7f7296f14c10&gt;
+## &lt;matplotlib.colorbar.Colorbar object at 0x7fa7865c1c00&gt;
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-39-33.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-39-29.png)&lt;!-- --&gt;
 
 
 ---
 ## Time for an exercise!
 
-Exercises around plotting can be found [here](../../exercises/exercises/MyExercise3_exercises.html)
+Exercises around plotting can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/exercises/MyExercise3_exercise.html)
 
 
 ---
 ## Answers to exercise
 
-Answers can be found [here](../../exercises/answers/MyExercise3_answers.html)
+Answers can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/answers/MyExercise3_answers.html)
 
 ---
 ## Data Visualization Resources
