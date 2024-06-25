@@ -1,7 +1,7 @@
 ---
 title: "My Exercise 1"
 author: "Rockefeller University, Bioinformatics Resource Centre"
-date: "https://rockefelleruniversity.github.io/RU_course_template/"
+date: "https://rockefelleruniversity.github.io/Intro_To_Python/"
 output: 
   html_document:
     number_sections: false  ## if you want number sections at each table header
@@ -18,7 +18,7 @@ message(toMessage)
 
 
 <p>&nbsp;</p>
-These exercises are about ??Add a summary of the topic?? [??Topic Name??](https://rockefelleruniversity.github.io/RU_course_template/). 
+These exercises are about data types and custom functions from Session 1 [??Topic Name??](https://rockefelleruniversity.github.io/Intro_To_Python/). 
 
 **Exercise 1** - **Functions**
 
