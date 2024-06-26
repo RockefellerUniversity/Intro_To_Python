@@ -99,7 +99,7 @@ even_or_odd(10007)
 
 - Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a loop. (Hint: first try to write some pseudocode to help you build this)
 
-```{ echo=toMessage, eval=F}
+```{r, echo=toMessage, eval=F}
 
 # Idea
 Each iteration of a loop I want to multiply my factorial by itself:
