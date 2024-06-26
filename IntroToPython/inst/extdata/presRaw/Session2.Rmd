@@ -47,7 +47,6 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ---
 ##  Recap
 
-?? can add a recap to link to keypoints in first session??
 Session 1 covered introduction to R data types and import/export of data.
 
 - [Background to Python](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Background_of_Python)
