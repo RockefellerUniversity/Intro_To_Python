@@ -540,23 +540,21 @@ remainder after the value of x is divided by 2).</li>
 loop. (Hint: first try to write some pseudocode to help you build
 this)</li>
 </ul>
-<pre echo="toMessage," eval="F"><code>
-# Idea
-Each iteration of a loop I want to multiply my factorial by itself:
-x=1  result_1 = 1
-x=2  result_2 = result_1*x = 2*1
-x=3  result_3 = result_2*x = 3*2*1
-x=4  result_4 = result_3*x = 4*3*2*1
-etc...
-
-# Pseudocode
-
-for 0 to 9:
-  if x is 0:
-    create an object and set its value to 1
-  else:
-    once we are past the first data point we can multiply factorialAnswer by the iteration we are on. Then overwrite factorialAnswer with this result. 
-</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="co"># Idea</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a>Each iteration of a loop I want to multiply my factorial by itself<span class="sc">:</span></span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">1</span>  result_1 <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">2</span>  result_2 <span class="ot">=</span> result_1<span class="sc">*</span>x <span class="ot">=</span> <span class="dv">2</span><span class="sc">*</span><span class="dv">1</span></span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">3</span>  result_3 <span class="ot">=</span> result_2<span class="sc">*</span>x <span class="ot">=</span> <span class="dv">3</span><span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="dv">1</span></span>
+<span id="cb31-6"><a href="#cb31-6" tabindex="-1"></a>x<span class="ot">=</span><span class="dv">4</span>  result_4 <span class="ot">=</span> result_3<span class="sc">*</span>x <span class="ot">=</span> <span class="dv">4</span><span class="sc">*</span><span class="dv">3</span><span class="sc">*</span><span class="dv">2</span><span class="sc">*</span><span class="dv">1</span></span>
+<span id="cb31-7"><a href="#cb31-7" tabindex="-1"></a>etc...</span>
+<span id="cb31-8"><a href="#cb31-8" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" tabindex="-1"></a><span class="co"># Pseudocode</span></span>
+<span id="cb31-10"><a href="#cb31-10" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" tabindex="-1"></a><span class="cf">for</span> <span class="dv">0</span> to <span class="dv">9</span><span class="sc">:</span></span>
+<span id="cb31-12"><a href="#cb31-12" tabindex="-1"></a>  <span class="cf">if</span> x is <span class="dv">0</span><span class="sc">:</span></span>
+<span id="cb31-13"><a href="#cb31-13" tabindex="-1"></a>    create an object and set its value to <span class="dv">1</span></span>
+<span id="cb31-14"><a href="#cb31-14" tabindex="-1"></a>  <span class="cf">else</span><span class="sc">:</span></span>
+<span id="cb31-15"><a href="#cb31-15" tabindex="-1"></a>    once we are past the first data point we can multiply factorialAnswer by the iteration we are on. Then overwrite factorialAnswer with this result. </span></code></pre></div>
 <div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
 <span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a>  <span class="cf">if</span> x <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a>    factorialAnswer <span class="op">=</span> <span class="dv">1</span></span>
