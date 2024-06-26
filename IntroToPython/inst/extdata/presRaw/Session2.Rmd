@@ -259,7 +259,10 @@ subset_array
 
 ```
 
-Then export the subset array with the `savetxt` function. This has similar arguments to `genfromtxt`. A key addition is `fmt`, the format in which the data is saved. You can specify scientific notation, significant digits or in our case simply that we will use a string. 
+---
+## Writing files
+
+To export the subset array with the `savetxt` function. This has similar arguments to `genfromtxt`. A key addition is `fmt`, the format in which the data is saved. You can specify scientific notation, significant digits or in our case simply that we will use a string. 
 
 ```{python}
 
