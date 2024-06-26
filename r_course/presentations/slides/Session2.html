@@ -86,51 +86,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.430713 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.852080 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.989756 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.488913 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.525766 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.153239 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.443292 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.917842 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.125961 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.559152 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.181871 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.753898 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.331146 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.015838 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.051443 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.657091 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.325692 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.450718 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.843676 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.180111 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.991736 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.856110 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.265237 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.099284 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.896731 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.043165 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.367646 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.032939 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.933965 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.969748 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.741111 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 12.258037 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.680940 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.055903 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.937073 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.513275 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.045817 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.881583 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.498324 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.546627 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.031119 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.467103 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.557091 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.503164 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.886502 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.457330 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.068348 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.347626 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -455,7 +455,10 @@ subset_array
 ##       dtype='&lt;U32')
 ```
 
-Then export the subset array with the `savetxt` function. This has similar arguments to `genfromtxt`. A key addition is `fmt`, the format in which the data is saved. You can specify scientific notation, significant digits or in our case simply that we will use a string. 
+---
+## Writing files
+
+To export the subset array with the `savetxt` function. This has similar arguments to `genfromtxt`. A key addition is `fmt`, the format in which the data is saved. You can specify scientific notation, significant digits or in our case simply that we will use a string. 
 
 
 ``` python
