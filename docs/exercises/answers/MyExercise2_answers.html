@@ -583,20 +583,22 @@ this</em></li>
 <pre><code>## 362880</code></pre>
 <ul>
 <li>Adjusting your answer from before, what is the first number that has
-a factorial greater than 1000.</li>
+a factorial greater than 1000? <em>Hint: A while loop will be good for
+this</em></li>
 </ul>
 <div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a>factorialAnswer <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a><span class="cf">while</span> factorialAnswer <span class="op">&lt;=</span> <span class="dv">1000</span>:</span>
-<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a>  count <span class="op">=</span> count<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a>  <span class="cf">if</span> count <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a>    factorialAnswer <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb26-9"><a href="#cb26-9" tabindex="-1"></a>    factorialAnswer <span class="op">=</span> factorialAnswer <span class="op">*</span> count </span>
-<span id="cb26-10"><a href="#cb26-10" tabindex="-1"></a></span>
-<span id="cb26-11"><a href="#cb26-11" tabindex="-1"></a></span>
-<span id="cb26-12"><a href="#cb26-12" tabindex="-1"></a>count</span></code></pre></div>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a>  <span class="cf">if</span> count <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a>    factorialAnswer <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a>    factorialAnswer <span class="op">=</span> factorialAnswer <span class="op">*</span> (count<span class="op">+</span><span class="dv">1</span>)</span>
+<span id="cb26-9"><a href="#cb26-9" tabindex="-1"></a>  count <span class="op">=</span> count<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb26-10"><a href="#cb26-10" tabindex="-1"></a>    </span>
+<span id="cb26-11"><a href="#cb26-11" tabindex="-1"></a>    </span>
+<span id="cb26-12"><a href="#cb26-12" tabindex="-1"></a></span>
+<span id="cb26-13"><a href="#cb26-13" tabindex="-1"></a>count</span></code></pre></div>
 <pre><code>## 7</code></pre>
 <div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>factorialAnswer</span></code></pre></div>
 <pre><code>## 5040</code></pre>
@@ -611,8 +613,8 @@ delimiter for a tab file is “.)</li>
 <ul>
 <li>Read in the tab delimited file “GeneExpressionWithMethods.txt”. This
 file contains information on analysis steps used to produce file. We
-will want to skip those. (Hint: Check the <code>skip_header</code>
-argument in the help page)</li>
+will want to skip those. <em>Hint: Check the <code>skip_header</code>
+argument in the help page</em></li>
 </ul>
 <div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a>geneExpression <span class="op">=</span> np.genfromtxt(<span class="st">&quot;data/GeneExpressionWithMethods.txt&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, skip_header<span class="op">=</span><span class="dv">4</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a></span>
