@@ -171,7 +171,8 @@ for x in range(9):
 factorialAnswer
 ```
 
-- Adjusting your answer from before, what is the first number that has a factorial greater than 1000.
+- Adjusting your answer from before, what is the first number that has a factorial greater than 1000?
+*Hint: A while loop will be good for this*
 
 ```{python,echo=toMessage}
 
@@ -179,12 +180,13 @@ factorialAnswer = 0
 count = 0
 
 while factorialAnswer <= 1000:
-  count = count+1
-  if count == 1:
+  if count == 0:
     factorialAnswer = 1
   else:
-    factorialAnswer = factorialAnswer * count 
-
+    factorialAnswer = factorialAnswer * (count+1)
+  count = count+1
+    
+    
 
 count
 factorialAnswer
@@ -201,7 +203,8 @@ geneExpression = np.genfromtxt("data/GeneExpression.txt", delimiter="\t", skip_h
 
 ```
 
-- Read in the tab delimited file "GeneExpressionWithMethods.txt". This file contains information on analysis steps used to produce file. We will want to skip those. (Hint: Check the `skip_header` argument in the help page)
+- Read in the tab delimited file "GeneExpressionWithMethods.txt". This file contains information on analysis steps used to produce file. We will want to skip those. 
+*Hint: Check the `skip_header` argument in the help page*
 
 ```{python,echo=toMessage}
 
