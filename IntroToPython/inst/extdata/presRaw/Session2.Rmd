@@ -62,222 +62,6 @@ Session 1 covered introduction to R data types and import/export of data.
 - [Reading and Writing Files](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session2.html#Reading_and_Writing_Files)
 - [Control Statements](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session2.html#Control_Statements)
 
----
-```{r, results='asis',include=TRUE,echo=FALSE}
-if(params$isSlides == "yes"){
-  cat("class: inverse, center, middle
-
-# Reading and Writing Files
-
-<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
-
----
-"    
-  )
-}else{
-  cat("# Reading and Writing Files
-      
----
-"    
-  )
-  
-}
-
-```
-
-
-## Reading/writing files
-
-Most of the time, you will not be generating data in Python but will be importing data from external files.
-
-A standard format for this data is a table:
-
-
-```{r,echo=F}
-minRep <- rbind(cbind(matrix(rnorm(12,4),ncol=3,byrow = T),matrix(c(rnorm(9,4),rnorm(3,8)),ncol=3,byrow = T)),
-cbind(matrix(rnorm(12,10),ncol=3,byrow = T),matrix(c(rnorm(6,3),rnorm(6,10)),ncol=3,byrow = T)))
-colnames(minRep) <- paste0(c("Sample_"),
-                      1:5,".",sort(rep(c("hi","low"),3)))
-minRepdf <- data.frame(Gene_Name=paste("Gene",letters[1:8],sep="_"),minRep)
-#minRepdf$Gene_Name <- paste("Gene",letters[1:8],sep="_")
-#write.table(minRepdf,file="readThisTable.csv",sep=",",row.names=F)
-kable(minRepdf[,1:4], format='html')
-
-```
-
----
-## Working Directory
-
-If you are reading in data, you need to know from which vantage point your computer is looking. The view point of your computer is the Working Directory. 
-
-There are several utilities in the os (operating system) package. First lets check our current Working Directory using `getcwd`. 
-
-```{python}
-import os
-
-```
-
-
-```{python, eval=F}
-
-os.getcwd()
-
-```
-
-```
-## '/Users/mattpaul/'
-```
-
----
-## Working Directory
-
-To set our Working Directory we can use the `chdir` function. Let's navigate to the course material that we downloaded. There are some example data sets there. 
-
-```{python, eval=F}
-
-os.chdir("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
-
-```
-
-```{python, eval=T}
-
-os.listdir()
-
-```
-
-```{python, eval=T}
-
-os.listdir("data")
-
-```
-
-
----
-## Reading
-
-There are many ways to read in data. Most of the time we are importing simple 2D tables, so we want to generate a NumPy array using the `genfromtxt()` function.
-
-Here we are reading a csv file (Comma-Separated Values). This means each value in our file is separated by a comma. So when we read the file we will specify that the delimiter is a comma. 
-
-
-```{python}
-import numpy as np
-my_table = np.genfromtxt("data/ToRead.csv", delimiter=",")
-
-type(my_table)
-```
-
-```{python}
-my_table
-```
-
----
-## Reading
-
-Here we try to read in a more complex file. This data is a mixture of characters and numbers. The `dtype` argument can be used to specify the [format of the data](https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes) we are reading in. This data also has column titles, so we will skip over those with `skip_header`. 
-
-The data set contains: 
-
-* **Sex** - **U**nicode string
-* **Height** - **f**loat
-* **Weight** - **f**loat
-
-```{python}
-
-dtype = ['U10' , 'f', 'f' ]
-
-my_table2 = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, dtype=dtype)
-
-```
-
----
-## Reading
-
-When you read in an array with multiple data formats it does not automatically make a 2D array, instead a 1D array containing other arrays. 
-
-```{python}
-my_table2
-
-```
-
----
-## Reading 
-
-While reading we can also assign our data into multiple objects using the `unpack` argument. Here we assign each column into it's own separate array. 
-
-```{python}
-
-sex, height, weight = np.genfromtxt('data/height-weight.csv', unpack = True, delimiter = ",", skip_header=True, dtype=dtype)
-
-sex
-
-```
-
-
----
-## Reading 
-
-An alternative to setting the data type explicitly, you can let genfromtxt determine it automatically by setting the dtype to `None`. This works pretty well most of the time.  
-
-```{python}
-
-sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None)
-
-sex
-```
-
-
----
-## Quick Recap
-
-Once you have performed some analysis you will want to export it into a new file. 
-
-Let's do some quick processing based on what we learned yesterday. First we will make a 2D array. 
-
-```{python}
-
-new_array = np.array([sex, height, weight])
-```
-
-Next we do a logical test to see which entries in our first row are Female.
-
-```{python}
-to_subset = new_array[0,:]=="Female"
-to_subset
-```
-
----
-## Quick Recap
-
-We can use the boolean array we created to subset our array, based on whether they are `Female` or not. 
-
-
-```{python}
-
-subset_array = new_array[:,to_subset]
-subset_array 
-
-```
-
----
-## Writing files
-
-To export the subset array with the `savetxt` function. This has similar arguments to `genfromtxt`. A key addition is `fmt`, the format in which the data is saved. You can specify scientific notation, significant digits or in our case simply that we will use a string. 
-
-```{python}
-
-np.savetxt("height-weight_female.csv", subset_array, delimiter=',', fmt='%s')
-
-```
-
----
-## Complex reading/writing
-
-Though a lot of the time we may use these NumPy approaches, there are specific functions dedicated to a variety of data types. 
-
-The most common is [pandas](https://pandas.pydata.org/docs/getting_started/index.html#getting-started). This is a specialized library for managing data frames. It also has the ability to read/write from excel spreadsheets.  
-
-[BioPython](https://biopython.org/) has a range of utilities for managing biological data types i.e. fasta, fastq, etc.
 
 
 
@@ -564,6 +348,226 @@ Exercises around control structures can be found [here](https://rockefellerunive
 ## Answers to exercise
 
 Answers can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/answers/MyExercise2_answers.html)
+
+
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Reading and Writing Files
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Reading and Writing Files
+      
+---
+"    
+  )
+  
+}
+
+```
+
+
+## Reading/writing files
+
+Most of the time, you will not be generating data in Python but will be importing data from external files.
+
+A standard format for this data is a table:
+
+
+```{r,echo=F}
+minRep <- rbind(cbind(matrix(rnorm(12,4),ncol=3,byrow = T),matrix(c(rnorm(9,4),rnorm(3,8)),ncol=3,byrow = T)),
+cbind(matrix(rnorm(12,10),ncol=3,byrow = T),matrix(c(rnorm(6,3),rnorm(6,10)),ncol=3,byrow = T)))
+colnames(minRep) <- paste0(c("Sample_"),
+                      1:5,".",sort(rep(c("hi","low"),3)))
+minRepdf <- data.frame(Gene_Name=paste("Gene",letters[1:8],sep="_"),minRep)
+#minRepdf$Gene_Name <- paste("Gene",letters[1:8],sep="_")
+#write.table(minRepdf,file="readThisTable.csv",sep=",",row.names=F)
+kable(minRepdf[,1:4], format='html')
+
+```
+
+---
+## Working Directory
+
+If you are reading in data, you need to know from which vantage point your computer is looking. The view point of your computer is the Working Directory. 
+
+There are several utilities in the os (operating system) package. First lets check our current Working Directory using `getcwd`. 
+
+```{python}
+import os
+
+```
+
+
+```{python, eval=F}
+
+os.getcwd()
+
+```
+
+```
+## '/Users/mattpaul/'
+```
+
+---
+## Working Directory
+
+To set our Working Directory we can use the `chdir` function. Let's navigate to the course material that we downloaded. There are some example data sets there. 
+
+```{python, eval=F}
+
+os.chdir("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
+
+```
+
+```{python, eval=T}
+
+os.listdir()
+
+```
+
+```{python, eval=T}
+
+os.listdir("data")
+
+```
+
+
+---
+## Reading
+
+There are many ways to read in data. Most of the time we are importing simple 2D tables, so we want to generate a NumPy array using the `genfromtxt()` function.
+
+Here we are reading a csv file (Comma-Separated Values). This means each value in our file is separated by a comma. So when we read the file we will specify that the delimiter is a comma. 
+
+
+```{python}
+import numpy as np
+my_table = np.genfromtxt("data/ToRead.csv", delimiter=",")
+
+type(my_table)
+```
+
+```{python}
+my_table
+```
+
+---
+## Reading
+
+Here we try to read in a more complex file. This data is a mixture of characters and numbers. The `dtype` argument can be used to specify the [format of the data](https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes) we are reading in. This data also has column titles, so we will skip over those with `skip_header`. 
+
+The data set contains: 
+
+* **Sex** - **U**nicode string
+* **Height** - **f**loat
+* **Weight** - **f**loat
+
+```{python}
+
+dtype = ['U10' , 'f', 'f' ]
+
+my_table2 = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, dtype=dtype)
+
+```
+
+---
+## Reading
+
+When you read in an array with multiple data formats it does not automatically make a 2D array, instead a 1D array containing other arrays. 
+
+```{python}
+my_table2
+
+```
+
+---
+## Reading 
+
+While reading we can also assign our data into multiple objects using the `unpack` argument. Here we assign each column into it's own separate array. 
+
+```{python}
+
+sex, height, weight = np.genfromtxt('data/height-weight.csv', unpack = True, delimiter = ",", skip_header=True, dtype=dtype)
+
+sex
+
+```
+
+
+---
+## Reading 
+
+An alternative to setting the data type explicitly, you can let genfromtxt determine it automatically by setting the dtype to `None`. This works pretty well most of the time.  
+
+```{python}
+
+sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None)
+
+sex
+```
+
+
+---
+## Quick Recap
+
+Once you have performed some analysis you will want to export it into a new file. 
+
+Let's do some quick processing based on what we learned yesterday. First we will make a 2D array. 
+
+```{python}
+
+new_array = np.array([sex, height, weight])
+```
+
+Next we do a logical test to see which entries in our first row are Female.
+
+```{python}
+to_subset = new_array[0,:]=="Female"
+to_subset
+```
+
+---
+## Quick Recap
+
+We can use the boolean array we created to subset our array, based on whether they are `Female` or not. 
+
+
+```{python}
+
+subset_array = new_array[:,to_subset]
+subset_array 
+
+```
+
+---
+## Writing files
+
+To export the subset array with the `savetxt` function. This has similar arguments to `genfromtxt`. A key addition is `fmt`, the format in which the data is saved. You can specify scientific notation, significant digits or in our case simply that we will use a string. 
+
+```{python}
+
+np.savetxt("height-weight_female.csv", subset_array, delimiter=',', fmt='%s')
+
+```
+
+---
+## Complex reading/writing
+
+Though a lot of the time we may use these NumPy approaches, there are specific functions dedicated to a variety of data types. 
+
+The most common is [pandas](https://pandas.pydata.org/docs/getting_started/index.html#getting-started). This is a specialized library for managing data frames. It also has the ability to read/write from excel spreadsheets.  
+
+[BioPython](https://biopython.org/) and [BioNumPy](https://bionumpy.github.io/bionumpy/menu.html) have a range of utilities for managing biological data types i.e. fasta, fastq, etc.
+
+
 
 ---
 ##  An extra note
