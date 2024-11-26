@@ -568,11 +568,81 @@ The most common is [pandas](https://pandas.pydata.org/docs/getting_started/index
 [BioPython](https://biopython.org/) and [BioNumPy](https://bionumpy.github.io/bionumpy/menu.html) have a range of utilities for managing biological data types i.e. fasta, fastq, etc.
 
 
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Running Scripts
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+}else{
+  cat("# Running Scripts
+      
+---
+"    
+  )
+  
+}
+
+```
+
+## Scripts
+
+So far we have been working interactively with the console: asking it questions and getting answers back immediately. 
+
+When you want to run all your code, or if you want to start working on automation you can run a whole script instead. In this case we have all our code written out in a *.py document. 
+
+Lets have a look at an example python script. 
+
+```
+data/subset_dataset.py
+
+```
+
+
+---
+## Example Script
+
+This is our script:
+
+```{python}
+
+import numpy as np
+# Read in dataset
+sex, height, weight = np.genfromtxt('height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None)
+new_array = np.array([sex, height, weight])
+# Subset array
+to_subset = new_array[0,:]=="Female"
+subset_array = new_array[:,to_subset]
+# Print out number of Females in data set and export subset
+print(str(sum(to_subset)) + " are female")
+np.savetxt("height-weight_female.csv", subset_array, delimiter=',', fmt='%s')
+
+```
+
+---
+## Running scripts
+
+There are a couple of options for running scripts. In VS Code we can simply press the play button. 
+
+
+
+---
+## Running scripts
+
+More traditionally we would write start python directly and provide the script as an argument. 
+
+
 
 ---
 ##  An extra note
 
-Keeping Your Code Nice can be annoying. There exists many ways in which to store your code. Most of the time we are not writing scripts that are production level. Instead you will be doing an analysis of a data set and making decisions in an interactive manner. 
+Keeping Your Code nice can be annoying. There exists many ways in which to store your code. Most of the time we are not writing scripts that are production level. Instead you will be doing an analysis of a data set and making decisions in an interactive manner. 
 
 Notebooks give you a means to tie the code, the analysis decisions and the result of the code together into a single file. 
 
