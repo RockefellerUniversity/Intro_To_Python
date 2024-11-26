@@ -87,15 +87,27 @@ print(operation_var)
 
 - Notice how you can perform math operations within a variable. 
     
-- Now let's create a third variable. Start the name of the variable with a number, followed by an underscore and the word "var". Store  a random number in it.  
+- Now let's create a third variable. Start the name of the variable with a number, followed by an underscore and the word "var". Store a random number in it.  
 
-```{python, echo=toMessage}
+```{python, echo=toMessage, eval=F}
 
 1_var = 1
 
 print(1_var)
 
 ```
+
+
+```{python, eval=T, echo=F}
+
+try:
+  1_var = 1
+  print(1_var)
+except Exception as e:
+  print(e)
+  
+```
+
 
 - Notice how you obtain a syntax error? Now let's try this again: create a new variable, this time starting with the word "var", underscore, and a number. Store a random number in it and print your variable. 
  
