@@ -68,6 +68,7 @@ type(mystr)
 [1,2,3,4,5]
 
 ```
+
 - Create a list containing the values a,b,c,d,e, but assign it to a new variable called `x`.
 
 ```{python,echo=toMessage}

@@ -12,6 +12,7 @@ Config/reticulate:
       list(package = "scipy"),
       list(package = "numpy"),
       list(package = "seaborn"),
+      list(package = "jupyter"),
       list(package = "matplotlib", pip = TRUE)
     )
   )

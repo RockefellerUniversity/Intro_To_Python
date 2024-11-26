@@ -4,7 +4,7 @@
     <title>Introduction to Python, Session 2    </title>
     <meta charset="utf-8" />
     <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
-    <script src="libs/header-attrs-2.27/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
     <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
@@ -57,423 +57,6 @@ Session 1 covered introduction to R data types and import/export of data.
 - [Reading and Writing Files](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session2.html#Reading_and_Writing_Files)
 - [Control Statements](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session2.html#Control_Statements)
 
----
-class: inverse, center, middle
-
-# Reading and Writing Files
-
-&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
-
----
-
-
-## Reading/writing files
-
-Most of the time, you will not be generating data in Python but will be importing data from external files.
-
-A standard format for this data is a table:
-
-
-&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;"&gt; Gene_Name &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sample_1.hi &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sample_2.hi &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; Sample_3.hi &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.488913 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.525766 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.153239 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.559152 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.181871 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.753898 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.657091 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.325692 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.450718 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.856110 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.265237 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.099284 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.032939 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.933965 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.969748 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.055903 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.937073 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.513275 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.546627 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.031119 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.467103 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.457330 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.068348 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.347626 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
----
-## Working Directory
-
-If you are reading in data, you need to know from which vantage point your computer is looking. The view point of your computer is the Working Directory. 
-
-There are several utilities in the os (operating system) package. First lets check our current Working Directory using `getcwd`. 
-
-
-``` python
-import os
-```
-
-
-
-``` python
-os.getcwd()
-```
-
-```
-## '/Users/mattpaul/'
-```
-
----
-## Working Directory
-
-To set our Working Directory we can use the `chdir` function. Let's navigate to the course material that we downloaded. There are some example data sets there. 
-
-
-``` python
-os.chdir("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
-```
-
-
-``` python
-os.listdir()
-```
-
-```
-## ['GeneNames_highexpression.txt', 'data', 'imgs', 'presRaw', '_course.yml', 'customCSS', 'Descriptions']
-```
-
-
-``` python
-os.listdir("data")
-```
-
-```
-## ['myresult.RData', 'GeneExpressionWithMethods.txt', 'gene_expression.csv', 'readThisTable.csv', 'ToRead.csv', 'GeneNames.txt', 'height-weight.csv', 'GeneExpression.txt', 'gene_data.csv']
-```
-
-
----
-## Reading
-
-There are many ways to read in data. Most of the time we are importing simple 2D tables, so we want to generate a NumPy array using the `genfromtxt()` function.
-
-Here we are reading a csv file (Comma-Separated Values). This means each value in our file is separated by a comma. So when we read the file we will specify that the delimiter is a comma. 
-
-
-
-``` python
-import numpy as np
-my_table = np.genfromtxt("data/ToRead.csv", delimiter=",")
-
-type(my_table)
-```
-
-```
-## &lt;class 'numpy.ndarray'&gt;
-```
-
-
-``` python
-my_table
-```
-
-```
-## array([[ 4.5702372 ,  3.23046698,  3.35182734,  3.93087741,  4.09824666,
-##          4.41872599],
-##        [ 3.56173302,  3.63228533,  3.58752332,  4.18528704,  1.38097605,
-##          5.93699012],
-##        [ 3.79727358,  2.87446167,  4.01691555,  4.17577191,  1.98826299,
-##          3.78091724],
-##        [ 3.39824235,  4.41520211,  4.89356109,  8.4323419 ,  9.60915099,
-##          9.01986467],
-##        [10.12878671, 10.22407116,  8.94581254,  2.93617444,  3.89292402,
-##          0.91920785],
-##        [ 8.4743968 ,  8.612628  ,  7.17082986,  3.29935093,  2.57586964,
-##          2.54277726],
-##        [10.01002009, 10.31235402, 11.60328984,  9.93070417,  7.74879528,
-##          9.79882378],
-##        [ 9.39999242, 10.33284375,  9.37821714, 10.06519963, 10.78861857,
-##         10.24532579]])
-```
-
----
-## Reading
-
-Here we try to read in a more complex file. This data is a mixture of characters and numbers. The `dtype` argument can be used to specify the [format of the data](https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes) we are reading in. This data also has column titles, so we will skip over those with `skip_header`. 
-
-The data set contains: 
-
-* **Sex** - **U**nicode string
-* **Height** - **f**loat
-* **Weight** - **f**loat
-
-
-``` python
-
-dtype = ['U10' , 'f', 'f' ]
-
-my_table2 = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, dtype=dtype)
-```
-
----
-## Reading
-
-When you read in an array with multiple data formats it does not automatically make a 2D array, instead a 1D array containing other arrays. 
-
-
-``` python
-my_table2
-```
-
-```
-## array([('Male', 182.87, 76.57), ('Male', 179.12, 80.43),
-##        ('Male', 169.15, 75.48), ('Male', 175.66, 94.54),
-##        ('Female', 164.47, 71.78), ('Female', 158.27, 69.9 ),
-##        ('Female', 161.69, 68.85), ('Female', 165.84, 70.44),
-##        ('Male', 181.32, 76.9 ), ('Male', 167.37, 79.06),
-##        ('Female', 160.06, 72.37), ('Female', 166.48, 67.34),
-##        ('Male', 175.39, 92.22), ('Female', 164.7 , 75.69),
-##        ('Female', 163.79, 65.76), ('Male', 181.13, 72.33),
-##        ('Male', 169.24, 73.3 ), ('Male', 176.22, 97.67),
-##        ('Male', 174.09, 72.2 ), ('Male', 180.11, 75.72),
-##        ('Male', 179.24, 75.54), ('Female', 161.92, 69.92),
-##        ('Male', 169.85, 90.63), ('Female', 160.57, 63.54),
-##        ('Female', 168.24, 69.57), ('Male', 177.75, 74.84),
-##        ('Male', 183.21, 83.36), ('Male', 167.75, 82.06),
-##        ('Male', 181.15, 83.93), ('Male', 181.56, 79.54),
-##        ('Female', 160.03, 64.3 ), ('Male', 165.62, 76.72),
-##        ('Male', 181.64, 96.91), ('Female', 159.67, 71.88),
-##        ('Male', 177.03, 74.04), ('Female', 163.35, 70.46),
-##        ('Male', 175.21, 83.65), ('Female', 160.8 , 64.77),
-##        ('Male', 166.46, 76.83), ('Female', 157.95, 67.41),
-##        ('Male', 180.61, 83.59), ('Female', 159.52, 67.99),
-##        ('Female', 163.01, 65.19), ('Female', 165.8 , 71.77),
-##        ('Female', 170.03, 66.68), ('Female', 157.16, 69.64),
-##        ('Female', 164.58, 72.99), ('Female', 163.47, 72.89),
-##        ('Male', 185.43, 87.23), ('Female', 165.34, 70.84),
-##        ('Female', 163.45, 67.67), ('Female', 163.97, 66.71),
-##        ('Female', 161.38, 73.55), ('Female', 160.09, 65.93),
-##        ('Male', 178.64, 97.05), ('Female', 159.78, 68.31),
-##        ('Female', 161.57, 67.92), ('Female', 161.83, 66.03),
-##        ('Male', 169.66, 77.3 ), ('Male', 166.84, 88.25),
-##        ('Female', 159.32, 64.92), ('Male', 170.51, 84.35),
-##        ('Female', 161.84, 69.97), ('Male', 171.41, 81.7 ),
-##        ('Male', 166.75, 79.06), ('Female', 166.19, 67.46),
-##        ('Male', 169.16, 90.08), ('Female', 157.01, 66.56),
-##        ('Male', 167.51, 84.15), ('Female', 160.47, 68.2 ),
-##        ('Female', 162.33, 66.47), ('Male', 175.67, 88.82),
-##        ('Male', 174.25, 80.93), ('Female', 158.94, 65.14),
-##        ('Male', 172.72, 67.62), ('Female', 159.23, 69.96),
-##        ('Male', 176.54, 90.76), ('Male', 184.34, 90.41),
-##        ('Female', 163.94, 71.47), ('Female', 160.09, 68.94),
-##        ('Female', 162.32, 72.72), ('Female', 162.59, 69.76),
-##        ('Male', 171.94, 82.11), ('Female', 158.07, 69.8 ),
-##        ('Female', 158.35, 69.72), ('Female', 162.18, 67.81),
-##        ('Female', 159.38, 70.37), ('Male', 171.45, 84.29),
-##        ('Female', 163.17, 64.47), ('Male', 183.1 , 82.47),
-##        ('Male', 177.14, 88.7 ), ('Male', 171.08, 72.51),
-##        ('Female', 159.33, 70.68), ('Male', 185.43, 73.63),
-##        ('Female', 162.65, 73.99), ('Female', 159.44, 66.21),
-##        ('Female', 164.11, 70.66), ('Female', 159.13, 66.96),
-##        ('Female', 160.58, 71.49), ('Female', 164.88, 68.07)],
-##       dtype=[('f0', '&lt;U10'), ('f1', '&lt;f4'), ('f2', '&lt;f4')])
-```
-
----
-## Reading 
-
-While reading we can also assign our data into multiple objects using the `unpack` argument. Here we assign each column into it's own separate array. 
-
-
-``` python
-sex, height, weight = np.genfromtxt('data/height-weight.csv', unpack = True, delimiter = ",", skip_header=True, dtype=dtype)
-
-sex
-```
-
-```
-## array(['Male', 'Male', 'Male', 'Male', 'Female', 'Female', 'Female',
-##        'Female', 'Male', 'Male', 'Female', 'Female', 'Male', 'Female',
-##        'Female', 'Male', 'Male', 'Male', 'Male', 'Male', 'Male', 'Female',
-##        'Male', 'Female', 'Female', 'Male', 'Male', 'Male', 'Male', 'Male',
-##        'Female', 'Male', 'Male', 'Female', 'Male', 'Female', 'Male',
-##        'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Female',
-##        'Female', 'Female', 'Female', 'Female', 'Male', 'Female', 'Female',
-##        'Female', 'Female', 'Female', 'Male', 'Female', 'Female', 'Female',
-##        'Male', 'Male', 'Female', 'Male', 'Female', 'Male', 'Male',
-##        'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Male',
-##        'Male', 'Female', 'Male', 'Female', 'Male', 'Male', 'Female',
-##        'Female', 'Female', 'Female', 'Male', 'Female', 'Female', 'Female',
-##        'Female', 'Male', 'Female', 'Male', 'Male', 'Male', 'Female',
-##        'Male', 'Female', 'Female', 'Female', 'Female', 'Female', 'Female'],
-##       dtype='&lt;U10')
-```
-
-
----
-## Reading 
-
-An alternative to setting the data type explicitly, you can let genfromtxt determine it automatically by setting the dtype to `None`. This works pretty well most of the time.  
-
-
-``` python
-sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None)
-
-sex
-```
-
-```
-## array(['Male', 'Male', 'Male', 'Male', 'Female', 'Female', 'Female',
-##        'Female', 'Male', 'Male', 'Female', 'Female', 'Male', 'Female',
-##        'Female', 'Male', 'Male', 'Male', 'Male', 'Male', 'Male', 'Female',
-##        'Male', 'Female', 'Female', 'Male', 'Male', 'Male', 'Male', 'Male',
-##        'Female', 'Male', 'Male', 'Female', 'Male', 'Female', 'Male',
-##        'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Female',
-##        'Female', 'Female', 'Female', 'Female', 'Male', 'Female', 'Female',
-##        'Female', 'Female', 'Female', 'Male', 'Female', 'Female', 'Female',
-##        'Male', 'Male', 'Female', 'Male', 'Female', 'Male', 'Male',
-##        'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Male',
-##        'Male', 'Female', 'Male', 'Female', 'Male', 'Male', 'Female',
-##        'Female', 'Female', 'Female', 'Male', 'Female', 'Female', 'Female',
-##        'Female', 'Male', 'Female', 'Male', 'Male', 'Male', 'Female',
-##        'Male', 'Female', 'Female', 'Female', 'Female', 'Female', 'Female'],
-##       dtype='&lt;U6')
-```
-
-
----
-## Quick Recap
-
-Once you have performed some analysis you will want to export it into a new file. 
-
-Let's do some quick processing based on what we learned yesterday. First we will make a 2D array. 
-
-
-``` python
-
-new_array = np.array([sex, height, weight])
-```
-
-Next we do a logical test to see which entries in our first row are Female.
-
-
-``` python
-to_subset = new_array[0,:]=="Female"
-to_subset
-```
-
-```
-## array([False, False, False, False,  True,  True,  True,  True, False,
-##        False,  True,  True, False,  True,  True, False, False, False,
-##        False, False, False,  True, False,  True,  True, False, False,
-##        False, False, False,  True, False, False,  True, False,  True,
-##        False,  True, False,  True, False,  True,  True,  True,  True,
-##         True,  True,  True, False,  True,  True,  True,  True,  True,
-##        False,  True,  True,  True, False, False,  True, False,  True,
-##        False, False,  True, False,  True, False,  True,  True, False,
-##        False,  True, False,  True, False, False,  True,  True,  True,
-##         True, False,  True,  True,  True,  True, False,  True, False,
-##        False, False,  True, False,  True,  True,  True,  True,  True,
-##         True])
-```
-
----
-## Quick Recap
-
-We can use the boolean array we created to subset our array, based on whether they are `Female` or not. 
-
-
-
-``` python
-subset_array = new_array[:,to_subset]
-subset_array 
-```
-
-```
-## array([['Female', 'Female', 'Female', 'Female', 'Female', 'Female',
-##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
-##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
-##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
-##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
-##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
-##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
-##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
-##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
-##         'Female'],
-##        ['164.47', '158.27', '161.69', '165.84', '160.06', '166.48',
-##         '164.7', '163.79', '161.92', '160.57', '168.24', '160.03',
-##         '159.67', '163.35', '160.8', '157.95', '159.52', '163.01',
-##         '165.8', '170.03', '157.16', '164.58', '163.47', '165.34',
-##         '163.45', '163.97', '161.38', '160.09', '159.78', '161.57',
-##         '161.83', '159.32', '161.84', '166.19', '157.01', '160.47',
-##         '162.33', '158.94', '159.23', '163.94', '160.09', '162.32',
-##         '162.59', '158.07', '158.35', '162.18', '159.38', '163.17',
-##         '159.33', '162.65', '159.44', '164.11', '159.13', '160.58',
-##         '164.88'],
-##        ['71.78', '69.9', '68.85', '70.44', '72.37', '67.34', '75.69',
-##         '65.76', '69.92', '63.54', '69.57', '64.3', '71.88', '70.46',
-##         '64.77', '67.41', '67.99', '65.19', '71.77', '66.68', '69.64',
-##         '72.99', '72.89', '70.84', '67.67', '66.71', '73.55', '65.93',
-##         '68.31', '67.92', '66.03', '64.92', '69.97', '67.46', '66.56',
-##         '68.2', '66.47', '65.14', '69.96', '71.47', '68.94', '72.72',
-##         '69.76', '69.8', '69.72', '67.81', '70.37', '64.47', '70.68',
-##         '73.99', '66.21', '70.66', '66.96', '71.49', '68.07']],
-##       dtype='&lt;U32')
-```
-
----
-## Writing files
-
-To export the subset array with the `savetxt` function. This has similar arguments to `genfromtxt`. A key addition is `fmt`, the format in which the data is saved. You can specify scientific notation, significant digits or in our case simply that we will use a string. 
-
-
-``` python
-
-np.savetxt("height-weight_female.csv", subset_array, delimiter=',', fmt='%s')
-```
-
----
-## Complex reading/writing
-
-Though a lot of the time we may use these NumPy approaches, there are specific functions dedicated to a variety of data types. 
-
-The most common is [pandas](https://pandas.pydata.org/docs/getting_started/index.html#getting-started). This is a specialized library for managing data frames. It also has the ability to read/write from excel spreadsheets.  
-
-[BioPython](https://biopython.org/) has a range of utilities for managing biological data types i.e. fasta, fastq, etc.
 
 
 
@@ -800,6 +383,427 @@ Exercises around control structures can be found [here](https://rockefellerunive
 ## Answers to exercise
 
 Answers can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/answers/MyExercise2_answers.html)
+
+
+---
+class: inverse, center, middle
+
+# Reading and Writing Files
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=720px&gt;&lt;/html&gt; 
+
+---
+
+
+## Reading/writing files
+
+Most of the time, you will not be generating data in Python but will be importing data from external files.
+
+A standard format for this data is a table:
+
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Gene_Name &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sample_1.hi &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sample_2.hi &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sample_3.hi &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.936476 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.967585 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.841885 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.033835 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.210155 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.101193 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.254934 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.030549 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.599239 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.599745 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.221812 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.547142 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.733150 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.587939 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.479567 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.797938 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7.682630 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.540822 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.227265 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.393754 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.346190 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.097060 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.407893 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.378938 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+## Working Directory
+
+If you are reading in data, you need to know from which vantage point your computer is looking. The view point of your computer is the Working Directory. 
+
+There are several utilities in the os (operating system) package. First lets check our current Working Directory using `getcwd`. 
+
+
+``` python
+import os
+```
+
+
+
+``` python
+os.getcwd()
+```
+
+```
+## '/Users/mattpaul/'
+```
+
+---
+## Working Directory
+
+To set our Working Directory we can use the `chdir` function. Let's navigate to the course material that we downloaded. There are some example data sets there. 
+
+
+``` python
+os.chdir("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
+```
+
+
+``` python
+os.listdir()
+```
+
+```
+## ['data', '_course.yml', 'customCSS', 'presRaw', 'imgs', 'Descriptions', 'GeneNames_highexpression.txt']
+```
+
+
+``` python
+os.listdir("data")
+```
+
+```
+## ['ToRead.csv', 'myresult.RData', 'gene_data.csv', 'GeneExpressionWithMethods.txt', 'GeneExpression.txt', 'height-weight.csv', 'GeneNames.txt', 'readThisTable.csv', 'gene_expression.csv']
+```
+
+
+---
+## Reading
+
+There are many ways to read in data. Most of the time we are importing simple 2D tables, so we want to generate a NumPy array using the `genfromtxt()` function.
+
+Here we are reading a csv file (Comma-Separated Values). This means each value in our file is separated by a comma. So when we read the file we will specify that the delimiter is a comma. 
+
+
+
+``` python
+import numpy as np
+my_table = np.genfromtxt("data/ToRead.csv", delimiter=",")
+
+type(my_table)
+```
+
+```
+## &lt;class 'numpy.ndarray'&gt;
+```
+
+
+``` python
+my_table
+```
+
+```
+## array([[ 4.5702372 ,  3.23046698,  3.35182734,  3.93087741,  4.09824666,
+##          4.41872599],
+##        [ 3.56173302,  3.63228533,  3.58752332,  4.18528704,  1.38097605,
+##          5.93699012],
+##        [ 3.79727358,  2.87446167,  4.01691555,  4.17577191,  1.98826299,
+##          3.78091724],
+##        [ 3.39824235,  4.41520211,  4.89356109,  8.4323419 ,  9.60915099,
+##          9.01986467],
+##        [10.12878671, 10.22407116,  8.94581254,  2.93617444,  3.89292402,
+##          0.91920785],
+##        [ 8.4743968 ,  8.612628  ,  7.17082986,  3.29935093,  2.57586964,
+##          2.54277726],
+##        [10.01002009, 10.31235402, 11.60328984,  9.93070417,  7.74879528,
+##          9.79882378],
+##        [ 9.39999242, 10.33284375,  9.37821714, 10.06519963, 10.78861857,
+##         10.24532579]])
+```
+
+---
+## Reading
+
+Here we try to read in a more complex file. This data is a mixture of characters and numbers. The `dtype` argument can be used to specify the [format of the data](https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes) we are reading in. This data also has column titles, so we will skip over those with `skip_header`. 
+
+The data set contains: 
+
+* **Sex** - **U**nicode string
+* **Height** - **f**loat
+* **Weight** - **f**loat
+
+
+``` python
+
+dtype = ['U10' , 'f', 'f' ]
+
+my_table2 = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, dtype=dtype)
+```
+
+---
+## Reading
+
+When you read in an array with multiple data formats it does not automatically make a 2D array, instead a 1D array containing other arrays. 
+
+
+``` python
+my_table2
+```
+
+```
+## array([('Male', 182.87, 76.57), ('Male', 179.12, 80.43),
+##        ('Male', 169.15, 75.48), ('Male', 175.66, 94.54),
+##        ('Female', 164.47, 71.78), ('Female', 158.27, 69.9 ),
+##        ('Female', 161.69, 68.85), ('Female', 165.84, 70.44),
+##        ('Male', 181.32, 76.9 ), ('Male', 167.37, 79.06),
+##        ('Female', 160.06, 72.37), ('Female', 166.48, 67.34),
+##        ('Male', 175.39, 92.22), ('Female', 164.7 , 75.69),
+##        ('Female', 163.79, 65.76), ('Male', 181.13, 72.33),
+##        ('Male', 169.24, 73.3 ), ('Male', 176.22, 97.67),
+##        ('Male', 174.09, 72.2 ), ('Male', 180.11, 75.72),
+##        ('Male', 179.24, 75.54), ('Female', 161.92, 69.92),
+##        ('Male', 169.85, 90.63), ('Female', 160.57, 63.54),
+##        ('Female', 168.24, 69.57), ('Male', 177.75, 74.84),
+##        ('Male', 183.21, 83.36), ('Male', 167.75, 82.06),
+##        ('Male', 181.15, 83.93), ('Male', 181.56, 79.54),
+##        ('Female', 160.03, 64.3 ), ('Male', 165.62, 76.72),
+##        ('Male', 181.64, 96.91), ('Female', 159.67, 71.88),
+##        ('Male', 177.03, 74.04), ('Female', 163.35, 70.46),
+##        ('Male', 175.21, 83.65), ('Female', 160.8 , 64.77),
+##        ('Male', 166.46, 76.83), ('Female', 157.95, 67.41),
+##        ('Male', 180.61, 83.59), ('Female', 159.52, 67.99),
+##        ('Female', 163.01, 65.19), ('Female', 165.8 , 71.77),
+##        ('Female', 170.03, 66.68), ('Female', 157.16, 69.64),
+##        ('Female', 164.58, 72.99), ('Female', 163.47, 72.89),
+##        ('Male', 185.43, 87.23), ('Female', 165.34, 70.84),
+##        ('Female', 163.45, 67.67), ('Female', 163.97, 66.71),
+##        ('Female', 161.38, 73.55), ('Female', 160.09, 65.93),
+##        ('Male', 178.64, 97.05), ('Female', 159.78, 68.31),
+##        ('Female', 161.57, 67.92), ('Female', 161.83, 66.03),
+##        ('Male', 169.66, 77.3 ), ('Male', 166.84, 88.25),
+##        ('Female', 159.32, 64.92), ('Male', 170.51, 84.35),
+##        ('Female', 161.84, 69.97), ('Male', 171.41, 81.7 ),
+##        ('Male', 166.75, 79.06), ('Female', 166.19, 67.46),
+##        ('Male', 169.16, 90.08), ('Female', 157.01, 66.56),
+##        ('Male', 167.51, 84.15), ('Female', 160.47, 68.2 ),
+##        ('Female', 162.33, 66.47), ('Male', 175.67, 88.82),
+##        ('Male', 174.25, 80.93), ('Female', 158.94, 65.14),
+##        ('Male', 172.72, 67.62), ('Female', 159.23, 69.96),
+##        ('Male', 176.54, 90.76), ('Male', 184.34, 90.41),
+##        ('Female', 163.94, 71.47), ('Female', 160.09, 68.94),
+##        ('Female', 162.32, 72.72), ('Female', 162.59, 69.76),
+##        ('Male', 171.94, 82.11), ('Female', 158.07, 69.8 ),
+##        ('Female', 158.35, 69.72), ('Female', 162.18, 67.81),
+##        ('Female', 159.38, 70.37), ('Male', 171.45, 84.29),
+##        ('Female', 163.17, 64.47), ('Male', 183.1 , 82.47),
+##        ('Male', 177.14, 88.7 ), ('Male', 171.08, 72.51),
+##        ('Female', 159.33, 70.68), ('Male', 185.43, 73.63),
+##        ('Female', 162.65, 73.99), ('Female', 159.44, 66.21),
+##        ('Female', 164.11, 70.66), ('Female', 159.13, 66.96),
+##        ('Female', 160.58, 71.49), ('Female', 164.88, 68.07)],
+##       dtype=[('f0', '&lt;U10'), ('f1', '&lt;f4'), ('f2', '&lt;f4')])
+```
+
+---
+## Reading 
+
+While reading we can also assign our data into multiple objects using the `unpack` argument. Here we assign each column into it's own separate array. 
+
+
+``` python
+sex, height, weight = np.genfromtxt('data/height-weight.csv', unpack = True, delimiter = ",", skip_header=True, dtype=dtype)
+
+sex
+```
+
+```
+## array(['Male', 'Male', 'Male', 'Male', 'Female', 'Female', 'Female',
+##        'Female', 'Male', 'Male', 'Female', 'Female', 'Male', 'Female',
+##        'Female', 'Male', 'Male', 'Male', 'Male', 'Male', 'Male', 'Female',
+##        'Male', 'Female', 'Female', 'Male', 'Male', 'Male', 'Male', 'Male',
+##        'Female', 'Male', 'Male', 'Female', 'Male', 'Female', 'Male',
+##        'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Female',
+##        'Female', 'Female', 'Female', 'Female', 'Male', 'Female', 'Female',
+##        'Female', 'Female', 'Female', 'Male', 'Female', 'Female', 'Female',
+##        'Male', 'Male', 'Female', 'Male', 'Female', 'Male', 'Male',
+##        'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Male',
+##        'Male', 'Female', 'Male', 'Female', 'Male', 'Male', 'Female',
+##        'Female', 'Female', 'Female', 'Male', 'Female', 'Female', 'Female',
+##        'Female', 'Male', 'Female', 'Male', 'Male', 'Male', 'Female',
+##        'Male', 'Female', 'Female', 'Female', 'Female', 'Female', 'Female'],
+##       dtype='&lt;U10')
+```
+
+
+---
+## Reading 
+
+An alternative to setting the data type explicitly, you can let genfromtxt determine it automatically by setting the dtype to `None`. This works pretty well most of the time.  
+
+
+``` python
+sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None)
+
+sex
+```
+
+```
+## array(['Male', 'Male', 'Male', 'Male', 'Female', 'Female', 'Female',
+##        'Female', 'Male', 'Male', 'Female', 'Female', 'Male', 'Female',
+##        'Female', 'Male', 'Male', 'Male', 'Male', 'Male', 'Male', 'Female',
+##        'Male', 'Female', 'Female', 'Male', 'Male', 'Male', 'Male', 'Male',
+##        'Female', 'Male', 'Male', 'Female', 'Male', 'Female', 'Male',
+##        'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Female',
+##        'Female', 'Female', 'Female', 'Female', 'Male', 'Female', 'Female',
+##        'Female', 'Female', 'Female', 'Male', 'Female', 'Female', 'Female',
+##        'Male', 'Male', 'Female', 'Male', 'Female', 'Male', 'Male',
+##        'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Male',
+##        'Male', 'Female', 'Male', 'Female', 'Male', 'Male', 'Female',
+##        'Female', 'Female', 'Female', 'Male', 'Female', 'Female', 'Female',
+##        'Female', 'Male', 'Female', 'Male', 'Male', 'Male', 'Female',
+##        'Male', 'Female', 'Female', 'Female', 'Female', 'Female', 'Female'],
+##       dtype='&lt;U6')
+```
+
+
+---
+## Quick Recap
+
+Once you have performed some analysis you will want to export it into a new file. 
+
+Let's do some quick processing based on what we learned yesterday. First we will make a 2D array. 
+
+
+``` python
+
+new_array = np.array([sex, height, weight])
+```
+
+Next we do a logical test to see which entries in our first row are Female.
+
+
+``` python
+to_subset = new_array[0,:]=="Female"
+to_subset
+```
+
+```
+## array([False, False, False, False,  True,  True,  True,  True, False,
+##        False,  True,  True, False,  True,  True, False, False, False,
+##        False, False, False,  True, False,  True,  True, False, False,
+##        False, False, False,  True, False, False,  True, False,  True,
+##        False,  True, False,  True, False,  True,  True,  True,  True,
+##         True,  True,  True, False,  True,  True,  True,  True,  True,
+##        False,  True,  True,  True, False, False,  True, False,  True,
+##        False, False,  True, False,  True, False,  True,  True, False,
+##        False,  True, False,  True, False, False,  True,  True,  True,
+##         True, False,  True,  True,  True,  True, False,  True, False,
+##        False, False,  True, False,  True,  True,  True,  True,  True,
+##         True])
+```
+
+---
+## Quick Recap
+
+We can use the boolean array we created to subset our array, based on whether they are `Female` or not. 
+
+
+
+``` python
+subset_array = new_array[:,to_subset]
+subset_array 
+```
+
+```
+## array([['Female', 'Female', 'Female', 'Female', 'Female', 'Female',
+##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
+##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
+##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
+##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
+##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
+##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
+##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
+##         'Female', 'Female', 'Female', 'Female', 'Female', 'Female',
+##         'Female'],
+##        ['164.47', '158.27', '161.69', '165.84', '160.06', '166.48',
+##         '164.7', '163.79', '161.92', '160.57', '168.24', '160.03',
+##         '159.67', '163.35', '160.8', '157.95', '159.52', '163.01',
+##         '165.8', '170.03', '157.16', '164.58', '163.47', '165.34',
+##         '163.45', '163.97', '161.38', '160.09', '159.78', '161.57',
+##         '161.83', '159.32', '161.84', '166.19', '157.01', '160.47',
+##         '162.33', '158.94', '159.23', '163.94', '160.09', '162.32',
+##         '162.59', '158.07', '158.35', '162.18', '159.38', '163.17',
+##         '159.33', '162.65', '159.44', '164.11', '159.13', '160.58',
+##         '164.88'],
+##        ['71.78', '69.9', '68.85', '70.44', '72.37', '67.34', '75.69',
+##         '65.76', '69.92', '63.54', '69.57', '64.3', '71.88', '70.46',
+##         '64.77', '67.41', '67.99', '65.19', '71.77', '66.68', '69.64',
+##         '72.99', '72.89', '70.84', '67.67', '66.71', '73.55', '65.93',
+##         '68.31', '67.92', '66.03', '64.92', '69.97', '67.46', '66.56',
+##         '68.2', '66.47', '65.14', '69.96', '71.47', '68.94', '72.72',
+##         '69.76', '69.8', '69.72', '67.81', '70.37', '64.47', '70.68',
+##         '73.99', '66.21', '70.66', '66.96', '71.49', '68.07']],
+##       dtype='&lt;U32')
+```
+
+---
+## Writing files
+
+To export the subset array with the `savetxt` function. This has similar arguments to `genfromtxt`. A key addition is `fmt`, the format in which the data is saved. You can specify scientific notation, significant digits or in our case simply that we will use a string. 
+
+
+``` python
+
+np.savetxt("height-weight_female.csv", subset_array, delimiter=',', fmt='%s')
+```
+
+---
+## Complex reading/writing
+
+Though a lot of the time we may use these NumPy approaches, there are specific functions dedicated to a variety of data types. 
+
+The most common is [pandas](https://pandas.pydata.org/docs/getting_started/index.html#getting-started). This is a specialized library for managing data frames. It also has the ability to read/write from excel spreadsheets.  
+
+[BioPython](https://biopython.org/) and [BioNumPy](https://bionumpy.github.io/bionumpy/menu.html) have a range of utilities for managing biological data types i.e. fasta, fastq, etc.
+
+
 
 ---
 ##  An extra note

@@ -18,65 +18,103 @@ message(toMessage)
 
 
 <p>&nbsp;</p>
-These exercises are about data types and custom functions from Session 2 [session1](https://rockefelleruniversity.github.io/Intro_To_Python/). 
+These exercises are about logical operators and reading/writing from [Session 2](https://rockefelleruniversity.github.io/Intro_To_Python/). 
 
-**Exercise 1** - **Reading/Writing**
+**Exercise 1** - **If Else**
 
-- Read in the tab delimited file "GeneExpression.txt". (Hint: The delimiter for a tab file is "\t".)
+- Build an if statement that test if x is a negative number. Write a print statement that will confirm if x is less than 0. Test it with several values of x.
+
+
 ```{python,echo=toMessage}
-import numpy as np
+x=42
 
-geneExpression = np.genfromtxt("data/GeneExpression.txt", delimiter="\t", skip_header=True)
+if x<0:
+  print("It's a negative number!")
+
+x=-42
+
+if x<0:
+  print("It's a negative number!")
 
 ```
 
-- Read in the tab delimited file "GeneExpressionWithMethods.txt". This file contains information on analysis steps used to produce file. We will want to skip those. (Hint: Check the `skip_header` argument in the help page)
-```{python,echo=toMessage}
-
-geneExpression = np.genfromtxt("data/GeneExpressionWithMethods.txt", delimiter="\t", skip_header=4)
-
-geneExpression
-```
-
-- Find the mean expression  across rows. (Hint: NumPy objects have a mean function attribute)
-```{python,echo=toMessage}
-
-geneExpression[0,].mean()
-geneExpression[1,].mean()
-geneExpression[2,].mean()
-geneExpression[3,].mean()
-geneExpression[4,].mean()
-geneExpression[5,].mean()
-geneExpression[6,].mean()
-geneExpression[7,].mean()
-
-# Alternatively we could use the axis argument.
-geneExpression.mean(axis=1)
-```
-
-- The corresponding gene names are stored in "GeneNames.txt". Read this in and subset it based on whether the mean gene expression is over 6. Write this out into a new text file. 
+- Modify the previous if statement to include an else. Ensure a print statement is returned to say if the number is not negative. 
 
 ```{python,echo=toMessage}
 
-sub_idx = geneExpression.mean(axis=1) > 6
-geneNames = np.genfromtxt("data/GeneNames.txt", delimiter="\t", dtype="U6")
-geneNames_sub = geneNames[sub_idx]
-np.savetxt("GeneNames_highexpression.txt", geneNames_sub, delimiter="\t", fmt='%s')
+x=0
+
+if x<0:
+  print("It's a negative number!")
+else:
+  print("It's not a negative number!")
+
+x=-1
+
+if x<0:
+  print("It's a negative number!")
+else:
+  print("It's not a negative number!")
+
 ```
 
+- Finally add a elif statement. We want a response to confirm if x is negative, positive or if it is zero. 
 
-**Exercise 2** - **If Else**
+```{python,echo=toMessage}
+x=-1
 
-- Build an if/else statement that test if a variable is odd/even. (Hint: The modulus operator may be useful here i.e. x%2 returns the remainder after the value of x is divided by 2). 
+if x<0:
+  print("It's a negative number!")
+elif x==0:
+  print("It's zero")
+else:
+  print("It's a positive number!")
+  
+x=0
+
+if x<0:
+  print("It's a negative number!")
+elif x==0:
+  print("It's zero")
+else:
+  print("It's a positive number!")
+  
+x=1
+
+if x<0:
+  print("It's a negative number!")
+elif x==0:
+  print("It's zero")
+else:
+  print("It's a positive number!")
+
+```
+
+- Build an if/else statement that test if a variable is odd/even. Include x in the printed output. 
+
+*Hint1: x will likely be an integer so it will need to be coerced to print out as part of a message string.*
+*Hint2: The modulus operator may be useful here i.e. x%2 returns the remainder after the value of x is divided by 2.* 
 
 
 ```{python,echo=toMessage}
 x=1
 
 if x%2==0:
-  print("Even")
+  mymessage = str(x) + " is even"
+  print(mymessage)
 else:
-  print("Odd")
+  mymessage = str(x) + " is odd"
+  print(mymessage)
+  
+  
+x=42
+
+if x%2==0:
+  mymessage = str(x) + " is even"
+  print(mymessage)
+else:
+  mymessage = str(x) + " is odd"
+  print(mymessage)
 
 ```
 
@@ -86,18 +124,21 @@ else:
 
 def even_or_odd(x):
   if x%2==0:
-    return "Even"
+    mymessage = str(x) + " is even"
+    print(mymessage)
   else:
-    return "Odd"
+    mymessage = str(x) + " is odd"
+    print(mymessage)
 
 even_or_odd(10)
 even_or_odd(3)
 even_or_odd(10007)
 ```
 
-**Exercise 3** - **Loops**
+**Exercise 2** - **Loops**
 
-- Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a loop. (Hint: first try to write some pseudocode to help you build this)
+- Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a loop. 
+*Hint: first try to write some pseudocode to help you build this*
 
 ```{r, echo=toMessage, eval=F}
 
@@ -121,16 +162,17 @@ for 0 to 9:
 
 ```{python,echo=toMessage}
 
-for x in range(10):
+for x in range(9):
   if x == 0:
     factorialAnswer = 1
   else:
-    factorialAnswer = factorialAnswer * x
+    factorialAnswer = factorialAnswer * (x+1)
 
 factorialAnswer
 ```
 
-- Adjusting your answer from before, what is the first number that has a factorial greater than 1000.
+- Adjusting your answer from before, what is the first number that has a factorial greater than 1000?
+*Hint: A while loop will be good for this*
 
 ```{python,echo=toMessage}
 
@@ -138,16 +180,63 @@ factorialAnswer = 0
 count = 0
 
 while factorialAnswer <= 1000:
-  count = count+1
-  if count == 1:
+  if count == 0:
     factorialAnswer = 1
   else:
-    factorialAnswer = factorialAnswer * count 
-
+    factorialAnswer = factorialAnswer * (count+1)
+  count = count+1
+    
+    
 
 count
 factorialAnswer
 
+```
+
+**Exercise 3** - **Reading/Writing**
+
+- Read in the tab delimited file "GeneExpression.txt". (Hint: The delimiter for a tab file is "\t".)
+```{python,echo=toMessage}
+import numpy as np
+
+geneExpression = np.genfromtxt("data/GeneExpression.txt", delimiter="\t", skip_header=True)
+
+```
+
+- Read in the tab delimited file "GeneExpressionWithMethods.txt". This file contains information on analysis steps used to produce file. We will want to skip those. 
+*Hint: Check the `skip_header` argument in the help page*
+
+```{python,echo=toMessage}
+
+geneExpression = np.genfromtxt("data/GeneExpressionWithMethods.txt", delimiter="\t", skip_header=4)
+
+geneExpression
+```
+
+- Find the mean expression across rows. (Hint: NumPy objects have a mean function attribute)
+```{python,echo=toMessage}
+
+geneExpression[0,].mean()
+geneExpression[1,].mean()
+geneExpression[2,].mean()
+geneExpression[3,].mean()
+geneExpression[4,].mean()
+geneExpression[5,].mean()
+geneExpression[6,].mean()
+geneExpression[7,].mean()
+
+# Alternatively we could use the axis argument.
+geneExpression.mean(axis=1)
+```
+
+- The corresponding gene names are stored in "GeneNames.txt". Read this in and subset it based on whether the mean gene expression is over 6. Write this out into a new text file. 
+
+```{python,echo=toMessage}
+
+sub_idx = geneExpression.mean(axis=1) > 6
+geneNames = np.genfromtxt("data/GeneNames.txt", delimiter="\t", dtype="U6")
+geneNames_sub = geneNames[sub_idx]
+np.savetxt("GeneNames_highexpression.txt", geneNames_sub, delimiter="\t", fmt='%s')
 ```
 
 

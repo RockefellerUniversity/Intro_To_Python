@@ -337,16 +337,67 @@ Centre</h4>
 <p>
  
 </p>
-<p>These exercises are about data types and custom functions from
-Session 2 <a href="https://rockefelleruniversity.github.io/Intro_To_Python/">session1</a>.</p>
-<p><strong>Exercise 1</strong> - <strong>Reading/Writing</strong></p>
+<p>These exercises are about logical operators and reading/writing from
+<a href="https://rockefelleruniversity.github.io/Intro_To_Python/">Session
+2</a>.</p>
+<p><strong>Exercise 1</strong> - <strong>If Else</strong></p>
+<ul>
+<li>Build an if statement that test if x is a negative number. Write a
+print statement that will confirm if x is less than 0. Test it with
+several values of x.</li>
+</ul>
+<pre><code>## It&#39;s a negative number!</code></pre>
+<ul>
+<li>Modify the previous if statement to include an else. Ensure a print
+statement is returned to say if the number is not negative.</li>
+</ul>
+<pre><code>## It&#39;s not a negative number!</code></pre>
+<pre><code>## It&#39;s a negative number!</code></pre>
+<ul>
+<li>Finally add a elif statement. We want a response to confirm if x is
+negative, positive or if it is zero.</li>
+</ul>
+<pre><code>## It&#39;s a negative number!</code></pre>
+<pre><code>## It&#39;s zero</code></pre>
+<pre><code>## It&#39;s a positive number!</code></pre>
+<ul>
+<li>Build an if/else statement that test if a variable is odd/even.
+Include x in the printed output.</li>
+</ul>
+<p><em>Hint1: x will likely be an integer so it will need to be coerced
+to print out as part of a message string.</em> <em>Hint2: The modulus
+operator may be useful here i.e. x%2 returns the remainder after the
+value of x is divided by 2.</em></p>
+<pre><code>## 1 is odd</code></pre>
+<pre><code>## 42 is even</code></pre>
+<ul>
+<li>Put this in a function and try out it out on various variables.</li>
+</ul>
+<pre><code>## 10 is even</code></pre>
+<pre><code>## 3 is odd</code></pre>
+<pre><code>## 10007 is odd</code></pre>
+<p><strong>Exercise 2</strong> - <strong>Loops</strong></p>
+<ul>
+<li>Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a
+loop. <em>Hint: first try to write some pseudocode to help you build
+this</em></li>
+</ul>
+<pre><code>## 362880</code></pre>
+<ul>
+<li>Adjusting your answer from before, what is the first number that has
+a factorial greater than 1000? <em>Hint: A while loop will be good for
+this</em></li>
+</ul>
+<pre><code>## 7</code></pre>
+<pre><code>## 5040</code></pre>
+<p><strong>Exercise 3</strong> - <strong>Reading/Writing</strong></p>
 <ul>
 <li><p>Read in the tab delimited file “GeneExpression.txt”. (Hint: The
 delimiter for a tab file is “.)</p></li>
 <li><p>Read in the tab delimited file “GeneExpressionWithMethods.txt”.
 This file contains information on analysis steps used to produce file.
-We will want to skip those. (Hint: Check the <code>skip_header</code>
-argument in the help page)</p></li>
+We will want to skip those. <em>Hint: Check the <code>skip_header</code>
+argument in the help page</em></p></li>
 </ul>
 <pre><code>## array([[ 5.74251  ,  3.214303 ,  4.11682  ,  3.212353 ,  5.742333 ,
 ##          5.9350948],
@@ -383,32 +434,6 @@ mean function attribute)</li>
 this in and subset it based on whether the mean gene expression is over
 6. Write this out into a new text file.</li>
 </ul>
-<p><strong>Exercise 2</strong> - <strong>If Else</strong></p>
-<ul>
-<li>Build an if/else statement that test if a variable is odd/even.
-(Hint: The modulus operator may be useful here i.e. x%2 returns the
-remainder after the value of x is divided by 2).</li>
-</ul>
-<pre><code>## Odd</code></pre>
-<ul>
-<li>Put this in a function and try out it out on various variables.</li>
-</ul>
-<pre><code>## &#39;Even&#39;</code></pre>
-<pre><code>## &#39;Odd&#39;</code></pre>
-<pre><code>## &#39;Odd&#39;</code></pre>
-<p><strong>Exercise 3</strong> - <strong>Loops</strong></p>
-<ul>
-<li>Calculate the factorial (factorial of 3 = 3 * 2 * 1) of 10 using a
-loop. (Hint: first try to write some pseudocode to help you build
-this)</li>
-</ul>
-<pre><code>## 362880</code></pre>
-<ul>
-<li>Adjusting your answer from before, what is the first number that has
-a factorial greater than 1000.</li>
-</ul>
-<pre><code>## 7</code></pre>
-<pre><code>## 5040</code></pre>
 
 
 
