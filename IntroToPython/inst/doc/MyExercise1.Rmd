@@ -58,9 +58,157 @@ type(mystr)
 
 ```
 
+**Exercise 2** - **Variables**
+
+- Create a variable named "myfirst_var" and store a number in it.
+- Print the variable with the print() statement
+
+```{python, echo=toMessage}
+
+myfirst_var = 1
+
+print(myfirst_var)
 
 
-**Exercise 2** - **Lists**
+```
+
+- Now let's do a mathematical operation within a variable called "operation_var"; let's try 2+2. Print the result.
+    
+```{python, echo=toMessage}
+
+
+operation_var = 2+2
+
+print(operation_var)
+
+
+
+```
+
+- Notice how you can perform math operations within a variable. 
+    
+- Now let's create a third variable. Start the name of the variable with a number, followed by an underscore and the word "var". Store  a random number in it.  
+
+```{python, echo=toMessage}
+
+1_var = 1
+
+print(1_var)
+
+```
+
+- Notice how you obtain a syntax error? Now let's try this again: create a new variable, this time starting with the word "var", underscore, and a number. Store a random number in it and print your variable. 
+ 
+```{python, echo=toMessage}
+var_1 = 1
+
+print(var_1)
+```
+
+
+- This naming convention is acceptable. Now create a different variable containing symbols (e.g. @&%^). Store a random number in it. 
+    
+```{python, echo=toMessage}
+var_% = 1
+
+print(var_%)
+
+```
+
+
+-  Once more, notice how you obtain a syntax error. Symbols are not accepted when naming a variable.
+
+
+**Exercise 3** - **Coercion**
+
+- Now let's create a variable called "coerce_var" and store the word "hello" in it. 
+- Check the type of coerce_var with type()
+- Let's try coercing it into a numeric integer with int(). What happens if you do this?
+    
+    
+```{python, echo=toMessage}
+
+coerce_var = "hello"
+
+type(coerce_var)
+
+
+int(coerce_var)
+```
+
+- Notice how you get an error when attempting this; you cannot convert "hello" into an integer. Let's try converting coerce_var into a bool() now
+    
+```{python, echo=toMessage}
+
+bool(coerce_var)
+
+```
+
+- coerce_var has been converted to a boolean type variable.
+- Therefore, you can convert strings of characters into boolean types but not numeric types. 
+- Let's try vice versa: create a variable called "coerce_num" and store a number in it. Coerce it into a string with str()
+    
+```{python, echo=toMessage}
+
+coerce_num = 3
+
+str(coerce_num)
+```
+
+- Notice how there is no error this time. It is possible to coerce a numeric type into a string.
+- Let's try storing a number as a string (i.e. with quotations), and changing its type to integer.
+
+```{python, echo=toMessage}    
+coerce_var = "3"
+
+type(coerce_var)
+
+int(coerce_var)
+    
+type(int(coerce_var))
+
+```
+
+- This is possible given that numeric characters do have an integer equivalent.
+    
+**Exercise 4** - **Concatenation**
+
+- From the methods learned in class, try concatenating the strings "I" " code" in 3 different ways. First try to concatenate both strings within one variable. Print the results from your different attempts.
+
+    
+```{python, echo=toMessage}
+
+concatenated_str = "I" " code"
+
+print(concatenated_str)
+
+
+concatenated_str = "I" + " code"
+
+print(concatenated_str)
+
+concatenated_str = "I"
+concatenated_str += " code"
+
+print(concatenated_str)
+
+```
+
+
+- Then try creating 1 variable called "concatenate_1" which stores "I" and another called "concatenate_2" which stores " code" and concatenate both variables. Try, for example, print(concatentate_1 + concatenate_2) - what do you get?
+    
+```{python, echo=toMessage}
+
+concatenate_1 = "I"
+concatenate_2 = " code"
+
+print(concatenate_1 + concatenate_2)
+
+
+
+```
+
+**Exercise 5** - **Lists**
 
 - Create a list containing the values 1,2,3,4,5.
 
@@ -68,7 +216,6 @@ type(mystr)
 [1,2,3,4,5]
 
 ```
-
 - Create a list containing the values a,b,c,d,e, but assign it to a new variable called `x`.
 
 ```{python,echo=toMessage}
@@ -89,6 +236,27 @@ y
 y[9:14]
 ```
 
+- With the same variable, let's use "-" indexing to get the last value of our list.
+    
+```{python, echo=toMessage}
+
+y[-1]
+
+
+```
+
+- Now print the values from [0:-1]
+    
+```{python, echo=toMessage}
+
+y[0:-1]
+
+
+```
+
+- Notice how the last value of your list is missing, even though you access it with [-1]. That's because slicing is exclusive, while indexing is inclusive. 
+    
+
 - Append the list in variable x. Add the string z.
 ```{python, echo=toMessage}
 x.append('z')
@@ -107,6 +275,30 @@ y.sort(reverse=True)
 y
 ```
 
+  
+- Multiply the y variable by 2. 
+    
+```{python, echo=toMessage}
+
+y * 2
+
+
+
+```
+    
+
+- Use the function .remove() to eliminate "a" from your list.
+    
+```{python, echo=toMessage}
+
+y.remove("a")
+
+print(y)
+
+```
+
+- Notice that .remove() eliminates only the first instance of your specified entry.
+   
 - Create a list of lists. Use the values 1,2,3,4,5, along with the lists x and y. 
 
 ```{python, echo=toMessage}
@@ -114,6 +306,13 @@ nested_list = [[1,2,3,4,5], x, y]
 nested_list
 ```
 
+- Take your previous list of lists and use indexing to find the third entry of your third list.
+
+```{python, echo=toMessage}
+
+nested_list[2][2]
+
+```
 
 **Exercise 3** - **Tuples**
 
@@ -131,6 +330,20 @@ nested_list
 tuple(x)
 
 ```
+
+
+- Make a touple with your list of lists.
+- Print your results
+    
+```{python, echo=toMessage}
+
+nested_list_tuple = tuple(nested_list)
+
+print(nested_list_tuple)
+
+```
+
+
 
 **Exercise 4** - **Dictionaries**
 
