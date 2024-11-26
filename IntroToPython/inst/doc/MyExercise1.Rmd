@@ -149,14 +149,24 @@ print('  File "<string>", line 1\n    var_% = 1\n     ^\nSyntaxError: invalid de
 - Let's try coercing it into a numeric integer with int(). What happens if you do this?
     
     
-```{python, echo=toMessage}
+```{python, echo=toMessage, eval=F}
 
 coerce_var = "hello"
 
 type(coerce_var)
 
-
 int(coerce_var)
+```
+
+```{python, eval=T, echo=F}
+
+coerce_var = "hello"
+type(coerce_var)
+try:
+  int(coerce_var)
+except Exception as e:
+  print(e)
+  
 ```
 
 - Notice how you get an error when attempting this; you cannot convert "hello" into an integer. Let's try converting coerce_var into a bool() now
