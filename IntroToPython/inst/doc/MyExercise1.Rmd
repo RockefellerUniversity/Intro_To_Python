@@ -121,11 +121,21 @@ print(var_1)
 
 - This naming convention is acceptable. Now create a different variable containing symbols (e.g. @&%^). Store a random number in it. 
     
-```{python, echo=toMessage}
+```{python, echo=toMessage, eval=F}
+
 var_% = 1
 
 print(var_%)
 
+```
+
+```{python, eval=T, echo=F}
+# try:
+#   1_var = 1
+# except Exception as e:
+#   print(e)
+  
+print('  File "<string>", line 1\n    var_% = 1\n     ^\nSyntaxError: invalid decimal literal\n  File "<string>", line 1\n    print(var_%)\n               ^\nSyntaxError: invalid syntax')
 ```
 
 
