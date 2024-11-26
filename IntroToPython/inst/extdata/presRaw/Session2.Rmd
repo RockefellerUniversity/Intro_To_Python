@@ -610,7 +610,7 @@ data/subset_dataset.py
 
 This is our script:
 
-```{python}
+```{python, eval=F}
 
 import numpy as np
 # Read in dataset
@@ -630,6 +630,7 @@ np.savetxt("height-weight_female.csv", subset_array, delimiter=',', fmt='%s')
 
 There are a couple of options for running scripts. In VS Code we can simply press the play button. 
 
+ADD SCREENSSHOT
 
 
 ---
@@ -637,7 +638,7 @@ There are a couple of options for running scripts. In VS Code we can simply pres
 
 More traditionally we would write start python directly and provide the script as an argument. 
 
-
+UNDER THE HOOD THIS IS WHT VS CODE IS DOING. ITS JUST GIVING YOU A NICE BUTTON. 
 
 ---
 ##  An extra note
