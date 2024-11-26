@@ -99,14 +99,15 @@ print(1_var)
 
 
 ```{python, eval=T, echo=F}
-
-try:
-  1_var = 1
-  print(1_var)
-except Exception as e:
-  print(e)
+# try:
+#   1_var = 1
+# except Exception as e:
+#   print(e)
   
+print('  File "<string>", line 1\n    1_var = 1\n     ^\nSyntaxError: invalid decimal literal\n  File "<string>", line 1\n    print(1_var)\n           ^\nSyntaxError: invalid decimal literal')
 ```
+
+
 
 
 - Notice how you obtain a syntax error? Now let's try this again: create a new variable, this time starting with the word "var", underscore, and a number. Store a random number in it and print your variable. 
