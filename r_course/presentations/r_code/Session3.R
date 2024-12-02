@@ -52,38 +52,6 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ## sex, height, weight = np.genfromtxt('data/height-weight.csv', unpack = True, delimiter = ",", skip_header=True, dtype=None, encoding='UTF-8')
 ## print(sex)
 
-## fig, ax = plt.subplots(figsize=(3, 3))
-## 
-## ax.scatter(x=weight, y=height)
-## 
-## plt.show()
-
-## fig, ax = plt.subplots(figsize=(6, 4))
-## 
-## ax.scatter(x=weight, y=height)
-## 
-## plt.show()
-
-## fig, ax = plt.subplots(figsize=(6, 4))
-## 
-## ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
-## 
-## plt.show()
-
-## ax.set_title("My Title")
-## ax.set_xlabel("X Data Label")
-## ax.set_ylabel("Y Data Label")
-
-## fig, ax = plt.subplots(figsize=(6, 4))
-## 
-## ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
-## 
-## ax.set_title("Height vs Weight")
-## ax.set_xlabel("Weight (kg)")
-## ax.set_ylabel("Height (cm)")
-## 
-## plt.show()
-
 ## height_m = []
 ## height_f = []
 ## weight_m = []
@@ -96,6 +64,40 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 ##     else:
 ##         height_f.append(height[i])
 ##         weight_f.append(weight[i])
+
+## # Generate figure and axes
+## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+## 
+## # Plot data on ax1
+## ax1.scatter(weight_m, height_m)
+## ax1.scatter(weight_f, height_f)
+## 
+## plt.show()
+## 
+
+## # Generate figure and axes
+## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+## 
+## # Plot data on ax1
+## ax1.scatter(weight_m, height_m)
+## ax1.scatter(weight_f, height_f)
+## 
+## plt.show()
+## 
+
+## # Generate figure and axes
+## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+## 
+## # Plot data on ax1
+## ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+## ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
+## 
+## plt.show()
+## 
+
+## ax1.set_title("Height vs Weight")
+## ax1.set_xlabel("Weight (kg)")
+## ax1.set_ylabel("Height (cm)")
 
 ## # Generate figure and axes
 ## fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
