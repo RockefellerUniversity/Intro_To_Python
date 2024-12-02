@@ -206,18 +206,43 @@ print(sex)
 
 ---
 
+## Manipulating our Data
+
+Let's separate our weight and height data by sex. Can you see what the code below does?
+
+```{python}
+height_m = []
+height_f = []
+weight_m = []
+weight_f = []
+
+for i in range(len(sex)):
+    if sex[i] == 'Male':
+        height_m.append(height[i])
+        weight_m.append(weight[i])
+    else:
+        height_f.append(height[i])
+        weight_f.append(weight[i])
+```
+
+---
+
 ## Scatter Plots
 
 Scatter plots are used for displaying discrete data points, where each point has a set of coordinates $(x,y)$. If you want to plot data points $(x_1, y_1), (x_2, y_2) ... (x_n, y_n)$ from lists $x = (x_1, x_2,...,x_n)$ and $y = (y_1, y_2,...,y_n)$, you can use the [`scatter()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html) function, applied to the axis you want to plot on.
 
-Let's create a plot of height vs weight using our patient data.
+Let's create a plot of height vs weight using our patient data. We are going to generate a 2x1 subplot and create a scatter plot on the left subplot.
 
 ```{python, eval=F}
-fig, ax = plt.subplots(figsize=(3, 3))
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
-ax.scatter(x=weight, y=height)
+# Plot data on ax1
+ax1.scatter(weight_m, height_m)
+ax1.scatter(weight_f, height_f)
 
 plt.show()
+
 ```
 
 ---
@@ -225,23 +250,16 @@ plt.show()
 ## Scatter Plots
 
 ```{python}
-fig, ax = plt.subplots(figsize=(6, 4))
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
-ax.scatter(x=weight, y=height)
+# Plot data on ax1
+ax1.scatter(weight_m, height_m)
+ax1.scatter(weight_f, height_f)
 
 plt.show()
+
 ```
-
-
----
-
-## Error Bars
-
-Confusingly, matplotlib has a separate function to create a scatter plot with error bars. To do so, you can use the  [`errorbar()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html) function. 
-
-This takes the usual `x` and `y` arguments for coordinates, as well as additional `xerr` and `yerr` arguments for the error bar values. 
-
-It also contains similar options to `scatter()` for customizing the data points and error bars.
 
 ---
 
@@ -281,11 +299,15 @@ Using these colors and the list of parameters below, take a second to customize 
 ## Customized Plot
 
 ```{python}
-fig, ax = plt.subplots(figsize=(6, 4))
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
-ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
+# Plot data on ax1
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
 
 plt.show()
+
 ```
 
 ---
@@ -295,9 +317,9 @@ plt.show()
 Let's add a title and some axis labels to our plot. To do this, we can use the following functions:
 
 ```{python, eval=F}
-ax.set_title("My Title")
-ax.set_xlabel("X Data Label")
-ax.set_ylabel("Y Data Label")
+ax1.set_title("Height vs Weight")
+ax1.set_xlabel("Weight (kg)")
+ax1.set_ylabel("Height (cm)")
 ```
 
 Be sure to add all of this code before the `plt.show()` line, which renders the plot. Anything after `show()` will not be applied to the figure you see.
@@ -307,45 +329,6 @@ Be sure to add all of this code before the `plt.show()` line, which renders the 
 ## Add Your Labels
 
 ```{python}
-fig, ax = plt.subplots(figsize=(6, 4))
-
-ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
-
-ax.set_title("Height vs Weight")
-ax.set_xlabel("Weight (kg)")
-ax.set_ylabel("Height (cm)")
-
-plt.show()
-```
-
----
-
-## Manipulating our Data
-
-Let's separate our weight and height data by sex. Can you see what the code below does?
-
-```{python}
-height_m = []
-height_f = []
-weight_m = []
-weight_f = []
-
-for i in range(len(sex)):
-    if sex[i] == 'Male':
-        height_m.append(height[i])
-        weight_m.append(weight[i])
-    else:
-        height_f.append(height[i])
-        weight_f.append(weight[i])
-```
-
----
-
-## Scatter Plot of Sex-Separated Data
-
-Now we are going to generate a 2x1 subplot and create some visualizations for this modified data.
-
-```{python, eval=F}
 # Generate figure and axes
 fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
@@ -360,8 +343,6 @@ ax1.set_ylabel("Height (cm)")
 plt.show()
 
 ```
-
-
 
 ---
 
@@ -382,7 +363,6 @@ ax1.set_ylabel("Height (cm)")
 plt.show()
 
 ```
-
 
 ---
 ## Lines of Best Fit
