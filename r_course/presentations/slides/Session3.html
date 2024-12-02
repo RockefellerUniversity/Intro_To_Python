@@ -389,15 +389,15 @@ ax1.set_ylabel("Height (cm)")
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-18-11.png)&lt;!-- --&gt;
-
 ---
 
 ## Resulting Plot
 
-![](Session3_files/figure-html/unnamed-chunk-19-13.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-19-11.png)&lt;!-- --&gt;
+
 
 ---
+
 ## Lines of Best Fit
 
 Lines of best fit (also called linear regressions) are useful tools for finding trends in scattered data. A line of best fit will follow the equation 
@@ -428,8 +428,6 @@ Let's give it a try!
 ## Get the Fit Parameters
 
 
-
-
 ``` python
 from scipy.optimize import curve_fit 
 
@@ -449,23 +447,9 @@ print(popt_m)
 
 ---
 
-## Plotting a Continuous Function
-
-Another common type of plot is a line plot. Line plots can be created using the [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) function. The essential arguments of `plot()` are the lists of arrays of x and y values.
-
-Let's use `plot()` to add a line of best fit to out weight vs height data for both sexes. 
-
-
----
-## Plotting the Lines
-
-Now that we have the slopes and intercepts of each line of best fit, we can use [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) to plot them on our axes (`ax1`). `plot()` behaves exactly like scatter, in the sense that it accepts a list of x values and a list of y values. However, it will just plot these coordinates and connect them with a straight line. 
-
----
-
 ## X Coordinates
 
-First, we need to make our list of x coordinates. Let's make a list using the `np.linspace()` function. `np.linspace()` takes 3 arguments: `start`, `stop`, and `num`, and returns a list that begins at `start` and ends at `stop` with `num` evenly-spaced points.
+First, we need to make our list of x coordinates for the lines of best fit. Let's make a list using the `np.linspace()` function. `np.linspace()` takes 3 arguments: `start`, `stop`, and `num`, and returns a list that begins at `start` and ends at `stop` with `num` evenly-spaced points.
 
 Let's define our x values:
 
@@ -506,11 +490,18 @@ Now that we have our x values, we can plug them into the linear function we have
 
 
 ``` python
-y_male = line(x, popt_m[0], popt_m[1])
-y_female = line(x, popt_f[0], popt_f[1])
+y_male = line(x, m = popt_m[0], b = popt_m[1])
+y_female = line(x, m = popt_f[0], b = popt_f[1])
 ```
 
 ---
+
+## Generating a Line Plot
+
+Now that we have the x and y coordinates of each line of best fit, we can use [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) to plot them on our axes (`ax1`). `plot()` behaves exactly like scatter, in the sense that it accepts a list of x values and a list of y values. However, it will just plot these coordinates and connect them with a straight line. 
+
+---
+
 ## Plotting the Lines 
 
 Finally, we can put it all together. Take the code we have created for our 1x2 subplot and add in the lines of best fit on `ax1`.
@@ -528,9 +519,7 @@ ax1.plot(x, y_male, c = 'royalblue')
 ax1.plot(x, y_female, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
-
 ax1.set_xlabel("Weight (kg)")
-
 ax1.set_ylabel("Height (cm)")
 
 plt.show()
@@ -539,18 +528,16 @@ plt.show()
 ---
 ## Plotting the Lines 
 
-![](Session3_files/figure-html/unnamed-chunk-24-15.png)&lt;!-- --&gt;
-
-
+![](Session3_files/figure-html/unnamed-chunk-24-13.png)&lt;!-- --&gt;
 
 ---
 ## Adding a Legend
 
-Finally, we would like to add a legend to this plot now that it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. 
+Finally, we would like to add a legend to this plot since it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. 
 
-By adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function, we will automatically generate a legend. 
+We can automatically generate a legend by adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function. 
 
-You can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today.
+You can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today. Check out the documentation for full details!
 
 ---
 
@@ -570,9 +557,7 @@ ax1.plot(x, y_male, c = 'royalblue')
 ax1.plot(x, y_female, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
-
 ax1.set_xlabel("Weight (kg)")
-
 ax1.set_ylabel("Height (cm)")
 
 ax1.legend()
@@ -583,7 +568,7 @@ plt.show()
 ---
 ## Adding a Legend
 
-![](Session3_files/figure-html/unnamed-chunk-26-17.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-26-15.png)&lt;!-- --&gt;
 
 ---
 ## Histograms 
@@ -624,7 +609,7 @@ plt.show()
 ---
 ## Histograms 
 
-![](Session3_files/figure-html/unnamed-chunk-28-19.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-28-17.png)&lt;!-- --&gt;
 
 
 ---
@@ -657,7 +642,7 @@ plt.show()
 ---
 ## Finishing Touches
 
-![](Session3_files/figure-html/unnamed-chunk-30-21.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-30-19.png)&lt;!-- --&gt;
 
 ---
 
@@ -684,7 +669,7 @@ fig, ax = plt.subplots(figsize = (4, 4))
 sns.violinplot(weight_m, ax = ax)
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-31-23.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-31-21.png)&lt;!-- --&gt;
 
 ---
 
@@ -714,7 +699,7 @@ plt.show()
 
 Let's add the other dataset and make it nicer.
 
-![](Session3_files/figure-html/unnamed-chunk-33-25.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-33-23.png)&lt;!-- --&gt;
 
 
 
@@ -806,7 +791,7 @@ print(data)
 
 
 ``` python
-fig, ax = plt.subplots(figsize = (4,3))
+fig, ax = plt.subplots(figsize = (5,4))
 sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
 ax.set_xlabel("Time")
 ax.set_ylabel("Gene")
@@ -814,7 +799,7 @@ ax.set_title("Gene Progression")
 plt.show()
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-36-27.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-36-25.png)&lt;!-- --&gt;
 
 ---
 
@@ -843,10 +828,10 @@ plt.show()
 
 
 ```
-## &lt;matplotlib.colorbar.Colorbar object at 0x7efdab73cb80&gt;
+## &lt;matplotlib.colorbar.Colorbar object at 0x7f72f826c4f0&gt;
 ```
 
-![](Session3_files/figure-html/unnamed-chunk-38-29.png)&lt;!-- --&gt;
+![](Session3_files/figure-html/unnamed-chunk-38-27.png)&lt;!-- --&gt;
 
 
 ---
