@@ -1725,7 +1725,8 @@ functions that are not present in the base Python distribution.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">conda</span> install numpy</span>
 <span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="ex">conda</span> install scipy</span>
 <span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="ex">conda</span> install matplotlib</span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="ex">conda</span> install seaborn</span></code></pre></div>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="ex">conda</span> install seaborn</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="ex">conda</span> install jupyter</span></code></pre></div>
 </div>
 <div id="interactive-or-scripts" class="section level2">
 <h2>Interactive or scripts?</h2>
@@ -1743,10 +1744,11 @@ will write a script. You can then run this script with python.</p>
 <h2>Python and IDEs</h2>
 <p>You can run python from within your terminal/command prompt. This
 will give you access to the python console.</p>
-<p>Many people prefer to sue an Integrated Development Environment to
-augment their experience while coding. They allow easy writing of
-scripts, visualization of plots, and access to many customizable
-features in additional panes.</p>
+<p>Many people prefer to use an <strong>I</strong>ntegrated
+<strong>D</strong>evelopment <strong>E</strong>nvironment to augment
+their experience while coding. They allow easy writing of scripts,
+visualization of plots, and access to many customization features in
+additional panes.</p>
 <p>Examples include RStudio, pyCharm, Xcode etc.</p>
 <p>We will be using Visual Studio Code from Windows.</p>
 <div class="float">
@@ -1774,7 +1776,7 @@ extension.</p>
 <div id="navigating-vs-code-1" class="section level2">
 <h2>Navigating VS Code</h2>
 <p>Now VS Code is all set up for python we want to make sure it using
-the right python i.e. the python we ave just installed.</p>
+the right python i.e. the python we have just installed.</p>
 <p>Click on the search bar and type:</p>
 <pre><code>&gt;Python: Select Interpreter</code></pre>
 <div class="float">
@@ -1791,13 +1793,14 @@ the right python i.e. the python we ave just installed.</p>
 <p>We are now all set up. We will now create a python script. Just click
 <code>New File...</code> on the Welcome Page (or File &gt; New File…),
 then choose python script.</p>
-<p>In this scripting panel we have opened we often will type code, and
-build scripts.</p>
+<p>In this scripting panel we have opened we often will type code, write
+notes and build scripts.</p>
 </div>
 <div id="open-a-python-console" class="section level2">
 <h2>Open a python console</h2>
 <p>As we mentioned before we will be working with our Python
-interactively. This means we need a Python console to work with.</p>
+interactively. This means we need a Python console to work with. This is
+wehre the code is actually evaluated.</p>
 <p>We can manually open one up by Terminal &gt; New Terminal.</p>
 <p>Once the Terminal is open, you can then just open Python, by typing
 <code>python</code> into the new terminal window.</p>
@@ -2156,6 +2159,14 @@ and vice versa. Simply use the <code>list()</code> and
 <li><p>Parentheses () for functions and tuples.</p></li>
 </ul>
 </div>
+<div id="time-for-an-exercise" class="section level2">
+<h2>Time for an exercise!</h2>
+<p>Exercise on the data types we have covered so far can be found <a href="../../exercises/exercises/Exercise1_exercise.html">here</a></p>
+</div>
+<div id="answers-to-the-exercise" class="section level2">
+<h2>Answers to the exercise</h2>
+<p>Answers can be found here <a href="../../exercises/answers/Exercise1_answers.html">here</a></p>
+</div>
 <div id="dictionaries" class="section level2">
 <h2>Dictionaries</h2>
 <p>Another data type are dictionaries. Dictionaries are made of
@@ -2260,10 +2271,10 @@ and each entry is unique. Sets can be created using the curly brackets,
 or by coercing another object using the <code>set()</code> function.</p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb147-1"><a href="#cb147-1" tabindex="-1"></a>myset <span class="op">=</span> {<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>}</span>
 <span id="cb147-2"><a href="#cb147-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
+<pre><code>## {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;}</code></pre>
 <div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>])</span>
 <span id="cb149-2"><a href="#cb149-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
+<pre><code>## {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;}</code></pre>
 </div>
 <div id="sets-can-be-modified" class="section level2">
 <h2>Sets can be modified</h2>
@@ -2271,10 +2282,10 @@ or by coercing another object using the <code>set()</code> function.</p>
 modification of sets.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1" tabindex="-1"></a>myset.add(<span class="st">&quot;d&quot;</span>)</span>
 <span id="cb151-2"><a href="#cb151-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;d&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
+<pre><code>## {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;, &#39;d&#39;}</code></pre>
 <div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="#cb153-1" tabindex="-1"></a>myset.remove(<span class="st">&quot;d&quot;</span>)</span>
 <span id="cb153-2"><a href="#cb153-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
+<pre><code>## {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;}</code></pre>
 </div>
 <div id="sets-have-no-order" class="section level2">
 <h2>Sets have no order</h2>
@@ -2289,7 +2300,7 @@ objects can be.</p>
 contain unique values.</p>
 <div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>])</span>
 <span id="cb157-2"><a href="#cb157-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
+<pre><code>## {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;}</code></pre>
 </div>
 <div id="sets-have-specific-functions" class="section level2">
 <h2>Sets have specific functions</h2>
@@ -2518,6 +2529,14 @@ size, and you will have some kind of key/lookup values.</li>
 <li>Arrays - When you have rectangular data i.e. a table.</li>
 </ul>
 </div>
+<div id="time-for-an-exercise-1" class="section level2">
+<h2>Time for an exercise!</h2>
+<p>Exercise on the data types we have covered so far can be found <a href="../../exercises/exercises/Exercise2_exercise.html">here</a></p>
+</div>
+<div id="answers-to-the-exercise-1" class="section level2">
+<h2>Answers to the exercise</h2>
+<p>Answers can be found here <a href="../../exercises/answers/Exercise2_answers.html">here</a></p>
+</div>
 </div>
 <div id="custom-functions" class="section level1">
 <h1>Custom Functions</h1>
@@ -2629,9 +2648,10 @@ environment they will not be updated in the global environment.</p>
 <span id="cb218-4"><a href="#cb218-4" tabindex="-1"></a>  num3 <span class="op">=</span> num1<span class="op">+</span>num2<span class="op">+</span>num3</span>
 <span id="cb218-5"><a href="#cb218-5" tabindex="-1"></a>  <span class="cf">return</span> num3</span>
 <span id="cb218-6"><a href="#cb218-6" tabindex="-1"></a></span>
-<span id="cb218-7"><a href="#cb218-7" tabindex="-1"></a>myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>, num3<span class="op">=</span>num3)</span>
-<span id="cb218-8"><a href="#cb218-8" tabindex="-1"></a></span>
-<span id="cb218-9"><a href="#cb218-9" tabindex="-1"></a>num3</span></code></pre></div>
+<span id="cb218-7"><a href="#cb218-7" tabindex="-1"></a>myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>, num3<span class="op">=</span>num3)</span></code></pre></div>
+<pre><code>## 9</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb220-1"><a href="#cb220-1" tabindex="-1"></a>num3</span></code></pre></div>
+<pre><code>## 4</code></pre>
 </div>
 <div id="local-vs-global-scope" class="section level2">
 <h2>Local vs Global scope</h2>
@@ -2639,9 +2659,8 @@ environment they will not be updated in the global environment.</p>
 <li><p>Functions have local scope. This means they have access to global
 variables (which can be used anywhere) and local variables which were
 made within the function.</p></li>
-<li><p>Once you exit the function you are in the console you are back to
-a global scope. Local variables can not be accessed at this
-point.</p></li>
+<li><p>Once you exit the function you are back to a global scope. Local
+variables from the function can not be accessed at this point.</p></li>
 <li><p>Code in a function’s local scope cannot use variables in any
 other local scope i.e. between functions.</p></li>
 <li><p>Though it is possible to have local and global variables with the
@@ -2653,22 +2672,44 @@ everything.</p></li>
 <h2>Argument defaults</h2>
 <p>Functions can have defaults for their arguments which will be used
 when arguments are not specified.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb219-1"><a href="#cb219-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1<span class="op">=</span><span class="dv">1</span>,num2<span class="op">=</span><span class="dv">3</span>):</span>
-<span id="cb219-2"><a href="#cb219-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1<span class="op">+</span>num2</span>
-<span id="cb219-3"><a href="#cb219-3" tabindex="-1"></a>  <span class="cf">return</span> sumNum</span>
-<span id="cb219-4"><a href="#cb219-4" tabindex="-1"></a></span>
-<span id="cb219-5"><a href="#cb219-5" tabindex="-1"></a>myFirstFunction()</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb222-1"><a href="#cb222-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1<span class="op">=</span><span class="dv">1</span>,num2<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb222-2"><a href="#cb222-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1<span class="op">+</span>num2</span>
+<span id="cb222-3"><a href="#cb222-3" tabindex="-1"></a>  <span class="cf">return</span> sumNum</span>
+<span id="cb222-4"><a href="#cb222-4" tabindex="-1"></a></span>
+<span id="cb222-5"><a href="#cb222-5" tabindex="-1"></a>myFirstFunction()</span></code></pre></div>
 <pre><code>## 4</code></pre>
-<div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb221-1"><a href="#cb221-1" tabindex="-1"></a>myFirstFunction(<span class="dv">5</span>,<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb224-1"><a href="#cb224-1" tabindex="-1"></a>myFirstFunction(<span class="dv">5</span>,<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## 15</code></pre>
 </div>
-<div id="time-for-an-exercise" class="section level2">
-<h2>Time for an exercise!</h2>
-<p>Exercises around data types can be found <a href="https://rockefelleruniversity.github.io/Intro_To_Python/exercises/exercises/MyExercise1_exercise.html">here</a></p>
+<div id="reusing-functions" class="section level2">
+<h2>Reusing functions</h2>
+<p>Once I have made a function and I want to keep reusing it I can
+easily save it i.e. I have a function that I want to use regularly to
+process some data in the same way. To do this you save it as a
+script.</p>
+<p>First open a new script: File &gt; New File &gt; Python Script. We
+can then add our orginal function and save the python script as
+<em>myFirstFunction.py</em>.</p>
+<div class="sourceCode" id="cb226"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb226-1"><a href="#cb226-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
+<span id="cb226-2"><a href="#cb226-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
+<span id="cb226-3"><a href="#cb226-3" tabindex="-1"></a>  <span class="cf">return</span> sumNum</span></code></pre></div>
 </div>
-<div id="answers-to-exercise" class="section level2">
-<h2>Answers to exercise</h2>
-<p>Answers can be found <a href="https://rockefelleruniversity.github.io/Intro_To_Python/exercises/answers/MyExercise1_answers.html">here</a></p>
+<div id="function-import" class="section level2">
+<h2>Function import</h2>
+<p>First open a new script: File &gt; New File &gt; Python Script. We
+can then add our orginal function and save the python script as
+<em>myFirstFunction_script.py</em>.</p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb227-1"><a href="#cb227-1" tabindex="-1"></a><span class="im">import</span> myFirstFunction_script</span>
+<span id="cb227-2"><a href="#cb227-2" tabindex="-1"></a></span>
+<span id="cb227-3"><a href="#cb227-3" tabindex="-1"></a>myFirstFunction_script.myFirstFunction(<span class="dv">5</span>,<span class="dv">20</span>)</span></code></pre></div>
+</div>
+<div id="time-for-an-exercise-2" class="section level2">
+<h2>Time for an exercise!</h2>
+<p>Exercise on the data types we have covered so far can be found <a href="../../exercises/exercises/Exercise3_exercise.html">here</a></p>
+</div>
+<div id="answers-to-the-exercise-2" class="section level2">
+<h2>Answers to the exercise</h2>
+<p>Answers can be found here <a href="../../exercises/answers/Exercise3_answers.html">here</a></p>
 </div>
 <div id="further-support" class="section level2">
 <h2>Further Support</h2>
