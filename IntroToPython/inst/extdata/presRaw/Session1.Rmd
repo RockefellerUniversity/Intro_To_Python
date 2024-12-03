@@ -223,6 +223,7 @@ conda install numpy
 conda install scipy
 conda install matplotlib
 conda install seaborn
+conda install jupyter
 
 ```
 
@@ -242,7 +243,7 @@ When you want to automate something, i.e. an analysis workflow, you will write a
 
 You can run python from within your terminal/command prompt. This will give you access to the python console.
 
-Many people prefer to sue an Integrated Development Environment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, and access to many customizable features in additional panes. 
+Many people prefer to use an **I**ntegrated **D**evelopment **E**nvironment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, and access to many customization features in additional panes. 
 
 Examples include RStudio, pyCharm, Xcode etc. 
 
@@ -269,7 +270,7 @@ Click on the `Extension` icon on the side tab (View > Extension also works). Sea
 ---
 ## Navigating VS Code
 
-Now VS Code is all set up for python we want to make sure it using the right python i.e. the python we ave just installed.
+Now VS Code is all set up for python we want to make sure it using the right python i.e. the python we have just installed.
 
 Click on the search bar and type:
 
@@ -291,12 +292,12 @@ Click on the search bar and type:
 
 We are now all set up. We will now create a python script. Just click `New File...` on the Welcome Page (or File > New File...), then choose python script. 
 
-In this scripting panel we have opened we often will type code, and build scripts. 
+In this scripting panel we have opened we often will type code, write notes and build scripts. 
 
 ---
 ## Open a python console
 
-As we mentioned before we will be working with our Python interactively. This means we need a Python console to work with.
+As we mentioned before we will be working with our Python interactively. This means we need a Python console to work with. This is wehre the code is actually evaluated. 
 
 We can manually open one up by Terminal > New Terminal.
 
@@ -793,6 +794,19 @@ type(my_list_tuple_list)
 
 * Parentheses () for functions and tuples.
 
+
+---
+## Time for an exercise!
+
+Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise1_exercise.html)
+
+
+---
+## Answers to the exercise
+
+Answers can be found here  [here](../../exercises/answers/Exercise1_answers.html)
+
+
 ---
 ## Dictionaries
 
@@ -968,6 +982,8 @@ except Exception as e:
   print(e)
 
 ```
+
+
 
 ---
 ## Sets are unique
@@ -1269,6 +1285,18 @@ Here is a rough guide:
 * Arrays - When you have rectangular data i.e. a table. 
 
 ---
+## Time for an exercise!
+
+Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise2_exercise.html)
+
+
+---
+## Answers to the exercise
+
+Answers can be found here  [here](../../exercises/answers/Exercise2_answers.html)
+
+
+---
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
@@ -1438,7 +1466,7 @@ except Exception as e:
 
 If a function makes changes to variables defined in the global environment they will not be updated in the global environment.
 
-```{python, eval=F, echo=T}
+```{python, eval=T, echo=T}
 num3 = 4
 
 def myFirstFunction(num1, num2, num3):
@@ -1456,7 +1484,7 @@ num3
 
 * Functions have local scope. This means they have access to global variables (which can be used anywhere) and local variables which were made within the function. 
 
-* Once you exit the function you are in the console you are back to a global scope. Local variables can not be accessed at this point. 
+* Once you exit the function you are back to a global scope. Local variables from the function can not be accessed at this point. 
 
 * Code in a function’s local scope cannot use variables in any other local scope i.e. between functions.
 
@@ -1483,15 +1511,48 @@ myFirstFunction(5,10)
 
 
 ---
-## Time for an exercise!
+## Reusing functions
 
-Exercises around data types can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/exercises/MyExercise1_exercise.html)
+Once I have made a function and I want to keep reusing it I can easily save it i.e. I have a function that I want to use regularly to process some data in the same way. To do this you save it as a script. 
+
+First open a new script: File > New File > Python Script. We can then add our orginal function and save the python script as *myFirstFunction.py*.
+
+```{python}
+
+def myFirstFunction(num1, num2):
+  sumNum = num1 + num2
+  return sumNum
+
+
+```
 
 
 ---
-## Answers to exercise
+## Function import
 
-Answers can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/answers/MyExercise1_answers.html)
+
+First open a new script: File > New File > Python Script. We can then add our orginal function and save the python script as *myFirstFunction_script.py*.
+
+```{python}
+
+import myFirstFunction_script
+
+myFirstFunction_script.myFirstFunction(5,20)
+
+```
+
+
+---
+## Time for an exercise!
+
+Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise3_exercise.html)
+
+
+---
+## Answers to the exercise
+
+Answers can be found here  [here](../../exercises/answers/Exercise3_answers.html)
+
 
 ---
 ## Further Support
