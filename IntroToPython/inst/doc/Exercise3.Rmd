@@ -1,0 +1,121 @@
+---
+title: "Exercise 3"
+author: "Rockefeller University, Bioinformatics Resource Centre"
+date: "https://rockefelleruniversity.github.io/Intro_To_Python/"
+output: 
+  html_document:
+    number_sections: false  ## if you want number sections at each table header
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
+params:
+  toMessage: false    
+---
+
+```{r, setup,include=FALSE}
+toMessage <- ifelse(!is.null(params$toMessage), params$toMessage, FALSE)
+message(toMessage)
+```
+
+
+<p>&nbsp;</p>
+These exercises are about custom functions from Session 1 [session1](https://rockefelleruniversity.github.io/Intro_To_Python/). 
+
+
+**Exercise 1** - **Custom Functions**
+
+- Create a function which takes one number and returns the square of that number
+
+```{python,echo=toMessage}
+
+def squareOfNumber(number):
+  squareNumber = number*number
+  return squareNumber
+
+squareOfNumber(9)
+
+```
+
+- Create a function which takes two numbers and returns the mean and the minimum
+
+```{python,echo=toMessage}
+
+def mean_and_minOfNumbers(number1, number2):
+  meanNumber = (number1 + number2) /2
+  minNumber = min([number1, number2])
+  return [meanNumber,minNumber]
+
+mean_and_minOfNumbers(1,3)
+```
+
+
+- Edit the previous function to print a statement that telling us what the product of our number is. 
+
+```{python,echo=toMessage}
+
+def mean_and_minOfNumbers(number1, number2):
+  meanNumber = (number1 + number2) /2
+  minNumber = min([number1, number2])
+  print("The product is " + str(number1*number2))
+  return [meanNumber,minNumber]
+
+mean_and_minOfNumbers(1,3)
+
+```
+
+- Add some default values to our function. Run the function without giving any arguments. 
+
+```{python,echo=toMessage}
+
+def mean_and_minOfNumbers(number1=10, number2=40):
+  meanNumber = (number1 + number2) /2
+  minNumber = min([number1, number2])
+  print("The product is " + str(number1*number2))
+  return [meanNumber,minNumber]
+
+mean_and_minOfNumbers()
+
+```
+
+
+- Create function that takes three lists and coerces them into one set. The function must return the set, but also print its length.
+
+** Think about each individual step required to do this**
+
+```{python,echo=toMessage}
+
+def SetMaker(list1, list2, list3):
+  biglist = list1 + list2 + list3
+  my_set = set(biglist)
+  print(len(my_set))
+  return my_set
+
+```
+
+
+Run the function using these inputs
+
+```
+list1 = ["INS","INSR", "VEGFA","VEGFR1","VEGFR2"]
+list2 = ["TGFBR1","EGFR","VEGFR1","VEGFR2"]
+list3 = ["APOE", "IL6", "TGFB1","TGFBR1","TNF"]
+
+```
+
+Save the function as a python script. Import the function and run it on this new set of lists
+
+
+```
+list1 = ["'GO:0030955'","GO:0031403", "GO:0031411"]
+list2 = ["GO:0031402","GO:0030955"]
+list3 = ["GO:0031402", "GO:0030957", "GO:0030955"]
+
+```
+
+```{python,echo=toMessage, eval=F}
+
+import myset_script
+
+myset_script.SetMaker(list1, list2, list3)
+
+```
+

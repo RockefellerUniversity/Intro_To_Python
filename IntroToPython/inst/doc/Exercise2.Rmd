@@ -131,9 +131,6 @@ arr_2d[arr_2d[:,3] =="Brain",:]
 
 ```
 
-
-
-
 **Exercise 4** - **Custom Functions**
 
 - Create a function which takes one number and returns the square of that number
