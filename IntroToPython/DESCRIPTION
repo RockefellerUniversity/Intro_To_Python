@@ -9,6 +9,7 @@ License: What license is it under?
 Config/reticulate:
   list(
     packages = list(
+      list(package = "python==3.12.4")
       list(package = "scipy"),
       list(package = "numpy"),
       list(package = "seaborn"),
