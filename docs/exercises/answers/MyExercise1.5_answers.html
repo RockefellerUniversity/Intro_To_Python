@@ -12,7 +12,7 @@
 <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
 
 
-<title>My Exercise 1</title>
+<title>Exercise 2</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -226,6 +226,106 @@ ul.task-list{list-style: none;}
 
 
 
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } 
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.at { color: #204a87; } 
+code span.bn { color: #0000cf; } 
+code span.cf { color: #204a87; font-weight: bold; } 
+code span.ch { color: #4e9a06; } 
+code span.cn { color: #8f5902; } 
+code span.co { color: #8f5902; font-style: italic; } 
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.dt { color: #204a87; } 
+code span.dv { color: #0000cf; } 
+code span.er { color: #a40000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #0000cf; } 
+code span.fu { color: #204a87; font-weight: bold; } 
+code span.im { } 
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } 
+code span.kw { color: #204a87; font-weight: bold; } 
+code span.op { color: #ce5c00; font-weight: bold; } 
+code span.ot { color: #8f5902; } 
+code span.pp { color: #8f5902; font-style: italic; } 
+code span.sc { color: #ce5c00; font-weight: bold; } 
+code span.ss { color: #4e9a06; } 
+code span.st { color: #4e9a06; } 
+code span.va { color: #000000; } 
+code span.vs { color: #4e9a06; } 
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 
 
 
@@ -326,7 +426,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">My Exercise 1</h1>
+<h1 class="title toc-ignore">Exercise 2</h1>
 <h4 class="author">Rockefeller University, Bioinformatics Resource
 Centre</h4>
 <h4 class="date"><a href="https://rockefelleruniversity.github.io/Intro_To_Python/" class="uri">https://rockefelleruniversity.github.io/Intro_To_Python/</a></h4>
@@ -339,217 +439,17 @@ Centre</h4>
 </p>
 <p>These exercises are about data types and custom functions from
 Session 1 <a href="https://rockefelleruniversity.github.io/Intro_To_Python/">session1</a>.</p>
-<p><strong>Exercise 1</strong> - <strong>Functions</strong></p>
-<ul>
-<li>Look up what the <code>pow()</code> function does and how it
-works.</li>
-</ul>
-<pre><code>## Help on built-in function pow in module builtins:
-## 
-## pow(base, exp, mod=None)
-##     Equivalent to base**exp with 2 arguments or base**exp % mod with 3 arguments
-##     
-##     Some types, such as ints, are able to use a more efficient algorithm when
-##     invoked using the three argument form.</code></pre>
-<ul>
-<li>Use the <code>pow()</code> function to calculate 4^13.3</li>
-</ul>
-<pre><code>## 101718016.92449336</code></pre>
-<ul>
-<li>What data type is 4^13.3? Coerce it into an integer. Then a
-string.</li>
-</ul>
-<pre><code>## &lt;class &#39;float&#39;&gt;</code></pre>
-<pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
-<pre><code>## 101718016</code></pre>
-<pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
-<p><strong>Exercise 2</strong> - <strong>Variables</strong></p>
-<ul>
-<li>Create a variable named “myfirst_var” and store a number in it.</li>
-<li>Print the variable with the print() statement</li>
-</ul>
-<pre><code>## 1</code></pre>
-<ul>
-<li>Now let’s do a mathematical operation within a variable called
-“operation_var”; let’s try 2+2. Print the result.</li>
-</ul>
-<pre><code>## 4</code></pre>
-<ul>
-<li><p>Notice how you can perform math operations within a
-variable.</p></li>
-<li><p>Now let’s create a third variable. Start the name of the variable
-with a number, followed by an underscore and the word “var”. Store a
-random number in it.</p></li>
-</ul>
-<pre><code>##   File &quot;&lt;string&gt;&quot;, line 1
-##     1_var = 1
-##      ^
-## SyntaxError: invalid decimal literal
-##   File &quot;&lt;string&gt;&quot;, line 1
-##     print(1_var)
-##            ^
-## SyntaxError: invalid decimal literal</code></pre>
-<ul>
-<li>Notice how you obtain a syntax error? Now let’s try this again:
-create a new variable, this time starting with the word “var”,
-underscore, and a number. Store a random number in it and print your
-variable.</li>
-</ul>
-<pre><code>## 1</code></pre>
-<ul>
-<li>This naming convention is acceptable. Now create a different
-variable containing symbols (e.g. @&amp;%^). Store a random number in
-it.</li>
-</ul>
-<pre><code>##   File &quot;&lt;string&gt;&quot;, line 1
-##     var_% = 1
-##      ^
-## SyntaxError: invalid decimal literal
-##   File &quot;&lt;string&gt;&quot;, line 1
-##     print(var_%)
-##                ^
-## SyntaxError: invalid syntax</code></pre>
-<ul>
-<li>Once more, notice how you obtain a syntax error. Symbols are not
-accepted when naming a variable.</li>
-</ul>
-<p><strong>Exercise 3</strong> - <strong>Coercion</strong></p>
-<ul>
-<li>Now let’s create a variable called “coerce_var” and store the word
-“hello” in it.</li>
-<li>Check the type of coerce_var with type()</li>
-<li>Let’s try coercing it into a numeric integer with int(). What
-happens if you do this?</li>
-</ul>
-<pre><code>## &lt;class &#39;str&#39;&gt;</code></pre>
-<pre><code>## invalid literal for int() with base 10: &#39;hello&#39;</code></pre>
-<ul>
-<li>Notice how you get an error when attempting this; you cannot convert
-“hello” into an integer. Let’s try converting coerce_var into a bool()
-now</li>
-</ul>
-<pre><code>## True</code></pre>
-<ul>
-<li>coerce_var has been converted to a boolean type variable.</li>
-<li>Therefore, you can convert strings of characters into boolean types
-but not numeric types.</li>
-<li>Let’s try vice versa: create a variable called “coerce_num” and
-store a number in it. Coerce it into a string with str()</li>
-</ul>
-<pre><code>## &#39;3&#39;</code></pre>
-<ul>
-<li>Notice how there is no error this time. It is possible to coerce a
-numeric type into a string.</li>
-<li>Let’s try storing a number as a string (i.e. with quotations), and
-changing its type to integer.</li>
-</ul>
-<pre><code>## &lt;class &#39;str&#39;&gt;</code></pre>
-<pre><code>## 3</code></pre>
-<pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
-<ul>
-<li>This is possible given that numeric characters do have an integer
-equivalent.</li>
-</ul>
-<p><strong>Exercise 4</strong> - <strong>Concatenation</strong></p>
-<ul>
-<li>From the methods learned in class, try concatenating the strings “I”
-” code” in 3 different ways. First try to concatenate both strings
-within one variable. Print the results from your different
-attempts.</li>
-</ul>
-<pre><code>## I code</code></pre>
-<pre><code>## I code</code></pre>
-<pre><code>## I code</code></pre>
-<ul>
-<li>Then try creating 1 variable called “concatenate_1” which stores “I”
-and another called “concatenate_2” which stores ” code” and concatenate
-both variables. Try, for example, print(concatentate_1 + concatenate_2)
-- what do you get?</li>
-</ul>
-<pre><code>## I code</code></pre>
-<p><strong>Exercise 5</strong> - <strong>Lists</strong></p>
-<ul>
-<li>Create a list containing the values 1,2,3,4,5.</li>
-</ul>
-<pre><code>## [1, 2, 3, 4, 5]</code></pre>
-<ul>
-<li>Create a list containing the values a,b,c,d,e, but assign it to a
-new variable called <code>x</code>.</li>
-</ul>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code></pre>
-<ul>
-<li>Create a list containing the values a,b,c, repeated 5 times and
-assign it to a new variable</li>
-</ul>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code></pre>
-<ul>
-<li>Create a sublist with indexing. Use the variable you just created
-and extract the the 10th through to 15th position.</li>
-</ul>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;]</code></pre>
-<ul>
-<li>With the same variable, let’s use “-” indexing to get the last value
-of our list.</li>
-</ul>
-<pre><code>## &#39;c&#39;</code></pre>
-<ul>
-<li>Now print the values from [0:-1]</li>
-</ul>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;]</code></pre>
-<ul>
-<li><p>Notice how the last value of your list is missing, even though
-you access it with [-1]. That’s because slicing is exclusive, while
-indexing is inclusive.</p></li>
-<li><p>Append the list in variable x. Add the string z.</p></li>
-</ul>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;z&#39;]</code></pre>
-<ul>
-<li>Delete the 2nd through 6th entry of x.</li>
-</ul>
-<pre><code>## [&#39;a&#39;, &#39;z&#39;]</code></pre>
-<ul>
-<li>Lets go back to variable y. Sort it in reverse order.</li>
-</ul>
-<pre><code>## [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]</code></pre>
-<ul>
-<li>Multiply the y variable by 2.</li>
-</ul>
-<pre><code>## [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]</code></pre>
-<ul>
-<li>Use the function .remove() to eliminate “a” from your list.</li>
-</ul>
-<pre><code>## [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]</code></pre>
-<ul>
-<li><p>Notice that .remove() eliminates only the first instance of your
-specified entry.</p></li>
-<li><p>Create a list of lists. Use the values 1,2,3,4,5, along with the
-lists x and y.</p></li>
-</ul>
-<pre><code>## [[1, 2, 3, 4, 5], [&#39;a&#39;, &#39;z&#39;], [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]]</code></pre>
-<ul>
-<li>Take your previous list of lists and use indexing to find the third
-entry of your third list.</li>
-</ul>
-<pre><code>## &#39;c&#39;</code></pre>
-<p><strong>Exercise 3</strong> - <strong>Tuples</strong></p>
-<ul>
-<li>Create a tuple containing the values 1,2,3,4,5.</li>
-</ul>
-<pre><code>## (1, 2, 3, 4, 5)</code></pre>
-<ul>
-<li>Coerce list in variable x into a tuple.</li>
-</ul>
-<pre><code>## (&#39;a&#39;, &#39;z&#39;)</code></pre>
-<ul>
-<li>Make a touple with your list of lists.</li>
-<li>Print your results</li>
-</ul>
-<pre><code>## ([1, 2, 3, 4, 5], [&#39;a&#39;, &#39;z&#39;], [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;])</code></pre>
-<p><strong>Exercise 4</strong> - <strong>Dictionaries</strong></p>
+<p><strong>Exercise 1</strong> - <strong>Dictionaries</strong></p>
 <ul>
 <li>Create a dictionary containing a list of floats, a list of integers
 and a tuple of strings.</li>
 </ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>    <span class="st">&#39;my_float_list&#39;</span>: [<span class="fl">1.5</span>,<span class="fl">2.5</span>,<span class="fl">3.5</span>],</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>    <span class="st">&#39;my_integer_list&#39;</span>: [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>    <span class="st">&#39;my_strings_tuple&#39;</span>: (<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>}</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a>my_dict</span></code></pre></div>
 <pre><code>## {&#39;my_float_list&#39;: [1.5, 2.5, 3.5], &#39;my_integer_list&#39;: [4, 5, 6], &#39;my_strings_tuple&#39;: (&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)}</code></pre>
 <ul>
 <li><p>Create a dictionary containing GO terms and their corresponding
@@ -561,33 +461,62 @@ PDXK</p></li>
 <li><p><a href="GO:0031402" class="uri">GO:0031402</a> - SLC6A4, CAPN3,
 TDG, ATP1A2</p></li>
 </ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>    <span class="st">&#39;GO:0030955&#39;</span>: [<span class="st">&quot;PKM&quot;</span>, <span class="st">&quot;ADPRH&quot;</span>, <span class="st">&quot;ATP4A&quot;</span>, <span class="st">&quot;DRG1&quot;</span>],</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>    <span class="st">&#39;GO:0031403&#39;</span>: [<span class="st">&quot;IMPA1&quot;</span>, <span class="st">&quot;PDXK&quot;</span>],</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>    <span class="st">&#39;GO:0031402&#39;</span>: [<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>}</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>my_dict</span></code></pre></div>
 <pre><code>## {&#39;GO:0030955&#39;: [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;], &#39;GO:0031403&#39;: [&#39;IMPA1&#39;, &#39;PDXK&#39;], &#39;GO:0031402&#39;: [&#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;]}</code></pre>
 <ul>
 <li>Add a new parental GO term: <a href="GO:0031420" class="uri">GO:0031420</a>. This contains all the genes from the other 3
 entries.</li>
 </ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>    <span class="st">&#39;GO:0030955&#39;</span>: [<span class="st">&quot;PKM&quot;</span>, <span class="st">&quot;ADPRH&quot;</span>, <span class="st">&quot;ATP4A&quot;</span>, <span class="st">&quot;DRG1&quot;</span>],</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>    <span class="st">&#39;GO:0031403&#39;</span>: [<span class="st">&quot;IMPA1&quot;</span>, <span class="st">&quot;PDXK&quot;</span>],</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>    <span class="st">&#39;GO:0031402&#39;</span>: [<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>]</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>}</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>my_dict.setdefault(<span class="st">&#39;GO:0031420&#39;</span>, my_dict[<span class="st">&#39;GO:0030955&#39;</span>] <span class="op">+</span> my_dict[<span class="st">&#39;GO:0031403&#39;</span>] <span class="op">+</span> my_dict[<span class="st">&#39;GO:0031402&#39;</span>])</span></code></pre></div>
 <pre><code>## [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;, &#39;IMPA1&#39;, &#39;PDXK&#39;, &#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;]</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>my_dict</span></code></pre></div>
 <pre><code>## {&#39;GO:0030955&#39;: [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;], &#39;GO:0031403&#39;: [&#39;IMPA1&#39;, &#39;PDXK&#39;], &#39;GO:0031402&#39;: [&#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;], &#39;GO:0031420&#39;: [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;, &#39;IMPA1&#39;, &#39;PDXK&#39;, &#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;]}</code></pre>
-<p><strong>Exercise 5</strong> - <strong>Sets</strong></p>
+<p><strong>Exercise 2</strong> - <strong>Sets</strong></p>
 <ul>
 <li>Create 2 sets of gene names:
 <ul>
 <li>PKM, ADPRH, ZNF724,ATP4A,GSS, DRG1, FA2H, MCM10</li>
 <li>SLC6A4, MCM10, CAPN3, TDG, ATP1A2,GSS, BRCA1, HIVEP2, PKM</li>
 </ul></li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>my_set1 <span class="op">=</span> {<span class="st">&quot;PKM&quot;</span>, <span class="st">&quot;ADPRH&quot;</span>, <span class="st">&quot;ZNF724&quot;</span>,<span class="st">&quot;ATP4A&quot;</span>,<span class="st">&quot;GSS&quot;</span>, <span class="st">&quot;DRG1&quot;</span>, <span class="st">&quot;FA2H&quot;</span>, <span class="st">&quot;MCM10&quot;</span>}</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>my_set2 <span class="op">=</span> {<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;MCM10&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>,<span class="st">&quot;GSS&quot;</span>, <span class="st">&quot;BRCA1&quot;</span>, <span class="st">&quot;HIVEP2&quot;</span>, <span class="st">&quot;PKM&quot;</span>}</span></code></pre></div>
+<ul>
 <li>These are genes of interest from two experiments. What genes overlap
 between the two?</li>
 </ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>my_set1.intersection(my_set2) </span></code></pre></div>
 <pre><code>## {&#39;MCM10&#39;, &#39;PKM&#39;, &#39;GSS&#39;}</code></pre>
-<p><strong>Exercise 5</strong> - <strong>NumPy</strong></p>
+<p><strong>Exercise 3</strong> - <strong>NumPy</strong></p>
 <ul>
-<li><p>Import NumPy</p></li>
+<li>Import NumPy</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
+<ul>
 <li><p>Create a NumPy array with 4 columns and 5 rows.</p></li>
 <li><p>Sample - R1, R2, R3, R4, R5</p></li>
 <li><p>Year - 1990, 2010, 2005, 2015, 2012</p></li>
 <li><p>Replicate - True, True, False, False, False</p></li>
 <li><p>Tissue - Skin, Skin, Brain, Brain, Brain</p></li>
 </ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>arr_2d <span class="op">=</span> np.array([[<span class="st">&quot;R1&quot;</span>, <span class="dv">1990</span>, <span class="va">True</span>, <span class="st">&quot;Skin&quot;</span>],</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>  [<span class="st">&quot;R2&quot;</span>, <span class="dv">2010</span>, <span class="va">True</span>, <span class="st">&quot;Skin&quot;</span>], </span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>  [<span class="st">&quot;R3&quot;</span>, <span class="dv">2005</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>],</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>  [<span class="st">&quot;R4&quot;</span>, <span class="dv">2015</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>],</span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>  [<span class="st">&quot;R5&quot;</span>, <span class="dv">2012</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>]])</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>arr_2d</span></code></pre></div>
 <pre><code>## array([[&#39;R1&#39;, &#39;1990&#39;, &#39;True&#39;, &#39;Skin&#39;],
 ##        [&#39;R2&#39;, &#39;2010&#39;, &#39;True&#39;, &#39;Skin&#39;],
 ##        [&#39;R3&#39;, &#39;2005&#39;, &#39;False&#39;, &#39;Brain&#39;],
@@ -596,6 +525,7 @@ between the two?</li>
 <ul>
 <li>Slice the array to get just the Sample and Year.</li>
 </ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>arr_2d[:,<span class="dv">0</span>:<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## array([[&#39;R1&#39;, &#39;1990&#39;],
 ##        [&#39;R2&#39;, &#39;2010&#39;],
 ##        [&#39;R3&#39;, &#39;2005&#39;],
@@ -604,19 +534,31 @@ between the two?</li>
 <ul>
 <li>Subset the array to just Brain Tissue samples.</li>
 </ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>arr_2d[arr_2d[:,<span class="dv">3</span>] <span class="op">==</span><span class="st">&quot;Brain&quot;</span>,:]</span></code></pre></div>
 <pre><code>## array([[&#39;R3&#39;, &#39;2005&#39;, &#39;False&#39;, &#39;Brain&#39;],
 ##        [&#39;R4&#39;, &#39;2015&#39;, &#39;False&#39;, &#39;Brain&#39;],
 ##        [&#39;R5&#39;, &#39;2012&#39;, &#39;False&#39;, &#39;Brain&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
-<p><strong>Exercise 6</strong> - <strong>Custom Functions</strong></p>
+<p><strong>Exercise 4</strong> - <strong>Custom Functions</strong></p>
 <ul>
 <li>Create a function which takes one number and returns the square of
 that number</li>
 </ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="kw">def</span> squareOfNumber(number):</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a>  squareNumber <span class="op">=</span> number<span class="op">*</span>number</span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>  <span class="cf">return</span> squareNumber</span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>squareOfNumber(<span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## 81</code></pre>
 <ul>
 <li>Create a function which takes two numbers and returns the mean and
 the minimum</li>
 </ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="kw">def</span> mean_and_minOfNumbers(number1, number2):</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>  meanNumber <span class="op">=</span> (number1 <span class="op">+</span> number2) <span class="op">/</span><span class="dv">2</span></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a>  minNumber <span class="op">=</span> <span class="bu">min</span>([number1, number2])</span>
+<span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>  <span class="cf">return</span> [meanNumber,minNumber]</span>
+<span id="cb21-5"><a href="#cb21-5" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="#cb21-6" tabindex="-1"></a>mean_and_minOfNumbers(<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [2.0, 1]</code></pre>
 
 

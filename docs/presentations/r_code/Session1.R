@@ -88,6 +88,7 @@ if(params$isSlides == "yes"){
 ## conda install scipy
 ## conda install matplotlib
 ## conda install seaborn
+## conda install jupyter
 ## 
 
 ## ----results='asis',include=TRUE,echo=FALSE-----------------------------------
@@ -621,3 +622,16 @@ IndentationError: unexpected indent')
 ## 
 
 ## myFirstFunction(5,10)
+
+## 
+## def myFirstFunction(num1, num2):
+##   sumNum = num1 + num2
+##   return sumNum
+## 
+## 
+
+## 
+## import myFirstFunction_script
+## 
+## myFirstFunction_script.myFirstFunction(5,20)
+## 
