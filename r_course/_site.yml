@@ -38,6 +38,12 @@ navbar:
         href: exercises/exercises/MyExercise1_exercise.html
       - text: Solution
         href: exercises/answers/MyExercise1_answers.html
+    - text: MyExercise1.5
+      menu:
+      - text: Exercise
+        href: exercises/exercises/MyExercise1.5_exercise.html
+      - text: Solution
+        href: exercises/answers/MyExercise1.5_answers.html
     - text: MyExercise2
       menu:
       - text: Exercise
