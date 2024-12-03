@@ -104,7 +104,7 @@ There are several ways to control how your code is evaluated. There are two main
 
 Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
 
-In Python, we use the if statement with the logical to be evaluated immediately after. Thedependent code is indicated by a colon, new line and indentation.
+In Python, we use the if statement with the logical to be evaluated immediately after. The dependent code is indicated by a colon, new line and indentation.
 
 ```{python}
 
@@ -267,7 +267,7 @@ To help us write complex code we often use pseudocode as a starting point.
 ---
 ## Pseudocode
 
-When we write pseudocode we are trying to write out each computational step in a human readbale way. 
+When we write pseudocode we are trying to write out each computational step in a human readaBle way. 
 
 It is important to be specific, simple, concise and include the control structures that would be in your final code. 
 
@@ -398,6 +398,13 @@ kable(minRepdf[,1:4], format='html')
 
 If you are reading in data, you need to know from which vantage point your computer is looking. The view point of your computer is the Working Directory. 
 
+
+![location](imgs/youarehere.png)
+
+
+---
+## *os* package
+
 There are several utilities in the os (operating system) package. First lets check our current Working Directory using `getcwd`. 
 
 ```{python}
@@ -416,10 +423,17 @@ os.getcwd()
 ## '/Users/mattpaul/'
 ```
 
+--- 
+## Setting my Working Directory
+
+The working directory is based on your VS Code workspace. If you have not set this you can do so using the *Explorer* tab on the left of VS Code. If the workspace is in the wrong place, you can open a new window, set up a new workspace, then open a new python console. Let's navigate to the course material that we downloaded. There are some example data sets there: *Intro_To_Python-master/r_course/*
+
+![location](imgs/vs_workspace.png)
+
 ---
 ## Working Directory
 
-To set our Working Directory we can use the `chdir` function. Let's navigate to the course material that we downloaded. There are some example data sets there. 
+You can also directly change your Working Directory in python using the `chdir` function.  
 
 ```{python, eval=F}
 
@@ -438,7 +452,6 @@ os.listdir()
 os.listdir("data")
 
 ```
-
 
 ---
 ## Reading
@@ -505,11 +518,12 @@ sex
 ---
 ## Reading 
 
-An alternative to setting the data type explicitly, you can let genfromtxt determine it automatically by setting the dtype to `None`. This works pretty well most of the time.  
+An alternative to setting the data type explicitly, you can let genfromtxt determine it automatically by setting *dtype* to `None` and *encoding* to `None`. This works pretty well most of the time. 
+
 
 ```{python}
 
-sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None)
+sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None, encoding=None)
 
 sex
 ```
@@ -604,7 +618,6 @@ data/subset_dataset.py
 
 ```
 
-
 ---
 ## Example Script
 
@@ -613,32 +626,55 @@ This is our script:
 ```{python, eval=F}
 
 import numpy as np
+
 # Read in dataset
-sex, height, weight = np.genfromtxt('height-weight.csv', delimiter = ",", skip_header=True, unpack = True, dtype=None)
+sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, encoding=None, dtype=None)
 new_array = np.array([sex, height, weight])
 # Subset array
 to_subset = new_array[0,:]=="Female"
 subset_array = new_array[:,to_subset]
 # Print out number of Females in data set and export subset
 print(str(sum(to_subset)) + " are female")
-np.savetxt("height-weight_female.csv", subset_array, delimiter=',', fmt='%s')
+np.savetxt("data/height-weight_female.csv", subset_array, delimiter=',', fmt='%s')
 
 ```
 
 ---
+## Comments
+
+Comments are a core part of good coding etiquette. If you are sharing scripts or need to figure out what you did at a later date it helps to have a short statement to explain what you are doing.
+
+We can use the number/pound/hash sign to indicate that everything subsequent is "commented out". This means that python will not evaluate these sections. This gives us room to annotate our code.
+
+The longer and more complex your code gets, the longer and more complex your comments should get. 
+
+---
 ## Running scripts
 
-There are a couple of options for running scripts. In VS Code we can simply press the play button. 
+There are a couple of options for running scripts. In VS Code we can simply press the *Run* button. It looks like a Play icon.
 
-ADD SCREENSSHOT
+![location](imgs/v![location](imgs/vs_workspace.png))
 
 
 ---
 ## Running scripts
 
+VS code is helping us out here by running the script withut us having to directly work in terminal to initiate python. You can see what is doing in temrinal though when this runs. 
+
 More traditionally we would write start python directly and provide the script as an argument. 
 
-UNDER THE HOOD THIS IS WHT VS CODE IS DOING. ITS JUST GIVING YOU A NICE BUTTON. 
+```
+/Users/mattpaul/Deskt
+op/miniconda3/envs/intro_to_python/bin/python /Users/mattpaul/Documents/RU/Train
+ing/Intro_To_Python/r_course/data/susbet_dataset.py
+```
+
+---
+## Script Messages
+
+You should see that when this runs we create a new file. Also even though we do not have python open, the print statement is returned to the terminal. 
+
+When you have long and complex scripts these statements become even more important as checkpoints to make sure your code is working as expected. Any important result should be saved as a document though as these screen messages do not persist. 
 
 ---
 ##  An extra note

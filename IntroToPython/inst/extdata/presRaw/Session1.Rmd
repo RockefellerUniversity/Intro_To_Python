@@ -243,7 +243,7 @@ When you want to automate something, i.e. an analysis workflow, you will write a
 
 You can run python from within your terminal/command prompt. This will give you access to the python console.
 
-Many people prefer to use an **I**ntegrated **D**evelopment **E**nvironment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, and access to many customization features in additional panes. 
+Many people prefer to use an **I**ntegrated **D**evelopment **E**nvironment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, file navgation, and access to many customization features in additional panes. 
 
 Examples include RStudio, pyCharm, Xcode etc. 
 
