@@ -206,18 +206,43 @@ print(sex)
 
 ---
 
+## Manipulating our Data
+
+Let's separate our weight and height data by sex. Can you see what the code below does?
+
+```{python}
+height_m = []
+height_f = []
+weight_m = []
+weight_f = []
+
+for i in range(len(sex)):
+    if sex[i] == 'Male':
+        height_m.append(height[i])
+        weight_m.append(weight[i])
+    else:
+        height_f.append(height[i])
+        weight_f.append(weight[i])
+```
+
+---
+
 ## Scatter Plots
 
 Scatter plots are used for displaying discrete data points, where each point has a set of coordinates $(x,y)$. If you want to plot data points $(x_1, y_1), (x_2, y_2) ... (x_n, y_n)$ from lists $x = (x_1, x_2,...,x_n)$ and $y = (y_1, y_2,...,y_n)$, you can use the [`scatter()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html) function, applied to the axis you want to plot on.
 
-Let's create a plot of height vs weight using our patient data.
+Let's create a plot of height vs weight using our patient data. We are going to generate a 2x1 subplot and create a scatter plot on the left subplot.
 
 ```{python, eval=F}
-fig, ax = plt.subplots(figsize=(3, 3))
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
-ax.scatter(x=weight, y=height)
+# Plot data on ax1
+ax1.scatter(weight_m, height_m)
+ax1.scatter(weight_f, height_f)
 
 plt.show()
+
 ```
 
 ---
@@ -225,23 +250,16 @@ plt.show()
 ## Scatter Plots
 
 ```{python}
-fig, ax = plt.subplots(figsize=(6, 4))
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
-ax.scatter(x=weight, y=height)
+# Plot data on ax1
+ax1.scatter(weight_m, height_m)
+ax1.scatter(weight_f, height_f)
 
 plt.show()
+
 ```
-
-
----
-
-## Error Bars
-
-Confusingly, matplotlib has a separate function to create a scatter plot with error bars. To do so, you can use the  [`errorbar()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.errorbar.html) function. 
-
-This takes the usual `x` and `y` arguments for coordinates, as well as additional `xerr` and `yerr` arguments for the error bar values. 
-
-It also contains similar options to `scatter()` for customizing the data points and error bars.
 
 ---
 
@@ -281,11 +299,15 @@ Using these colors and the list of parameters below, take a second to customize 
 ## Customized Plot
 
 ```{python}
-fig, ax = plt.subplots(figsize=(6, 4))
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
-ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
+# Plot data on ax1
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
 
 plt.show()
+
 ```
 
 ---
@@ -295,9 +317,9 @@ plt.show()
 Let's add a title and some axis labels to our plot. To do this, we can use the following functions:
 
 ```{python, eval=F}
-ax.set_title("My Title")
-ax.set_xlabel("X Data Label")
-ax.set_ylabel("Y Data Label")
+ax1.set_title("Height vs Weight")
+ax1.set_xlabel("Weight (kg)")
+ax1.set_ylabel("Height (cm)")
 ```
 
 Be sure to add all of this code before the `plt.show()` line, which renders the plot. Anything after `show()` will not be applied to the figure you see.
@@ -305,45 +327,6 @@ Be sure to add all of this code before the `plt.show()` line, which renders the 
 ---
 
 ## Add Your Labels
-
-```{python}
-fig, ax = plt.subplots(figsize=(6, 4))
-
-ax.scatter(weight, height, s=49, color="lavender", marker="d", linewidths=1, edgecolors="mediumpurple")
-
-ax.set_title("Height vs Weight")
-ax.set_xlabel("Weight (kg)")
-ax.set_ylabel("Height (cm)")
-
-plt.show()
-```
-
----
-
-## Manipulating our Data
-
-Let's separate our weight and height data by sex. Can you see what the code below does?
-
-```{python}
-height_m = []
-height_f = []
-weight_m = []
-weight_f = []
-
-for i in range(len(sex)):
-    if sex[i] == 'Male':
-        height_m.append(height[i])
-        weight_m.append(weight[i])
-    else:
-        height_f.append(height[i])
-        weight_f.append(weight[i])
-```
-
----
-
-## Scatter Plot of Sex-Separated Data
-
-Now we are going to generate a 2x1 subplot and create some visualizations for this modified data.
 
 ```{python, eval=F}
 # Generate figure and axes
@@ -360,8 +343,6 @@ ax1.set_ylabel("Height (cm)")
 plt.show()
 
 ```
-
-
 
 ---
 
@@ -385,6 +366,7 @@ plt.show()
 
 
 ---
+
 ## Lines of Best Fit
 
 Lines of best fit (also called linear regressions) are useful tools for finding trends in scattered data. A line of best fit will follow the equation 
@@ -414,8 +396,6 @@ Let's give it a try!
 ---
 ## Get the Fit Parameters
 
-
-
 ```{python}
 from scipy.optimize import curve_fit 
 
@@ -431,23 +411,9 @@ print(popt_m)
 
 ---
 
-## Plotting a Continuous Function
-
-Another common type of plot is a line plot. Line plots can be created using the [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) function. The essential arguments of `plot()` are the lists of arrays of x and y values.
-
-Let's use `plot()` to add a line of best fit to out weight vs height data for both sexes. 
-
-
----
-## Plotting the Lines
-
-Now that we have the slopes and intercepts of each line of best fit, we can use [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) to plot them on our axes (`ax1`). `plot()` behaves exactly like scatter, in the sense that it accepts a list of x values and a list of y values. However, it will just plot these coordinates and connect them with a straight line. 
-
----
-
 ## X Coordinates
 
-First, we need to make our list of x coordinates. Let's make a list using the `np.linspace()` function. `np.linspace()` takes 3 arguments: `start`, `stop`, and `num`, and returns a list that begins at `start` and ends at `stop` with `num` evenly-spaced points.
+First, we need to make our list of x coordinates for the lines of best fit. Let's make a list using the `np.linspace()` function. `np.linspace()` takes 3 arguments: `start`, `stop`, and `num`, and returns a list that begins at `start` and ends at `stop` with `num` evenly-spaced points.
 
 Let's define our x values:
 
@@ -463,11 +429,18 @@ print(x)
 Now that we have our x values, we can plug them into the linear function we have defined, `line(x, m, b)`, including the values for the fit parameters we found using `curve_fit()`. Let's define our y values to plot in the following way:
 
 ```{python}
-y_male = line(x, popt_m[0], popt_m[1])
-y_female = line(x, popt_f[0], popt_f[1])
+y_male = line(x, m = popt_m[0], b = popt_m[1])
+y_female = line(x, m = popt_f[0], b = popt_f[1])
 ```
 
 ---
+
+## Generating a Line Plot
+
+Now that we have the x and y coordinates of each line of best fit, we can use [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) to plot them on our axes (`ax1`). `plot()` behaves exactly like scatter, in the sense that it accepts a list of x values and a list of y values. However, it will just plot these coordinates and connect them with a straight line. 
+
+---
+
 ## Plotting the Lines 
 
 Finally, we can put it all together. Take the code we have created for our 1x2 subplot and add in the lines of best fit on `ax1`.
@@ -484,9 +457,7 @@ ax1.plot(x, y_male, c = 'royalblue')
 ax1.plot(x, y_female, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
-
 ax1.set_xlabel("Weight (kg)")
-
 ax1.set_ylabel("Height (cm)")
 
 plt.show()
@@ -507,24 +478,20 @@ ax1.plot(x, y_male, c = 'royalblue')
 ax1.plot(x, y_female, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
-
 ax1.set_xlabel("Weight (kg)")
-
 ax1.set_ylabel("Height (cm)")
 
 plt.show()
 ```
 
-
-
 ---
 ## Adding a Legend
 
-Finally, we would like to add a legend to this plot now that it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. 
+Finally, we would like to add a legend to this plot since it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. 
 
-By adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function, we will automatically generate a legend. 
+We can automatically generate a legend by adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function. 
 
-You can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today.
+You can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today. Check out the documentation for full details!
 
 ---
 
@@ -543,9 +510,7 @@ ax1.plot(x, y_male, c = 'royalblue')
 ax1.plot(x, y_female, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
-
 ax1.set_xlabel("Weight (kg)")
-
 ax1.set_ylabel("Height (cm)")
 
 ax1.legend()
@@ -568,9 +533,7 @@ ax1.plot(x, y_male, c = 'royalblue')
 ax1.plot(x, y_female, c = 'magenta')
 
 ax1.set_title("Height vs Weight")
-
 ax1.set_xlabel("Weight (kg)")
-
 ax1.set_ylabel("Height (cm)")
 
 ax1.legend()
@@ -837,7 +800,7 @@ print(data)
 ## Heatmap Plot
 
 ```{python, echo=T}
-fig, ax = plt.subplots(figsize = (4,3))
+fig, ax = plt.subplots(figsize = (5,4))
 sns.heatmap(data, linewidth = 0.5, cmap = 'viridis', annot = True)
 ax.set_xlabel("Time")
 ax.set_ylabel("Gene")

@@ -472,79 +472,269 @@ string.</li>
 <pre><code>## 101718016</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="bu">type</span>(mystr)</span></code></pre></div>
 <pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
-<p><strong>Exercise 2</strong> - <strong>Lists</strong></p>
+<p><strong>Exercise 2</strong> - <strong>Variables</strong></p>
+<ul>
+<li>Create a variable named “myfirst_var” and store a number in it.</li>
+<li>Print the variable with the print() statement</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>myfirst_var <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="bu">print</span>(myfirst_var)</span></code></pre></div>
+<pre><code>## 1</code></pre>
+<ul>
+<li>Now let’s do a mathematical operation within a variable called
+“operation_var”; let’s try 2+2. Print the result.</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>operation_var <span class="op">=</span> <span class="dv">2</span><span class="op">+</span><span class="dv">2</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="bu">print</span>(operation_var)</span></code></pre></div>
+<pre><code>## 4</code></pre>
+<ul>
+<li><p>Notice how you can perform math operations within a
+variable.</p></li>
+<li><p>Now let’s create a third variable. Start the name of the variable
+with a number, followed by an underscore and the word “var”. Store a
+random number in it.</p></li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="dv">1</span><span class="er">_var</span> <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">1</span><span class="er">_var</span>)</span></code></pre></div>
+<pre><code>##   File &quot;&lt;string&gt;&quot;, line 1
+##     1_var = 1
+##      ^
+## SyntaxError: invalid decimal literal
+##   File &quot;&lt;string&gt;&quot;, line 1
+##     print(1_var)
+##            ^
+## SyntaxError: invalid decimal literal</code></pre>
+<ul>
+<li>Notice how you obtain a syntax error? Now let’s try this again:
+create a new variable, this time starting with the word “var”,
+underscore, and a number. Store a random number in it and print your
+variable.</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>var_1 <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a><span class="bu">print</span>(var_1)</span></code></pre></div>
+<pre><code>## 1</code></pre>
+<ul>
+<li>This naming convention is acceptable. Now create a different
+variable containing symbols (e.g. @&amp;%^). Store a random number in
+it.</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>var_<span class="op">%</span> <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="bu">print</span>(var_<span class="op">%</span>)</span></code></pre></div>
+<pre><code>##   File &quot;&lt;string&gt;&quot;, line 1
+##     var_% = 1
+##      ^
+## SyntaxError: invalid decimal literal
+##   File &quot;&lt;string&gt;&quot;, line 1
+##     print(var_%)
+##                ^
+## SyntaxError: invalid syntax</code></pre>
+<ul>
+<li>Once more, notice how you obtain a syntax error. Symbols are not
+accepted when naming a variable.</li>
+</ul>
+<p><strong>Exercise 3</strong> - <strong>Coercion</strong></p>
+<ul>
+<li>Now let’s create a variable called “coerce_var” and store the word
+“hello” in it.</li>
+<li>Check the type of coerce_var with type()</li>
+<li>Let’s try coercing it into a numeric integer with int(). What
+happens if you do this?</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>coerce_var <span class="op">=</span> <span class="st">&quot;hello&quot;</span></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" tabindex="-1"></a><span class="bu">type</span>(coerce_var)</span>
+<span id="cb23-4"><a href="#cb23-4" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" tabindex="-1"></a><span class="bu">int</span>(coerce_var)</span></code></pre></div>
+<pre><code>## &lt;class &#39;str&#39;&gt;</code></pre>
+<pre><code>## invalid literal for int() with base 10: &#39;hello&#39;</code></pre>
+<ul>
+<li>Notice how you get an error when attempting this; you cannot convert
+“hello” into an integer. Let’s try converting coerce_var into a bool()
+now</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="bu">bool</span>(coerce_var)</span></code></pre></div>
+<pre><code>## True</code></pre>
+<ul>
+<li>coerce_var has been converted to a boolean type variable.</li>
+<li>Therefore, you can convert strings of characters into boolean types
+but not numeric types.</li>
+<li>Let’s try vice versa: create a variable called “coerce_num” and
+store a number in it. Coerce it into a string with str()</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>coerce_num <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a><span class="bu">str</span>(coerce_num)</span></code></pre></div>
+<pre><code>## &#39;3&#39;</code></pre>
+<ul>
+<li>Notice how there is no error this time. It is possible to coerce a
+numeric type into a string.</li>
+<li>Let’s try storing a number as a string (i.e. with quotations), and
+changing its type to integer.</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a>coerce_var <span class="op">=</span> <span class="st">&quot;3&quot;</span></span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a><span class="bu">type</span>(coerce_var)</span></code></pre></div>
+<pre><code>## &lt;class &#39;str&#39;&gt;</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="bu">int</span>(coerce_var)</span></code></pre></div>
+<pre><code>## 3</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a>    </span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a><span class="bu">type</span>(<span class="bu">int</span>(coerce_var))</span></code></pre></div>
+<pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
+<ul>
+<li>This is possible given that numeric characters do have an integer
+equivalent.</li>
+</ul>
+<p><strong>Exercise 4</strong> - <strong>Concatenation</strong></p>
+<ul>
+<li>From the methods learned in class, try concatenating the strings “I”
+” code” in 3 different ways. First try to concatenate both strings
+within one variable. Print the results from your different
+attempts.</li>
+</ul>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a>concatenated_str <span class="op">=</span> <span class="st">&quot;I&quot;</span> <span class="st">&quot; code&quot;</span></span>
+<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" tabindex="-1"></a><span class="bu">print</span>(concatenated_str)</span></code></pre></div>
+<pre><code>## I code</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a>concatenated_str <span class="op">=</span> <span class="st">&quot;I&quot;</span> <span class="op">+</span> <span class="st">&quot; code&quot;</span></span>
+<span id="cb38-2"><a href="#cb38-2" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" tabindex="-1"></a><span class="bu">print</span>(concatenated_str)</span></code></pre></div>
+<pre><code>## I code</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>concatenated_str <span class="op">=</span> <span class="st">&quot;I&quot;</span></span>
+<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a>concatenated_str <span class="op">+=</span> <span class="st">&quot; code&quot;</span></span>
+<span id="cb40-3"><a href="#cb40-3" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" tabindex="-1"></a><span class="bu">print</span>(concatenated_str)</span></code></pre></div>
+<pre><code>## I code</code></pre>
+<ul>
+<li>Then try creating 1 variable called “concatenate_1” which stores “I”
+and another called “concatenate_2” which stores ” code” and concatenate
+both variables. Try, for example, print(concatentate_1 + concatenate_2)
+- what do you get?</li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a>concatenate_1 <span class="op">=</span> <span class="st">&quot;I&quot;</span></span>
+<span id="cb42-2"><a href="#cb42-2" tabindex="-1"></a>concatenate_2 <span class="op">=</span> <span class="st">&quot; code&quot;</span></span>
+<span id="cb42-3"><a href="#cb42-3" tabindex="-1"></a></span>
+<span id="cb42-4"><a href="#cb42-4" tabindex="-1"></a><span class="bu">print</span>(concatenate_1 <span class="op">+</span> concatenate_2)</span></code></pre></div>
+<pre><code>## I code</code></pre>
+<p><strong>Exercise 5</strong> - <strong>Lists</strong></p>
 <ul>
 <li>Create a list containing the values 1,2,3,4,5.</li>
 </ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]</span></code></pre></div>
 <pre><code>## [1, 2, 3, 4, 5]</code></pre>
 <ul>
 <li>Create a list containing the values a,b,c,d,e, but assign it to a
 new variable called <code>x</code>.</li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>,<span class="st">&quot;e&quot;</span>]</span>
-<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;d&quot;</span>,<span class="st">&quot;e&quot;</span>]</span>
+<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code></pre>
 <ul>
 <li>Create a list containing the values a,b,c, repeated 5 times and
 assign it to a new variable</li>
 </ul>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>y <span class="op">=</span> [<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>] <span class="op">*</span> <span class="dv">5</span></span>
-<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a>y <span class="op">=</span> [<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>] <span class="op">*</span> <span class="dv">5</span></span>
+<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code></pre>
 <ul>
 <li>Create a sublist with indexing. Use the variable you just created
 and extract the the 10th through to 15th position.</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>y[<span class="dv">9</span>:<span class="dv">14</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a>y[<span class="dv">9</span>:<span class="dv">14</span>]</span></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;]</code></pre>
 <ul>
-<li>Append the list in variable x. Add the string z.</li>
+<li>With the same variable, let’s use “-” indexing to get the last value
+of our list.</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>x.append(<span class="st">&#39;z&#39;</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a>y[<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## &#39;c&#39;</code></pre>
+<ul>
+<li>Now print the values from [0:-1]</li>
+</ul>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a>y[<span class="dv">0</span>:<span class="op">-</span><span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;]</code></pre>
+<ul>
+<li><p>Notice how the last value of your list is missing, even though
+you access it with [-1]. That’s because slicing is exclusive, while
+indexing is inclusive.</p></li>
+<li><p>Append the list in variable x. Add the string z.</p></li>
+</ul>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a>x.append(<span class="st">&#39;z&#39;</span>)</span>
+<span id="cb56-2"><a href="#cb56-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;z&#39;]</code></pre>
 <ul>
 <li>Delete the 2nd through 6th entry of x.</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="kw">del</span>(x[<span class="dv">1</span>:<span class="dv">5</span>])</span>
-<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>x</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="kw">del</span>(x[<span class="dv">1</span>:<span class="dv">5</span>])</span>
+<span id="cb58-2"><a href="#cb58-2" tabindex="-1"></a>x</span></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;z&#39;]</code></pre>
 <ul>
 <li>Lets go back to variable y. Sort it in reverse order.</li>
 </ul>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>y.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>y</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a>y.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb60-2"><a href="#cb60-2" tabindex="-1"></a>y</span></code></pre></div>
 <pre><code>## [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]</code></pre>
 <ul>
-<li>Create a list of lists. Use the values 1,2,3,4,5, along with the
-lists x and y.</li>
+<li>Multiply the y variable by 2.</li>
 </ul>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>nested_list <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>], x, y]</span>
-<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a>nested_list</span></code></pre></div>
-<pre><code>## [[1, 2, 3, 4, 5], [&#39;a&#39;, &#39;z&#39;], [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]]</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a>y <span class="op">*</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]</code></pre>
+<ul>
+<li>Use the function .remove() to eliminate “a” from your list.</li>
+</ul>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" tabindex="-1"></a>y.remove(<span class="st">&quot;a&quot;</span>)</span>
+<span id="cb64-2"><a href="#cb64-2" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="#cb64-3" tabindex="-1"></a><span class="bu">print</span>(y)</span></code></pre></div>
+<pre><code>## [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]</code></pre>
+<ul>
+<li><p>Notice that .remove() eliminates only the first instance of your
+specified entry.</p></li>
+<li><p>Create a list of lists. Use the values 1,2,3,4,5, along with the
+lists x and y.</p></li>
+</ul>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" tabindex="-1"></a>nested_list <span class="op">=</span> [[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>], x, y]</span>
+<span id="cb66-2"><a href="#cb66-2" tabindex="-1"></a>nested_list</span></code></pre></div>
+<pre><code>## [[1, 2, 3, 4, 5], [&#39;a&#39;, &#39;z&#39;], [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]]</code></pre>
+<ul>
+<li>Take your previous list of lists and use indexing to find the third
+entry of your third list.</li>
+</ul>
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" tabindex="-1"></a>nested_list[<span class="dv">2</span>][<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## &#39;c&#39;</code></pre>
 <p><strong>Exercise 3</strong> - <strong>Tuples</strong></p>
 <ul>
 <li>Create a tuple containing the values 1,2,3,4,5.</li>
 </ul>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" tabindex="-1"></a>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span></code></pre></div>
 <pre><code>## (1, 2, 3, 4, 5)</code></pre>
 <ul>
 <li>Coerce list in variable x into a tuple.</li>
 </ul>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="bu">tuple</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" tabindex="-1"></a><span class="bu">tuple</span>(x)</span></code></pre></div>
 <pre><code>## (&#39;a&#39;, &#39;z&#39;)</code></pre>
+<ul>
+<li>Make a touple with your list of lists.</li>
+<li>Print your results</li>
+</ul>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" tabindex="-1"></a>nested_list_tuple <span class="op">=</span> <span class="bu">tuple</span>(nested_list)</span>
+<span id="cb74-2"><a href="#cb74-2" tabindex="-1"></a></span>
+<span id="cb74-3"><a href="#cb74-3" tabindex="-1"></a><span class="bu">print</span>(nested_list_tuple)</span></code></pre></div>
+<pre><code>## ([1, 2, 3, 4, 5], [&#39;a&#39;, &#39;z&#39;], [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;])</code></pre>
 <p><strong>Exercise 4</strong> - <strong>Dictionaries</strong></p>
 <ul>
 <li>Create a dictionary containing a list of floats, a list of integers
 and a tuple of strings.</li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
-<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a>    <span class="st">&#39;my_float_list&#39;</span>: [<span class="fl">1.5</span>,<span class="fl">2.5</span>,<span class="fl">3.5</span>],</span>
-<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a>    <span class="st">&#39;my_integer_list&#39;</span>: [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],</span>
-<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a>    <span class="st">&#39;my_strings_tuple&#39;</span>: (<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)</span>
-<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a>}</span>
-<span id="cb33-6"><a href="#cb33-6" tabindex="-1"></a>my_dict</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="cb76-2"><a href="#cb76-2" tabindex="-1"></a>    <span class="st">&#39;my_float_list&#39;</span>: [<span class="fl">1.5</span>,<span class="fl">2.5</span>,<span class="fl">3.5</span>],</span>
+<span id="cb76-3"><a href="#cb76-3" tabindex="-1"></a>    <span class="st">&#39;my_integer_list&#39;</span>: [<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],</span>
+<span id="cb76-4"><a href="#cb76-4" tabindex="-1"></a>    <span class="st">&#39;my_strings_tuple&#39;</span>: (<span class="st">&quot;a&quot;</span>,<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>)</span>
+<span id="cb76-5"><a href="#cb76-5" tabindex="-1"></a>}</span>
+<span id="cb76-6"><a href="#cb76-6" tabindex="-1"></a>my_dict</span></code></pre></div>
 <pre><code>## {&#39;my_float_list&#39;: [1.5, 2.5, 3.5], &#39;my_integer_list&#39;: [4, 5, 6], &#39;my_strings_tuple&#39;: (&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)}</code></pre>
 <ul>
 <li><p>Create a dictionary containing GO terms and their corresponding
@@ -556,25 +746,25 @@ PDXK</p></li>
 <li><p><a href="GO:0031402" class="uri">GO:0031402</a> - SLC6A4, CAPN3,
 TDG, ATP1A2</p></li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
-<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a>    <span class="st">&#39;GO:0030955&#39;</span>: [<span class="st">&quot;PKM&quot;</span>, <span class="st">&quot;ADPRH&quot;</span>, <span class="st">&quot;ATP4A&quot;</span>, <span class="st">&quot;DRG1&quot;</span>],</span>
-<span id="cb35-3"><a href="#cb35-3" tabindex="-1"></a>    <span class="st">&#39;GO:0031403&#39;</span>: [<span class="st">&quot;IMPA1&quot;</span>, <span class="st">&quot;PDXK&quot;</span>],</span>
-<span id="cb35-4"><a href="#cb35-4" tabindex="-1"></a>    <span class="st">&#39;GO:0031402&#39;</span>: [<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>]</span>
-<span id="cb35-5"><a href="#cb35-5" tabindex="-1"></a>}</span>
-<span id="cb35-6"><a href="#cb35-6" tabindex="-1"></a>my_dict</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="cb78-2"><a href="#cb78-2" tabindex="-1"></a>    <span class="st">&#39;GO:0030955&#39;</span>: [<span class="st">&quot;PKM&quot;</span>, <span class="st">&quot;ADPRH&quot;</span>, <span class="st">&quot;ATP4A&quot;</span>, <span class="st">&quot;DRG1&quot;</span>],</span>
+<span id="cb78-3"><a href="#cb78-3" tabindex="-1"></a>    <span class="st">&#39;GO:0031403&#39;</span>: [<span class="st">&quot;IMPA1&quot;</span>, <span class="st">&quot;PDXK&quot;</span>],</span>
+<span id="cb78-4"><a href="#cb78-4" tabindex="-1"></a>    <span class="st">&#39;GO:0031402&#39;</span>: [<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>]</span>
+<span id="cb78-5"><a href="#cb78-5" tabindex="-1"></a>}</span>
+<span id="cb78-6"><a href="#cb78-6" tabindex="-1"></a>my_dict</span></code></pre></div>
 <pre><code>## {&#39;GO:0030955&#39;: [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;], &#39;GO:0031403&#39;: [&#39;IMPA1&#39;, &#39;PDXK&#39;], &#39;GO:0031402&#39;: [&#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;]}</code></pre>
 <ul>
 <li>Add a new parental GO term: <a href="GO:0031420" class="uri">GO:0031420</a>. This contains all the genes from the other 3
 entries.</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
-<span id="cb37-2"><a href="#cb37-2" tabindex="-1"></a>    <span class="st">&#39;GO:0030955&#39;</span>: [<span class="st">&quot;PKM&quot;</span>, <span class="st">&quot;ADPRH&quot;</span>, <span class="st">&quot;ATP4A&quot;</span>, <span class="st">&quot;DRG1&quot;</span>],</span>
-<span id="cb37-3"><a href="#cb37-3" tabindex="-1"></a>    <span class="st">&#39;GO:0031403&#39;</span>: [<span class="st">&quot;IMPA1&quot;</span>, <span class="st">&quot;PDXK&quot;</span>],</span>
-<span id="cb37-4"><a href="#cb37-4" tabindex="-1"></a>    <span class="st">&#39;GO:0031402&#39;</span>: [<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>]</span>
-<span id="cb37-5"><a href="#cb37-5" tabindex="-1"></a>}</span>
-<span id="cb37-6"><a href="#cb37-6" tabindex="-1"></a>my_dict.setdefault(<span class="st">&#39;GO:0031420&#39;</span>, my_dict[<span class="st">&#39;GO:0030955&#39;</span>] <span class="op">+</span> my_dict[<span class="st">&#39;GO:0031403&#39;</span>] <span class="op">+</span> my_dict[<span class="st">&#39;GO:0031402&#39;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="cb80-2"><a href="#cb80-2" tabindex="-1"></a>    <span class="st">&#39;GO:0030955&#39;</span>: [<span class="st">&quot;PKM&quot;</span>, <span class="st">&quot;ADPRH&quot;</span>, <span class="st">&quot;ATP4A&quot;</span>, <span class="st">&quot;DRG1&quot;</span>],</span>
+<span id="cb80-3"><a href="#cb80-3" tabindex="-1"></a>    <span class="st">&#39;GO:0031403&#39;</span>: [<span class="st">&quot;IMPA1&quot;</span>, <span class="st">&quot;PDXK&quot;</span>],</span>
+<span id="cb80-4"><a href="#cb80-4" tabindex="-1"></a>    <span class="st">&#39;GO:0031402&#39;</span>: [<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>]</span>
+<span id="cb80-5"><a href="#cb80-5" tabindex="-1"></a>}</span>
+<span id="cb80-6"><a href="#cb80-6" tabindex="-1"></a>my_dict.setdefault(<span class="st">&#39;GO:0031420&#39;</span>, my_dict[<span class="st">&#39;GO:0030955&#39;</span>] <span class="op">+</span> my_dict[<span class="st">&#39;GO:0031403&#39;</span>] <span class="op">+</span> my_dict[<span class="st">&#39;GO:0031402&#39;</span>])</span></code></pre></div>
 <pre><code>## [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;, &#39;IMPA1&#39;, &#39;PDXK&#39;, &#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;]</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a>my_dict</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" tabindex="-1"></a>my_dict</span></code></pre></div>
 <pre><code>## {&#39;GO:0030955&#39;: [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;], &#39;GO:0031403&#39;: [&#39;IMPA1&#39;, &#39;PDXK&#39;], &#39;GO:0031402&#39;: [&#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;], &#39;GO:0031420&#39;: [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;, &#39;IMPA1&#39;, &#39;PDXK&#39;, &#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;]}</code></pre>
 <p><strong>Exercise 5</strong> - <strong>Sets</strong></p>
 <ul>
@@ -584,21 +774,21 @@ entries.</li>
 <li>SLC6A4, MCM10, CAPN3, TDG, ATP1A2,GSS, BRCA1, HIVEP2, PKM</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a></span>
-<span id="cb41-2"><a href="#cb41-2" tabindex="-1"></a>my_set1 <span class="op">=</span> {<span class="st">&quot;PKM&quot;</span>, <span class="st">&quot;ADPRH&quot;</span>, <span class="st">&quot;ZNF724&quot;</span>,<span class="st">&quot;ATP4A&quot;</span>,<span class="st">&quot;GSS&quot;</span>, <span class="st">&quot;DRG1&quot;</span>, <span class="st">&quot;FA2H&quot;</span>, <span class="st">&quot;MCM10&quot;</span>}</span>
-<span id="cb41-3"><a href="#cb41-3" tabindex="-1"></a>my_set2 <span class="op">=</span> {<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;MCM10&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>,<span class="st">&quot;GSS&quot;</span>, <span class="st">&quot;BRCA1&quot;</span>, <span class="st">&quot;HIVEP2&quot;</span>, <span class="st">&quot;PKM&quot;</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" tabindex="-1"></a></span>
+<span id="cb84-2"><a href="#cb84-2" tabindex="-1"></a>my_set1 <span class="op">=</span> {<span class="st">&quot;PKM&quot;</span>, <span class="st">&quot;ADPRH&quot;</span>, <span class="st">&quot;ZNF724&quot;</span>,<span class="st">&quot;ATP4A&quot;</span>,<span class="st">&quot;GSS&quot;</span>, <span class="st">&quot;DRG1&quot;</span>, <span class="st">&quot;FA2H&quot;</span>, <span class="st">&quot;MCM10&quot;</span>}</span>
+<span id="cb84-3"><a href="#cb84-3" tabindex="-1"></a>my_set2 <span class="op">=</span> {<span class="st">&quot;SLC6A4&quot;</span>, <span class="st">&quot;MCM10&quot;</span>, <span class="st">&quot;CAPN3&quot;</span>, <span class="st">&quot;TDG&quot;</span>, <span class="st">&quot;ATP1A2&quot;</span>,<span class="st">&quot;GSS&quot;</span>, <span class="st">&quot;BRCA1&quot;</span>, <span class="st">&quot;HIVEP2&quot;</span>, <span class="st">&quot;PKM&quot;</span>}</span></code></pre></div>
 <ul>
 <li>These are genes of interest from two experiments. What genes overlap
 between the two?</li>
 </ul>
-<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a>my_set1.intersection(my_set2) </span></code></pre></div>
-<pre><code>## {&#39;GSS&#39;, &#39;PKM&#39;, &#39;MCM10&#39;}</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" tabindex="-1"></a>my_set1.intersection(my_set2) </span></code></pre></div>
+<pre><code>## {&#39;PKM&#39;, &#39;GSS&#39;, &#39;MCM10&#39;}</code></pre>
 <p><strong>Exercise 5</strong> - <strong>NumPy</strong></p>
 <ul>
 <li>Import NumPy</li>
 </ul>
-<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a></span>
-<span id="cb44-2"><a href="#cb44-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" tabindex="-1"></a></span>
+<span id="cb87-2"><a href="#cb87-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
 <ul>
 <li><p>Create a NumPy array with 4 columns and 5 rows.</p></li>
 <li><p>Sample - R1, R2, R3, R4, R5</p></li>
@@ -606,12 +796,12 @@ between the two?</li>
 <li><p>Replicate - True, True, False, False, False</p></li>
 <li><p>Tissue - Skin, Skin, Brain, Brain, Brain</p></li>
 </ul>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>arr_2d <span class="op">=</span> np.array([[<span class="st">&quot;R1&quot;</span>, <span class="dv">1990</span>, <span class="va">True</span>, <span class="st">&quot;Skin&quot;</span>],</span>
-<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a>  [<span class="st">&quot;R2&quot;</span>, <span class="dv">2010</span>, <span class="va">True</span>, <span class="st">&quot;Skin&quot;</span>], </span>
-<span id="cb45-3"><a href="#cb45-3" tabindex="-1"></a>  [<span class="st">&quot;R3&quot;</span>, <span class="dv">2005</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>],</span>
-<span id="cb45-4"><a href="#cb45-4" tabindex="-1"></a>  [<span class="st">&quot;R4&quot;</span>, <span class="dv">2015</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>],</span>
-<span id="cb45-5"><a href="#cb45-5" tabindex="-1"></a>  [<span class="st">&quot;R5&quot;</span>, <span class="dv">2012</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>]])</span>
-<span id="cb45-6"><a href="#cb45-6" tabindex="-1"></a>arr_2d</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" tabindex="-1"></a>arr_2d <span class="op">=</span> np.array([[<span class="st">&quot;R1&quot;</span>, <span class="dv">1990</span>, <span class="va">True</span>, <span class="st">&quot;Skin&quot;</span>],</span>
+<span id="cb88-2"><a href="#cb88-2" tabindex="-1"></a>  [<span class="st">&quot;R2&quot;</span>, <span class="dv">2010</span>, <span class="va">True</span>, <span class="st">&quot;Skin&quot;</span>], </span>
+<span id="cb88-3"><a href="#cb88-3" tabindex="-1"></a>  [<span class="st">&quot;R3&quot;</span>, <span class="dv">2005</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>],</span>
+<span id="cb88-4"><a href="#cb88-4" tabindex="-1"></a>  [<span class="st">&quot;R4&quot;</span>, <span class="dv">2015</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>],</span>
+<span id="cb88-5"><a href="#cb88-5" tabindex="-1"></a>  [<span class="st">&quot;R5&quot;</span>, <span class="dv">2012</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>]])</span>
+<span id="cb88-6"><a href="#cb88-6" tabindex="-1"></a>arr_2d</span></code></pre></div>
 <pre><code>## array([[&#39;R1&#39;, &#39;1990&#39;, &#39;True&#39;, &#39;Skin&#39;],
 ##        [&#39;R2&#39;, &#39;2010&#39;, &#39;True&#39;, &#39;Skin&#39;],
 ##        [&#39;R3&#39;, &#39;2005&#39;, &#39;False&#39;, &#39;Brain&#39;],
@@ -620,7 +810,7 @@ between the two?</li>
 <ul>
 <li>Slice the array to get just the Sample and Year.</li>
 </ul>
-<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a>arr_2d[:,<span class="dv">0</span>:<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" tabindex="-1"></a>arr_2d[:,<span class="dv">0</span>:<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## array([[&#39;R1&#39;, &#39;1990&#39;],
 ##        [&#39;R2&#39;, &#39;2010&#39;],
 ##        [&#39;R3&#39;, &#39;2005&#39;],
@@ -629,7 +819,7 @@ between the two?</li>
 <ul>
 <li>Subset the array to just Brain Tissue samples.</li>
 </ul>
-<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a>arr_2d[arr_2d[:,<span class="dv">3</span>] <span class="op">==</span><span class="st">&quot;Brain&quot;</span>,:]</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" tabindex="-1"></a>arr_2d[arr_2d[:,<span class="dv">3</span>] <span class="op">==</span><span class="st">&quot;Brain&quot;</span>,:]</span></code></pre></div>
 <pre><code>## array([[&#39;R3&#39;, &#39;2005&#39;, &#39;False&#39;, &#39;Brain&#39;],
 ##        [&#39;R4&#39;, &#39;2015&#39;, &#39;False&#39;, &#39;Brain&#39;],
 ##        [&#39;R5&#39;, &#39;2012&#39;, &#39;False&#39;, &#39;Brain&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
@@ -638,22 +828,22 @@ between the two?</li>
 <li>Create a function which takes one number and returns the square of
 that number</li>
 </ul>
-<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a><span class="kw">def</span> squareOfNumber(number):</span>
-<span id="cb51-2"><a href="#cb51-2" tabindex="-1"></a>  squareNumber <span class="op">=</span> number<span class="op">*</span>number</span>
-<span id="cb51-3"><a href="#cb51-3" tabindex="-1"></a>  <span class="cf">return</span> squareNumber</span>
-<span id="cb51-4"><a href="#cb51-4" tabindex="-1"></a></span>
-<span id="cb51-5"><a href="#cb51-5" tabindex="-1"></a>squareOfNumber(<span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" tabindex="-1"></a><span class="kw">def</span> squareOfNumber(number):</span>
+<span id="cb94-2"><a href="#cb94-2" tabindex="-1"></a>  squareNumber <span class="op">=</span> number<span class="op">*</span>number</span>
+<span id="cb94-3"><a href="#cb94-3" tabindex="-1"></a>  <span class="cf">return</span> squareNumber</span>
+<span id="cb94-4"><a href="#cb94-4" tabindex="-1"></a></span>
+<span id="cb94-5"><a href="#cb94-5" tabindex="-1"></a>squareOfNumber(<span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## 81</code></pre>
 <ul>
 <li>Create a function which takes two numbers and returns the mean and
 the minimum</li>
 </ul>
-<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" tabindex="-1"></a><span class="kw">def</span> mean_and_minOfNumbers(number1, number2):</span>
-<span id="cb53-2"><a href="#cb53-2" tabindex="-1"></a>  meanNumber <span class="op">=</span> (number1 <span class="op">+</span> number2) <span class="op">/</span><span class="dv">2</span></span>
-<span id="cb53-3"><a href="#cb53-3" tabindex="-1"></a>  minNumber <span class="op">=</span> <span class="bu">min</span>([number1, number2])</span>
-<span id="cb53-4"><a href="#cb53-4" tabindex="-1"></a>  <span class="cf">return</span> [meanNumber,minNumber]</span>
-<span id="cb53-5"><a href="#cb53-5" tabindex="-1"></a></span>
-<span id="cb53-6"><a href="#cb53-6" tabindex="-1"></a>mean_and_minOfNumbers(<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" tabindex="-1"></a><span class="kw">def</span> mean_and_minOfNumbers(number1, number2):</span>
+<span id="cb96-2"><a href="#cb96-2" tabindex="-1"></a>  meanNumber <span class="op">=</span> (number1 <span class="op">+</span> number2) <span class="op">/</span><span class="dv">2</span></span>
+<span id="cb96-3"><a href="#cb96-3" tabindex="-1"></a>  minNumber <span class="op">=</span> <span class="bu">min</span>([number1, number2])</span>
+<span id="cb96-4"><a href="#cb96-4" tabindex="-1"></a>  <span class="cf">return</span> [meanNumber,minNumber]</span>
+<span id="cb96-5"><a href="#cb96-5" tabindex="-1"></a></span>
+<span id="cb96-6"><a href="#cb96-6" tabindex="-1"></a>mean_and_minOfNumbers(<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [2.0, 1]</code></pre>
 
 
