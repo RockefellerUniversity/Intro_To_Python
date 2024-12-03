@@ -1517,7 +1517,7 @@ Once I have made a function and I want to keep reusing it I can easily save it i
 
 First open a new script: File > New File > Python Script. We can then add our orginal function and save the python script as *myFirstFunction.py*.
 
-```{python}
+```{python, eval=F}
 
 def myFirstFunction(num1, num2):
   sumNum = num1 + num2
@@ -1533,7 +1533,7 @@ def myFirstFunction(num1, num2):
 
 First open a new script: File > New File > Python Script. We can then add our orginal function and save the python script as *myFirstFunction_script.py*.
 
-```{python}
+```{python, eval=F}
 
 import myFirstFunction_script
 
