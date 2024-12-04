@@ -5,4 +5,4 @@ Presentations:
     titles: Session1 Session2 Session3
     PresRmd: Session1.Rmd Session2.Rmd Session3.Rmd
     PresOverviewRmd: Session1Overview.Rmd Session2Overview.Rmd Session3Overview.Rmd
-    Exercises: Exercise1.Rmd,Exercise2.Rmd,Exercise3.Rmd Exercise4.Rmd Exercise5.Rmd
+    Exercises: Exercise1.Rmd,Exercise2.Rmd,Exercise3.Rmd,Exercise4.Rmd Exercise5.Rmd Exercise6.Rmd
