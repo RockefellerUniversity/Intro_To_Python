@@ -69,3 +69,53 @@ np.savetxt("GeneNames_highexpression.txt", geneNames_sub, delimiter="\t", fmt='%
 ```
 
 
+**Exercise 2** - **Scripts**
+
+Lets try to put as much together that we have learnt thus far. This will be a multistep challenge. Break it down and use pseudocode to help. Start by working the code interactively, then turn it into a script. 
+
+
+1. Read in the "data/GeneExpressionWithMethods.txt" dataset. 
+2. Use a for loop to calculate the Z score for each gene (per row). The zscore is (gene_expression - mean)/standard deviation. You should use a function to do this calculation.
+2. Save the result as a NumPy array. The *vstack* function might be useful. 
+3. Find which gene has the highest absolute max Zscore. This is a very rough proxy for the variability of that gene.
+4. Print out the gene name with the highest value
+5. Turn this into a script and run the script
+
+
+```{python,echo=toMessage}
+
+geneExpression = np.genfromtxt("data/GeneExpressionWithMethods.txt", delimiter="\t", skip_header=4)
+```
+
+```{python,echo=toMessage}
+my_mean = geneExpression.mean(axis=1)
+my_std = geneExpression.std(axis=1)
+```
+
+```{python,echo=toMessage}
+
+def zscore(value, mean, std):
+  my_z = (value-mean)/std
+  return my_z
+
+```
+
+```{python,echo=toMessage}
+
+for i in range(geneExpression.shape[0]):
+  geneExpression_zscore = zscore(geneExpression[i], my_mean[i], my_std[i])
+  if i==0:
+    my_zscore=np.array(geneExpression_zscore)
+  else:
+    my_zscore=np.vstack((my_zscore,geneExpression_zscore))
+  
+my_abs = abs(my_zscore)
+top_values = my_abs.max(axis=1)
+top_value = top_values.max()
+my_top_index = top_values == top_value
+
+geneNames = np.genfromtxt("data/GeneNames.txt", delimiter="\t", dtype="U6")
+geneNames_sub = geneNames[my_top_index]
+print(geneNames_sub)
+
+```
