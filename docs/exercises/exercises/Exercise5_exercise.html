@@ -384,6 +384,23 @@ mean function attribute)</li>
 this in and subset it based on whether the mean gene expression is over
 6. Write this out into a new text file.</li>
 </ul>
+<p><strong>Exercise 2</strong> - <strong>Scripts</strong></p>
+<p>Lets try to put as much together that we have learnt thus far. This
+will be a multistep challenge. Break it down and use pseudocode to help.
+Start by working the code interactively, then turn it into a script.</p>
+<ol style="list-style-type: decimal">
+<li>Read in the “data/GeneExpressionWithMethods.txt” dataset.</li>
+<li>Use a for loop to calculate the Z score for each gene (per row). The
+zscore is (gene_expression - mean)/standard deviation. You should use a
+function to do this calculation.</li>
+<li>Save the result as a NumPy array. The <em>vstack</em> function might
+be useful.</li>
+<li>Find which gene has the highest absolute max Zscore. This is a very
+rough proxy for the variability of that gene.</li>
+<li>Print out the gene name with the highest value</li>
+<li>Turn this into a script and run the script</li>
+</ol>
+<pre><code>## [&#39;Gene_h&#39;]</code></pre>
 
 
 
