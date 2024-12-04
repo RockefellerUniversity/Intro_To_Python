@@ -32,30 +32,36 @@ navbar:
         href: presentations/r_code/Session3.R
   - text: Exercises
     menu:
-    - text: MyExercise1
+    - text: Exercise1
       menu:
       - text: Exercise
-        href: exercises/exercises/MyExercise1_exercise.html
+        href: exercises/exercises/Exercise1_exercise.html
       - text: Solution
-        href: exercises/answers/MyExercise1_answers.html
-    - text: MyExercise1.5
+        href: exercises/answers/Exercise1_answers.html
+    - text: Exercise2
       menu:
       - text: Exercise
-        href: exercises/exercises/MyExercise1.5_exercise.html
+        href: exercises/exercises/Exercise2_exercise.html
       - text: Solution
-        href: exercises/answers/MyExercise1.5_answers.html
-    - text: MyExercise2
+        href: exercises/answers/Exercise2_answers.html
+    - text: Exercise3
       menu:
       - text: Exercise
-        href: exercises/exercises/MyExercise2_exercise.html
+        href: exercises/exercises/Exercise3_exercise.html
       - text: Solution
-        href: exercises/answers/MyExercise2_answers.html
-    - text: MyExercise3
+        href: exercises/answers/Exercise3_answers.html
+    - text: Exercise4
       menu:
       - text: Exercise
-        href: exercises/exercises/MyExercise3_exercise.html
+        href: exercises/exercises/Exercise4_exercise.html
       - text: Solution
-        href: exercises/answers/MyExercise3_answers.html
+        href: exercises/answers/Exercise4_answers.html
+    - text: Exercise5
+      menu:
+      - text: Exercise
+        href: exercises/exercises/Exercise5_exercise.html
+      - text: Solution
+        href: exercises/answers/Exercise5_answers.html
   right:
   - text: Getting help!
     href: https://github.com//RockefellerUniversity/Intro_To_Python/issues
