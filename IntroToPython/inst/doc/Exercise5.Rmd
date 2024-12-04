@@ -80,7 +80,7 @@ Lets try to put as much together that we have learnt thus far. This will be a mu
 3. Find which gene has the highest absolute max Zscore. This is a very rough proxy for the variability of that gene.
 4. Print out the gene name with the highest value
 5. Turn this into a script and run the script
-
+6. Think about what modifications you would need to make in order to accept a different data set as input.
 
 ```{python,echo=toMessage}
 

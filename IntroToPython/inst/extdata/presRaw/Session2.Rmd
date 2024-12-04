@@ -377,14 +377,53 @@ There are a couple of options for running scripts. In VS Code we can simply pres
 ---
 ## Running scripts
 
-VS code is helping us out here by running the script withut us having to directly work in terminal to initiate python. You can see what is doing in temrinal though when this runs. 
+VS code is helping us out here by running the script without us having to directly work in terminal to initiate python. You can see what is doing in terminal though when this runs. 
 
-More traditionally we would write start python directly and provide the script as an argument. 
+More traditionally we would invoke python directly and provide the script. You will have to do this directly if you want to run a more complex script i.e. one that takes arguments. 
 
 ```
 /Users/mattpaul/Deskt
 op/miniconda3/envs/intro_to_python/bin/python /Users/mattpaul/Documents/RU/Train
 ing/Intro_To_Python/r_course/data/susbet_dataset.py
+```
+
+
+---
+## Passing Arguments
+
+To use arguments we first have to modify our script. Arguments are parsed by the *sys* library. *sys* stores them in *sys.argv*. The first entry is the scripts name. Subsequent entries are the different arguments.
+
+```{python, eval=F}
+
+import sys
+import numpy as np
+
+print("My Script Name:", sys.argv[0]) 
+print("My Argument:", sys.argv[1])
+arg1 = sys.argv[1]
+
+# Read in dataset
+sex, height, weight = np.genfromtxt('data/height-weight.csv', delimiter = ",", skip_header=True, unpack = True, encoding=None, dtype=None)
+new_array = np.array([sex, height, weight])
+# Subset array
+to_subset = new_array[0,:]==arg1
+subset_array = new_array[:,to_subset]
+# Print out number of Females in data set and export subset
+print(str(sum(to_subset)) + " are " + arg1)
+np.savetxt("data/height-weight_"+arg1+".csv", subset_array, delimiter=',', fmt='%s')
+
+```
+
+
+---
+## Passing Arguments
+
+To pass the argument to our script when we run it, we simply add it after our python script. 
+
+```
+/Users/mattpaul/Deskt
+op/miniconda3/envs/intro_to_python/bin/python /Users/mattpaul/Documents/RU/Train
+ing/Intro_To_Python/r_course/data/susbet_dataset_args.py Male
 ```
 
 ---
