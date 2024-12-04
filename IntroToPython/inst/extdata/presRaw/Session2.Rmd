@@ -172,11 +172,52 @@ os.listdir("data")
 ```
 
 ---
-## Reading
+## Paths
+
+When you give a path to python it can either be relative or absolute. 
+
+
+![location](imgs/youarehere2.png)
+
+---
+## Paths
+
+To use our map analogy:
+
+- Relative path are like directions i.e. take a left, go straight then take a right etc. The context of where you start is essential.
+
+- Absolute paths are like an address. They give the final location in absence of any other external information. 
+
+Both have their benefits. 
+
+---
+
+## Paths in use
+
+The command we used before was using an absolute path. Typically they start with "/" to get to the top level of your computers file structure.
+
+```{python, eval=F}
+
+os.chdir("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
+
+```
+
+Given that we started at: */Users/mattpaul*, we could have also used. This uses the knowledge that we are in that start position to find where we are going. 
+
+```{python, eval=F}
+
+os.chdir("Downloads/Intro_To_Python-master/r_course/")
+
+```
+
+---
+## Back to Reading
 
 There are many ways to read in data. Most of the time we are importing simple 2D tables, so we want to generate a NumPy array using the `genfromtxt()` function.
 
 Here we are reading a csv file (Comma-Separated Values). This means each value in our file is separated by a comma. So when we read the file we will specify that the delimiter is a comma. 
+
+We can use the relative path from our new working directory to find it. 
 
 
 ```{python}
@@ -327,7 +368,7 @@ if(params$isSlides == "yes"){
 
 So far we have been working interactively with the console: asking it questions and getting answers back immediately. 
 
-When you want to run all your code, or if you want to start working on automation you can run a whole script instead. In this case we have all our code written out in a *.py document. 
+When you want to run all your code, or if you want to start working on automation you can run a whole script instead. In this case we have all our code written out in a *.py document. This is good practice for matured analysis that you have finalized to ensure that you have everything properly documented. 
 
 Lets have a look at an example python script. 
 
@@ -436,7 +477,7 @@ When you have long and complex scripts these statements become even more importa
 ---
 ##  An extra note
 
-Keeping Your Code nice can be annoying. There exists many ways in which to store your code. Most of the time we are not writing scripts that are production level. Instead you will be doing an analysis of a data set and making decisions in an interactive manner. 
+Keeping Your code nice can be annoying. There exists many ways in which to store your code. Most of the time we are not writing scripts that are production level. Instead you will be doing an analysis of a data set and making decisions in an interactive manner. 
 
 Notebooks give you a means to tie the code, the analysis decisions and the result of the code together into a single file. 
 
