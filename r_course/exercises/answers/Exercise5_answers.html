@@ -507,6 +507,46 @@ this in and subset it based on whether the mean gene expression is over
 <span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>geneNames <span class="op">=</span> np.genfromtxt(<span class="st">&quot;data/GeneNames.txt&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, dtype<span class="op">=</span><span class="st">&quot;U6&quot;</span>)</span>
 <span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a>geneNames_sub <span class="op">=</span> geneNames[sub_idx]</span>
 <span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a>np.savetxt(<span class="st">&quot;GeneNames_highexpression.txt&quot;</span>, geneNames_sub, delimiter<span class="op">=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, fmt<span class="op">=</span><span class="st">&#39;</span><span class="sc">%s</span><span class="st">&#39;</span>)</span></code></pre></div>
+<p><strong>Exercise 2</strong> - <strong>Scripts</strong></p>
+<p>Lets try to put as much together that we have learnt thus far. This
+will be a multistep challenge. Break it down and use pseudocode to help.
+Start by working the code interactively, then turn it into a script.</p>
+<ol style="list-style-type: decimal">
+<li>Read in the “data/GeneExpressionWithMethods.txt” dataset.</li>
+<li>Use a for loop to calculate the Z score for each gene (per row). The
+zscore is (gene_expression - mean)/standard deviation. You should use a
+function to do this calculation.</li>
+<li>Save the result as a NumPy array. The <em>vstack</em> function might
+be useful.</li>
+<li>Find which gene has the highest absolute max Zscore. This is a very
+rough proxy for the variability of that gene.</li>
+<li>Print out the gene name with the highest value</li>
+<li>Turn this into a script and run the script</li>
+</ol>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a></span>
+<span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>geneExpression <span class="op">=</span> np.genfromtxt(<span class="st">&quot;data/GeneExpressionWithMethods.txt&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, skip_header<span class="op">=</span><span class="dv">4</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a>my_mean <span class="op">=</span> geneExpression.mean(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>my_std <span class="op">=</span> geneExpression.std(axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a></span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a><span class="kw">def</span> zscore(value, mean, std):</span>
+<span id="cb25-3"><a href="#cb25-3" tabindex="-1"></a>  my_z <span class="op">=</span> (value<span class="op">-</span>mean)<span class="op">/</span>std</span>
+<span id="cb25-4"><a href="#cb25-4" tabindex="-1"></a>  <span class="cf">return</span> my_z</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(geneExpression.shape[<span class="dv">0</span>]):</span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>  geneExpression_zscore <span class="op">=</span> zscore(geneExpression[i], my_mean[i], my_std[i])</span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a>  <span class="cf">if</span> i<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a>    my_zscore<span class="op">=</span>np.array(geneExpression_zscore)</span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a>    my_zscore<span class="op">=</span>np.vstack((my_zscore,geneExpression_zscore))</span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a>  </span>
+<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a>my_abs <span class="op">=</span> <span class="bu">abs</span>(my_zscore)</span>
+<span id="cb26-9"><a href="#cb26-9" tabindex="-1"></a>top_values <span class="op">=</span> my_abs.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" tabindex="-1"></a>top_value <span class="op">=</span> top_values.<span class="bu">max</span>()</span>
+<span id="cb26-11"><a href="#cb26-11" tabindex="-1"></a>my_top_index <span class="op">=</span> top_values <span class="op">==</span> top_value</span>
+<span id="cb26-12"><a href="#cb26-12" tabindex="-1"></a></span>
+<span id="cb26-13"><a href="#cb26-13" tabindex="-1"></a>geneNames <span class="op">=</span> np.genfromtxt(<span class="st">&quot;data/GeneNames.txt&quot;</span>, delimiter<span class="op">=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, dtype<span class="op">=</span><span class="st">&quot;U6&quot;</span>)</span>
+<span id="cb26-14"><a href="#cb26-14" tabindex="-1"></a>geneNames_sub <span class="op">=</span> geneNames[my_top_index]</span>
+<span id="cb26-15"><a href="#cb26-15" tabindex="-1"></a><span class="bu">print</span>(geneNames_sub)</span></code></pre></div>
+<pre><code>## [&#39;Gene_h&#39;]</code></pre>
 
 
 
