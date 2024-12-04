@@ -1584,6 +1584,8 @@ and Functions</a></li>
 Objects</a></li>
 <li><a href="https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Custom_Functions">Custom
 Functions</a></li>
+<li><a href="https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Control_Statements">Control
+Statements</a></li>
 </ul>
 </div>
 </div>
@@ -2271,10 +2273,10 @@ and each entry is unique. Sets can be created using the curly brackets,
 or by coercing another object using the <code>set()</code> function.</p>
 <div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb147-1"><a href="#cb147-1" tabindex="-1"></a>myset <span class="op">=</span> {<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>}</span>
 <span id="cb147-2"><a href="#cb147-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;}</code></pre>
+<pre><code>## {&#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
 <div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>])</span>
 <span id="cb149-2"><a href="#cb149-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;}</code></pre>
+<pre><code>## {&#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="sets-can-be-modified" class="section level2">
 <h2>Sets can be modified</h2>
@@ -2282,10 +2284,10 @@ or by coercing another object using the <code>set()</code> function.</p>
 modification of sets.</p>
 <div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1" tabindex="-1"></a>myset.add(<span class="st">&quot;d&quot;</span>)</span>
 <span id="cb151-2"><a href="#cb151-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;, &#39;d&#39;}</code></pre>
+<pre><code>## {&#39;d&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
 <div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="#cb153-1" tabindex="-1"></a>myset.remove(<span class="st">&quot;d&quot;</span>)</span>
 <span id="cb153-2"><a href="#cb153-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;}</code></pre>
+<pre><code>## {&#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="sets-have-no-order" class="section level2">
 <h2>Sets have no order</h2>
@@ -2300,7 +2302,7 @@ objects can be.</p>
 contain unique values.</p>
 <div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>])</span>
 <span id="cb157-2"><a href="#cb157-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;c&#39;, &#39;b&#39;, &#39;a&#39;}</code></pre>
+<pre><code>## {&#39;c&#39;, &#39;a&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="sets-have-specific-functions" class="section level2">
 <h2>Sets have specific functions</h2>
@@ -2710,6 +2712,228 @@ can then add our orginal function and save the python script as
 <div id="answers-to-the-exercise-2" class="section level2">
 <h2>Answers to the exercise</h2>
 <p>Answers can be found here <a href="../../exercises/answers/Exercise3_answers.html">here</a></p>
+</div>
+</div>
+<div id="control-statements" class="section level1">
+<h1>Control Statements</h1>
+<hr />
+<div id="control-statements-1" class="section level2">
+<h2>Control Statements</h2>
+<p>There are several ways to control how your code is evaluated. There
+are two main classes:</p>
+<ul>
+<li>Conditional branching (if,else)<br />
+</li>
+<li>Loops (for, while)</li>
+</ul>
+<p><span style="color:green">While</span> I’m analyzing data, <span style="color:red">if</span> I need to execute complex statistical
+procedures on the data I will use Python <span style="color:red">else</span> I will use a calculator.</p>
+</div>
+<div id="conditional-branching" class="section level2">
+<h2>Conditional Branching</h2>
+<p>Conditional branching is the evaluation of a logical to determine
+whether a chunk of code is executed.</p>
+<p>In Python, we use the if statement with the logical to be evaluated
+immediately after. The dependent code is indicated by a colon, new line
+and indentation.</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb228-1"><a href="#cb228-1" tabindex="-1"></a>x <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb228-2"><a href="#cb228-2" tabindex="-1"></a><span class="cf">if</span> x:</span>
+<span id="cb228-3"><a href="#cb228-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is true&quot;</span>)</span></code></pre></div>
+<pre><code>## x is true</code></pre>
+<div class="sourceCode" id="cb230"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb230-1"><a href="#cb230-1" tabindex="-1"></a></span>
+<span id="cb230-2"><a href="#cb230-2" tabindex="-1"></a>x <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb230-3"><a href="#cb230-3" tabindex="-1"></a><span class="cf">if</span> x:</span>
+<span id="cb230-4"><a href="#cb230-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is true&quot;</span>)</span></code></pre></div>
+</div>
+<div id="conditional-branching-1" class="section level2">
+<h2>Conditional Branching</h2>
+<p>More often, we construct the logical value within the if statement
+itself. This can be termed the condition.</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb231-1"><a href="#cb231-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb231-2"><a href="#cb231-2" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb231-3"><a href="#cb231-3" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> y:</span>
+<span id="cb231-4"><a href="#cb231-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The value of x is&quot;</span>,x,<span class="st">&quot;which is greater than&quot;</span>, y)</span></code></pre></div>
+<pre><code>## The value of x is 10 which is greater than 4</code></pre>
+<p>The message is printed above because x is greater than y.</p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb233-1"><a href="#cb233-1" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb233-2"><a href="#cb233-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> y:</span>
+<span id="cb233-3"><a href="#cb233-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The value of x is&quot;</span>,x,<span class="st">&quot;which is greater than&quot;</span>, y)</span></code></pre></div>
+<p>x is now no longer greater than y, so no message is printed.</p>
+<p>We really still want a message telling us what was the result of the
+condition.</p>
+</div>
+<div id="else-following-an-if" class="section level2">
+<h2>else following an if</h2>
+<p>If we want to perform an operation when the condition is false we can
+follow the <code>if</code> statement with an <code>else</code>
+statement.</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb234-1"><a href="#cb234-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb234-2"><a href="#cb234-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb234-3"><a href="#cb234-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
+<span id="cb234-4"><a href="#cb234-4" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb234-5"><a href="#cb234-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than or equal to 5&quot;</span>)</span></code></pre></div>
+<pre><code>## 3 is less than to 5</code></pre>
+<div class="sourceCode" id="cb236"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb236-1"><a href="#cb236-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb236-2"><a href="#cb236-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb236-3"><a href="#cb236-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
+<span id="cb236-4"><a href="#cb236-4" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb236-5"><a href="#cb236-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than or equal to 5&quot;</span>)</span></code></pre></div>
+<pre><code>## 10 is greater than or equal to 5</code></pre>
+</div>
+<div id="else-if-elif" class="section level2">
+<h2>else if = elif</h2>
+<p>We may wish to execute different procedures under multiple
+conditions. This can be controlled using the <code>elif</code> following
+an initial <code>if</code> statement.</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb238-1"><a href="#cb238-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb238-2"><a href="#cb238-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb238-3"><a href="#cb238-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
+<span id="cb238-4"><a href="#cb238-4" tabindex="-1"></a><span class="cf">elif</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb238-5"><a href="#cb238-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than 5&quot;</span>)</span>
+<span id="cb238-6"><a href="#cb238-6" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb238-7"><a href="#cb238-7" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is 5&quot;</span>)</span></code></pre></div>
+<pre><code>## 5 is 5</code></pre>
+</div>
+<div id="loops" class="section level2">
+<h2>Loops</h2>
+<p>While and for loops iterate over a block of code, and keep rerunning
+it.</p>
+<p><code>While</code> loops do this while a specific condition is met
+(or until that condition is not met).</p>
+<p><code>For</code> loops will do this for a given number of
+iterations.</p>
+</div>
+<div id="while-loop" class="section level2">
+<h2>While loop</h2>
+<p>While loops have a similar structure to if statements. We start by
+designating the while loop, ten follow with the logical to be evaluated
+immediately after. The dependent code is indicated by a colon, new line
+and indentation.</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb240-1"><a href="#cb240-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb240-2"><a href="#cb240-2" tabindex="-1"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb240-3"><a href="#cb240-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is&quot;</span>,x)</span>
+<span id="cb240-4"><a href="#cb240-4" tabindex="-1"></a>  x <span class="op">=</span> x<span class="op">+</span><span class="dv">1</span></span></code></pre></div>
+<pre><code>## x is 1
+## x is 2</code></pre>
+</div>
+<div id="for-loop" class="section level2">
+<h2>For loop</h2>
+<p>For loops do not have a conditional. Instead you supply an object
+that you want to be iterate over. This can be a list, tuple, dictionary,
+set or string. Here we use a list.</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb242-1"><a href="#cb242-1" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">&#39;Alpha&#39;</span>,<span class="st">&#39;Bravo&#39;</span>,<span class="st">&#39;Charlie&#39;</span>]</span>
+<span id="cb242-2"><a href="#cb242-2" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
+<span id="cb242-3"><a href="#cb242-3" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code></pre></div>
+<pre><code>## Alpha
+## Bravo
+## Charlie</code></pre>
+</div>
+<div id="for-and-range" class="section level2">
+<h2>for and range()</h2>
+<p>The range() function provides us with a nice input for our for loops.
+It returns a sequence of numbers, starting from 0 and stops before the
+specified number.</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb244-1"><a href="#cb244-1" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb244-2"><a href="#cb244-2" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;i is&quot;</span>, i)</span></code></pre></div>
+<pre><code>## i is 0
+## i is 1
+## i is 2</code></pre>
+</div>
+<div id="looping-through-indices" class="section level2">
+<h2>Looping through indices</h2>
+<p>When we have a numeric range, we can use it to index out from
+existing objects. This often allows for more complex code
+evaluation.</p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb246-1"><a href="#cb246-1" tabindex="-1"></a>geneName <span class="op">=</span> [<span class="st">&quot;Ikzf1&quot;</span>,<span class="st">&quot;Myc&quot;</span>,<span class="st">&quot;Igll1&quot;</span>]</span>
+<span id="cb246-2"><a href="#cb246-2" tabindex="-1"></a>expression <span class="op">=</span> [<span class="fl">10.4</span>, <span class="fl">4.3</span>, <span class="fl">6.5</span>]</span>
+<span id="cb246-3"><a href="#cb246-3" tabindex="-1"></a>iterations <span class="op">=</span> <span class="bu">len</span>(geneName)</span>
+<span id="cb246-4"><a href="#cb246-4" tabindex="-1"></a></span>
+<span id="cb246-5"><a href="#cb246-5" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(iterations):</span>
+<span id="cb246-6"><a href="#cb246-6" tabindex="-1"></a>  <span class="bu">print</span>(geneName[i],<span class="st">&quot; has an TPM of &quot;</span>,expression[i])</span></code></pre></div>
+<pre><code>## Ikzf1  has an TPM of  10.4
+## Myc  has an TPM of  4.3
+## Igll1  has an TPM of  6.5</code></pre>
+</div>
+<div id="loops-and-conditionals" class="section level2">
+<h2>Loops and conditionals</h2>
+<p>Loops can be combined with conditional statements to allow for
+complex control of their execution over Python objects.</p>
+<p>To help us write complex code we often use pseudocode as a starting
+point.</p>
+</div>
+<div id="pseudocode" class="section level2">
+<h2>Pseudocode</h2>
+<p>When we write pseudocode we are trying to write out each
+computational step in a human readaBle way.</p>
+<p>It is important to be specific, simple, concise and include the
+control structures that would be in your final code.</p>
+<pre><code>
+for 0 to 7
+  if value is greater than 5
+    print the value and a statement saying it is greater than 5
+  else if value is 5
+    print the value and a statement saying it is equal to 5
+  else if value is less than 5
+    print the value and a statement saying it is less than 5
+
+</code></pre>
+</div>
+<div id="loops-and-conditionals-1" class="section level2">
+<h2>Loops and conditionals</h2>
+<p>Though these can be tough to read and create, by starting with
+pseudocode and keeping an eye of the hierarchy of indentation we can
+follow the logic.</p>
+<pre><code>for 0 to 7
+  if value is greater than 5
+    print the value and a statement saying it is greater than 5
+  else if value is 5
+    print the value and a statement saying it is equal to 5
+  else if value is less than 5
+    print the value and a statement saying it is less than 5</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb250-1"><a href="#cb250-1" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
+<span id="cb250-2"><a href="#cb250-2" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb250-3"><a href="#cb250-3" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is greater than 5&quot;</span>)</span>
+<span id="cb250-4"><a href="#cb250-4" tabindex="-1"></a>  <span class="cf">elif</span> i <span class="op">==</span> <span class="dv">5</span>:</span>
+<span id="cb250-5"><a href="#cb250-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is  5&quot;</span>) </span>
+<span id="cb250-6"><a href="#cb250-6" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb250-7"><a href="#cb250-7" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is less than 5&quot;</span>) </span></code></pre></div>
+<pre><code>## Number 0 is less than 5
+## Number 1 is less than 5
+## Number 2 is less than 5
+## Number 3 is less than 5
+## Number 4 is less than 5
+## Number 5 is  5
+## Number 6 is greater than 5
+## Number 7 is greater than 5</code></pre>
+</div>
+<div id="breaking-loops" class="section level2">
+<h2>Breaking loops</h2>
+<p>We can use conditionals to exit a loop if a condition is satisfied,
+just like a while loop.</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb252-1"><a href="#cb252-1" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">range</span>(<span class="dv">8</span>)</span>
+<span id="cb252-2"><a href="#cb252-2" tabindex="-1"></a></span>
+<span id="cb252-3"><a href="#cb252-3" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
+<span id="cb252-4"><a href="#cb252-4" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb252-5"><a href="#cb252-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is greater than 5&quot;</span>)</span>
+<span id="cb252-6"><a href="#cb252-6" tabindex="-1"></a>  <span class="cf">elif</span> i <span class="op">==</span> <span class="dv">5</span>:</span>
+<span id="cb252-7"><a href="#cb252-7" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is  5&quot;</span>)</span>
+<span id="cb252-8"><a href="#cb252-8" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb252-9"><a href="#cb252-9" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb252-10"><a href="#cb252-10" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is less than 5&quot;</span>) </span></code></pre></div>
+<pre><code>## Number 0 is less than 5
+## Number 1 is less than 5
+## Number 2 is less than 5
+## Number 3 is less than 5
+## Number 4 is less than 5
+## Number 5 is  5</code></pre>
+</div>
+<div id="time-for-an-exercise-3" class="section level2">
+<h2>Time for an exercise!</h2>
+<p>Exercises around control structures can be found <a href="https://rockefelleruniversity.github.io/Intro_To_Python/exercises/exercises/Exercise4_exercise.html">here</a></p>
+</div>
+<div id="answers-to-exercise" class="section level2">
+<h2>Answers to exercise</h2>
+<p>Answers can be found <a href="https://rockefelleruniversity.github.io/Intro_To_Python/exercises/answers/Exercise4_answers.html">here</a></p>
 </div>
 <div id="further-support" class="section level2">
 <h2>Further Support</h2>

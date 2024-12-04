@@ -62,6 +62,12 @@ navbar:
         href: exercises/exercises/Exercise5_exercise.html
       - text: Solution
         href: exercises/answers/Exercise5_answers.html
+    - text: Exercise6
+      menu:
+      - text: Exercise
+        href: exercises/exercises/Exercise6_exercise.html
+      - text: Solution
+        href: exercises/answers/Exercise6_answers.html
   right:
   - text: Getting help!
     href: https://github.com//RockefellerUniversity/Intro_To_Python/issues
