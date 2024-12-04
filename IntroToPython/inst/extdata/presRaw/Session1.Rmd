@@ -53,6 +53,7 @@ if(params$isSlides != "yes"){
 - [Variables and Functions](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Variables_and_Functions)
 - [Data Objects](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Data_Objects)
 - [Custom Functions](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Custom_Functions)
+- [Control Statements](https://rockefelleruniversity.github.io/Intro_To_Python/presentations/singlepage/Session1.html#Control_Statements)
 
 
 ---
@@ -1552,6 +1553,295 @@ Exercise on the data types we have covered so far can be found [here](../../exer
 ## Answers to the exercise
 
 Answers can be found here  [here](../../exercises/answers/Exercise3_answers.html)
+
+
+
+---
+```{r, results='asis',include=TRUE,echo=FALSE}
+if(params$isSlides == "yes"){
+  cat("class: inverse, center, middle
+
+# Control Statements
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=720px></html> 
+
+---
+"    
+  )
+
+}else{
+  cat("# Control Statements
+      
+---
+"    
+  )
+  
+}
+
+```
+
+
+## Control Statements
+
+There are several ways to control how your code is evaluated. There are two main classes:
+
+* Conditional branching (if,else)  
+* Loops (for, while)
+
+
+<span style="color:green">While</span> I'm analyzing data, <span style="color:red">if</span> I need to execute complex statistical procedures on the data I will use Python <span style="color:red">else</span> I will use a calculator.
+
+---
+## Conditional Branching
+
+Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
+
+In Python, we use the if statement with the logical to be evaluated immediately after. The dependent code is indicated by a colon, new line and indentation.
+
+```{python}
+
+x = True
+if x:
+  print("x is true")
+
+```
+
+```{python}
+
+x = False
+if x:
+  print("x is true")
+
+```
+
+---
+## Conditional Branching
+
+More often, we construct the logical value within the if statement itself. This can be termed the condition.
+
+```{python}
+
+x = 10
+y = 4
+if x > y:
+  print("The value of x is",x,"which is greater than", y)
+
+```
+The message is printed above because x is greater than y.
+
+
+```{python}
+y = 20
+if x > y:
+  print("The value of x is",x,"which is greater than", y)
+
+```
+
+x is now no longer greater than y, so no message is printed.
+
+We really still want a message telling us what was the result of the condition.
+
+---
+## else following an if
+
+If we want to perform an operation when the condition is false we can follow the `if` statement with an `else` statement.
+
+
+```{python}
+
+x = 3
+if x < 5:
+  print(x, "is less than to 5")
+else:
+  print(x, "is greater than or equal to 5")
+
+```
+
+```{python}
+
+x = 10
+if x < 5:
+  print(x, "is less than to 5")
+else:
+  print(x, "is greater than or equal to 5")
+
+```
+
+---
+## else if = elif
+
+We may wish to execute different procedures under multiple conditions. This can be controlled using the `elif` following an initial `if` statement.
+
+```{python}
+
+x = 5
+if x < 5:
+  print(x, "is less than to 5")
+elif x > 5:
+  print(x, "is greater than 5")
+else:
+  print(x, "is 5")
+
+```
+
+---
+## Loops
+
+While and for loops iterate over a block of code, and keep rerunning it. 
+
+`While` loops do this while a specific condition is met (or until that condition is not met).
+
+`For` loops will do this for a given number of iterations.
+
+---
+## While loop
+
+While loops have a similar structure to if statements. We start by designating the while loop, ten follow with the logical to be evaluated immediately after. The  dependent code is indicated by a colon, new line and indentation.
+
+```{python}
+
+x = 1
+while x < 3:
+  print("x is",x)
+  x = x+1
+
+```
+
+---
+## For loop
+
+For loops do not have a conditional. Instead you supply an object that you want to be iterate over. This can be a list, tuple, dictionary, set or string. Here we use a list. 
+
+```{python}
+
+x = ['Alpha','Bravo','Charlie']
+for i in x:
+  print(i)
+
+```
+
+
+---
+## for and range()
+
+The range() function provides us with a nice input for our for loops. It returns a sequence of numbers, starting from 0 and stops before the specified number.
+
+```{python}
+for i in range(3):
+  print("i is", i)
+
+```
+
+---
+## Looping through indices
+
+When we have a numeric range, we can use it to index out from existing objects. This often allows for more complex code evaluation. 
+
+```{python}
+
+geneName = ["Ikzf1","Myc","Igll1"]
+expression = [10.4, 4.3, 6.5]
+iterations = len(geneName)
+
+for i in range(iterations):
+  print(geneName[i]," has an TPM of ",expression[i])
+
+```
+
+---
+## Loops and conditionals
+
+Loops can be combined with conditional statements to allow for complex control of their execution over Python objects. 
+
+To help us write complex code we often use pseudocode as a starting point. 
+
+
+---
+## Pseudocode
+
+When we write pseudocode we are trying to write out each computational step in a human readaBle way. 
+
+It is important to be specific, simple, concise and include the control structures that would be in your final code. 
+
+```
+
+for 0 to 7
+  if value is greater than 5
+    print the value and a statement saying it is greater than 5
+  else if value is 5
+    print the value and a statement saying it is equal to 5
+  else if value is less than 5
+    print the value and a statement saying it is less than 5
+
+
+```
+
+---
+## Loops and conditionals
+
+Though these can be tough to read and create, by starting with pseudocode and keeping an eye of the hierarchy of indentation we can follow the logic. 
+
+.pull-left[
+
+```
+for 0 to 7
+  if value is greater than 5
+    print the value and a statement saying it is greater than 5
+  else if value is 5
+    print the value and a statement saying it is equal to 5
+  else if value is less than 5
+    print the value and a statement saying it is less than 5
+```
+  ]
+
+.pull-right[
+
+```{python}
+
+for i in range(8):
+  if i > 5:
+    print("Number",i,"is greater than 5")
+  elif i == 5:
+    print("Number",i,"is  5") 
+  else:
+    print("Number",i,"is less than 5") 
+
+```
+
+  ]
+
+---
+## Breaking loops
+
+We can use conditionals to exit a loop if a condition is satisfied, just like a while loop.
+
+```{python}
+x = range(8)
+
+for i in range(8):
+  if i > 5:
+    print("Number",i,"is greater than 5")
+  elif i == 5:
+    print("Number",i,"is  5")
+    break
+  else:
+    print("Number",i,"is less than 5") 
+
+```
+
+
+---
+## Time for an exercise!
+
+Exercises around control structures can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/exercises/Exercise4_exercise.html)
+
+
+---
+## Answers to exercise
+
+Answers can be found [here](https://rockefelleruniversity.github.io/Intro_To_Python/exercises/answers/Exercise4_answers.html)
+
+
 
 
 ---

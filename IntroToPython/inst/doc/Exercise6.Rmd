@@ -1,0 +1,172 @@
+---
+title: "Exercise 6"
+author: "Rockefeller University, Bioinformatics Resource Centre"
+date: "https://rockefelleruniversity.github.io/RU_course_template/"
+output: 
+  html_document:
+    number_sections: false  ## if you want number sections at each table header
+    theme: united  # many options for theme, this one is my favorite.
+    highlight: tango  # specifies the syntax highlighting style
+params:
+  toMessage: false    
+---
+
+```{r, setup,include=FALSE}
+toMessage <- ifelse(!is.null(params$toMessage),params$toMessage,FALSE)
+message(toMessage)
+```
+
+```{r, eval=T, echo=F, warning=F, message=F, hide=T}
+library(IntroToPython)
+library(reticulate)
+py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
+```
+
+<p>&nbsp;</p>
+
+**Exercise: Putting it all together with DataVis**
+
+We have learned how to write many lines of code to generate and customize a single figure. This is nice, but we want to be practical. In fact, you can put all of your plotting code inside a function that will allow you to automate the production of figures within your workflows. This way, you can call this function with different datasets and it will return a consistently-formatted plot for each.
+
+
+The following is an exercise that should bring together many of the concepts that you have learned over the past two days. You will:
+
+1. Import data from a csv file
+2. Manipulate the data by separating it into subsets 
+3. Write a function that generates a plot
+4. Use a for loop to automaticalyl generate a plot for each subset of data
+
+The data we will be working with is gene expression data. There are a number of genes listed, and each gene has an associated expression and length, as well as a Gene Ontology (GO) term. The first task will be to read in the data using `genfromtxt()`. The data is stored in the file called "gene_expression.csv".
+
+The data is arranged as follows:
+
+| geneName | expression | geneLength | goterm | 
+| --- | --- | --- | --- |
+| Gene_1  | 2560 | 20 | GO:Biosynthetic Process |
+| ...  | ... | ... | ... |
+
+The geneName category ranges from Gene_1 to Gene_30. expression and geneLength are numerical values, and goterm is a string with possible values "GO:Biosynthetic Process", "GO:Metabolic Process" and "GO:Catabolic Process". 
+
+First, import this data into numpy arrays. You should have four arrays, one for each column. Hont: You may have to specify the `dtype` and `encoding` options (as shown before) to deal with the variety of data types.
+
+```{python, echo=toMessage}
+## Add the solution in here. This will only be included in the exercise sections. This is controlled by the echo=toMessage in the markdown header  ie:
+
+name, expression, length, goterm = np.genfromtxt('data/gene_expression.csv', unpack=True, delimiter=',', skip_header=True, dtype=None, encoding='UTF-8')
+
+```
+
+Now that we have the data, we need to sort it. We want to make a separate plot for each GO term (Biosynthetic, Metabolic, and Catabolic Processes). Create empty lists for the gene names, expressions, and lengths for each GO term. For example:
+
+```{python, eval=F}
+name_bio = []
+exp_bio = []
+len_bio = []
+... and so on
+```
+
+Then, use a for loop to go through the unsorted data and append each value ot the correct list.
+
+```{python, eval=F}
+for i=0 to 29: #remember 0-indexing
+  if goterm[i] == "GO:Biosynthetic Process":
+    append name[i] to name_bio
+    etc
+  elif goterm[i] == "GO:Metabolic Process":
+    etc
+  else:
+    etc
+
+```
+
+```{python,echo=toMessage}
+name_bio = []
+exp_bio = []
+len_bio = []
+
+name_meta = []
+exp_meta = []
+len_meta = []
+
+name_cat = []
+exp_cat = []
+len_cat = []
+
+for i in range(len(name)):
+  if goterm[i] == "GO:Biosynthetic Process":
+    name_bio.append(name[i])
+    exp_bio.append(expression[i])
+    len_bio.append(length[i])
+  elif goterm[i] == "GO:Metabolic Process":
+    name_meta.append(name[i])
+    exp_meta.append(expression[i])
+    len_meta.append(length[i])
+  else:
+    name_cat.append(name[i])
+    exp_cat.append(expression[i])
+    len_cat.append(length[i])
+```
+
+You should now have 9 lists, each of length 10, corresponding to the sorted data. Try printing the lists, and their lengths, to make sure you have everything sorted properly.
+
+Now, we will write some code that will plot one of the datasets (let's choose the Biosynthetic Process dataset). We are going to generate a scatter plot of Expression vs Length. Choose whatever colors and markers you'd like, and be sure to include a title and axis labels.
+
+```{python, echo=toMessage}
+fig, ax = plt.subplots(figsize = (4,3))
+ax.scatter(exp_bio, len_bio, c = "lightgreen")
+ax.set_xlabel("Gene Expression")
+ax.set_ylabel("Gene Length")
+ax.set_title("Biosynthetic Processes")
+plt.show()
+
+```
+
+Once you have code that generates a nice figure, let's put it inside a function. Define a function that takes three variables: the `x data` and `y data` to be plotted, and the `name` you would like to save the figure as. This function should plot the data and save the plot with the specified name. 
+
+Hint: think about how you can use string operations to automatically generate a title for your plot as well as a file name!
+
+```{python, echo=toMessage}
+def plot_data(xdata, ydata, name):
+  fig, ax = plt.subplots(figsize = (4,3))
+  ax.scatter(xdata, ydata, c = "lightgreen")
+  ax.set_xlabel("Gene Expression")
+  ax.set_ylabel("Gene Length")
+  ax.set_title(name)
+  fig.tight_layout()
+  fig.savefig(name + ".pdf", bbox_inches='tight')
+```
+
+Now that you have a function, we would like to call it to plot the data. Create a for loop that will iterate over the three datasets and plot them. 
+
+Hint: You may need to create some new lists to store the `name` parameter, as well as the data lists you would like to iterate over.
+
+```{python, echo=toMessage}
+
+xdata = [exp_bio, exp_cat, exp_meta]
+ydata = [len_bio, len_cat, len_meta]
+names = ["Biosynthetic Processes", "Catabolic Processes", "Metabolic Processes"]
+
+for i in range(len(xdata)):
+  plot_data(xdata[i], ydata[i], names[i])
+```
+
+We want to be able to compare our data directly - let's make all of them plotted on the same scale. Set vertical and horizontal axis limits of (-200, 5200). You will need to edit your function and caLL it again.
+
+```{python, echo=toMessage}
+def plot_data(xdata, ydata, name):
+  fig, ax = plt.subplots(figsize = (4,3))
+  ax.scatter(xdata, ydata, c = "lightgreen")
+  ax.set_xlabel("Gene Expression")
+  ax.set_ylabel("Gene Length")
+  ax.set_title(name)
+  ax.set_xlim(-200, 5200)
+  ax.set_ylim(-200, 5200)
+  fig.tight_layout()
+  fig.savefig(name + ".pdf", bbox_inches='tight')
+
+for i in range(len(xdata)):
+  plot_data(xdata[i], ydata[i], names[i])
+
+
+```
+
