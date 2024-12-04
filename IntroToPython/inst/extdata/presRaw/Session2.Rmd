@@ -116,6 +116,7 @@ If you are reading in data, you need to know from which vantage point your compu
 ![location](imgs/youarehere.png)
 
 
+
 ---
 ## *os* package
 
@@ -133,12 +134,14 @@ os.getcwd()
 
 ```
 
+
 ```
 ## '/Users/mattpaul/'
 ```
 
 
---- 
+
+---
 ## Setting my Working Directory
 
 The working directory is based on your VS Code workspace. If you have not set this you can do so using the *Explorer* tab on the left of VS Code. If the workspace is in the wrong place, you can open a new window, set up a new workspace, then open a new python console. Let's navigate to the course material that we downloaded. There are some example data sets there: *Intro_To_Python-master/r_course/*
