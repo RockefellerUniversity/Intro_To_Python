@@ -77,6 +77,14 @@ kable(minRepdf[,1:4], format='html')
 ## os.listdir("data")
 ## 
 
+## 
+## os.chdir("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
+## 
+
+## 
+## os.chdir("Downloads/Intro_To_Python-master/r_course/")
+## 
+
 ## import numpy as np
 ## my_table = np.genfromtxt("data/ToRead.csv", delimiter=",")
 ## 
