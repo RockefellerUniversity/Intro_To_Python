@@ -1303,8 +1303,9 @@ overflow: visible;
 }
 </style>
 <style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -1315,7 +1316,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -1632,13 +1633,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-2.403041
+3.350862
 </td>
 <td style="text-align:right;">
-3.223342
+3.180878
 </td>
 <td style="text-align:right;">
-4.420181
+3.287446
 </td>
 </tr>
 <tr>
@@ -1646,13 +1647,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-2.015283
+3.832694
 </td>
 <td style="text-align:right;">
-2.679456
+3.235097
 </td>
 <td style="text-align:right;">
-3.231757
+4.408089
 </td>
 </tr>
 <tr>
@@ -1660,13 +1661,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-3.444595
+4.032338
 </td>
 <td style="text-align:right;">
-3.864112
+4.314031
 </td>
 <td style="text-align:right;">
-3.793833
+4.565313
 </td>
 </tr>
 <tr>
@@ -1674,13 +1675,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-4.385645
+4.890910
 </td>
 <td style="text-align:right;">
-2.874718
+3.192971
 </td>
 <td style="text-align:right;">
-4.793162
+3.317066
 </td>
 </tr>
 <tr>
@@ -1688,13 +1689,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-8.204296
+10.047547
 </td>
 <td style="text-align:right;">
-10.733542
+10.830797
 </td>
 <td style="text-align:right;">
-9.323644
+9.809158
 </td>
 </tr>
 <tr>
@@ -1702,13 +1703,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-9.651885
+10.748518
 </td>
 <td style="text-align:right;">
-11.388386
+11.813631
 </td>
 <td style="text-align:right;">
-8.576582
+10.513453
 </td>
 </tr>
 <tr>
@@ -1716,13 +1717,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-8.567895
+9.511210
 </td>
 <td style="text-align:right;">
-7.768166
+7.120394
 </td>
 <td style="text-align:right;">
-10.005185
+11.585469
 </td>
 </tr>
 <tr>
@@ -1730,13 +1731,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-9.169435
+9.935605
 </td>
 <td style="text-align:right;">
-10.093340
+11.670960
 </td>
 <td style="text-align:right;">
-8.043494
+10.003814
 </td>
 </tr>
 </tbody>
@@ -1780,9 +1781,9 @@ example data sets there: <em>Intro_To_Python-master/r_course/</em></p>
 the <code>chdir</code> function.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>os.chdir(<span class="st">&quot;/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>os.listdir()</span></code></pre></div>
-<pre><code>## [&#39;height-weight_female.csv&#39;, &#39;presRaw&#39;, &#39;data&#39;, &#39;GeneNames_highexpression.txt&#39;, &#39;Descriptions&#39;, &#39;customCSS&#39;, &#39;_course.yml&#39;, &#39;imgs&#39;]</code></pre>
+<pre><code>## [&#39;presRaw&#39;, &#39;imgs&#39;, &#39;height-weight_female.csv&#39;, &#39;customCSS&#39;, &#39;data&#39;, &#39;GeneNames_highexpression.txt&#39;, &#39;_course.yml&#39;, &#39;Descriptions&#39;]</code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>os.listdir(<span class="st">&quot;data&quot;</span>)</span></code></pre></div>
-<pre><code>## [&#39;susbet_dataset.py&#39;, &#39;height-weight_female.csv&#39;, &#39;salmon_mercury.csv&#39;, &#39;GeneNames.txt&#39;, &#39;readThisTable.csv&#39;, &#39;myresult.RData&#39;, &#39;GeneExpression.txt&#39;, &#39;salmon_catch_data.csv&#39;, &#39;GeneExpressionWithMethods.txt&#39;, &#39;final_heatmap.png&#39;, &#39;final_exercise_filled.ipynb&#39;, &#39;final_violin_1.png&#39;, &#39;final_exercise_blank.ipynb&#39;, &#39;height-weight.csv&#39;, &#39;final_scatter.png&#39;, &#39;final_violin_2.png&#39;, &#39;final_bar.png&#39;, &#39;gene_data.csv&#39;, &#39;gene_expression.csv&#39;, &#39;ToRead.csv&#39;, &#39;susbet_dataset_args.py&#39;]</code></pre>
+<pre><code>## [&#39;final_heatmap.png&#39;, &#39;gene_expression.csv&#39;, &#39;final_exercise_filled.ipynb&#39;, &#39;susbet_dataset_args.py&#39;, &#39;ToRead.csv&#39;, &#39;myresult.RData&#39;, &#39;gene_data.csv&#39;, &#39;GeneNames.txt&#39;, &#39;height-weight_female.csv&#39;, &#39;final_exercise_blank.ipynb&#39;, &#39;final_violin_1.png&#39;, &#39;salmon_catch_data.csv&#39;, &#39;data_vis_filled.ipynb&#39;, &#39;salmon_mercury.csv&#39;, &#39;final_violin_2.png&#39;, &#39;height-weight.csv&#39;, &#39;susbet_dataset.py&#39;, &#39;GeneExpression.txt&#39;, &#39;matplotlib_colors.png&#39;, &#39;final_scatter.png&#39;, &#39;GeneExpressionWithMethods.txt&#39;, &#39;readThisTable.csv&#39;, &#39;final_bar.png&#39;]</code></pre>
 </div>
 <div id="paths" class="section level2">
 <h2>Paths</h2>
