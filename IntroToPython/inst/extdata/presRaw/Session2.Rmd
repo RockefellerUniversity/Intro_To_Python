@@ -2,7 +2,7 @@
 title: "Intro to Python - Session 2"
 subtitle: " <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html> Bioinformatics Resource Center - Rockefeller University"
 author: 
-  - "http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/"
+  - "http://rockefelleruniversity.github.io/Intro_To_Python/"
   - "brc@rockefeller.edu"
 output: 
   xaringan::moon_reader:

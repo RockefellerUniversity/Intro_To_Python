@@ -2,7 +2,7 @@
 title: "Intro to Python - Session 1"
 subtitle: " <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html> Bioinformatics Resource Center - Rockefeller University"
 author: 
-  - "http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/"
+  - "http://rockefelleruniversity.github.io/Intro_To_Python/"
   - "brc@rockefeller.edu"
 output: 
   xaringan::moon_reader:
@@ -184,7 +184,7 @@ Practicals with answers as HTML pages and R code solutions.
 ---
 ## Starting with Python
 
-Many laptops will come with python installed so getting started is easy. You will simply be able write python into Terminal or Command Prompt and a **Python console** will open. This is an interactive python session. This will work with most of what will do in the next few sessions as we are working on the basics. 
+Many laptops will come with python installed so getting started is easy. You will simply be able write **python** into Terminal or Command Prompt and a **Python console** will open. This is an interactive python session. This will work with most of what will do in the next few sessions as we are working on the basics. 
 
 
 <img src="imgs/pythonconsole.png" alt="comparison" height="250" width="550">
