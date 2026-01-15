@@ -181,11 +181,19 @@ Practicals as HTML pages.
 * **r_course/answers/**
 Practicals with answers as HTML pages and R code solutions. 
 
+---
+## Starting with Python
+
+Many laptops will come with python installed so getting started is easy. You will simply be able write python into Terminal or Command Prompt and a **Python console** will open. This is an interactive python session. This will work with most of what will do in the next few sessions as we are working on the basics. 
+
+
+<img src="imgs/pythonconsole.png" alt="comparison" height="250" width="550">
+
 
 ---
 ## Setting Up Conda and Python
 
-Many laptops will come with python installed so getting started is easy. 
+Each version of python and python packages will respond slightly differently to commands given. We therefore want to make sure when you use python for analysis that you control which version you use. This is important for reproducibility.
 
 We will run a custom install of python using conda. Conda manages software and packages. Using Conda should make installations much easier and allow us to keep track of software versions. 
 
@@ -193,12 +201,11 @@ We can install Conda from here. We will specifically want to use Miniconda:
 
 https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
-If you have instaled this correctly, running this on terminal/command prompt should give you a list of conda commands
+If you have installed this correctly, running this on terminal/command prompt should give you a list of conda commands
 
 ```{sh, eval=F}
 conda
 ```
-
 
 ---
 ## Setting Up Conda and Python
@@ -237,18 +244,18 @@ conda install jupyter
 ## Interactive or scripts?
 
 As with many languages you can work with python in two main ways:
-interactive or scripts
+interactive or scripts. 
 
-When people think about coding they are often thinking about the interactive console. When you work in this way lines of code are submitted as you enter them. You often do this when you are developing an analysis and trying out parameters. This is mostly how we will work in the training. 
+When people think about coding they are often thinking about the interactive **console**. This is what we saw earlier when we first opened python. When you work in this way lines of code are submitted as you enter them. You often do this when you are developing an analysis and trying out parameters. This is mostly how we will work in the training. 
 
-When you want to automate something, i.e. an analysis workflow, you will write a script. You can then run this script with python.
+When you want to automate something, i.e. an analysis workflow, you will write a script. You can then run this script with python and it will run every line of code for you sequentially.
 
 ---
 ## Python and IDEs
 
 You can run python from within your terminal/command prompt. This will give you access to the python console.
 
-Many people prefer to use an **I**ntegrated **D**evelopment **E**nvironment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, file navgation, and access to many customization features in additional panes. 
+Many people prefer to use an **I**ntegrated **D**evelopment **E**nvironment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, file navigation, and access to many customization features in additional panes. 
 
 Examples include RStudio, pyCharm, Xcode etc. 
 
@@ -309,6 +316,15 @@ We can manually open one up by Terminal > New Terminal.
 Once the Terminal is open, you can then just open Python, by typing `python` into the new terminal window. 
 
 There is is an easier shortcut to do this. Once you start developing code the easiest way to open it is to use the `Tab + Enter` shortcut. 
+
+---
+## Quick Recap
+
+
+![extensions](imgs/overview.png)
+
+
+
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
