@@ -267,7 +267,7 @@ if(params$isSlides == "yes"){
 ## my_strs.remove('c')
 ## my_strs
 
-## del(my_strs[3])
+## del my_strs[3]
 ## my_strs
 
 ## my_strs.index('c')
@@ -280,6 +280,14 @@ if(params$isSlides == "yes"){
 ## my_list = ["b","c","a"]
 ## my_list.sort()
 ## my_list
+
+## sort_result = my_list.sort()
+## sort_result # this returns None, modifies object in place
+
+## new_list = [1,4,9,4,11,12,6]
+## sorted_result = sorted(new_list)
+## sorted_result # function modified object
+## new_list # old object is unchanged
 
 ## my_list = ['a','b','c','d','e']
 ## my_list[0] = 'z'
@@ -324,6 +332,14 @@ if(params$isSlides == "yes"){
 ## my_dict['language']
 ## 
 ## my_dict.get('language')
+
+## my_dict[0]
+
+## try:
+##   my_dict[0]
+## except Exception as e:
+##   print(e)
+## 
 
 ## 
 ## my_dict.setdefault('metadata', True)
@@ -420,23 +436,6 @@ if(params$isSlides == "yes"){
 ## arr
 
 ## 
-## arr_2d = np.array([["Patient1",34,True],["Patient2", 29, True], ["Patient3",41,False]])
-## arr_2d
-## 
-
-## 
-## arr_2d.ndim
-## 
-
-## arr_2d[0,2]
-
-## arr_2d[:,2]
-## 
-
-## arr_2d[0,1:3]
-## 
-
-## 
 ## arr = np.array([34, 29, 40])
 ## arr.dtype
 ## 
@@ -460,6 +459,31 @@ if(params$isSlides == "yes"){
 ##   arr = np.array(['a', '2', '3'], dtype='i')
 ## except Exception as e:
 ##   print(e)
+## 
+
+## 
+## arr = np.array(['a', 2, 3])
+## arr
+
+## 
+## arr_2d = np.array([["Patient1",34,True],["Patient2", 29, True], ["Patient3",41,False]])
+## arr_2d
+## 
+
+## 
+## arr_2d.ndim
+## 
+
+## arr_2d.shape
+
+## arr_2d.reshape(9,1)
+
+## arr_2d[0,2]
+
+## arr_2d[:,2]
+## 
+
+## arr_2d[0,1:3]
 ## 
 
 ## arr_2d

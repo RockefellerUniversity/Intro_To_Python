@@ -12,7 +12,7 @@
 <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
 
 
-<title>Exercise 2</title>
+<title>Exercise 1</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -326,7 +326,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Exercise 2</h1>
+<h1 class="title toc-ignore">Exercise 1</h1>
 <h4 class="author">Rockefeller University, Bioinformatics Resource
 Centre</h4>
 <h4 class="date"><a href="https://rockefelleruniversity.github.io/Intro_To_Python/" class="uri">https://rockefelleruniversity.github.io/Intro_To_Python/</a></h4>
@@ -337,23 +337,101 @@ Centre</h4>
 <p>
  
 </p>
-<p>These exercises are about data types and custom functions from
-Session 1 <a href="https://rockefelleruniversity.github.io/Intro_To_Python/">session1</a>.</p>
-<p><strong>Exercise 1</strong> - <strong>Dictionaries</strong></p>
+<p>These exercises are about data types from Session 1 <a href="https://rockefelleruniversity.github.io/Intro_To_Python/">session1</a>.</p>
+<p><strong>Exercise 1</strong> - <strong>Lists</strong></p>
+<ul>
+<li>Create a list containing the values 1,2,3,4,5.</li>
+</ul>
+<pre><code>## [1, 2, 3, 4, 5]</code></pre>
+<ul>
+<li>Create a list containing the values a,b,c,d,e, but assign it to a
+new variable called <code>x</code>.</li>
+</ul>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code></pre>
+<ul>
+<li>Create a list containing the values a,b,c, repeated 5 times and
+assign it to a new variable</li>
+</ul>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code></pre>
+<ul>
+<li>Create a sublist with indexing. Use the variable you just created
+and extract the the 10th through to 14th position.</li>
+</ul>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;]</code></pre>
+<ul>
+<li>With the same variable, let’s use “-” indexing to get the last value
+of our list.</li>
+</ul>
+<pre><code>## &#39;c&#39;</code></pre>
+<ul>
+<li>Now print the values from [0:-1]</li>
+</ul>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;a&#39;, &#39;b&#39;]</code></pre>
+<ul>
+<li><p>Notice how the last value of your list is missing, even though
+you access it with [-1]. That’s because slicing is exclusive, while
+indexing is inclusive.</p></li>
+<li><p>Append the list in variable x. Add the string z.</p></li>
+</ul>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;z&#39;]</code></pre>
+<ul>
+<li>Delete the 2nd through 6th entry of x.</li>
+</ul>
+<pre><code>## [&#39;a&#39;, &#39;z&#39;]</code></pre>
+<ul>
+<li>Lets go back to variable y. Sort it in reverse order.</li>
+</ul>
+<pre><code>## [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]</code></pre>
+<ul>
+<li>Multiply the y variable by 2.</li>
+</ul>
+<pre><code>## [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]</code></pre>
+<ul>
+<li>Use the function .remove() to eliminate “a” from your list.</li>
+</ul>
+<pre><code>## [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]</code></pre>
+<ul>
+<li><p>Notice that .remove() eliminates only the first instance of your
+specified entry.</p></li>
+<li><p>Create a list of lists. Use the values 1,2,3,4,5, along with the
+lists x and y.</p></li>
+</ul>
+<pre><code>## [[1, 2, 3, 4, 5], [&#39;a&#39;, &#39;z&#39;], [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;]]</code></pre>
+<ul>
+<li>Take your previous list of lists and use indexing to find the third
+entry of your third list.</li>
+</ul>
+<pre><code>## &#39;c&#39;</code></pre>
+<p><strong>Exercise 2</strong> - <strong>Tuples</strong></p>
+<ul>
+<li>Create a tuple containing the values 1,2,3,4,5.</li>
+</ul>
+<pre><code>## (1, 2, 3, 4, 5)</code></pre>
+<ul>
+<li>Coerce list in variable x into a tuple.</li>
+</ul>
+<pre><code>## (&#39;a&#39;, &#39;z&#39;)</code></pre>
+<ul>
+<li>Make a touple with your list of lists.</li>
+<li>Print your results</li>
+</ul>
+<pre><code>## ([1, 2, 3, 4, 5], [&#39;a&#39;, &#39;z&#39;], [&#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;c&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;b&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;, &#39;a&#39;])</code></pre>
+<p><strong>Exercise 3</strong> - <strong>Dictionaries</strong></p>
 <ul>
 <li>Create a dictionary containing a list of floats, a list of integers
 and a tuple of strings.</li>
 </ul>
 <pre><code>## {&#39;my_float_list&#39;: [1.5, 2.5, 3.5], &#39;my_integer_list&#39;: [4, 5, 6], &#39;my_strings_tuple&#39;: (&#39;a&#39;, &#39;b&#39;, &#39;c&#39;)}</code></pre>
 <ul>
-<li><p>Create a dictionary containing GO terms and their corresponding
-genes:</p></li>
-<li><p><a href="GO:0030955" class="uri">GO:0030955</a> - PKM, ADPRH,
-ATP4A, DRG1</p></li>
-<li><p><a href="GO:0031403" class="uri">GO:0031403</a> - IMPA1,
-PDXK</p></li>
-<li><p><a href="GO:0031402" class="uri">GO:0031402</a> - SLC6A4, CAPN3,
-TDG, ATP1A2</p></li>
+<li>Create a dictionary containing GO terms and their corresponding
+genes:
+<ul>
+<li><a href="GO:0030955" class="uri">GO:0030955</a> - PKM, ADPRH, ATP4A,
+DRG1</li>
+<li><a href="GO:0031403" class="uri">GO:0031403</a> - IMPA1, PDXK</li>
+<li><a href="GO:0031402" class="uri">GO:0031402</a> - SLC6A4, CAPN3,
+TDG, ATP1A2</li>
+</ul></li>
 </ul>
 <pre><code>## {&#39;GO:0030955&#39;: [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;], &#39;GO:0031403&#39;: [&#39;IMPA1&#39;, &#39;PDXK&#39;], &#39;GO:0031402&#39;: [&#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;]}</code></pre>
 <ul>
@@ -362,7 +440,37 @@ entries.</li>
 </ul>
 <pre><code>## [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;, &#39;IMPA1&#39;, &#39;PDXK&#39;, &#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;]</code></pre>
 <pre><code>## {&#39;GO:0030955&#39;: [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;], &#39;GO:0031403&#39;: [&#39;IMPA1&#39;, &#39;PDXK&#39;], &#39;GO:0031402&#39;: [&#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;], &#39;GO:0031420&#39;: [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;, &#39;IMPA1&#39;, &#39;PDXK&#39;, &#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;]}</code></pre>
-<p><strong>Exercise 2</strong> - <strong>Sets</strong></p>
+<ul>
+<li>Make a new version of the original gene ontolgoy dictionary, but add
+the names of each term to each entry, in addition to the genes. The
+following information should be accessible in the object:</li>
+</ul>
+<p>Hint: Dictionary elements can also be nested dictionaries.</p>
+<ul>
+<li><a href="GO:0030955" class="uri">GO:0030955</a>
+<ul>
+<li>Name: potassium ion binding</li>
+<li>Genes: PKM, ADPRH, ATP4A, DRG1</li>
+</ul></li>
+<li><a href="GO:0031403" class="uri">GO:0031403</a>
+<ul>
+<li>Name: lithium ion binding</li>
+<li>Genes: IMPA1, PDXK</li>
+</ul></li>
+<li><a href="GO:0031402" class="uri">GO:0031402</a>
+<ul>
+<li>Name: sodium ion binding</li>
+<li>Genes: SLC6A4, CAPN3, TDG, ATP1A2</li>
+</ul></li>
+</ul>
+<pre><code>## {&#39;GO:0030955&#39;: {&#39;name&#39;: &#39;potassium ion binding&#39;, &#39;genes&#39;: [&#39;PKM&#39;, &#39;ADPRH&#39;, &#39;ATP4A&#39;, &#39;DRG1&#39;]}, &#39;GO:0031403&#39;: {&#39;name&#39;: &#39;lithium ion binding&#39;, &#39;genes&#39;: [&#39;IMPA1&#39;, &#39;PDXK&#39;]}, &#39;GO:0031402&#39;: {&#39;name&#39;: &#39;lithium ion binding&#39;, &#39;genes&#39;: [&#39;SLC6A4&#39;, &#39;CAPN3&#39;, &#39;TDG&#39;, &#39;ATP1A2&#39;]}}</code></pre>
+<ul>
+<li>Index the object you made to separately get the name and genes for
+the term ‘<a href="GO:0031403" class="uri">GO:0031403</a>’.</li>
+</ul>
+<pre><code>## &#39;lithium ion binding&#39;</code></pre>
+<pre><code>## [&#39;IMPA1&#39;, &#39;PDXK&#39;]</code></pre>
+<p><strong>Exercise 4</strong> - <strong>Sets</strong></p>
 <ul>
 <li>Create 2 sets of gene names:
 <ul>
@@ -373,45 +481,6 @@ entries.</li>
 between the two?</li>
 </ul>
 <pre><code>## {&#39;GSS&#39;, &#39;MCM10&#39;, &#39;PKM&#39;}</code></pre>
-<p><strong>Exercise 3</strong> - <strong>NumPy</strong></p>
-<ul>
-<li><p>Import NumPy</p></li>
-<li><p>Create a NumPy array with 4 columns and 5 rows.</p></li>
-<li><p>Sample - R1, R2, R3, R4, R5</p></li>
-<li><p>Year - 1990, 2010, 2005, 2015, 2012</p></li>
-<li><p>Replicate - True, True, False, False, False</p></li>
-<li><p>Tissue - Skin, Skin, Brain, Brain, Brain</p></li>
-</ul>
-<pre><code>## array([[&#39;R1&#39;, &#39;1990&#39;, &#39;True&#39;, &#39;Skin&#39;],
-##        [&#39;R2&#39;, &#39;2010&#39;, &#39;True&#39;, &#39;Skin&#39;],
-##        [&#39;R3&#39;, &#39;2005&#39;, &#39;False&#39;, &#39;Brain&#39;],
-##        [&#39;R4&#39;, &#39;2015&#39;, &#39;False&#39;, &#39;Brain&#39;],
-##        [&#39;R5&#39;, &#39;2012&#39;, &#39;False&#39;, &#39;Brain&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
-<ul>
-<li>Slice the array to get just the Sample and Year.</li>
-</ul>
-<pre><code>## array([[&#39;R1&#39;, &#39;1990&#39;],
-##        [&#39;R2&#39;, &#39;2010&#39;],
-##        [&#39;R3&#39;, &#39;2005&#39;],
-##        [&#39;R4&#39;, &#39;2015&#39;],
-##        [&#39;R5&#39;, &#39;2012&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
-<ul>
-<li>Subset the array to just Brain Tissue samples.</li>
-</ul>
-<pre><code>## array([[&#39;R3&#39;, &#39;2005&#39;, &#39;False&#39;, &#39;Brain&#39;],
-##        [&#39;R4&#39;, &#39;2015&#39;, &#39;False&#39;, &#39;Brain&#39;],
-##        [&#39;R5&#39;, &#39;2012&#39;, &#39;False&#39;, &#39;Brain&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
-<p><strong>Exercise 4</strong> - <strong>Custom Functions</strong></p>
-<ul>
-<li>Create a function which takes one number and returns the square of
-that number</li>
-</ul>
-<pre><code>## 81</code></pre>
-<ul>
-<li>Create a function which takes two numbers and returns the mean and
-the minimum</li>
-</ul>
-<pre><code>## [2.0, 1]</code></pre>
 
 
 

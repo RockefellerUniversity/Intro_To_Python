@@ -12,7 +12,7 @@
 <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
 
 
-<title>Exercise 3</title>
+<title>Exercise 2</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -427,7 +427,7 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Exercise 3</h1>
+<h1 class="title toc-ignore">Exercise 2</h1>
 <h4 class="author">Rockefeller University, Bioinformatics Resource
 Centre</h4>
 <h4 class="date"><a href="https://rockefelleruniversity.github.io/Intro_To_Python/" class="uri">https://rockefelleruniversity.github.io/Intro_To_Python/</a></h4>
@@ -438,66 +438,166 @@ Centre</h4>
 <p>
  
 </p>
-<p>These exercises are about custom functions from Session 1 <a href="https://rockefelleruniversity.github.io/Intro_To_Python/">session1</a>.</p>
-<p><strong>Exercise 1</strong> - <strong>Custom Functions</strong></p>
+<p>These exercises are about data types and custom functions from
+Session 1 <a href="https://rockefelleruniversity.github.io/Intro_To_Python/">session1</a>.</p>
+<p><strong>Exercise 1</strong> - <strong>NumPy</strong></p>
+<ul>
+<li>Import NumPy</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
+<ul>
+<li><p>Create a NumPy array with the following 4 columns and 5 rows.</p>
+<ul>
+<li>Sample - R1, R2, R3, R4, R5</li>
+<li>Year - 1990, 2010, 2005, 2015, 2012</li>
+<li>Replicate - True, True, False, False, False</li>
+<li>Tissue - Skin, Skin, Brain, Brain, Brain</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>arr_2d <span class="op">=</span> np.array([[<span class="st">&quot;R1&quot;</span>, <span class="dv">1990</span>, <span class="va">True</span>, <span class="st">&quot;Skin&quot;</span>],</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  [<span class="st">&quot;R2&quot;</span>, <span class="dv">2010</span>, <span class="va">True</span>, <span class="st">&quot;Skin&quot;</span>], </span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  [<span class="st">&quot;R3&quot;</span>, <span class="dv">2005</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>  [<span class="st">&quot;R4&quot;</span>, <span class="dv">2015</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>],</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>  [<span class="st">&quot;R5&quot;</span>, <span class="dv">2012</span>, <span class="va">False</span>, <span class="st">&quot;Brain&quot;</span>]])</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>arr_2d</span></code></pre></div>
+<pre><code>## array([[&#39;R1&#39;, &#39;1990&#39;, &#39;True&#39;, &#39;Skin&#39;],
+##        [&#39;R2&#39;, &#39;2010&#39;, &#39;True&#39;, &#39;Skin&#39;],
+##        [&#39;R3&#39;, &#39;2005&#39;, &#39;False&#39;, &#39;Brain&#39;],
+##        [&#39;R4&#39;, &#39;2015&#39;, &#39;False&#39;, &#39;Brain&#39;],
+##        [&#39;R5&#39;, &#39;2012&#39;, &#39;False&#39;, &#39;Brain&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
+<ul>
+<li>Slice the array to get just the Sample and Year.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>arr_2d[:,<span class="dv">0</span>:<span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## array([[&#39;R1&#39;, &#39;1990&#39;],
+##        [&#39;R2&#39;, &#39;2010&#39;],
+##        [&#39;R3&#39;, &#39;2005&#39;],
+##        [&#39;R4&#39;, &#39;2015&#39;],
+##        [&#39;R5&#39;, &#39;2012&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
+<ul>
+<li>Subset the array to just Brain Tissue samples.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>arr_2d[arr_2d[:,<span class="dv">3</span>] <span class="op">==</span><span class="st">&quot;Brain&quot;</span>,:]</span></code></pre></div>
+<pre><code>## array([[&#39;R3&#39;, &#39;2005&#39;, &#39;False&#39;, &#39;Brain&#39;],
+##        [&#39;R4&#39;, &#39;2015&#39;, &#39;False&#39;, &#39;Brain&#39;],
+##        [&#39;R5&#39;, &#39;2012&#39;, &#39;False&#39;, &#39;Brain&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
+<p><strong>Exercise 2</strong> - <strong>NumPy</strong></p>
+<ul>
+<li>Make an array that is 3 rows and 6 columns, and contains the numbers
+1 through 18</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># option 1</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>arr_num <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>                    [<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>, <span class="dv">11</span>,<span class="dv">12</span>],</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a>                    [<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>,<span class="dv">18</span>]])</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a><span class="co"># option 2 with reshape</span></span>
+<span id="cb8-7"><a href="#cb8-7" tabindex="-1"></a>arr_num <span class="op">=</span> np.array([<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">19</span>)])</span>
+<span id="cb8-8"><a href="#cb8-8" tabindex="-1"></a>arr_num <span class="op">=</span> arr_num.reshape(<span class="dv">3</span>,<span class="dv">6</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" tabindex="-1"></a>arr_num</span></code></pre></div>
+<pre><code>## array([[ 1,  2,  3,  4,  5,  6],
+##        [ 7,  8,  9, 10, 11, 12],
+##        [13, 14, 15, 16, 17, 18]])</code></pre>
+<ul>
+<li>Confirm that your array has the correct shape</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>arr_num.shape</span></code></pre></div>
+<pre><code>## (3, 6)</code></pre>
+<ul>
+<li>Modify the array so that it has 6 rows and 3 columns</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>arr_num_6x3 <span class="op">=</span> arr_num.reshape(<span class="dv">6</span>,<span class="dv">3</span>)</span></code></pre></div>
+<ul>
+<li>Index this array into two different arrays, one that contains the
+values less than 10, and another that contains values that are 10 or
+higher.</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>small_nums <span class="op">=</span> arr_num_6x3[arr_num_6x3 <span class="op">&lt;</span> <span class="dv">10</span>]</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>big_nums <span class="op">=</span> arr_num_6x3[arr_num_6x3 <span class="op">&gt;</span> <span class="dv">9</span>]</span></code></pre></div>
+<ul>
+<li>Confirm the shape and dimensions of these arrays.</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>small_nums.shape</span></code></pre></div>
+<pre><code>## (9,)</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>small_nums.ndim</span></code></pre></div>
+<pre><code>## 1</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>big_nums.shape</span></code></pre></div>
+<pre><code>## (9,)</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>big_nums.ndim</span></code></pre></div>
+<pre><code>## 1</code></pre>
+<ul>
+<li>Convert both of the new arrays to two dimensional, 3 by 3
+arrays.</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a></span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>small_nums_3x3 <span class="op">=</span> small_nums.reshape(<span class="dv">3</span>,<span class="dv">3</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a>big_nums_3x3 <span class="op">=</span> big_nums.reshape(<span class="dv">3</span>,<span class="dv">3</span>)</span></code></pre></div>
+<ul>
+<li>Concatenate these two arrays, joining them by columns.</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a>arr_cat <span class="op">=</span> np.concatenate((small_nums_3x3, big_nums_3x3), axis <span class="op">=</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><strong>Exercise 3</strong> - <strong>Custom Functions</strong></p>
 <ul>
 <li>Create a function which takes one number and returns the square of
 that number</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="kw">def</span> squareOfNumber(number):</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>  squareNumber <span class="op">=</span> number<span class="op">*</span>number</span>
-<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  <span class="cf">return</span> squareNumber</span>
-<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>squareOfNumber(<span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="kw">def</span> squareOfNumber(number):</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a>  squareNumber <span class="op">=</span> number<span class="op">*</span>number</span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>  <span class="cf">return</span> squareNumber</span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>squareOfNumber(<span class="dv">9</span>)</span></code></pre></div>
 <pre><code>## 81</code></pre>
 <ul>
 <li>Create a function which takes two numbers and returns the mean and
 the minimum</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="kw">def</span> mean_and_minOfNumbers(number1, number2):</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a>  meanNumber <span class="op">=</span> (number1 <span class="op">+</span> number2) <span class="op">/</span><span class="dv">2</span></span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>  minNumber <span class="op">=</span> <span class="bu">min</span>([number1, number2])</span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>  <span class="cf">return</span> [meanNumber,minNumber]</span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a>mean_and_minOfNumbers(<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="kw">def</span> mean_and_minOfNumbers(number1, number2):</span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a>  meanNumber <span class="op">=</span> (number1 <span class="op">+</span> number2) <span class="op">/</span><span class="dv">2</span></span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a>  minNumber <span class="op">=</span> <span class="bu">min</span>([number1, number2])</span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a>  <span class="cf">return</span> [meanNumber,minNumber]</span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a>mean_and_minOfNumbers(<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## [2.0, 1]</code></pre>
 <ul>
 <li>Edit the previous function to print a statement that telling us what
 the product of our number is.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="kw">def</span> mean_and_minOfNumbers(number1, number2):</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  meanNumber <span class="op">=</span> (number1 <span class="op">+</span> number2) <span class="op">/</span><span class="dv">2</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  minNumber <span class="op">=</span> <span class="bu">min</span>([number1, number2])</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The product is &quot;</span> <span class="op">+</span> <span class="bu">str</span>(number1<span class="op">*</span>number2))</span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>  <span class="cf">return</span> [meanNumber,minNumber]</span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>mean_and_minOfNumbers(<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="kw">def</span> mean_and_minOfNumbers(number1, number2):</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>  meanNumber <span class="op">=</span> (number1 <span class="op">+</span> number2) <span class="op">/</span><span class="dv">2</span></span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>  minNumber <span class="op">=</span> <span class="bu">min</span>([number1, number2])</span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The product is &quot;</span> <span class="op">+</span> <span class="bu">str</span>(number1<span class="op">*</span>number2))</span>
+<span id="cb28-5"><a href="#cb28-5" tabindex="-1"></a>  <span class="cf">return</span> [meanNumber,minNumber]</span>
+<span id="cb28-6"><a href="#cb28-6" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" tabindex="-1"></a>mean_and_minOfNumbers(<span class="dv">1</span>,<span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## The product is 3
 ## [2.0, 1]</code></pre>
 <ul>
 <li>Add some default values to our function. Run the function without
 giving any arguments.</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="kw">def</span> mean_and_minOfNumbers(number1<span class="op">=</span><span class="dv">10</span>, number2<span class="op">=</span><span class="dv">40</span>):</span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>  meanNumber <span class="op">=</span> (number1 <span class="op">+</span> number2) <span class="op">/</span><span class="dv">2</span></span>
-<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>  minNumber <span class="op">=</span> <span class="bu">min</span>([number1, number2])</span>
-<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The product is &quot;</span> <span class="op">+</span> <span class="bu">str</span>(number1<span class="op">*</span>number2))</span>
-<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>  <span class="cf">return</span> [meanNumber,minNumber]</span>
-<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>mean_and_minOfNumbers()</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="kw">def</span> mean_and_minOfNumbers(number1<span class="op">=</span><span class="dv">10</span>, number2<span class="op">=</span><span class="dv">40</span>):</span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a>  meanNumber <span class="op">=</span> (number1 <span class="op">+</span> number2) <span class="op">/</span><span class="dv">2</span></span>
+<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a>  minNumber <span class="op">=</span> <span class="bu">min</span>([number1, number2])</span>
+<span id="cb30-4"><a href="#cb30-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The product is &quot;</span> <span class="op">+</span> <span class="bu">str</span>(number1<span class="op">*</span>number2))</span>
+<span id="cb30-5"><a href="#cb30-5" tabindex="-1"></a>  <span class="cf">return</span> [meanNumber,minNumber]</span>
+<span id="cb30-6"><a href="#cb30-6" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" tabindex="-1"></a>mean_and_minOfNumbers()</span></code></pre></div>
 <pre><code>## The product is 400
 ## [25.0, 10]</code></pre>
+<p><strong>Exercise 4</strong> - <strong>Custom Functions</strong></p>
 <ul>
 <li>Create function that takes three lists and coerces them into one
 set. The function must return the set, but also print its length.</li>
 </ul>
 <p>** Think about each individual step required to do this**</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a></span>
-<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="kw">def</span> SetMaker(list1, list2, list3):</span>
-<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  biglist <span class="op">=</span> list1 <span class="op">+</span> list2 <span class="op">+</span> list3</span>
-<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  my_set <span class="op">=</span> <span class="bu">set</span>(biglist)</span>
-<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>  <span class="bu">print</span>(<span class="bu">len</span>(my_set))</span>
-<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>  <span class="cf">return</span> my_set</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a></span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a><span class="kw">def</span> SetMaker(list1, list2, list3):</span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a>  biglist <span class="op">=</span> list1 <span class="op">+</span> list2 <span class="op">+</span> list3</span>
+<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a>  my_set <span class="op">=</span> <span class="bu">set</span>(biglist)</span>
+<span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a>  <span class="bu">print</span>(<span class="bu">len</span>(my_set))</span>
+<span id="cb32-6"><a href="#cb32-6" tabindex="-1"></a>  <span class="cf">return</span> my_set</span></code></pre></div>
 <p>Run the function using these inputs</p>
 <pre><code>list1 = [&quot;INS&quot;,&quot;INSR&quot;, &quot;VEGFA&quot;,&quot;VEGFR1&quot;,&quot;VEGFR2&quot;]
 list2 = [&quot;TGFBR1&quot;,&quot;EGFR&quot;,&quot;VEGFR1&quot;,&quot;VEGFR2&quot;]
@@ -509,9 +609,9 @@ on this new set of lists</p>
 list2 = [&quot;GO:0031402&quot;,&quot;GO:0030955&quot;]
 list3 = [&quot;GO:0031402&quot;, &quot;GO:0030957&quot;, &quot;GO:0030955&quot;]
 </code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="im">import</span> myset_script</span>
-<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>myset_script.SetMaker(list1, list2, list3)</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="im">import</span> myset_script</span>
+<span id="cb35-2"><a href="#cb35-2" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" tabindex="-1"></a>myset_script.SetMaker(list1, list2, list3)</span></code></pre></div>
 
 
 
