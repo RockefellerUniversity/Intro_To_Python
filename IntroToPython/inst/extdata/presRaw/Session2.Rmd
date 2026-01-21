@@ -484,11 +484,24 @@ Notebooks give you a means to tie the code, the analysis decisions and the resul
 
 There are several options for python. But Jupyter Notebook is best known for Python. Quarto is growing in popularity as its universal and language agnostic.
 
+
 ---
+## Time for an exercise!
+
+Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise5_exercise.html)
+
+
+---
+## Answers to the exercise
+
+Answers can be found here  [here](../../exercises/answers/Exercise5_answers.html)
+
+---
+
 ## Further Support
 
 When you hit bugs:
-  * Google
+  * Google/ChatGPT/Claude, etc. 
   * Stackoverflow
   * Biostars
   * Reach out on [GitHub](https://github.com/RockefellerUniversity/Intro_To_Python/issues)

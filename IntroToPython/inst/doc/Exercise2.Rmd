@@ -1,5 +1,5 @@
 ---
-title: "Exercise 2"
+title: "Exercise 1"
 author: "Rockefeller University, Bioinformatics Resource Centre"
 date: "https://rockefelleruniversity.github.io/Intro_To_Python/"
 output: 
@@ -18,9 +18,145 @@ message(toMessage)
 
 
 <p>&nbsp;</p>
-These exercises are about data types and custom functions from Session 1 [session1](https://rockefelleruniversity.github.io/Intro_To_Python/). 
+These exercises are about data types from Session 1 [session1](https://rockefelleruniversity.github.io/Intro_To_Python/). 
 
-**Exercise 1** - **Dictionaries**
+
+**Exercise 1** - **Lists**
+
+- Create a list containing the values 1,2,3,4,5.
+
+```{python,echo=toMessage}
+[1,2,3,4,5]
+
+```
+- Create a list containing the values a,b,c,d,e, but assign it to a new variable called `x`.
+
+```{python,echo=toMessage}
+x = ["a","b","c","d","e"]
+x
+```
+
+- Create a list containing the values a,b,c, repeated 5 times and assign it to a new variable
+
+```{python,echo=toMessage}
+y = ["a","b","c"] * 5
+y
+```
+
+- Create a sublist with indexing. Use the variable you just created and extract the the 10th through to 14th position.
+
+```{python, echo=toMessage}
+y[9:14]
+```
+
+- With the same variable, let's use "-" indexing to get the last value of our list.
+    
+```{python, echo=toMessage}
+
+y[-1]
+
+
+```
+
+- Now print the values from [0:-1]
+    
+```{python, echo=toMessage}
+
+y[0:-1]
+
+
+```
+
+- Notice how the last value of your list is missing, even though you access it with [-1]. That's because slicing is exclusive, while indexing is inclusive. 
+    
+
+- Append the list in variable x. Add the string z.
+```{python, echo=toMessage}
+x.append('z')
+x
+```
+
+- Delete the 2nd through 6th entry of x.
+```{python, echo=toMessage}
+del(x[1:5])
+x
+```
+
+- Lets go back to variable y. Sort it in reverse order.
+```{python, echo=toMessage}
+y.sort(reverse=True)
+y
+```
+
+  
+- Multiply the y variable by 2. 
+    
+```{python, echo=toMessage}
+
+y * 2
+
+
+
+```
+    
+
+- Use the function .remove() to eliminate "a" from your list.
+    
+```{python, echo=toMessage}
+
+y.remove("a")
+
+print(y)
+
+```
+
+- Notice that .remove() eliminates only the first instance of your specified entry.
+   
+- Create a list of lists. Use the values 1,2,3,4,5, along with the lists x and y. 
+
+```{python, echo=toMessage}
+nested_list = [[1,2,3,4,5], x, y]
+nested_list
+```
+
+- Take your previous list of lists and use indexing to find the third entry of your third list.
+
+```{python, echo=toMessage}
+
+nested_list[2][2]
+
+```
+
+**Exercise 2** - **Tuples**
+
+- Create a tuple containing the values 1,2,3,4,5.
+
+```{python,echo=toMessage}
+(1,2,3,4,5)
+
+```
+
+
+- Coerce list in variable x into a tuple.
+
+```{python,echo=toMessage}
+tuple(x)
+
+```
+
+
+- Make a touple with your list of lists.
+- Print your results
+    
+```{python, echo=toMessage}
+
+nested_list_tuple = tuple(nested_list)
+
+print(nested_list_tuple)
+
+```
+
+**Exercise 3** - **Dictionaries**
 
 - Create a dictionary containing a list of floats, a list of integers and a tuple of strings.
 
@@ -36,10 +172,9 @@ my_dict
 ```
 
 - Create a dictionary containing GO terms and their corresponding genes:
-
-* GO:0030955 - PKM, ADPRH, ATP4A, DRG1
-* GO:0031403 - IMPA1, PDXK
-* GO:0031402 - SLC6A4, CAPN3, TDG, ATP1A2
+    - GO:0030955 - PKM, ADPRH, ATP4A, DRG1
+    - GO:0031403 - IMPA1, PDXK
+    - GO:0031402 - SLC6A4, CAPN3, TDG, ATP1A2
 
 ```{python,echo=toMessage}
 
@@ -65,7 +200,44 @@ my_dict.setdefault('GO:0031420', my_dict['GO:0030955'] + my_dict['GO:0031403'] +
 my_dict
 ```
 
-**Exercise 2** - **Sets**
+- Make a new version of the original gene ontolgoy dictionary, but add the names of each term to each entry, in addition to the genes. The following information should be accessible in the object:
+
+Hint: Dictionary elements can also be nested dictionaries.
+
+- GO:0030955
+  + Name: potassium ion binding
+  + Genes: PKM, ADPRH, ATP4A, DRG1
+- GO:0031403
+  + Name: lithium ion binding
+  + Genes: IMPA1, PDXK
+- GO:0031402 
+  + Name: sodium ion binding
+  + Genes: SLC6A4, CAPN3, TDG, ATP1A2
+
+```{python, echo=toMessage} 
+my_dict_names = {
+    'GO:0030955': {"name": "potassium ion binding",
+                   "genes": ["PKM", "ADPRH", "ATP4A", "DRG1"]},
+    'GO:0031403': {"name": "lithium ion binding",
+                   "genes": ["IMPA1", "PDXK"]},
+    'GO:0031402': {"name": "lithium ion binding",
+                   "genes": ["SLC6A4", "CAPN3", "TDG", "ATP1A2"]}
+}
+my_dict_names
+```
+
+- Index the object you made to separately get the name and genes for the term 'GO:0031403'.
+
+```{python, echo=toMessage} 
+# name 
+my_dict_names["GO:0031403"]["name"]
+
+# genes
+my_dict_names["GO:0031403"]["genes"]
+```
+
+
+**Exercise 4** - **Sets**
 
 - Create 2 sets of gene names: 
   - PKM, ADPRH, ZNF724,ATP4A,GSS, DRG1, FA2H, MCM10
@@ -84,77 +256,6 @@ my_set2 = {"SLC6A4", "MCM10", "CAPN3", "TDG", "ATP1A2","GSS", "BRCA1", "HIVEP2",
 
 my_set1.intersection(my_set2) 
 
-```
-
-
-**Exercise 3** - **NumPy**
-
-- Import NumPy
-
-```{python,echo=toMessage}
-
-import numpy as np
-
-```
-
-- Create a NumPy array with 4 columns and 5 rows.
-
-* Sample - R1, R2, R3, R4, R5
-* Year - 1990, 2010, 2005, 2015, 2012
-* Replicate - True, True, False, False, False
-* Tissue - Skin, Skin, Brain, Brain, Brain
-
-```{python,echo=toMessage}
-
-arr_2d = np.array([["R1", 1990, True, "Skin"],
-  ["R2", 2010, True, "Skin"], 
-  ["R3", 2005, False, "Brain"],
-  ["R4", 2015, False, "Brain"],
-  ["R5", 2012, False, "Brain"]])
-arr_2d
-
-```
-
-- Slice the array to get just the Sample and Year.
-
-```{python,echo=toMessage}
-
-arr_2d[:,0:2]
-
-```
-
-- Subset the array to just Brain Tissue samples. 
-
-```{python,echo=toMessage}
-
-arr_2d[arr_2d[:,3] =="Brain",:]
-
-```
-
-**Exercise 4** - **Custom Functions**
-
-- Create a function which takes one number and returns the square of that number
-
-```{python,echo=toMessage}
-
-def squareOfNumber(number):
-  squareNumber = number*number
-  return squareNumber
-
-squareOfNumber(9)
-
-```
-
-- Create a function which takes two numbers and returns the mean and the minimum
-
-```{python,echo=toMessage}
-
-def mean_and_minOfNumbers(number1, number2):
-  meanNumber = (number1 + number2) /2
-  minNumber = min([number1, number2])
-  return [meanNumber,minNumber]
-
-mean_and_minOfNumbers(1,3)
 ```
 
 

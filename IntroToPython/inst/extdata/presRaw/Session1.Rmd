@@ -546,6 +546,16 @@ newgreeting4 = 'Hi' * 5
 newgreeting4
 ```
 
+---
+## Time for an exercise!
+
+Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise1_exercise.html)
+
+
+---
+## Answers to the exercise
+
+Answers can be found here  [here](../../exercises/answers/Exercise1_answers.html)
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -1385,18 +1395,6 @@ Here is a rough guide:
 * Arrays - When you have rectangular data i.e. a table. 
 
 ---
-## Time for an exercise!
-
-Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise2_exercise.html)
-
-
----
-## Answers to the exercise
-
-Answers can be found here  [here](../../exercises/answers/Exercise2_answers.html)
-
-
----
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
@@ -1947,7 +1945,7 @@ Answers can be found [here](https://rockefelleruniversity.github.io/Intro_To_Pyt
 ## Further Support
 
 When you hit bugs:
-  * Google
+  * Google/ChatGPT/Claude, etc. 
   * Stackoverflow
   * Biostars
   * Reach out on [GitHub](https://github.com/RockefellerUniversity/Intro_To_Python/issues)
