@@ -656,6 +656,8 @@ A list has a few key characteristics:
   * they are mutable and dynamic (elements can be modified and length can be changed)
   * they can hold mixed types of data
 
+---
+
 ## Lists
 
 Lists are denoted with square brackets. 
@@ -909,7 +911,7 @@ my_strs
 ## ['a', 'b', 'c', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
 ```
 
-* `.remove()` removes something from the list. It will only remove the first instance though. 
+* `.remove()` removes something from the list, but will only remove the first instance 
 
 
 ``` python
@@ -938,7 +940,6 @@ my_strs
 
 There are many useful functions built into the base version of python. 
 
-
 * `.index()` reveals which position in the list is the supplied argument
 
 
@@ -949,6 +950,17 @@ my_strs.index('c')
 ```
 ## 2
 ```
+
+* `.append()` will append the supplied argument to the list
+
+
+``` python
+my_strs.append("f")
+```
+
+---
+## Functions and lists
+
 
 * `.sort()` will sort your list. This works both with numerical and string data.
 
@@ -1323,7 +1335,7 @@ myset
 ```
 
 ```
-## {'c', 'a', 'b'}
+## {'c', 'b', 'a'}
 ```
 
 ``` python
@@ -1332,7 +1344,7 @@ myset
 ```
 
 ```
-## {'c', 'b', 'a'}
+## {'b', 'c', 'a'}
 ```
 
 ---
@@ -1347,7 +1359,7 @@ myset
 ```
 
 ```
-## {'c', 'd', 'b', 'a'}
+## {'b', 'd', 'c', 'a'}
 ```
 
 
@@ -1357,7 +1369,7 @@ myset
 ```
 
 ```
-## {'c', 'b', 'a'}
+## {'b', 'c', 'a'}
 ```
 
 ---
@@ -1389,7 +1401,7 @@ myset
 ```
 
 ```
-## {'c', 'b', 'a'}
+## {'b', 'c', 'a'}
 ```
 
 ---

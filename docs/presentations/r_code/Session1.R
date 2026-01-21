@@ -272,6 +272,8 @@ if(params$isSlides == "yes"){
 
 ## my_strs.index('c')
 
+## my_strs.append("f")
+
 ## my_list = [1,4,9,4,11,12,6]
 ## my_list.sort()
 ## my_list
