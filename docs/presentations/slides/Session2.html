@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Introduction to Python, Session 2    </title>
+    <title>Intro to Python - Session 2</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
-    <script src="libs/header-attrs-2.29/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <meta name="author" content="http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/" />
+    <meta name="author" content="brc@rockefeller.edu" />
+    <script src="libs/header-attrs-2.30/header-attrs.js"></script>
+    <link rel="stylesheet" href="default.css" type="text/css" />
     <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
     <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
+class: middle, inverse, title-slide
 
 .title[
-# Introduction to Python, Session 2<br />
-<html><br />
+# Intro to Python - Session 2
+]
+.subtitle[
+## <html><br />
 <br />
 <hr color='#EB811B' size=1px width=796px><br />
-</html>
+</html><br />
+Bioinformatics Resource Center - Rockefeller University
 ]
 .author[
-### Rockefeller University, Bioinformatics Resource Centre
+### <a href="http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/" class="uri">http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/</a>
 ]
-.date[
-### <a href="http://rockefelleruniversity.github.io/Intro_To_Python/" class="uri">http://rockefelleruniversity.github.io/Intro_To_Python/</a>
+.author[
+### <a href="mailto:brc@rockefeller.edu" class="email">brc@rockefeller.edu</a>
 ]
 
 ---
@@ -88,51 +92,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.806405 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.335774 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.172869 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.401856 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.785960 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.159208 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.196261 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.226751 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.149084 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.526512 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.819938 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.483367 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.335669 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.212473 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.709608 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.307701 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.495351 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.101956 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 2.932259 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.997781 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.019351 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.105041 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.023718 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.273373 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.580129 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.002340 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.345175 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.856284 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.403521 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.456322 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.738107 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.832736 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.081749 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.221877 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.224342 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.905976 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.926129 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.763260 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.804370 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.186958 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11.849069 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.268465 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.650948 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.121425 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.854119 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.156473 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.090231 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.393739 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -158,11 +162,9 @@ import os
 ```
 
 
-
 ``` python
 os.getcwd()
 ```
-
 
 ```
 ## '/Users/mattpaul/'
@@ -193,7 +195,7 @@ os.listdir()
 ```
 
 ```
-## ['presRaw', 'data', 'GeneNames_highexpression.txt', 'Descriptions', 'customCSS', '_course.yml', 'imgs']
+## ['presRaw', 'imgs', 'customCSS', 'data', 'GeneNames_highexpression.txt', '_course.yml', 'Descriptions']
 ```
 
 
@@ -202,7 +204,7 @@ os.listdir("data")
 ```
 
 ```
-## ['susbet_dataset.py', 'height-weight_female.csv', 'salmon_mercury.csv', 'GeneNames.txt', 'readThisTable.csv', 'myresult.RData', 'GeneExpression.txt', 'salmon_catch_data.csv', 'GeneExpressionWithMethods.txt', 'final_heatmap.png', 'final_exercise_filled.ipynb', 'final_violin_1.png', 'final_exercise_blank.ipynb', 'height-weight.csv', 'final_scatter.png', 'final_violin_2.png', 'final_bar.png', 'gene_data.csv', 'gene_expression.csv', 'ToRead.csv', 'susbet_dataset_args.py']
+## ['final_heatmap.png', 'gene_expression.csv', 'final_exercise_filled.ipynb', 'susbet_dataset_args.py', 'ToRead.csv', 'myresult.RData', 'gene_data.csv', 'GeneNames.txt', 'height-weight_female.csv', 'final_exercise_blank.ipynb', 'final_violin_1.png', 'salmon_catch_data.csv', 'data_vis_filled.ipynb', 'salmon_mercury.csv', 'final_violin_2.png', 'height-weight.csv', 'susbet_dataset.py', 'GeneExpression.txt', 'matplotlib_colors.png', 'final_scatter.png', 'GeneExpressionWithMethods.txt', 'readThisTable.csv', 'final_bar.png']
 ```
 
 ---
@@ -678,9 +680,9 @@ Other Reference Material:
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "github",
-"highlightLines": true,
-"countIncrementalSlides": false
+  "highlightStyle": "github",
+  "highlightLines": true,
+  "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));

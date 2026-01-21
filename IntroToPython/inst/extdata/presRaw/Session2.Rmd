@@ -1,15 +1,18 @@
 ---
-title: "Introduction to Python, Session 2 <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html>"
-author: "Rockefeller University, Bioinformatics Resource Centre"
-date: "http://rockefelleruniversity.github.io/Intro_To_Python/"
+title: "Intro to Python - Session 2"
+subtitle: " <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html> Bioinformatics Resource Center - Rockefeller University"
+author: 
+  - "http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/"
+  - "brc@rockefeller.edu"
 output: 
   xaringan::moon_reader:
-    css: ["default", "metropolisCustom.css", "metropolis-fontsCustom.css"]
+    css: ["default.css", "metropolisCustom.css", "metropolis-fontsCustom.css"]
     lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
+      titleSlideClass: [middle, inverse]
   html_document:
     toc: true # table of content true
     toc_float: yes
@@ -127,13 +130,11 @@ import os
 
 ```
 
-
 ```{python, eval=F}
 
 os.getcwd()
 
 ```
-
 
 ```
 ## '/Users/mattpaul/'
