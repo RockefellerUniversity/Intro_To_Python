@@ -552,7 +552,16 @@ if(params$isSlides == "yes"){
 
 ## Lists
 
-Python has many options for storing data. The simplest is a list. Lists are denoted with square brackets. 
+Python has many options for storing data. The simplest is a list. 
+
+A list has a few key characteristics:
+  * the order of the elements matters and can be used for indexing
+  * they are mutable and dynamic (elements can be modified and length can be changed)
+  * they can hold mixed types of data
+
+## Lists
+
+Lists are denoted with square brackets. 
 
 ```{python}
 
@@ -599,6 +608,10 @@ Sometimes we have a long list, but we know we want the final value. We can use a
 my_strs[-1]
 ```
 
+
+---
+## Indexing Lists
+
 We can also create a sublist by slicing our list with the `:`.
 
 ```{python}
@@ -612,6 +625,9 @@ my_strs[2:-1]
 ```{python}
 my_strs[2:]
 ```
+
+Key point: You'll notice that slicing in Python is inclusive of the first element, but exclusive of the last element. So in our example, `my_strs[2:4]` starts with `my_strs[2]` but does not include `my_strs[4]`.
+
 
 ---
 ## Complex Lists
@@ -698,10 +714,10 @@ my_strs.remove('c')
 my_strs
 ```
 
-* `.del()` removes an argument from a specific position in the list
+* the generic `del` statement removes an argument from a specific position in the list
 
 ```{python}
-del(my_strs[3])
+del my_strs[3]
 my_strs
 ```
 
@@ -728,6 +744,25 @@ my_list
 my_list = ["b","c","a"]
 my_list.sort()
 my_list
+```
+
+---
+## Mutating vs Non-mutating functions
+
+You may have noticed that the `sort` function does not actually return the sorted list. It returns 'None' and modifies the list in place. This might be different from other languages you have used. 
+
+```{python}
+sort_result = my_list.sort()
+sort_result # this returns None, modifies object in place
+```
+
+Some python functions do return the modified object and leave the original object unchanged. We can try this with the `sorted` function.
+
+```{python}
+new_list = [1,4,9,4,11,12,6]
+sorted_result = sorted(new_list)
+sorted_result # function modified object
+new_list # old object is unchanged
 ```
 
 ---
@@ -797,30 +832,20 @@ type(my_list_tuple_list)
 
 
 ---
-## Time for an exercise!
-
-Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise1_exercise.html)
-
-
----
-## Answers to the exercise
-
-Answers can be found here  [here](../../exercises/answers/Exercise1_answers.html)
-
-
----
 ## Dictionaries
 
 Another data type are dictionaries. Dictionaries are made of key:value pairs. 
 
-A key is some kind of unique identifier, typically a short string. The value is a corresponding piece of data that is often more complex. 
+  * A key is some kind of unique identifier, typically a short string. 
+  * The value is a corresponding piece of data that is often more complex (e.g. different data types). 
+  * While values can be modified, keys are immutable. 
 
-This structure allows the organization of your data, and you can gives you the ability to grab out values using the key.
+This structure allows the organization of your data, and gives you the ability to grab out values using the key.
   
 ---
 ## Dictionaries
 
-Dictionaries are made with the curly brackets. Each entry consists of a pair of objects. The `key` identifier, and the `value`. Here you can see we have multiple types and shapes of daata contained in our `values`. 
+Dictionaries are made with the curly brackets. Each entry consists of a pair of objects. The `key` identifier, and the `value`. Here you can see we have multiple types and shapes of data contained in our `values`. 
 
 ```{python}
 my_dict = {
@@ -864,6 +889,23 @@ We can also use the `.get()` attribute.
 my_dict['language']
 
 my_dict.get('language')
+```
+
+---
+## Dictionary indexes
+
+Unlike lists, dictionaries cannot be subset with a numeric index and must be indexed with a key value. 
+
+```{python, eval=F}
+my_dict[0]
+```
+
+```{python, eval=T, echo=F}
+try:
+  my_dict[0]
+except Exception as e:
+  print(e)
+  
 ```
 
 ---
@@ -1017,6 +1059,17 @@ myset1.difference(myset2)
 * A set ensures element uniqueness without any guaranteed order
 
 ---
+## Time for an exercise!
+
+Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise2_exercise.html)
+
+
+---
+## Answers to the exercise
+
+Answers can be found here  [here](../../exercises/answers/Exercise2_answers.html)
+
+---
 ```{r, results='asis',include=TRUE,echo=FALSE}
 if(params$isSlides == "yes"){
   cat("class: inverse, center, middle
@@ -1072,60 +1125,9 @@ arr
 ```
 
 ---
-## Adding Dimensions
-
-It is possible to create many kinds of arrays, with differing dimensionality. They can be 1D,2D,3D etc. Typically we think about 2D arrays as this is often the rectangular data we deal with. 
-
-Here we again create a list to coerce into a array. This time we have a list of lists. Each list will become equivalent to a row in our array.
-
-
-```{python}
-
-arr_2d = np.array([["Patient1",34,True],["Patient2", 29, True], ["Patient3",41,False]])
-arr_2d
-
-```
-
-We can find out the dimension attribute by using `ndim`. In this case we have rectangular data so it is two dimensions. 
-
-```{python}
-
-arr_2d.ndim
-
-```
-
----
-## Indexing Arrays
-
-We can use same square brackets we used for other data objects to index our arrays. The big difference is we now have 2 dimensions. We therefore need to provide 2 indexes, separated by a comma. 
-
-The first number will correspond to row. The second number will correspond to column.
-
-```{python}
-arr_2d[0,2]
-```
-
----
-## Slicing Arrays
-
-We can also do more complex indexing operations like slicing, to get ranges of values from our array.
-
-
-```{python}
-arr_2d[:,2]
-
-```
-
-```{python}
-arr_2d[0,1:3]
-
-```
-
-
----
 ## Data Types and arrays
 
-In most data objects we have looked as so far there are limited types of data: `str`,`float`, `int` and `boolean`. Arrays accept all of these. We can always check the type with the `dtype` attribute.
+In most data objects we have looked at so far there are limited types of data: `str`,`float`, `int` and `boolean`. Arrays accept all of these. We can always check the type with the `dtype` attribute.
 
 ```{python}
 
@@ -1167,6 +1169,83 @@ except Exception as e:
   print(e)
 
 ```
+
+---
+## Data Types and arrays
+
+Arrays contain only one data type. While they will accept lists of different data types, but these elements will be coerced into a common type. 
+
+```{python, eval=F, echo=T}
+
+arr = np.array(['a', 2, 3])
+arr
+```
+
+---
+## Adding Dimensions
+
+It is possible to create many kinds of arrays, with differing dimensionality. They can be 1D,2D,3D etc. Typically we think about 2D arrays as this is often the rectangular data we deal with. 
+
+Here we again create a list to coerce into a array. This time we have a list of lists. Each list will become equivalent to a row in our array.
+
+
+```{python}
+
+arr_2d = np.array([["Patient1",34,True],["Patient2", 29, True], ["Patient3",41,False]])
+arr_2d
+
+```
+
+We can find out the dimension attribute by using `ndim`. In this case we have rectangular data so it is two dimensions. 
+
+```{python}
+
+arr_2d.ndim
+
+```
+
+---
+## Array shape
+
+We can confirm the shape of the array using the`shape` attribute
+```{python}
+arr_2d.shape
+```
+
+The shape of an array can easily be changed with the `reshape` method. Note that you will get an error if the number of values in the array doesn't fit int othe dimensions specified.
+
+```{python}
+arr_2d.reshape(9,1)
+```
+
+---
+## Indexing Arrays
+
+We can use same square brackets we used for other data objects to index our arrays. The big difference is we now have 2 dimensions. We therefore need to provide 2 indexes, separated by a comma. 
+
+The first number will correspond to row. The second number will correspond to column.
+
+```{python}
+arr_2d[0,2]
+```
+
+---
+## Slicing Arrays
+
+We can also do more complex indexing operations like slicing, to get ranges of values from our array.
+
+
+```{python}
+arr_2d[:,2]
+
+```
+
+```{python}
+arr_2d[0,1:3]
+
+```
+
+
 
 
 ---
