@@ -65,7 +65,7 @@ for(i in 1:length(all_pages)){
 
 saveRDS(biostars_dat,"~/Desktop/biostars.rds")
 
-
+biostars_dat <- readRDS("~/Desktop/biostars.rds")
 biostars_dat_sub <- biostars_dat[,-1]
 
 unlist(biostars_dat_sub)
@@ -114,16 +114,16 @@ to_plot <- data.frame("Python"=python_percentile, "R"=r_percentile,
 
 to_plot3 <- to_plot[-c(1:100,(nrow(to_plot)-100):nrow(to_plot)),]
 
-to_plot2 <- pivot_longer(to_plot,cols=1:6, names_to = "Language", values_to = "Tag%")
-to_plot4 <- pivot_longer(to_plot3,cols=1:6, names_to = "Language", values_to = "Tag%")
+to_plot2 <- pivot_longer(to_plot,cols=1:6, names_to = "Language", values_to = "Tag (per100)")
+to_plot4 <- pivot_longer(to_plot3,cols=1:6, names_to = "Language", values_to = "Tag (per100)")
 
 library(ggplot2)
 
-ggplot(to_plot4, aes(x=Time, y=`Tag%`, color=Language)) + geom_smooth()
+ggplot(to_plot4, aes(x=Posts, y=`Tag (per100)`, color=Language)) + geom_smooth()
 
-ggplot(to_plot2, aes(x=Time, y=`Tag%`, color=Language)) + geom_smooth(span = 10000)
+ggplot(to_plot2, aes(x=Posts, y=`Tag (per100)`, color=Language)) + geom_smooth(span = 10000)
 
-ggplot(to_plot2, aes(x=Time, y=`Tag%`, color=Language)) + geom_smooth(span = 0.01)
+ggplot(to_plot2, aes(x=Posts, y=`Tag (per100)`, color=Language)) + geom_smooth(span = 0.01)
 
 
 
@@ -133,7 +133,7 @@ biopython <- sapply(t(biostars_dat_sub) ,function(x){
 })
 
 bioconductor <- sapply(t(biostars_dat_sub) ,function(x){
-  present <- any(x %in% c("Biopython", "biopython"))
+  present <- any(x %in% c("Bioconductor", "bioconductor"))
   return(present)
 })
 
@@ -155,6 +155,26 @@ seurat_percentile <- slide_dbl(seurat, ~sum(.x), .before = 49, .after = 50)
 
 to_plot <- data.frame("Bioconductor"=bioconductor_percentile, "Biopython"=biopython_percentile,
                       "Scanpy"=scanpy_percentile, "Seurat"=seurat_percentile, "Posts"=length(rust_percentile):1)
-to_plot2 <- pivot_longer(to_plot,cols=1:4, names_to = "Package", values_to = "Tag%")
+to_plot2 <- pivot_longer(to_plot,cols=1:4, names_to = "Package", values_to = "Tag (per100)")
 
-ggplot(to_plot2, aes(x=Posts, y=`Tag%`, color=Package)) + geom_smooth()
+ggplot(to_plot2, aes(x=Posts, y=`Tag (per100)`, color=Package)) + geom_smooth()
+
+ggplot(to_plot2, aes(x=Posts, y=`Tag (per100)`, color=Package)) + geom_smooth()
+
+
+to_save <- dplyr::filter(to_plot2, Package %in% c("Scanpy","Seurat")) %>% ggplot( aes(x=Posts, y=`Tag (per100)`, color=Package)) + geom_smooth() + ggtitle("scRNAseq package posts on Biostars")+ theme_bw()
+ggsave("IntroToPython/inst/extdata/imgs/scanpy_vs_seurat.png", to_save)
+
+
+
+
+
+
+
+geneNames <- c("Gene_1", "Gene_2", "Gene_3","Gene_4", "Gene_5", "Gene_6", "Gene_7", "Gene_8", "Gene_9", "Gene10")
+expression <- c(100, 3000, 200, 1000, 10,1000,500,2500,250,5000)
+geneLengths <- c(1000, 3000, 1000, 1200, 500, 500, 1000,750,1500,2000)
+goterm <- c("GO:Biosynthetic Process","GO:Catabolic Process","GO:Biosynthetic Process","GO:Catabolic Process","GO:Biosynthetic Process","GO:Catabolic Process","GO:Biosynthetic Process","GO:Catabolic Process","GO:Biosynthetic Process","GO:Catabolic Process")
+mydf <- data.frame(geneNames,expression,geneLengths,goterm)
+
+write.csv(mydf, "IntroToPython/inst/extdata/data/gene_expression.csv", row.names = F, quote = F)
