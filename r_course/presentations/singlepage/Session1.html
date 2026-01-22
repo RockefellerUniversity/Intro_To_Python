@@ -2348,10 +2348,10 @@ and each entry is unique. Sets can be created using the curly brackets,
 or by coercing another object using the <code>set()</code> function.</p>
 <div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="#cb155-1" tabindex="-1"></a>myset <span class="op">=</span> {<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>}</span>
 <span id="cb155-2"><a href="#cb155-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;b&#39;, &#39;a&#39;, &#39;c&#39;}</code></pre>
+<pre><code>## {&#39;a&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
 <div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>])</span>
 <span id="cb157-2"><a href="#cb157-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;b&#39;, &#39;a&#39;, &#39;c&#39;}</code></pre>
+<pre><code>## {&#39;a&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="sets-can-be-modified" class="section level2">
 <h2>Sets can be modified</h2>
@@ -2359,10 +2359,10 @@ or by coercing another object using the <code>set()</code> function.</p>
 modification of sets.</p>
 <div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="#cb159-1" tabindex="-1"></a>myset.add(<span class="st">&quot;d&quot;</span>)</span>
 <span id="cb159-2"><a href="#cb159-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;b&#39;, &#39;a&#39;, &#39;c&#39;, &#39;d&#39;}</code></pre>
+<pre><code>## {&#39;a&#39;, &#39;d&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
 <div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="#cb161-1" tabindex="-1"></a>myset.remove(<span class="st">&quot;d&quot;</span>)</span>
 <span id="cb161-2"><a href="#cb161-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;b&#39;, &#39;a&#39;, &#39;c&#39;}</code></pre>
+<pre><code>## {&#39;a&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="sets-have-no-order" class="section level2">
 <h2>Sets have no order</h2>
@@ -2377,7 +2377,7 @@ objects can be.</p>
 contain unique values.</p>
 <div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="#cb165-1" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>])</span>
 <span id="cb165-2"><a href="#cb165-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;b&#39;, &#39;a&#39;, &#39;c&#39;}</code></pre>
+<pre><code>## {&#39;a&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="sets-have-specific-functions" class="section level2">
 <h2>Sets have specific functions</h2>
