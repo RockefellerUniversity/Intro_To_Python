@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Introduction to Python, Session 2    </title>
+    <title>Intro to Python - Session 2</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
+    <meta name="author" content="http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/" />
+    <meta name="author" content="brc@rockefeller.edu" />
     <script src="libs/header-attrs-2.30/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="default.css" type="text/css" />
     <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
     <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
+class: middle, inverse, title-slide
 
 .title[
-# Introduction to Python, Session 2<br />
-<html><br />
+# Intro to Python - Session 2
+]
+.subtitle[
+## <html><br />
 <br />
 <hr color='#EB811B' size=1px width=796px><br />
-</html>
+</html><br />
+Bioinformatics Resource Center - Rockefeller University
 ]
 .author[
-### Rockefeller University, Bioinformatics Resource Centre
+### <a href="http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/" class="uri">http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/</a>
 ]
-.date[
-### <a href="http://rockefelleruniversity.github.io/Intro_To_Python/" class="uri">http://rockefelleruniversity.github.io/Intro_To_Python/</a>
+.author[
+### <a href="mailto:brc@rockefeller.edu" class="email">brc@rockefeller.edu</a>
 ]
 
 ---
@@ -88,51 +92,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.446104 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.884635 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.786350 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.650527 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.134974 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.527946 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.889643 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.057373 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.517024 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.581785 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.393524 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.388599 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.078650 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.330634 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.634065 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.592237 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.183371 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.918769 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.591124 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.434302 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.529140 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.994723 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.447086 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.614760 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.003814 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.028254 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.365636 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.779982 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.618680 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.669484 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.714766 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.792499 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.161338 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.521964 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.550138 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.682096 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.147790 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.264043 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 11.154447 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.328184 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.805728 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.624605 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 7.949627 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.134021 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.917514 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.785078 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.179353 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.447519 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -158,11 +162,9 @@ import os
 ```
 
 
-
 ``` python
 os.getcwd()
 ```
-
 
 ```
 ## '/Users/mattpaul/'
@@ -661,11 +663,24 @@ Notebooks give you a means to tie the code, the analysis decisions and the resul
 
 There are several options for python. But Jupyter Notebook is best known for Python. Quarto is growing in popularity as its universal and language agnostic.
 
+
 ---
+## Time for an exercise!
+
+Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise5_exercise.html)
+
+
+---
+## Answers to the exercise
+
+Answers can be found here  [here](../../exercises/answers/Exercise5_answers.html)
+
+---
+
 ## Further Support
 
 When you hit bugs:
-  * Google
+  * Google/ChatGPT/Claude, etc. 
   * Stackoverflow
   * Biostars
   * Reach out on [GitHub](https://github.com/RockefellerUniversity/Intro_To_Python/issues)

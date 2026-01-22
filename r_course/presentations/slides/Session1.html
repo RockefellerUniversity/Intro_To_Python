@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>Introduction to Python, Session 1    </title>
+    <title>Intro to Python - Session 1</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Rockefeller University, Bioinformatics Resource Centre" />
+    <meta name="author" content="http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/" />
+    <meta name="author" content="brc@rockefeller.edu" />
     <script src="libs/header-attrs-2.30/header-attrs.js"></script>
-    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="default.css" type="text/css" />
     <link rel="stylesheet" href="metropolisCustom.css" type="text/css" />
     <link rel="stylesheet" href="metropolis-fontsCustom.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: center, middle, inverse, title-slide
+class: middle, inverse, title-slide
 
 .title[
-# Introduction to Python, Session 1<br />
-<html><br />
+# Intro to Python - Session 1
+]
+.subtitle[
+## <html><br />
 <br />
 <hr color='#EB811B' size=1px width=796px><br />
-</html>
+</html><br />
+Bioinformatics Resource Center - Rockefeller University
 ]
 .author[
-### Rockefeller University, Bioinformatics Resource Centre
+### <a href="http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/" class="uri">http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/</a>
 ]
-.date[
-### <a href="http://rockefelleruniversity.github.io/Intro_To_Python/" class="uri">http://rockefelleruniversity.github.io/Intro_To_Python/</a>
+.author[
+### <a href="mailto:brc@rockefeller.edu" class="email">brc@rockefeller.edu</a>
 ]
 
 ---
+
 
 
 
@@ -155,11 +160,19 @@ Practicals as HTML pages.
 * **r_course/answers/**
 Practicals with answers as HTML pages and R code solutions. 
 
+---
+## Starting with Python
+
+Many laptops will come with python installed so getting started is easy. You will simply be able write python into Terminal or Command Prompt and a **Python console** will open. This is an interactive python session. This will work with most of what will do in the next few sessions as we are working on the basics. 
+
+
+&lt;img src="imgs/pythonconsole.png" alt="comparison" height="250" width="550"&gt;
+
 
 ---
 ## Setting Up Conda and Python
 
-Many laptops will come with python installed so getting started is easy. 
+Each version of python and python packages will respond slightly differently to commands given. We therefore want to make sure when you use python for analysis that you control which version you use. This is important for reproducibility.
 
 We will run a custom install of python using conda. Conda manages software and packages. Using Conda should make installations much easier and allow us to keep track of software versions. 
 
@@ -167,13 +180,12 @@ We can install Conda from here. We will specifically want to use Miniconda:
 
 https://conda.io/projects/conda/en/latest/user-guide/install/index.html
 
-If you have instaled this correctly, running this on terminal/command prompt should give you a list of conda commands
+If you have installed this correctly, running this on terminal/command prompt should give you a list of conda commands
 
 
 ``` sh
 conda
 ```
-
 
 ---
 ## Setting Up Conda and Python
@@ -213,18 +225,18 @@ conda install jupyter
 ## Interactive or scripts?
 
 As with many languages you can work with python in two main ways:
-interactive or scripts
+interactive or scripts. 
 
-When people think about coding they are often thinking about the interactive console. When you work in this way lines of code are submitted as you enter them. You often do this when you are developing an analysis and trying out parameters. This is mostly how we will work in the training. 
+When people think about coding they are often thinking about the interactive **console**. This is what we saw earlier when we first opened python. When you work in this way lines of code are submitted as you enter them. You often do this when you are developing an analysis and trying out parameters. This is mostly how we will work in the training. 
 
-When you want to automate something, i.e. an analysis workflow, you will write a script. You can then run this script with python.
+When you want to automate something, i.e. an analysis workflow, you will write a script. You can then run this script with python and it will run every line of code for you sequentially.
 
 ---
 ## Python and IDEs
 
 You can run python from within your terminal/command prompt. This will give you access to the python console.
 
-Many people prefer to use an **I**ntegrated **D**evelopment **E**nvironment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, file navgation, and access to many customization features in additional panes. 
+Many people prefer to use an **I**ntegrated **D**evelopment **E**nvironment to augment their experience while coding. They allow easy writing of scripts, visualization of plots, file navigation, and access to many customization features in additional panes. 
 
 Examples include RStudio, pyCharm, Xcode etc. 
 
@@ -285,6 +297,15 @@ We can manually open one up by Terminal &gt; New Terminal.
 Once the Terminal is open, you can then just open Python, by typing `python` into the new terminal window. 
 
 There is is an easier shortcut to do this. Once you start developing code the easiest way to open it is to use the `Tab + Enter` shortcut. 
+
+---
+## Quick Recap
+
+
+![extensions](imgs/overview.png)
+
+
+
 
 ---
 class: inverse, center, middle
@@ -606,6 +627,16 @@ newgreeting4
 ## 'HiHiHiHiHi'
 ```
 
+---
+## Time for an exercise!
+
+Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise1_exercise.html)
+
+
+---
+## Answers to the exercise
+
+Answers can be found here  [here](../../exercises/answers/Exercise1_answers.html)
 
 ---
 class: inverse, center, middle
@@ -618,7 +649,18 @@ class: inverse, center, middle
 
 ## Lists
 
-Python has many options for storing data. The simplest is a list. Lists are denoted with square brackets. 
+Python has many options for storing data. The simplest is a list. 
+
+A list has a few key characteristics:
+  * the order of the elements matters and can be used for indexing
+  * they are mutable and dynamic (elements can be modified and length can be changed)
+  * they can hold mixed types of data
+
+---
+
+## Lists
+
+Lists are denoted with square brackets. 
 
 
 ``` python
@@ -689,6 +731,10 @@ my_strs[-1]
 ## 'e'
 ```
 
+
+---
+## Indexing Lists
+
 We can also create a sublist by slicing our list with the `:`.
 
 
@@ -717,6 +763,9 @@ my_strs[2:]
 ```
 ## ['c', 'd', 'e']
 ```
+
+Key point: You'll notice that slicing in Python is inclusive of the first element, but exclusive of the last element. So in our example, `my_strs[2:4]` starts with `my_strs[2]` but does not include `my_strs[4]`.
+
 
 ---
 ## Complex Lists
@@ -862,7 +911,7 @@ my_strs
 ## ['a', 'b', 'c', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
 ```
 
-* `.remove()` removes something from the list. It will only remove the first instance though. 
+* `.remove()` removes something from the list, but will only remove the first instance 
 
 
 ``` python
@@ -874,11 +923,11 @@ my_strs
 ## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
 ```
 
-* `.del()` removes an argument from a specific position in the list
+* the generic `del` statement removes an argument from a specific position in the list
 
 
 ``` python
-del(my_strs[3])
+del my_strs[3]
 my_strs
 ```
 
@@ -891,7 +940,6 @@ my_strs
 
 There are many useful functions built into the base version of python. 
 
-
 * `.index()` reveals which position in the list is the supplied argument
 
 
@@ -902,6 +950,17 @@ my_strs.index('c')
 ```
 ## 2
 ```
+
+* `.append()` will append the supplied argument to the list
+
+
+``` python
+my_strs.append("f")
+```
+
+---
+## Functions and lists
+
 
 * `.sort()` will sort your list. This works both with numerical and string data.
 
@@ -933,6 +992,38 @@ my_list
 
 ```
 ## ['a', 'b', 'c']
+```
+
+---
+## Mutating vs Non-mutating functions
+
+You may have noticed that the `sort` function does not actually return the sorted list. It returns 'None' and modifies the list in place. This might be different from other languages you have used. 
+
+
+``` python
+sort_result = my_list.sort()
+sort_result # this returns None, modifies object in place
+```
+
+Some python functions do return the modified object and leave the original object unchanged. We can try this with the `sorted` function.
+
+
+``` python
+new_list = [1,4,9,4,11,12,6]
+sorted_result = sorted(new_list)
+sorted_result # function modified object
+```
+
+```
+## [1, 4, 4, 6, 9, 11, 12]
+```
+
+``` python
+new_list # old object is unchanged
+```
+
+```
+## [1, 4, 9, 4, 11, 12, 6]
 ```
 
 ---
@@ -1028,30 +1119,20 @@ type(my_list_tuple_list)
 
 
 ---
-## Time for an exercise!
-
-Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise1_exercise.html)
-
-
----
-## Answers to the exercise
-
-Answers can be found here  [here](../../exercises/answers/Exercise1_answers.html)
-
-
----
 ## Dictionaries
 
 Another data type are dictionaries. Dictionaries are made of key:value pairs. 
 
-A key is some kind of unique identifier, typically a short string. The value is a corresponding piece of data that is often more complex. 
+  * A key is some kind of unique identifier, typically a short string. 
+  * The value is a corresponding piece of data that is often more complex (e.g. different data types). 
+  * While values can be modified, keys are immutable. 
 
-This structure allows the organization of your data, and you can gives you the ability to grab out values using the key.
+This structure allows the organization of your data, and gives you the ability to grab out values using the key.
   
 ---
 ## Dictionaries
 
-Dictionaries are made with the curly brackets. Each entry consists of a pair of objects. The `key` identifier, and the `value`. Here you can see we have multiple types and shapes of daata contained in our `values`. 
+Dictionaries are made with the curly brackets. Each entry consists of a pair of objects. The `key` identifier, and the `value`. Here you can see we have multiple types and shapes of data contained in our `values`. 
 
 
 ``` python
@@ -1123,6 +1204,21 @@ my_dict.get('language')
 
 ```
 ## 'python'
+```
+
+---
+## Dictionary indexes
+
+Unlike lists, dictionaries cannot be subset with a numeric index and must be indexed with a key value. 
+
+
+``` python
+my_dict[0]
+```
+
+
+```
+## 0
 ```
 
 ---
@@ -1239,7 +1335,7 @@ myset
 ```
 
 ```
-## {'a', 'b', 'c'}
+## {'c', 'b', 'a'}
 ```
 
 ``` python
@@ -1248,7 +1344,7 @@ myset
 ```
 
 ```
-## {'a', 'b', 'c'}
+## {'b', 'c', 'a'}
 ```
 
 ---
@@ -1263,7 +1359,7 @@ myset
 ```
 
 ```
-## {'d', 'a', 'b', 'c'}
+## {'b', 'd', 'c', 'a'}
 ```
 
 
@@ -1273,7 +1369,7 @@ myset
 ```
 
 ```
-## {'a', 'b', 'c'}
+## {'b', 'c', 'a'}
 ```
 
 ---
@@ -1305,7 +1401,7 @@ myset
 ```
 
 ```
-## {'a', 'b', 'c'}
+## {'b', 'c', 'a'}
 ```
 
 ---
@@ -1346,6 +1442,17 @@ myset1.difference(myset2)
  
 * A list allows duplicate elements and maintains their order
 * A set ensures element uniqueness without any guaranteed order
+
+---
+## Time for an exercise!
+
+Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise2_exercise.html)
+
+
+---
+## Answers to the exercise
+
+Answers can be found here  [here](../../exercises/answers/Exercise2_answers.html)
 
 ---
 class: inverse, center, middle
@@ -1401,81 +1508,9 @@ arr
 ```
 
 ---
-## Adding Dimensions
-
-It is possible to create many kinds of arrays, with differing dimensionality. They can be 1D,2D,3D etc. Typically we think about 2D arrays as this is often the rectangular data we deal with. 
-
-Here we again create a list to coerce into a array. This time we have a list of lists. Each list will become equivalent to a row in our array.
-
-
-
-``` python
-arr_2d = np.array([["Patient1",34,True],["Patient2", 29, True], ["Patient3",41,False]])
-arr_2d
-```
-
-```
-## array([['Patient1', '34', 'True'],
-##        ['Patient2', '29', 'True'],
-##        ['Patient3', '41', 'False']], dtype='&lt;U21')
-```
-
-We can find out the dimension attribute by using `ndim`. In this case we have rectangular data so it is two dimensions. 
-
-
-``` python
-arr_2d.ndim
-```
-
-```
-## 2
-```
-
----
-## Indexing Arrays
-
-We can use same square brackets we used for other data objects to index our arrays. The big difference is we now have 2 dimensions. We therefore need to provide 2 indexes, separated by a comma. 
-
-The first number will correspond to row. The second number will correspond to column.
-
-
-``` python
-arr_2d[0,2]
-```
-
-```
-## np.str_('True')
-```
-
----
-## Slicing Arrays
-
-We can also do more complex indexing operations like slicing, to get ranges of values from our array.
-
-
-
-``` python
-arr_2d[:,2]
-```
-
-```
-## array(['True', 'True', 'False'], dtype='&lt;U21')
-```
-
-
-``` python
-arr_2d[0,1:3]
-```
-
-```
-## array(['34', 'True'], dtype='&lt;U21')
-```
-
-
----
 ## Data Types and arrays
 
-In most data objects we have looked as so far there are limited types of data: `str`,`float`, `int` and `boolean`. Arrays accept all of these. We can always check the type with the `dtype` attribute.
+In most data objects we have looked at so far there are limited types of data: `str`,`float`, `int` and `boolean`. Arrays accept all of these. We can always check the type with the `dtype` attribute.
 
 
 ``` python
@@ -1522,6 +1557,122 @@ arr = np.array(['a', '2', '3'], dtype='i')
 ```
 ## invalid literal for int() with base 10: 'a'
 ```
+
+---
+## Data Types and arrays
+
+Arrays contain only one data type. While they will accept lists of different data types, but these elements will be coerced into a common type. 
+
+
+``` python
+arr = np.array(['a', 2, 3])
+arr
+```
+
+---
+## Adding Dimensions
+
+It is possible to create many kinds of arrays, with differing dimensionality. They can be 1D,2D,3D etc. Typically we think about 2D arrays as this is often the rectangular data we deal with. 
+
+Here we again create a list to coerce into a array. This time we have a list of lists. Each list will become equivalent to a row in our array.
+
+
+
+``` python
+arr_2d = np.array([["Patient1",34,True],["Patient2", 29, True], ["Patient3",41,False]])
+arr_2d
+```
+
+```
+## array([['Patient1', '34', 'True'],
+##        ['Patient2', '29', 'True'],
+##        ['Patient3', '41', 'False']], dtype='&lt;U21')
+```
+
+We can find out the dimension attribute by using `ndim`. In this case we have rectangular data so it is two dimensions. 
+
+
+``` python
+arr_2d.ndim
+```
+
+```
+## 2
+```
+
+---
+## Array shape
+
+We can confirm the shape of the array using the`shape` attribute
+
+``` python
+arr_2d.shape
+```
+
+```
+## (3, 3)
+```
+
+The shape of an array can easily be changed with the `reshape` method. Note that you will get an error if the number of values in the array doesn't fit int othe dimensions specified.
+
+
+``` python
+arr_2d.reshape(9,1)
+```
+
+```
+## array([['Patient1'],
+##        ['34'],
+##        ['True'],
+##        ['Patient2'],
+##        ['29'],
+##        ['True'],
+##        ['Patient3'],
+##        ['41'],
+##        ['False']], dtype='&lt;U21')
+```
+
+---
+## Indexing Arrays
+
+We can use same square brackets we used for other data objects to index our arrays. The big difference is we now have 2 dimensions. We therefore need to provide 2 indexes, separated by a comma. 
+
+The first number will correspond to row. The second number will correspond to column.
+
+
+``` python
+arr_2d[0,2]
+```
+
+```
+## np.str_('True')
+```
+
+---
+## Slicing Arrays
+
+We can also do more complex indexing operations like slicing, to get ranges of values from our array.
+
+
+
+``` python
+arr_2d[:,2]
+```
+
+```
+## array(['True', 'True', 'False'], dtype='&lt;U21')
+```
+
+
+``` python
+arr_2d[0,1:3]
+```
+
+```
+## array(['34', 'True'], dtype='&lt;U21')
+```
+
+
 
 
 ---
@@ -1686,18 +1837,6 @@ Here is a rough guide:
 * Sets - Similar to Tuples, but if you do not want any repeating values.   
 * Dictionaries - If you have complex data i.e. different shape and size, and you will have some kind of key/lookup values. 
 * Arrays - When you have rectangular data i.e. a table. 
-
----
-## Time for an exercise!
-
-Exercise on the data types we have covered so far can be found [here](../../exercises/exercises/Exercise2_exercise.html)
-
-
----
-## Answers to the exercise
-
-Answers can be found here  [here](../../exercises/answers/Exercise2_answers.html)
-
 
 ---
 class: inverse, center, middle
@@ -2286,7 +2425,7 @@ Answers can be found [here](https://rockefelleruniversity.github.io/Intro_To_Pyt
 ## Further Support
 
 When you hit bugs:
-  * Google
+  * Google/ChatGPT/Claude, etc. 
   * Stackoverflow
   * Biostars
   * Reach out on [GitHub](https://github.com/RockefellerUniversity/Intro_To_Python/issues)

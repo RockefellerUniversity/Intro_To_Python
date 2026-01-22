@@ -18,10 +18,116 @@ message(toMessage)
 
 
 <p>&nbsp;</p>
-These exercises are about custom functions from Session 1 [session1](https://rockefelleruniversity.github.io/Intro_To_Python/). 
+These exercises are about data types and custom functions from Session 1 [session1](https://rockefelleruniversity.github.io/Intro_To_Python/). 
 
 
-**Exercise 1** - **Custom Functions**
+
+**Exercise 1** - **NumPy**
+
+- Import NumPy
+
+```{python,echo=toMessage}
+
+import numpy as np
+
+```
+
+ -  Create a NumPy array with the following 4 columns and 5 rows.
+
+    - Sample - R1, R2, R3, R4, R5
+    - Year - 1990, 2010, 2005, 2015, 2012
+    - Replicate - True, True, False, False, False
+    - Tissue - Skin, Skin, Brain, Brain, Brain
+
+```{python,echo=toMessage}
+
+arr_2d = np.array([["R1", 1990, True, "Skin"],
+  ["R2", 2010, True, "Skin"], 
+  ["R3", 2005, False, "Brain"],
+  ["R4", 2015, False, "Brain"],
+  ["R5", 2012, False, "Brain"]])
+arr_2d
+
+```
+
+- Slice the array to get just the Sample and Year.
+
+```{python,echo=toMessage}
+
+arr_2d[:,0:2]
+
+```
+
+- Subset the array to just Brain Tissue samples. 
+
+```{python,echo=toMessage}
+
+arr_2d[arr_2d[:,3] =="Brain",:]
+
+```
+
+**Exercise 2** - **NumPy**
+
+- Make an array that is 3 rows and 6 columns, and contains the numbers 1 through 18
+
+```{python, echo=toMessage} 
+# option 1
+arr_num = np.array([[1,2,3,4,5,6],
+                    [7,8,9,10, 11,12],
+                    [13,14,15,16,17,18]])
+
+# option 2 with reshape
+arr_num = np.array([range(1,19)])
+arr_num = arr_num.reshape(3,6)
+
+arr_num
+```
+
+- Confirm that your array has the correct shape
+
+```{python, echo=toMessage} 
+arr_num.shape
+```
+
+- Modify the array so that it has 6 rows and 3 columns
+
+```{python, echo=toMessage} 
+arr_num_6x3 = arr_num.reshape(6,3)
+```
+
+- Index this array into two different arrays, one that contains the values less than 10, and another that contains values that are 10 or higher.
+
+```{python, echo=toMessage} 
+small_nums = arr_num_6x3[arr_num_6x3 < 10]
+big_nums = arr_num_6x3[arr_num_6x3 > 9]
+```
+
+- Confirm the shape and dimensions of these arrays. 
+
+```{python, echo=toMessage} 
+
+small_nums.shape
+small_nums.ndim
+big_nums.shape
+big_nums.ndim
+```
+
+- Convert both of the new arrays to two dimensional, 3 by 3 arrays.
+
+```{python, echo=toMessage} 
+
+small_nums_3x3 = small_nums.reshape(3,3)
+big_nums_3x3 = big_nums.reshape(3,3)
+
+```
+
+- Concatenate these two arrays, joining them by columns.
+
+```{python, echo=toMessage} 
+arr_cat = np.concatenate((small_nums_3x3, big_nums_3x3), axis = 1)
+```
+
+**Exercise 3** - **Custom Functions**
 
 - Create a function which takes one number and returns the square of that number
 
@@ -76,6 +182,7 @@ mean_and_minOfNumbers()
 
 ```
 
+**Exercise 4** - **Custom Functions**
 
 - Create function that takes three lists and coerces them into one set. The function must return the set, but also print its length.
 
