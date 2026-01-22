@@ -321,7 +321,7 @@ There is is an easier shortcut to do this. Once you start developing code the ea
 ## Quick Recap
 
 
-![extensions](imgs/overview.png)
+![extensions](imgs/schematic.png)
 
 
 
