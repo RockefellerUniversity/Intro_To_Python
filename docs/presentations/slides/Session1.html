@@ -841,33 +841,33 @@ We can concatenate lists, just as we did with strings.
 
 
 ``` python
-biglist = my_strs + my_ints
+biglist = my_ints + my_strs
 biglist
 ```
 
 ```
-## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
+## [1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e']
 ```
 
 
 ``` python
-biglist = my_strs 
-biglist += my_ints
-biglist
+biglist2 = [1,2,3,4,5] 
+biglist2 += my_strs
+biglist2
 ```
 
 ```
-## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
+## [1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e']
 ```
 
 
 ``` python
-biglist = my_strs * 5
-biglist
+biglist3 = my_strs * 5
+biglist3
 ```
 
 ```
-## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5]
+## ['a', 'b', 'c', 'd', 'e', 'a', 'b', 'c', 'd', 'e', 'a', 'b', 'c', 'd', 'e', 'a', 'b', 'c', 'd', 'e', 'a', 'b', 'c', 'd', 'e']
 ```
 
 ---
@@ -882,7 +882,7 @@ my_strs
 ```
 
 ```
-## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f']
+## ['a', 'b', 'c', 'd', 'e', 'f']
 ```
 
 
@@ -892,7 +892,7 @@ my_strs
 ```
 
 ```
-## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
+## ['a', 'b', 'c', 'd', 'e', 'f', 1]
 ```
 
 ---
@@ -909,7 +909,7 @@ my_strs
 ```
 
 ```
-## ['a', 'b', 'c', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
+## ['a', 'b', 'c', 'c', 'd', 'e', 'f', 1]
 ```
 
 * `.remove()` removes something from the list, but will only remove the first instance 
@@ -921,20 +921,10 @@ my_strs
 ```
 
 ```
-## ['a', 'b', 'c', 'd', 'e', 1, 2, 3, 4, 5, 'f', 1]
+## ['a', 'b', 'c', 'd', 'e', 'f', 1]
 ```
 
-* the generic `del` statement removes an argument from a specific position in the list
 
-
-``` python
-del my_strs[3]
-my_strs
-```
-
-```
-## ['a', 'b', 'c', 'e', 1, 2, 3, 4, 5, 'f', 1]
-```
 
 ---
 ## Functions and lists
@@ -952,11 +942,27 @@ my_strs.index('c')
 ## 2
 ```
 
-* `.append()` will append the supplied argument to the list
+* the generic `del` statement removes an argument from a specific position in the list
 
 
 ``` python
-my_strs.append("f")
+del my_strs[3]
+my_strs
+```
+
+```
+## ['a', 'b', 'c', 'e', 'f', 1]
+```
+
+* we can also test membership of an element with the `in` operator
+
+
+``` python
+"a" in my_strs
+```
+
+```
+## True
 ```
 
 ---
@@ -1360,7 +1366,7 @@ myset
 ```
 
 ```
-## {'a', 'd', 'c', 'b'}
+## {'d', 'a', 'c', 'b'}
 ```
 
 
@@ -1393,7 +1399,7 @@ myset[0]
 ---
 ## Sets are unique
 
-Even if you provide duplicate entries to a set, the set wil only contain unique values. 
+Even if you provide duplicate entries to a set, the set will only contain unique values. 
 
 
 ``` python
@@ -1570,6 +1576,10 @@ arr = np.array(['a', 2, 3])
 arr
 ```
 
+```
+## array(['a', '2', '3'], dtype='&lt;U21')
+```
+
 ---
 ## Adding Dimensions
 
@@ -1614,7 +1624,7 @@ arr_2d.shape
 ## (3, 3)
 ```
 
-The shape of an array can easily be changed with the `reshape` method. Note that you will get an error if the number of values in the array doesn't fit int othe dimensions specified.
+The shape of an array can easily be changed with the `reshape` method. Note that you will get an error if the number of values in the array doesn't fit into the dimensions specified.
 
 
 ``` python
@@ -1837,7 +1847,7 @@ Here is a rough guide:
 * Tuples - If you want to create an immutable version of a list as some kind of reference.  
 * Sets - Similar to Tuples, but if you do not want any repeating values.   
 * Dictionaries - If you have complex data i.e. different shape and size, and you will have some kind of key/lookup values. 
-* Arrays - When you have rectangular data i.e. a table. 
+* Arrays - When you have rectangular data i.e. a table, need to perform math on elements or interface with more advanced computational libraries (stats, ML, etc) 
 
 ---
 class: inverse, center, middle
@@ -1866,6 +1876,8 @@ Key parts:
 * `arguments` - any arguments that the function expects in parentheses. 
 * `code` - the start of the code is indicated by a colon, new line and indentation. 
 * `return` - this is the result that you wish to be delivered from the function. 
+
+NOTE: In python functions, indentation after defining the function is required. Otherwise you will get an error. 
 
 
 ``` python
@@ -2058,7 +2070,8 @@ myFirstFunction(5,10)
 
 Once I have made a function and I want to keep reusing it I can easily save it i.e. I have a function that I want to use regularly to process some data in the same way. To do this you save it as a script. 
 
-First open a new script: File &gt; New File &gt; Python Script. We can then add our orginal function and save the python script as *myFirstFunction.py*.
+First open a new script: File &gt; New File &gt; Python Script. We can then add our original function and save the python script as *myFirstFunction.py*. 
+
 
 
 ``` python
@@ -2073,6 +2086,7 @@ def myFirstFunction(num1, num2):
 
 
 First open a new script: File &gt; New File &gt; Python Script. We can then add our orginal function and save the python script as *myFirstFunction_script.py*.
+
 
 
 ``` python

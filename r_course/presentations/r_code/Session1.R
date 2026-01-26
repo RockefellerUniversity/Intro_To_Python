@@ -245,15 +245,15 @@ if(params$isSlides == "yes"){
 ## list2
 ## list3
 
-## biglist = my_strs + my_ints
+## biglist = my_ints + my_strs
 ## biglist
 
-## biglist = my_strs
-## biglist += my_ints
-## biglist
+## biglist2 = [1,2,3,4,5]
+## biglist2 += my_strs
+## biglist2
 
-## biglist = my_strs * 5
-## biglist
+## biglist3 = my_strs * 5
+## biglist3
 
 ## my_strs.append('f')
 ## my_strs
@@ -267,12 +267,12 @@ if(params$isSlides == "yes"){
 ## my_strs.remove('c')
 ## my_strs
 
+## my_strs.index('c')
+
 ## del my_strs[3]
 ## my_strs
 
-## my_strs.index('c')
-
-## my_strs.append("f")
+## "a" in my_strs
 
 ## my_list = [1,4,9,4,11,12,6]
 ## my_list.sort()

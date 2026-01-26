@@ -2083,16 +2083,16 @@ open this nested list structure.</p>
 <div id="concatenation-1" class="section level2">
 <h2>Concatenation</h2>
 <p>We can concatenate lists, just as we did with strings.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" tabindex="-1"></a>biglist <span class="op">=</span> my_strs <span class="op">+</span> my_ints</span>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" tabindex="-1"></a>biglist <span class="op">=</span> my_ints <span class="op">+</span> my_strs</span>
 <span id="cb84-2"><a href="#cb84-2" tabindex="-1"></a>biglist</span></code></pre></div>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5]</code></pre>
-<div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" tabindex="-1"></a>biglist <span class="op">=</span> my_strs </span>
-<span id="cb86-2"><a href="#cb86-2" tabindex="-1"></a>biglist <span class="op">+=</span> my_ints</span>
-<span id="cb86-3"><a href="#cb86-3" tabindex="-1"></a>biglist</span></code></pre></div>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5]</code></pre>
-<div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" tabindex="-1"></a>biglist <span class="op">=</span> my_strs <span class="op">*</span> <span class="dv">5</span></span>
-<span id="cb88-2"><a href="#cb88-2" tabindex="-1"></a>biglist</span></code></pre></div>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5]</code></pre>
+<pre><code>## [1, 2, 3, 4, 5, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" tabindex="-1"></a>biglist2 <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>] </span>
+<span id="cb86-2"><a href="#cb86-2" tabindex="-1"></a>biglist2 <span class="op">+=</span> my_strs</span>
+<span id="cb86-3"><a href="#cb86-3" tabindex="-1"></a>biglist2</span></code></pre></div>
+<pre><code>## [1, 2, 3, 4, 5, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code></pre>
+<div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" tabindex="-1"></a>biglist3 <span class="op">=</span> my_strs <span class="op">*</span> <span class="dv">5</span></span>
+<span id="cb88-2"><a href="#cb88-2" tabindex="-1"></a>biglist3</span></code></pre></div>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code></pre>
 </div>
 <div id="functions-and-lists" class="section level2">
 <h2>Functions and lists</h2>
@@ -2103,10 +2103,10 @@ These are called attributes. Here we use the append function to extend
 our list.</p>
 <div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" tabindex="-1"></a>my_strs.append(<span class="st">&#39;f&#39;</span>)</span>
 <span id="cb90-2"><a href="#cb90-2" tabindex="-1"></a>my_strs</span></code></pre></div>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;f&#39;]</code></pre>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;]</code></pre>
 <div class="sourceCode" id="cb92"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" tabindex="-1"></a>my_strs.append(<span class="dv">1</span>)</span>
 <span id="cb92-2"><a href="#cb92-2" tabindex="-1"></a>my_strs</span></code></pre></div>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;f&#39;, 1]</code></pre>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, 1]</code></pre>
 </div>
 <div id="functions-and-lists-1" class="section level2">
 <h2>Functions and lists</h2>
@@ -2118,21 +2118,14 @@ in the list</li>
 </ul>
 <div class="sourceCode" id="cb94"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" tabindex="-1"></a>my_strs.insert(<span class="dv">3</span>,<span class="st">&#39;c&#39;</span>)</span>
 <span id="cb94-2"><a href="#cb94-2" tabindex="-1"></a>my_strs</span></code></pre></div>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;f&#39;, 1]</code></pre>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, 1]</code></pre>
 <ul>
 <li><code>.remove()</code> removes something from the list, but will
 only remove the first instance</li>
 </ul>
 <div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" tabindex="-1"></a>my_strs.remove(<span class="st">&#39;c&#39;</span>)</span>
 <span id="cb96-2"><a href="#cb96-2" tabindex="-1"></a>my_strs</span></code></pre></div>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;f&#39;, 1]</code></pre>
-<ul>
-<li>the generic <code>del</code> statement removes an argument from a
-specific position in the list</li>
-</ul>
-<div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" tabindex="-1"></a><span class="kw">del</span> my_strs[<span class="dv">3</span>]</span>
-<span id="cb98-2"><a href="#cb98-2" tabindex="-1"></a>my_strs</span></code></pre></div>
-<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;e&#39;, 1, 2, 3, 4, 5, &#39;f&#39;, 1]</code></pre>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;, 1]</code></pre>
 </div>
 <div id="functions-and-lists-2" class="section level2">
 <h2>Functions and lists</h2>
@@ -2142,13 +2135,21 @@ python.</p>
 <li><code>.index()</code> reveals which position in the list is the
 supplied argument</li>
 </ul>
-<div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" tabindex="-1"></a>my_strs.index(<span class="st">&#39;c&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" tabindex="-1"></a>my_strs.index(<span class="st">&#39;c&#39;</span>)</span></code></pre></div>
 <pre><code>## 2</code></pre>
 <ul>
-<li><code>.append()</code> will append the supplied argument to the
-list</li>
+<li>the generic <code>del</code> statement removes an argument from a
+specific position in the list</li>
 </ul>
-<div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" tabindex="-1"></a>my_strs.append(<span class="st">&quot;f&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" tabindex="-1"></a><span class="kw">del</span> my_strs[<span class="dv">3</span>]</span>
+<span id="cb100-2"><a href="#cb100-2" tabindex="-1"></a>my_strs</span></code></pre></div>
+<pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;e&#39;, &#39;f&#39;, 1]</code></pre>
+<ul>
+<li>we can also test membership of an element with the <code>in</code>
+operator</li>
+</ul>
+<div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" tabindex="-1"></a><span class="co">&quot;a&quot;</span> <span class="kw">in</span> my_strs</span></code></pre></div>
+<pre><code>## True</code></pre>
 </div>
 <div id="functions-and-lists-3" class="section level2">
 <h2>Functions and lists</h2>
@@ -2156,16 +2157,16 @@ list</li>
 <li><code>.sort()</code> will sort your list. This works both with
 numerical and string data.</li>
 </ul>
-<div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">6</span>]</span>
-<span id="cb103-2"><a href="#cb103-2" tabindex="-1"></a>my_list.sort()</span>
-<span id="cb103-3"><a href="#cb103-3" tabindex="-1"></a>my_list</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">6</span>]</span>
+<span id="cb104-2"><a href="#cb104-2" tabindex="-1"></a>my_list.sort()</span>
+<span id="cb104-3"><a href="#cb104-3" tabindex="-1"></a>my_list</span></code></pre></div>
 <pre><code>## [1, 4, 4, 6, 9, 11, 12]</code></pre>
-<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" tabindex="-1"></a>my_list.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb105-2"><a href="#cb105-2" tabindex="-1"></a>my_list</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" tabindex="-1"></a>my_list.sort(reverse<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb106-2"><a href="#cb106-2" tabindex="-1"></a>my_list</span></code></pre></div>
 <pre><code>## [12, 11, 9, 6, 4, 4, 1]</code></pre>
-<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;a&quot;</span>]</span>
-<span id="cb107-2"><a href="#cb107-2" tabindex="-1"></a>my_list.sort()</span>
-<span id="cb107-3"><a href="#cb107-3" tabindex="-1"></a>my_list</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">&quot;b&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;a&quot;</span>]</span>
+<span id="cb108-2"><a href="#cb108-2" tabindex="-1"></a>my_list.sort()</span>
+<span id="cb108-3"><a href="#cb108-3" tabindex="-1"></a>my_list</span></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</code></pre>
 </div>
 <div id="mutating-vs-non-mutating-functions" class="section level2">
@@ -2174,16 +2175,16 @@ numerical and string data.</li>
 actually return the sorted list. It returns ‘None’ and modifies the list
 in place. This might be different from other languages you have
 used.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb109-1"><a href="#cb109-1" tabindex="-1"></a>sort_result <span class="op">=</span> my_list.sort()</span>
-<span id="cb109-2"><a href="#cb109-2" tabindex="-1"></a>sort_result <span class="co"># this returns None, modifies object in place</span></span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" tabindex="-1"></a>sort_result <span class="op">=</span> my_list.sort()</span>
+<span id="cb110-2"><a href="#cb110-2" tabindex="-1"></a>sort_result <span class="co"># this returns None, modifies object in place</span></span></code></pre></div>
 <p>Some python functions do return the modified object and leave the
 original object unchanged. We can try this with the <code>sorted</code>
 function.</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" tabindex="-1"></a>new_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">6</span>]</span>
-<span id="cb110-2"><a href="#cb110-2" tabindex="-1"></a>sorted_result <span class="op">=</span> <span class="bu">sorted</span>(new_list)</span>
-<span id="cb110-3"><a href="#cb110-3" tabindex="-1"></a>sorted_result <span class="co"># function modified object</span></span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb111-1"><a href="#cb111-1" tabindex="-1"></a>new_list <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">6</span>]</span>
+<span id="cb111-2"><a href="#cb111-2" tabindex="-1"></a>sorted_result <span class="op">=</span> <span class="bu">sorted</span>(new_list)</span>
+<span id="cb111-3"><a href="#cb111-3" tabindex="-1"></a>sorted_result <span class="co"># function modified object</span></span></code></pre></div>
 <pre><code>## [1, 4, 4, 6, 9, 11, 12]</code></pre>
-<div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" tabindex="-1"></a>new_list <span class="co"># old object is unchanged</span></span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" tabindex="-1"></a>new_list <span class="co"># old object is unchanged</span></span></code></pre></div>
 <pre><code>## [1, 4, 9, 4, 11, 12, 6]</code></pre>
 </div>
 <div id="tuples" class="section level2">
@@ -2193,12 +2194,12 @@ lot like lists. But where lists are dynamic and mutable, tuples cannot
 be changed. As a result tuples are more memory efficient than lists.</p>
 <p>When making a tuple you use parentheses instead of square
 brackets.</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]</span>
-<span id="cb114-2"><a href="#cb114-2" tabindex="-1"></a>my_list[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&#39;z&#39;</span></span>
-<span id="cb114-3"><a href="#cb114-3" tabindex="-1"></a>my_list</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]</span>
+<span id="cb115-2"><a href="#cb115-2" tabindex="-1"></a>my_list[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&#39;z&#39;</span></span>
+<span id="cb115-3"><a href="#cb115-3" tabindex="-1"></a>my_list</span></code></pre></div>
 <pre><code>## [&#39;z&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code></pre>
-<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" tabindex="-1"></a>my_tuple <span class="op">=</span> (<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>)</span>
-<span id="cb116-2"><a href="#cb116-2" tabindex="-1"></a>my_tuple[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&#39;z&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" tabindex="-1"></a>my_tuple <span class="op">=</span> (<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>)</span>
+<span id="cb117-2"><a href="#cb117-2" tabindex="-1"></a>my_tuple[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&#39;z&#39;</span></span></code></pre></div>
 <pre><code>## &#39;tuple&#39; object does not support item assignment</code></pre>
 </div>
 <div id="a-quick-aside" class="section level2">
@@ -2213,16 +2214,16 @@ not a quick google will often clear it up.</p>
 <p>As with str/int/float/bool you can easily convert a list to a tuple
 and vice versa. Simply use the <code>list()</code> and
 <code>tuple()</code> functions.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]</span>
-<span id="cb118-2"><a href="#cb118-2" tabindex="-1"></a>my_tuple_list <span class="op">=</span> <span class="bu">tuple</span>(my_list)</span>
-<span id="cb118-3"><a href="#cb118-3" tabindex="-1"></a>my_tuple_list</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb119-1"><a href="#cb119-1" tabindex="-1"></a>my_list <span class="op">=</span> [<span class="st">&#39;a&#39;</span>,<span class="st">&#39;b&#39;</span>,<span class="st">&#39;c&#39;</span>,<span class="st">&#39;d&#39;</span>,<span class="st">&#39;e&#39;</span>]</span>
+<span id="cb119-2"><a href="#cb119-2" tabindex="-1"></a>my_tuple_list <span class="op">=</span> <span class="bu">tuple</span>(my_list)</span>
+<span id="cb119-3"><a href="#cb119-3" tabindex="-1"></a>my_tuple_list</span></code></pre></div>
 <pre><code>## (&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;)</code></pre>
-<div class="sourceCode" id="cb120"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" tabindex="-1"></a><span class="bu">type</span>(my_tuple_list)</span></code></pre></div>
+<div class="sourceCode" id="cb121"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1" tabindex="-1"></a><span class="bu">type</span>(my_tuple_list)</span></code></pre></div>
 <pre><code>## &lt;class &#39;tuple&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1" tabindex="-1"></a>my_list_tuple_list <span class="op">=</span> <span class="bu">list</span>(my_tuple_list)</span>
-<span id="cb122-2"><a href="#cb122-2" tabindex="-1"></a>my_list_tuple_list</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1" tabindex="-1"></a>my_list_tuple_list <span class="op">=</span> <span class="bu">list</span>(my_tuple_list)</span>
+<span id="cb123-2"><a href="#cb123-2" tabindex="-1"></a>my_list_tuple_list</span></code></pre></div>
 <pre><code>## [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;]</code></pre>
-<div class="sourceCode" id="cb124"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" tabindex="-1"></a><span class="bu">type</span>(my_list_tuple_list)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" tabindex="-1"></a><span class="bu">type</span>(my_list_tuple_list)</span></code></pre></div>
 <pre><code>## &lt;class &#39;list&#39;&gt;</code></pre>
 </div>
 <div id="functions-tuples-and-lists" class="section level2">
@@ -2253,41 +2254,41 @@ the ability to grab out values using the key.</p>
 a pair of objects. The <code>key</code> identifier, and the
 <code>value</code>. Here you can see we have multiple types and shapes
 of data contained in our <code>values</code>.</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
-<span id="cb126-2"><a href="#cb126-2" tabindex="-1"></a>    <span class="st">&#39;my_list&#39;</span>: [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],</span>
-<span id="cb126-3"><a href="#cb126-3" tabindex="-1"></a>    <span class="st">&#39;my_tuple&#39;</span>: (<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>),</span>
-<span id="cb126-4"><a href="#cb126-4" tabindex="-1"></a>    <span class="st">&#39;language&#39;</span>: <span class="st">&#39;python&#39;</span>,</span>
-<span id="cb126-5"><a href="#cb126-5" tabindex="-1"></a>    <span class="st">&#39;technique&#39;</span>: <span class="st">&#39;scRNAseq&#39;</span></span>
-<span id="cb126-6"><a href="#cb126-6" tabindex="-1"></a>}</span>
-<span id="cb126-7"><a href="#cb126-7" tabindex="-1"></a>my_dict</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1" tabindex="-1"></a>my_dict <span class="op">=</span> {</span>
+<span id="cb127-2"><a href="#cb127-2" tabindex="-1"></a>    <span class="st">&#39;my_list&#39;</span>: [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],</span>
+<span id="cb127-3"><a href="#cb127-3" tabindex="-1"></a>    <span class="st">&#39;my_tuple&#39;</span>: (<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>),</span>
+<span id="cb127-4"><a href="#cb127-4" tabindex="-1"></a>    <span class="st">&#39;language&#39;</span>: <span class="st">&#39;python&#39;</span>,</span>
+<span id="cb127-5"><a href="#cb127-5" tabindex="-1"></a>    <span class="st">&#39;technique&#39;</span>: <span class="st">&#39;scRNAseq&#39;</span></span>
+<span id="cb127-6"><a href="#cb127-6" tabindex="-1"></a>}</span>
+<span id="cb127-7"><a href="#cb127-7" tabindex="-1"></a>my_dict</span></code></pre></div>
 <pre><code>## {&#39;my_list&#39;: [1, 2, 3], &#39;my_tuple&#39;: (4, 5, 6), &#39;language&#39;: &#39;python&#39;, &#39;technique&#39;: &#39;scRNAseq&#39;}</code></pre>
 </div>
 <div id="dictionaries-2" class="section level2">
 <h2>Dictionaries</h2>
 <p>There are attribute functions that we can use to access the keys and
 values from our dictionary.</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1" tabindex="-1"></a>my_dict.keys()</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1" tabindex="-1"></a>my_dict.keys()</span></code></pre></div>
 <pre><code>## dict_keys([&#39;my_list&#39;, &#39;my_tuple&#39;, &#39;language&#39;, &#39;technique&#39;])</code></pre>
-<div class="sourceCode" id="cb130"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1" tabindex="-1"></a>my_dict.values()</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb131-1"><a href="#cb131-1" tabindex="-1"></a>my_dict.values()</span></code></pre></div>
 <pre><code>## dict_values([[1, 2, 3], (4, 5, 6), &#39;python&#39;, &#39;scRNAseq&#39;])</code></pre>
 </div>
 <div id="dictionary-indexes" class="section level2">
 <h2>Dictionary indexes</h2>
 <p>We can index our dictionary using the key values and the square
 brackets, similar to other objects.</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1" tabindex="-1"></a>my_dict[<span class="st">&#39;my_list&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb133-1"><a href="#cb133-1" tabindex="-1"></a>my_dict[<span class="st">&#39;my_list&#39;</span>]</span></code></pre></div>
 <pre><code>## [1, 2, 3]</code></pre>
 <p>We can also use the <code>.get()</code> attribute.</p>
-<div class="sourceCode" id="cb134"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" tabindex="-1"></a>my_dict[<span class="st">&#39;language&#39;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb135-1"><a href="#cb135-1" tabindex="-1"></a>my_dict[<span class="st">&#39;language&#39;</span>]</span></code></pre></div>
 <pre><code>## &#39;python&#39;</code></pre>
-<div class="sourceCode" id="cb136"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1" tabindex="-1"></a>my_dict.get(<span class="st">&#39;language&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb137-1"><a href="#cb137-1" tabindex="-1"></a>my_dict.get(<span class="st">&#39;language&#39;</span>)</span></code></pre></div>
 <pre><code>## &#39;python&#39;</code></pre>
 </div>
 <div id="dictionary-indexes-1" class="section level2">
 <h2>Dictionary indexes</h2>
 <p>Unlike lists, dictionaries cannot be subset with a numeric index and
 must be indexed with a key value.</p>
-<div class="sourceCode" id="cb138"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" tabindex="-1"></a>my_dict[<span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb139-1"><a href="#cb139-1" tabindex="-1"></a>my_dict[<span class="dv">0</span>]</span></code></pre></div>
 <pre><code>## 0</code></pre>
 </div>
 <div id="dictionaries-3" class="section level2">
@@ -2295,31 +2296,31 @@ must be indexed with a key value.</p>
 <p>It is easy to add additional entries with the
 <code>.setdefault()</code> attribute. We just provide a new
 <code>key/value</code> pair.</p>
-<div class="sourceCode" id="cb140"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1" tabindex="-1"></a>my_dict.setdefault(<span class="st">&#39;metadata&#39;</span>, <span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb141-1"><a href="#cb141-1" tabindex="-1"></a>my_dict.setdefault(<span class="st">&#39;metadata&#39;</span>, <span class="va">True</span>)</span></code></pre></div>
 <pre><code>## True</code></pre>
-<div class="sourceCode" id="cb142"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1" tabindex="-1"></a>my_dict</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb143-1"><a href="#cb143-1" tabindex="-1"></a>my_dict</span></code></pre></div>
 <pre><code>## {&#39;my_list&#39;: [1, 2, 3], &#39;my_tuple&#39;: (4, 5, 6), &#39;language&#39;: &#39;python&#39;, &#39;technique&#39;: &#39;scRNAseq&#39;, &#39;metadata&#39;: True}</code></pre>
 <p>We check our addition using the <code>in</code> operator. This
 performs a logical test. We can test specifically on the keys, or the
 dictionary as a whole.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1" tabindex="-1"></a><span class="co">&#39;metadata&#39;</span> <span class="kw">in</span> my_dict.keys()</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb145-1"><a href="#cb145-1" tabindex="-1"></a><span class="co">&#39;metadata&#39;</span> <span class="kw">in</span> my_dict.keys()</span></code></pre></div>
 <pre><code>## True</code></pre>
-<div class="sourceCode" id="cb146"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb146-1"><a href="#cb146-1" tabindex="-1"></a><span class="co">&#39;metadata&#39;</span> <span class="kw">in</span> my_dict</span></code></pre></div>
+<div class="sourceCode" id="cb147"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb147-1"><a href="#cb147-1" tabindex="-1"></a><span class="co">&#39;metadata&#39;</span> <span class="kw">in</span> my_dict</span></code></pre></div>
 <pre><code>## True</code></pre>
 </div>
 <div id="concatenating-dictionaries" class="section level2">
 <h2>Concatenating Dictionaries</h2>
 <p>Often we want to stick multiple dictionaries together.</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb148-1"><a href="#cb148-1" tabindex="-1"></a>dict_1 <span class="op">=</span> {<span class="st">&#39;my_list&#39;</span>: [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],</span>
-<span id="cb148-2"><a href="#cb148-2" tabindex="-1"></a>  <span class="st">&#39;my_tuple&#39;</span>: (<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>),}</span>
-<span id="cb148-3"><a href="#cb148-3" tabindex="-1"></a>  </span>
-<span id="cb148-4"><a href="#cb148-4" tabindex="-1"></a>dict_2 <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1" tabindex="-1"></a>dict_1 <span class="op">=</span> {<span class="st">&#39;my_list&#39;</span>: [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],</span>
+<span id="cb149-2"><a href="#cb149-2" tabindex="-1"></a>  <span class="st">&#39;my_tuple&#39;</span>: (<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>),}</span>
+<span id="cb149-3"><a href="#cb149-3" tabindex="-1"></a>  </span>
+<span id="cb149-4"><a href="#cb149-4" tabindex="-1"></a>dict_2 <span class="op">=</span> {<span class="st">&#39;a&#39;</span>: <span class="dv">1</span>, <span class="st">&#39;b&#39;</span>: <span class="dv">2</span>}</span></code></pre></div>
 <p>There are 3 options:</p>
 <ol style="list-style-type: decimal">
 <li>Unpacking operator</li>
 </ol>
-<div class="sourceCode" id="cb149"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1" tabindex="-1"></a>dict_3 <span class="op">=</span> {<span class="op">**</span>dict_1, <span class="op">**</span>dict_2}</span>
-<span id="cb149-2"><a href="#cb149-2" tabindex="-1"></a>dict_3</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb150-1"><a href="#cb150-1" tabindex="-1"></a>dict_3 <span class="op">=</span> {<span class="op">**</span>dict_1, <span class="op">**</span>dict_2}</span>
+<span id="cb150-2"><a href="#cb150-2" tabindex="-1"></a>dict_3</span></code></pre></div>
 <pre><code>## {&#39;my_list&#39;: [1, 2, 3], &#39;my_tuple&#39;: (4, 5, 6), &#39;a&#39;: 1, &#39;b&#39;: 2}</code></pre>
 </div>
 <div id="concatenating-dictionaries-1" class="section level2">
@@ -2327,8 +2328,8 @@ dictionary as a whole.</p>
 <ol start="2" style="list-style-type: decimal">
 <li>Merge with pipe</li>
 </ol>
-<div class="sourceCode" id="cb151"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1" tabindex="-1"></a>dict_3 <span class="op">=</span> dict_1 <span class="op">|</span> dict_2</span>
-<span id="cb151-2"><a href="#cb151-2" tabindex="-1"></a>dict_3</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb152-1"><a href="#cb152-1" tabindex="-1"></a>dict_3 <span class="op">=</span> dict_1 <span class="op">|</span> dict_2</span>
+<span id="cb152-2"><a href="#cb152-2" tabindex="-1"></a>dict_3</span></code></pre></div>
 <pre><code>## {&#39;my_list&#39;: [1, 2, 3], &#39;my_tuple&#39;: (4, 5, 6), &#39;a&#39;: 1, &#39;b&#39;: 2}</code></pre>
 </div>
 <div id="concatenating-dictionaries-2" class="section level2">
@@ -2336,9 +2337,9 @@ dictionary as a whole.</p>
 <ol start="3" style="list-style-type: decimal">
 <li>Update function</li>
 </ol>
-<div class="sourceCode" id="cb153"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb153-1"><a href="#cb153-1" tabindex="-1"></a>dict_1.update(dict_2)</span>
-<span id="cb153-2"><a href="#cb153-2" tabindex="-1"></a></span>
-<span id="cb153-3"><a href="#cb153-3" tabindex="-1"></a>dict_1</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1" tabindex="-1"></a>dict_1.update(dict_2)</span>
+<span id="cb154-2"><a href="#cb154-2" tabindex="-1"></a></span>
+<span id="cb154-3"><a href="#cb154-3" tabindex="-1"></a>dict_1</span></code></pre></div>
 <pre><code>## {&#39;my_list&#39;: [1, 2, 3], &#39;my_tuple&#39;: (4, 5, 6), &#39;a&#39;: 1, &#39;b&#39;: 2}</code></pre>
 </div>
 <div id="sets" class="section level2">
@@ -2346,51 +2347,51 @@ dictionary as a whole.</p>
 <p>The last object type within base Python are sets. These are unordered
 and each entry is unique. Sets can be created using the curly brackets,
 or by coercing another object using the <code>set()</code> function.</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb155-1"><a href="#cb155-1" tabindex="-1"></a>myset <span class="op">=</span> {<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>}</span>
-<span id="cb155-2"><a href="#cb155-2" tabindex="-1"></a>myset</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb156-1"><a href="#cb156-1" tabindex="-1"></a>myset <span class="op">=</span> {<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>}</span>
+<span id="cb156-2"><a href="#cb156-2" tabindex="-1"></a>myset</span></code></pre></div>
 <pre><code>## {&#39;a&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>])</span>
-<span id="cb157-2"><a href="#cb157-2" tabindex="-1"></a>myset</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb158-1"><a href="#cb158-1" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>])</span>
+<span id="cb158-2"><a href="#cb158-2" tabindex="-1"></a>myset</span></code></pre></div>
 <pre><code>## {&#39;a&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="sets-can-be-modified" class="section level2">
 <h2>Sets can be modified</h2>
 <p>The <code>.add()/remove()</code> attributes allow the easy
 modification of sets.</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb159-1"><a href="#cb159-1" tabindex="-1"></a>myset.add(<span class="st">&quot;d&quot;</span>)</span>
-<span id="cb159-2"><a href="#cb159-2" tabindex="-1"></a>myset</span></code></pre></div>
-<pre><code>## {&#39;a&#39;, &#39;d&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
-<div class="sourceCode" id="cb161"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb161-1"><a href="#cb161-1" tabindex="-1"></a>myset.remove(<span class="st">&quot;d&quot;</span>)</span>
-<span id="cb161-2"><a href="#cb161-2" tabindex="-1"></a>myset</span></code></pre></div>
+<div class="sourceCode" id="cb160"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb160-1"><a href="#cb160-1" tabindex="-1"></a>myset.add(<span class="st">&quot;d&quot;</span>)</span>
+<span id="cb160-2"><a href="#cb160-2" tabindex="-1"></a>myset</span></code></pre></div>
+<pre><code>## {&#39;d&#39;, &#39;a&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb162-1"><a href="#cb162-1" tabindex="-1"></a>myset.remove(<span class="st">&quot;d&quot;</span>)</span>
+<span id="cb162-2"><a href="#cb162-2" tabindex="-1"></a>myset</span></code></pre></div>
 <pre><code>## {&#39;a&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="sets-have-no-order" class="section level2">
 <h2>Sets have no order</h2>
 <p>As sets have no order they can’t be subset in the same way that other
 objects can be.</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb163-1"><a href="#cb163-1" tabindex="-1"></a>myset[<span class="dv">0</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb164-1"><a href="#cb164-1" tabindex="-1"></a>myset[<span class="dv">0</span>]</span></code></pre></div>
 <pre><code>## &#39;set&#39; object is not subscriptable</code></pre>
 </div>
 <div id="sets-are-unique" class="section level2">
 <h2>Sets are unique</h2>
-<p>Even if you provide duplicate entries to a set, the set wil only
+<p>Even if you provide duplicate entries to a set, the set will only
 contain unique values.</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb165-1"><a href="#cb165-1" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>])</span>
-<span id="cb165-2"><a href="#cb165-2" tabindex="-1"></a>myset</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb166-1"><a href="#cb166-1" tabindex="-1"></a>myset <span class="op">=</span> <span class="bu">set</span>([<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>,<span class="st">&quot;c&quot;</span>])</span>
+<span id="cb166-2"><a href="#cb166-2" tabindex="-1"></a>myset</span></code></pre></div>
 <pre><code>## {&#39;a&#39;, &#39;c&#39;, &#39;b&#39;}</code></pre>
 </div>
 <div id="sets-have-specific-functions" class="section level2">
 <h2>Sets have specific functions</h2>
 <p>Sets are really useful for checking intersections between two
 objects.</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb167-1"><a href="#cb167-1" tabindex="-1"></a>myset1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>}</span>
-<span id="cb167-2"><a href="#cb167-2" tabindex="-1"></a>myset2 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>}</span>
-<span id="cb167-3"><a href="#cb167-3" tabindex="-1"></a></span>
-<span id="cb167-4"><a href="#cb167-4" tabindex="-1"></a>myset1.intersection(myset2)</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb168-1"><a href="#cb168-1" tabindex="-1"></a>myset1 <span class="op">=</span> {<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>}</span>
+<span id="cb168-2"><a href="#cb168-2" tabindex="-1"></a>myset2 <span class="op">=</span> {<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>}</span>
+<span id="cb168-3"><a href="#cb168-3" tabindex="-1"></a></span>
+<span id="cb168-4"><a href="#cb168-4" tabindex="-1"></a>myset1.intersection(myset2)</span></code></pre></div>
 <pre><code>## {3, 4}</code></pre>
-<div class="sourceCode" id="cb169"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb169-1"><a href="#cb169-1" tabindex="-1"></a>myset1.union(myset2)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb170-1"><a href="#cb170-1" tabindex="-1"></a>myset1.union(myset2)</span></code></pre></div>
 <pre><code>## {1, 2, 3, 4, 5, 6}</code></pre>
-<div class="sourceCode" id="cb171"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1" tabindex="-1"></a>myset1.difference(myset2)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb172-1"><a href="#cb172-1" tabindex="-1"></a>myset1.difference(myset2)</span></code></pre></div>
 <pre><code>## {1, 2}</code></pre>
 </div>
 <div id="set-vs-list" class="section level2">
@@ -2423,10 +2424,10 @@ common in biological data. It is not included in the base distribution
 of Python so it has to be installed and loaded in separately. We
 installed NumPy earlier. Here we load it into our python session with
 <code>import</code>.</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb173-1"><a href="#cb173-1" tabindex="-1"></a><span class="im">import</span> numpy</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb174-1"><a href="#cb174-1" tabindex="-1"></a><span class="im">import</span> numpy</span></code></pre></div>
 <p>Often an alias is used when you import a library. Here we are
 importing NumPy <code>as</code> np.</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb174-1"><a href="#cb174-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="#cb175-1" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div>
 </div>
 <div id="numpy-array" class="section level2">
 <h2>NumPy array</h2>
@@ -2434,11 +2435,11 @@ importing NumPy <code>as</code> np.</p>
 Here we will use the <code>array()</code> function to create an array.
 In this case we are essentially are creating a list (square brackets),
 than coercing it into an array.</p>
-<div class="sourceCode" id="cb175"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb175-1"><a href="#cb175-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
-<span id="cb175-2"><a href="#cb175-2" tabindex="-1"></a></span>
-<span id="cb175-3"><a href="#cb175-3" tabindex="-1"></a><span class="bu">type</span>(arr)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb176-1"><a href="#cb176-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb176-2"><a href="#cb176-2" tabindex="-1"></a></span>
+<span id="cb176-3"><a href="#cb176-3" tabindex="-1"></a><span class="bu">type</span>(arr)</span></code></pre></div>
 <pre><code>## &lt;class &#39;numpy.ndarray&#39;&gt;</code></pre>
-<div class="sourceCode" id="cb177"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb177-1"><a href="#cb177-1" tabindex="-1"></a>arr</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb178-1"><a href="#cb178-1" tabindex="-1"></a>arr</span></code></pre></div>
 <pre><code>## array([1, 2, 3, 4, 5])</code></pre>
 </div>
 <div id="data-types-and-arrays" class="section level2">
@@ -2447,22 +2448,22 @@ than coercing it into an array.</p>
 of data: <code>str</code>,<code>float</code>, <code>int</code> and
 <code>boolean</code>. Arrays accept all of these. We can always check
 the type with the <code>dtype</code> attribute.</p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb179-1"><a href="#cb179-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">34</span>, <span class="dv">29</span>, <span class="dv">40</span>])</span>
-<span id="cb179-2"><a href="#cb179-2" tabindex="-1"></a>arr.dtype</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb180-1"><a href="#cb180-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">34</span>, <span class="dv">29</span>, <span class="dv">40</span>])</span>
+<span id="cb180-2"><a href="#cb180-2" tabindex="-1"></a>arr.dtype</span></code></pre></div>
 <pre><code>## dtype(&#39;int64&#39;)</code></pre>
-<div class="sourceCode" id="cb181"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb181-1"><a href="#cb181-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>])</span>
-<span id="cb181-2"><a href="#cb181-2" tabindex="-1"></a>arr.dtype</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb182-1"><a href="#cb182-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>])</span>
+<span id="cb182-2"><a href="#cb182-2" tabindex="-1"></a>arr.dtype</span></code></pre></div>
 <pre><code>## dtype(&#39;bool&#39;)</code></pre>
 </div>
 <div id="data-types-and-arrays-1" class="section level2">
 <h2>Data Types and arrays</h2>
 <p>When you create the array you can specify what type you want the data
 to be. This can coerce the input data … within reason.</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb183-1"><a href="#cb183-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">34</span>, <span class="dv">29</span>, <span class="dv">40</span>], dtype<span class="op">=</span><span class="st">&#39;S&#39;</span>)</span>
-<span id="cb183-2"><a href="#cb183-2" tabindex="-1"></a></span>
-<span id="cb183-3"><a href="#cb183-3" tabindex="-1"></a>arr</span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb184-1"><a href="#cb184-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">34</span>, <span class="dv">29</span>, <span class="dv">40</span>], dtype<span class="op">=</span><span class="st">&#39;S&#39;</span>)</span>
+<span id="cb184-2"><a href="#cb184-2" tabindex="-1"></a></span>
+<span id="cb184-3"><a href="#cb184-3" tabindex="-1"></a>arr</span></code></pre></div>
 <pre><code>## array([b&#39;34&#39;, b&#39;29&#39;, b&#39;40&#39;], dtype=&#39;|S2&#39;)</code></pre>
-<div class="sourceCode" id="cb185"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb185-1"><a href="#cb185-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;3&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;i&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb186-1"><a href="#cb186-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="st">&#39;a&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;3&#39;</span>], dtype<span class="op">=</span><span class="st">&#39;i&#39;</span>)</span></code></pre></div>
 <pre><code>## invalid literal for int() with base 10: &#39;a&#39;</code></pre>
 </div>
 <div id="data-types-and-arrays-2" class="section level2">
@@ -2470,8 +2471,9 @@ to be. This can coerce the input data … within reason.</p>
 <p>Arrays contain only one data type. While they will accept lists of
 different data types, but these elements will be coerced into a common
 type.</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb187-1"><a href="#cb187-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="st">&#39;a&#39;</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
-<span id="cb187-2"><a href="#cb187-2" tabindex="-1"></a>arr</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb188-1"><a href="#cb188-1" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="st">&#39;a&#39;</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb188-2"><a href="#cb188-2" tabindex="-1"></a>arr</span></code></pre></div>
+<pre><code>## array([&#39;a&#39;, &#39;2&#39;, &#39;3&#39;], dtype=&#39;&lt;U21&#39;)</code></pre>
 </div>
 <div id="adding-dimensions" class="section level2">
 <h2>Adding Dimensions</h2>
@@ -2481,27 +2483,27 @@ arrays as this is often the rectangular data we deal with.</p>
 <p>Here we again create a list to coerce into a array. This time we have
 a list of lists. Each list will become equivalent to a row in our
 array.</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb188-1"><a href="#cb188-1" tabindex="-1"></a>arr_2d <span class="op">=</span> np.array([[<span class="st">&quot;Patient1&quot;</span>,<span class="dv">34</span>,<span class="va">True</span>],[<span class="st">&quot;Patient2&quot;</span>, <span class="dv">29</span>, <span class="va">True</span>], [<span class="st">&quot;Patient3&quot;</span>,<span class="dv">41</span>,<span class="va">False</span>]])</span>
-<span id="cb188-2"><a href="#cb188-2" tabindex="-1"></a>arr_2d</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb190-1"><a href="#cb190-1" tabindex="-1"></a>arr_2d <span class="op">=</span> np.array([[<span class="st">&quot;Patient1&quot;</span>,<span class="dv">34</span>,<span class="va">True</span>],[<span class="st">&quot;Patient2&quot;</span>, <span class="dv">29</span>, <span class="va">True</span>], [<span class="st">&quot;Patient3&quot;</span>,<span class="dv">41</span>,<span class="va">False</span>]])</span>
+<span id="cb190-2"><a href="#cb190-2" tabindex="-1"></a>arr_2d</span></code></pre></div>
 <pre><code>## array([[&#39;Patient1&#39;, &#39;34&#39;, &#39;True&#39;],
 ##        [&#39;Patient2&#39;, &#39;29&#39;, &#39;True&#39;],
 ##        [&#39;Patient3&#39;, &#39;41&#39;, &#39;False&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
 <p>We can find out the dimension attribute by using <code>ndim</code>.
 In this case we have rectangular data so it is two dimensions.</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb190-1"><a href="#cb190-1" tabindex="-1"></a>arr_2d.ndim</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb192-1"><a href="#cb192-1" tabindex="-1"></a>arr_2d.ndim</span></code></pre></div>
 <pre><code>## 2</code></pre>
 </div>
 <div id="array-shape" class="section level2">
 <h2>Array shape</h2>
 <p>We can confirm the shape of the array using the<code>shape</code>
 attribute</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb192-1"><a href="#cb192-1" tabindex="-1"></a>arr_2d.shape</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb194-1"><a href="#cb194-1" tabindex="-1"></a>arr_2d.shape</span></code></pre></div>
 <pre><code>## (3, 3)</code></pre>
 <p>The shape of an array can easily be changed with the
 <code>reshape</code> method. Note that you will get an error if the
-number of values in the array doesn’t fit int othe dimensions
+number of values in the array doesn’t fit into the dimensions
 specified.</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb194-1"><a href="#cb194-1" tabindex="-1"></a>arr_2d.reshape(<span class="dv">9</span>,<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb196-1"><a href="#cb196-1" tabindex="-1"></a>arr_2d.reshape(<span class="dv">9</span>,<span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## array([[&#39;Patient1&#39;],
 ##        [&#39;34&#39;],
 ##        [&#39;True&#39;],
@@ -2519,27 +2521,27 @@ index our arrays. The big difference is we now have 2 dimensions. We
 therefore need to provide 2 indexes, separated by a comma.</p>
 <p>The first number will correspond to row. The second number will
 correspond to column.</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb196-1"><a href="#cb196-1" tabindex="-1"></a>arr_2d[<span class="dv">0</span>,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb198"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb198-1"><a href="#cb198-1" tabindex="-1"></a>arr_2d[<span class="dv">0</span>,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## np.str_(&#39;True&#39;)</code></pre>
 </div>
 <div id="slicing-arrays" class="section level2">
 <h2>Slicing Arrays</h2>
 <p>We can also do more complex indexing operations like slicing, to get
 ranges of values from our array.</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb198-1"><a href="#cb198-1" tabindex="-1"></a>arr_2d[:,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb200"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb200-1"><a href="#cb200-1" tabindex="-1"></a>arr_2d[:,<span class="dv">2</span>]</span></code></pre></div>
 <pre><code>## array([&#39;True&#39;, &#39;True&#39;, &#39;False&#39;], dtype=&#39;&lt;U21&#39;)</code></pre>
-<div class="sourceCode" id="cb200"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb200-1"><a href="#cb200-1" tabindex="-1"></a>arr_2d[<span class="dv">0</span>,<span class="dv">1</span>:<span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb202-1"><a href="#cb202-1" tabindex="-1"></a>arr_2d[<span class="dv">0</span>,<span class="dv">1</span>:<span class="dv">3</span>]</span></code></pre></div>
 <pre><code>## array([&#39;34&#39;, &#39;True&#39;], dtype=&#39;&lt;U21&#39;)</code></pre>
 </div>
 <div id="logical-indexing" class="section level2">
 <h2>Logical Indexing</h2>
 <p>Booleans can be used to directly subset arrays. <code>True</code>
 entries are kept.</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb202-1"><a href="#cb202-1" tabindex="-1"></a>arr_2d</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb204-1"><a href="#cb204-1" tabindex="-1"></a>arr_2d</span></code></pre></div>
 <pre><code>## array([[&#39;Patient1&#39;, &#39;34&#39;, &#39;True&#39;],
 ##        [&#39;Patient2&#39;, &#39;29&#39;, &#39;True&#39;],
 ##        [&#39;Patient3&#39;, &#39;41&#39;, &#39;False&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
-<div class="sourceCode" id="cb204"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb204-1"><a href="#cb204-1" tabindex="-1"></a>arr_2d[[<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>],:]</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb206-1"><a href="#cb206-1" tabindex="-1"></a>arr_2d[[<span class="va">True</span>,<span class="va">False</span>,<span class="va">True</span>],:]</span></code></pre></div>
 <pre><code>## array([[&#39;Patient1&#39;, &#39;34&#39;, &#39;True&#39;],
 ##        [&#39;Patient3&#39;, &#39;41&#39;, &#39;False&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
 </div>
@@ -2548,7 +2550,7 @@ entries are kept.</p>
 <p>We can use this along with logical testing to subset our arrays.
 Let’s look back at our 2D array. We want to subset this based on the
 patient age (the second column) i.e. all patients over 30.</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb206-1"><a href="#cb206-1" tabindex="-1"></a>arr_2d</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb208-1"><a href="#cb208-1" tabindex="-1"></a>arr_2d</span></code></pre></div>
 <pre><code>## array([[&#39;Patient1&#39;, &#39;34&#39;, &#39;True&#39;],
 ##        [&#39;Patient2&#39;, &#39;29&#39;, &#39;True&#39;],
 ##        [&#39;Patient3&#39;, &#39;41&#39;, &#39;False&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
@@ -2558,13 +2560,13 @@ expression.</p>
 </div>
 <div id="logical-indexing-2" class="section level2">
 <h2>Logical Indexing</h2>
-<div class="sourceCode" id="cb208"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb208-1"><a href="#cb208-1" tabindex="-1"></a>temp_arr <span class="op">=</span> arr_2d[:,<span class="dv">1</span>].astype(<span class="st">&#39;i&#39;</span>)</span>
-<span id="cb208-2"><a href="#cb208-2" tabindex="-1"></a>temp_arr</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb210-1"><a href="#cb210-1" tabindex="-1"></a>temp_arr <span class="op">=</span> arr_2d[:,<span class="dv">1</span>].astype(<span class="st">&#39;i&#39;</span>)</span>
+<span id="cb210-2"><a href="#cb210-2" tabindex="-1"></a>temp_arr</span></code></pre></div>
 <pre><code>## array([34, 29, 41], dtype=int32)</code></pre>
-<div class="sourceCode" id="cb210"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb210-1"><a href="#cb210-1" tabindex="-1"></a>sub_idx <span class="op">=</span> temp_arr <span class="op">&gt;</span><span class="dv">30</span></span>
-<span id="cb210-2"><a href="#cb210-2" tabindex="-1"></a>sub_idx</span></code></pre></div>
+<div class="sourceCode" id="cb212"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb212-1"><a href="#cb212-1" tabindex="-1"></a>sub_idx <span class="op">=</span> temp_arr <span class="op">&gt;</span><span class="dv">30</span></span>
+<span id="cb212-2"><a href="#cb212-2" tabindex="-1"></a>sub_idx</span></code></pre></div>
 <pre><code>## array([ True, False,  True])</code></pre>
-<div class="sourceCode" id="cb212"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb212-1"><a href="#cb212-1" tabindex="-1"></a>arr_2d[sub_idx,:]</span></code></pre></div>
+<div class="sourceCode" id="cb214"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb214-1"><a href="#cb214-1" tabindex="-1"></a>arr_2d[sub_idx,:]</span></code></pre></div>
 <pre><code>## array([[&#39;Patient1&#39;, &#39;34&#39;, &#39;True&#39;],
 ##        [&#39;Patient3&#39;, &#39;41&#39;, &#39;False&#39;]], dtype=&#39;&lt;U21&#39;)</code></pre>
 </div>
@@ -2582,28 +2584,28 @@ i.e. checking if it is equal to a given value.</p>
 <h2>Joining Arrays</h2>
 <p>NumPy arrays can easily be joined together with the
 <code>concatenate</code> function. These are a simple 1D arrays.</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb214-1"><a href="#cb214-1" tabindex="-1"></a>arr1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
-<span id="cb214-2"><a href="#cb214-2" tabindex="-1"></a></span>
-<span id="cb214-3"><a href="#cb214-3" tabindex="-1"></a>arr2 <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
-<span id="cb214-4"><a href="#cb214-4" tabindex="-1"></a></span>
-<span id="cb214-5"><a href="#cb214-5" tabindex="-1"></a>arr <span class="op">=</span> np.concatenate((arr1, arr2))</span></code></pre></div>
+<div class="sourceCode" id="cb216"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb216-1"><a href="#cb216-1" tabindex="-1"></a>arr1 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span>
+<span id="cb216-2"><a href="#cb216-2" tabindex="-1"></a></span>
+<span id="cb216-3"><a href="#cb216-3" tabindex="-1"></a>arr2 <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
+<span id="cb216-4"><a href="#cb216-4" tabindex="-1"></a></span>
+<span id="cb216-5"><a href="#cb216-5" tabindex="-1"></a>arr <span class="op">=</span> np.concatenate((arr1, arr2))</span></code></pre></div>
 </div>
 <div id="joining-arrays-1" class="section level2">
 <h2>Joining Arrays</h2>
 <p>2D arrays can be merged just as easily. The orientation of the merge
 can be controlled using the <code>axis</code> argument.</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb215-1"><a href="#cb215-1" tabindex="-1"></a>arr1 <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
-<span id="cb215-2"><a href="#cb215-2" tabindex="-1"></a></span>
-<span id="cb215-3"><a href="#cb215-3" tabindex="-1"></a>arr2 <span class="op">=</span> np.array([[<span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>]])</span>
-<span id="cb215-4"><a href="#cb215-4" tabindex="-1"></a></span>
-<span id="cb215-5"><a href="#cb215-5" tabindex="-1"></a>arr <span class="op">=</span> np.concatenate((arr1, arr2), axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb215-6"><a href="#cb215-6" tabindex="-1"></a></span>
-<span id="cb215-7"><a href="#cb215-7" tabindex="-1"></a>arr</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb217-1"><a href="#cb217-1" tabindex="-1"></a>arr1 <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>], [<span class="dv">3</span>, <span class="dv">4</span>]])</span>
+<span id="cb217-2"><a href="#cb217-2" tabindex="-1"></a></span>
+<span id="cb217-3"><a href="#cb217-3" tabindex="-1"></a>arr2 <span class="op">=</span> np.array([[<span class="dv">5</span>, <span class="dv">6</span>], [<span class="dv">7</span>, <span class="dv">8</span>]])</span>
+<span id="cb217-4"><a href="#cb217-4" tabindex="-1"></a></span>
+<span id="cb217-5"><a href="#cb217-5" tabindex="-1"></a>arr <span class="op">=</span> np.concatenate((arr1, arr2), axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb217-6"><a href="#cb217-6" tabindex="-1"></a></span>
+<span id="cb217-7"><a href="#cb217-7" tabindex="-1"></a>arr</span></code></pre></div>
 <pre><code>## array([[1, 2, 5, 6],
 ##        [3, 4, 7, 8]])</code></pre>
-<div class="sourceCode" id="cb217"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb217-1"><a href="#cb217-1" tabindex="-1"></a>arr <span class="op">=</span> np.concatenate((arr1, arr2), axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb217-2"><a href="#cb217-2" tabindex="-1"></a></span>
-<span id="cb217-3"><a href="#cb217-3" tabindex="-1"></a>arr</span></code></pre></div>
+<div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb219-1"><a href="#cb219-1" tabindex="-1"></a>arr <span class="op">=</span> np.concatenate((arr1, arr2), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb219-2"><a href="#cb219-2" tabindex="-1"></a></span>
+<span id="cb219-3"><a href="#cb219-3" tabindex="-1"></a>arr</span></code></pre></div>
 <pre><code>## array([[1, 2],
 ##        [3, 4],
 ##        [5, 6],
@@ -2640,7 +2642,9 @@ values.<br />
 </li>
 <li>Dictionaries - If you have complex data i.e. different shape and
 size, and you will have some kind of key/lookup values.</li>
-<li>Arrays - When you have rectangular data i.e. a table.</li>
+<li>Arrays - When you have rectangular data i.e. a table, need to
+perform math on elements or interface with more advanced computational
+libraries (stats, ML, etc)</li>
 </ul>
 </div>
 </div>
@@ -2667,12 +2671,14 @@ new line and indentation.</li>
 <li><code>return</code> - this is the result that you wish to be
 delivered from the function.</li>
 </ul>
-<div class="sourceCode" id="cb219"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb219-1"><a href="#cb219-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
-<span id="cb219-2"><a href="#cb219-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
-<span id="cb219-3"><a href="#cb219-3" tabindex="-1"></a>  <span class="cf">return</span> sumNum</span>
-<span id="cb219-4"><a href="#cb219-4" tabindex="-1"></a></span>
-<span id="cb219-5"><a href="#cb219-5" tabindex="-1"></a>myResult <span class="op">=</span> myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb219-6"><a href="#cb219-6" tabindex="-1"></a>myResult</span></code></pre></div>
+<p>NOTE: In python functions, indentation after defining the function is
+required. Otherwise you will get an error.</p>
+<div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb221-1"><a href="#cb221-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
+<span id="cb221-2"><a href="#cb221-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
+<span id="cb221-3"><a href="#cb221-3" tabindex="-1"></a>  <span class="cf">return</span> sumNum</span>
+<span id="cb221-4"><a href="#cb221-4" tabindex="-1"></a></span>
+<span id="cb221-5"><a href="#cb221-5" tabindex="-1"></a>myResult <span class="op">=</span> myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb221-6"><a href="#cb221-6" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## 5</code></pre>
 </div>
 <div id="returning-multiple-values" class="section level2">
@@ -2680,10 +2686,10 @@ delivered from the function.</li>
 <p>We can only return 1 object at a time from function. Here we create
 the multiple of our numbers and try and return alongside our sum. It
 wont even let us define the function.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb221-1"><a href="#cb221-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
-<span id="cb221-2"><a href="#cb221-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
-<span id="cb221-3"><a href="#cb221-3" tabindex="-1"></a>  multipleNum <span class="op">=</span> num1<span class="op">*</span>num2</span>
-<span id="cb221-4"><a href="#cb221-4" tabindex="-1"></a>  <span class="cf">return</span> sumNum multipleNum</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb223-1"><a href="#cb223-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
+<span id="cb223-2"><a href="#cb223-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
+<span id="cb223-3"><a href="#cb223-3" tabindex="-1"></a>  multipleNum <span class="op">=</span> num1<span class="op">*</span>num2</span>
+<span id="cb223-4"><a href="#cb223-4" tabindex="-1"></a>  <span class="cf">return</span> sumNum multipleNum</span></code></pre></div>
 <pre><code>## File &quot;&lt;string&gt;&quot;, line 1
 ##     return sumNum multipleNum
 ## IndentationError: unexpected indent</code></pre>
@@ -2692,13 +2698,13 @@ wont even let us define the function.</p>
 <h2>Returning multiple values</h2>
 <p>A simple solution is to pass back an object that contains both
 results. Here we create a quick list.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb223-1"><a href="#cb223-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
-<span id="cb223-2"><a href="#cb223-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
-<span id="cb223-3"><a href="#cb223-3" tabindex="-1"></a>  multipleNum <span class="op">=</span> num1<span class="op">*</span>num2</span>
-<span id="cb223-4"><a href="#cb223-4" tabindex="-1"></a>  <span class="cf">return</span> [sumNum, multipleNum]</span>
-<span id="cb223-5"><a href="#cb223-5" tabindex="-1"></a></span>
-<span id="cb223-6"><a href="#cb223-6" tabindex="-1"></a>myResult <span class="op">=</span> myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb223-7"><a href="#cb223-7" tabindex="-1"></a>myResult</span></code></pre></div>
+<div class="sourceCode" id="cb225"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb225-1"><a href="#cb225-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
+<span id="cb225-2"><a href="#cb225-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
+<span id="cb225-3"><a href="#cb225-3" tabindex="-1"></a>  multipleNum <span class="op">=</span> num1<span class="op">*</span>num2</span>
+<span id="cb225-4"><a href="#cb225-4" tabindex="-1"></a>  <span class="cf">return</span> [sumNum, multipleNum]</span>
+<span id="cb225-5"><a href="#cb225-5" tabindex="-1"></a></span>
+<span id="cb225-6"><a href="#cb225-6" tabindex="-1"></a>myResult <span class="op">=</span> myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb225-7"><a href="#cb225-7" tabindex="-1"></a>myResult</span></code></pre></div>
 <pre><code>## [5, 6]</code></pre>
 </div>
 <div id="evaluate-until-return" class="section level2">
@@ -2706,14 +2712,14 @@ results. Here we create a quick list.</p>
 <p>In a function containing a return statement, the code up until the
 return statement is evaluated and anything after the return statement is
 not evaluated.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb225-1"><a href="#cb225-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
-<span id="cb225-2"><a href="#cb225-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
-<span id="cb225-3"><a href="#cb225-3" tabindex="-1"></a>  multipleNum <span class="op">=</span> num1<span class="op">*</span>num2</span>
-<span id="cb225-4"><a href="#cb225-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Before return&quot;</span>)</span>
-<span id="cb225-5"><a href="#cb225-5" tabindex="-1"></a>  <span class="cf">return</span> [sumNum, multipleNum]</span>
-<span id="cb225-6"><a href="#cb225-6" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;After return&quot;</span>)</span>
-<span id="cb225-7"><a href="#cb225-7" tabindex="-1"></a></span>
-<span id="cb225-8"><a href="#cb225-8" tabindex="-1"></a>myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb227"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb227-1"><a href="#cb227-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
+<span id="cb227-2"><a href="#cb227-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
+<span id="cb227-3"><a href="#cb227-3" tabindex="-1"></a>  multipleNum <span class="op">=</span> num1<span class="op">*</span>num2</span>
+<span id="cb227-4"><a href="#cb227-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;Before return&quot;</span>)</span>
+<span id="cb227-5"><a href="#cb227-5" tabindex="-1"></a>  <span class="cf">return</span> [sumNum, multipleNum]</span>
+<span id="cb227-6"><a href="#cb227-6" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;After return&quot;</span>)</span>
+<span id="cb227-7"><a href="#cb227-7" tabindex="-1"></a></span>
+<span id="cb227-8"><a href="#cb227-8" tabindex="-1"></a>myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
 <pre><code>## Before return
 ## [5, 6]</code></pre>
 </div>
@@ -2721,26 +2727,26 @@ not evaluated.</p>
 <h2>No return statement</h2>
 <p>If a function does not contain a return statement nothing will come
 back. In other languages this is not the case.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb227-1"><a href="#cb227-1" tabindex="-1"></a></span>
-<span id="cb227-2"><a href="#cb227-2" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
-<span id="cb227-3"><a href="#cb227-3" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
-<span id="cb227-4"><a href="#cb227-4" tabindex="-1"></a>  multipleNum <span class="op">=</span> num1<span class="op">*</span>num2</span>
-<span id="cb227-5"><a href="#cb227-5" tabindex="-1"></a></span>
-<span id="cb227-6"><a href="#cb227-6" tabindex="-1"></a>myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb229-1"><a href="#cb229-1" tabindex="-1"></a></span>
+<span id="cb229-2"><a href="#cb229-2" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
+<span id="cb229-3"><a href="#cb229-3" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
+<span id="cb229-4"><a href="#cb229-4" tabindex="-1"></a>  multipleNum <span class="op">=</span> num1<span class="op">*</span>num2</span>
+<span id="cb229-5"><a href="#cb229-5" tabindex="-1"></a></span>
+<span id="cb229-6"><a href="#cb229-6" tabindex="-1"></a>myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>)</span></code></pre></div>
 </div>
 <div id="variable-scope-in-functions" class="section level2">
 <h2>Variable scope in functions</h2>
 <p>Variables that are defined in the arguments or within the function
 exist only within the environment of the function. If we try and use the
 argument outside of the function it will not work.</p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb228-1"><a href="#cb228-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
-<span id="cb228-2"><a href="#cb228-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
-<span id="cb228-3"><a href="#cb228-3" tabindex="-1"></a>  multipleNum <span class="op">=</span> num1<span class="op">*</span>num2</span>
-<span id="cb228-4"><a href="#cb228-4" tabindex="-1"></a>  <span class="cf">return</span> [sumNum, multipleNum]</span>
-<span id="cb228-5"><a href="#cb228-5" tabindex="-1"></a></span>
-<span id="cb228-6"><a href="#cb228-6" tabindex="-1"></a>myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb228-7"><a href="#cb228-7" tabindex="-1"></a></span>
-<span id="cb228-8"><a href="#cb228-8" tabindex="-1"></a>sumNum</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb230-1"><a href="#cb230-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
+<span id="cb230-2"><a href="#cb230-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
+<span id="cb230-3"><a href="#cb230-3" tabindex="-1"></a>  multipleNum <span class="op">=</span> num1<span class="op">*</span>num2</span>
+<span id="cb230-4"><a href="#cb230-4" tabindex="-1"></a>  <span class="cf">return</span> [sumNum, multipleNum]</span>
+<span id="cb230-5"><a href="#cb230-5" tabindex="-1"></a></span>
+<span id="cb230-6"><a href="#cb230-6" tabindex="-1"></a>myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb230-7"><a href="#cb230-7" tabindex="-1"></a></span>
+<span id="cb230-8"><a href="#cb230-8" tabindex="-1"></a>sumNum</span></code></pre></div>
 <pre><code>## [5, 6]</code></pre>
 <pre><code>## name &#39;sumNum&#39; is not defined</code></pre>
 </div>
@@ -2748,15 +2754,15 @@ argument outside of the function it will not work.</p>
 <h2>Variable scope in functions</h2>
 <p>If a function makes changes to variables defined in the global
 environment they will not be updated in the global environment.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb231-1"><a href="#cb231-1" tabindex="-1"></a>num3 <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb231-2"><a href="#cb231-2" tabindex="-1"></a></span>
-<span id="cb231-3"><a href="#cb231-3" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2, num3):</span>
-<span id="cb231-4"><a href="#cb231-4" tabindex="-1"></a>  num3 <span class="op">=</span> num1<span class="op">+</span>num2<span class="op">+</span>num3</span>
-<span id="cb231-5"><a href="#cb231-5" tabindex="-1"></a>  <span class="cf">return</span> num3</span>
-<span id="cb231-6"><a href="#cb231-6" tabindex="-1"></a></span>
-<span id="cb231-7"><a href="#cb231-7" tabindex="-1"></a>myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>, num3<span class="op">=</span>num3)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb233-1"><a href="#cb233-1" tabindex="-1"></a>num3 <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb233-2"><a href="#cb233-2" tabindex="-1"></a></span>
+<span id="cb233-3"><a href="#cb233-3" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2, num3):</span>
+<span id="cb233-4"><a href="#cb233-4" tabindex="-1"></a>  num3 <span class="op">=</span> num1<span class="op">+</span>num2<span class="op">+</span>num3</span>
+<span id="cb233-5"><a href="#cb233-5" tabindex="-1"></a>  <span class="cf">return</span> num3</span>
+<span id="cb233-6"><a href="#cb233-6" tabindex="-1"></a></span>
+<span id="cb233-7"><a href="#cb233-7" tabindex="-1"></a>myFirstFunction(num1<span class="op">=</span><span class="dv">2</span>, num2<span class="op">=</span><span class="dv">3</span>, num3<span class="op">=</span>num3)</span></code></pre></div>
 <pre><code>## 9</code></pre>
-<div class="sourceCode" id="cb233"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb233-1"><a href="#cb233-1" tabindex="-1"></a>num3</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb235-1"><a href="#cb235-1" tabindex="-1"></a>num3</span></code></pre></div>
 <pre><code>## 4</code></pre>
 </div>
 <div id="local-vs-global-scope" class="section level2">
@@ -2778,13 +2784,13 @@ everything.</p></li>
 <h2>Argument defaults</h2>
 <p>Functions can have defaults for their arguments which will be used
 when arguments are not specified.</p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb235-1"><a href="#cb235-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1<span class="op">=</span><span class="dv">1</span>,num2<span class="op">=</span><span class="dv">3</span>):</span>
-<span id="cb235-2"><a href="#cb235-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1<span class="op">+</span>num2</span>
-<span id="cb235-3"><a href="#cb235-3" tabindex="-1"></a>  <span class="cf">return</span> sumNum</span>
-<span id="cb235-4"><a href="#cb235-4" tabindex="-1"></a></span>
-<span id="cb235-5"><a href="#cb235-5" tabindex="-1"></a>myFirstFunction()</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb237-1"><a href="#cb237-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1<span class="op">=</span><span class="dv">1</span>,num2<span class="op">=</span><span class="dv">3</span>):</span>
+<span id="cb237-2"><a href="#cb237-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1<span class="op">+</span>num2</span>
+<span id="cb237-3"><a href="#cb237-3" tabindex="-1"></a>  <span class="cf">return</span> sumNum</span>
+<span id="cb237-4"><a href="#cb237-4" tabindex="-1"></a></span>
+<span id="cb237-5"><a href="#cb237-5" tabindex="-1"></a>myFirstFunction()</span></code></pre></div>
 <pre><code>## 4</code></pre>
-<div class="sourceCode" id="cb237"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb237-1"><a href="#cb237-1" tabindex="-1"></a>myFirstFunction(<span class="dv">5</span>,<span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb239-1"><a href="#cb239-1" tabindex="-1"></a>myFirstFunction(<span class="dv">5</span>,<span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## 15</code></pre>
 </div>
 <div id="reusing-functions" class="section level2">
@@ -2794,20 +2800,20 @@ easily save it i.e. I have a function that I want to use regularly to
 process some data in the same way. To do this you save it as a
 script.</p>
 <p>First open a new script: File &gt; New File &gt; Python Script. We
-can then add our orginal function and save the python script as
+can then add our original function and save the python script as
 <em>myFirstFunction.py</em>.</p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb239-1"><a href="#cb239-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
-<span id="cb239-2"><a href="#cb239-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
-<span id="cb239-3"><a href="#cb239-3" tabindex="-1"></a>  <span class="cf">return</span> sumNum</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb241-1"><a href="#cb241-1" tabindex="-1"></a><span class="kw">def</span> myFirstFunction(num1, num2):</span>
+<span id="cb241-2"><a href="#cb241-2" tabindex="-1"></a>  sumNum <span class="op">=</span> num1 <span class="op">+</span> num2</span>
+<span id="cb241-3"><a href="#cb241-3" tabindex="-1"></a>  <span class="cf">return</span> sumNum</span></code></pre></div>
 </div>
 <div id="function-import" class="section level2">
 <h2>Function import</h2>
 <p>First open a new script: File &gt; New File &gt; Python Script. We
 can then add our orginal function and save the python script as
 <em>myFirstFunction_script.py</em>.</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb240-1"><a href="#cb240-1" tabindex="-1"></a><span class="im">import</span> myFirstFunction_script</span>
-<span id="cb240-2"><a href="#cb240-2" tabindex="-1"></a></span>
-<span id="cb240-3"><a href="#cb240-3" tabindex="-1"></a>myFirstFunction_script.myFirstFunction(<span class="dv">5</span>,<span class="dv">20</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb242-1"><a href="#cb242-1" tabindex="-1"></a><span class="im">import</span> myFirstFunction_script</span>
+<span id="cb242-2"><a href="#cb242-2" tabindex="-1"></a></span>
+<span id="cb242-3"><a href="#cb242-3" tabindex="-1"></a>myFirstFunction_script.myFirstFunction(<span class="dv">5</span>,<span class="dv">20</span>)</span></code></pre></div>
 </div>
 <div id="time-for-an-exercise-2" class="section level2">
 <h2>Time for an exercise!</h2>
@@ -2840,28 +2846,28 @@ whether a chunk of code is executed.</p>
 <p>In Python, we use the if statement with the logical to be evaluated
 immediately after. The dependent code is indicated by a colon, new line
 and indentation.</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb241-1"><a href="#cb241-1" tabindex="-1"></a>x <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb241-2"><a href="#cb241-2" tabindex="-1"></a><span class="cf">if</span> x:</span>
-<span id="cb241-3"><a href="#cb241-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is true&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb243"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb243-1"><a href="#cb243-1" tabindex="-1"></a>x <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb243-2"><a href="#cb243-2" tabindex="-1"></a><span class="cf">if</span> x:</span>
+<span id="cb243-3"><a href="#cb243-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is true&quot;</span>)</span></code></pre></div>
 <pre><code>## x is true</code></pre>
-<div class="sourceCode" id="cb243"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb243-1"><a href="#cb243-1" tabindex="-1"></a></span>
-<span id="cb243-2"><a href="#cb243-2" tabindex="-1"></a>x <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb243-3"><a href="#cb243-3" tabindex="-1"></a><span class="cf">if</span> x:</span>
-<span id="cb243-4"><a href="#cb243-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is true&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb245"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb245-1"><a href="#cb245-1" tabindex="-1"></a></span>
+<span id="cb245-2"><a href="#cb245-2" tabindex="-1"></a>x <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb245-3"><a href="#cb245-3" tabindex="-1"></a><span class="cf">if</span> x:</span>
+<span id="cb245-4"><a href="#cb245-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is true&quot;</span>)</span></code></pre></div>
 </div>
 <div id="conditional-branching-1" class="section level2">
 <h2>Conditional Branching</h2>
 <p>More often, we construct the logical value within the if statement
 itself. This can be termed the condition.</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb244-1"><a href="#cb244-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb244-2"><a href="#cb244-2" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb244-3"><a href="#cb244-3" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> y:</span>
-<span id="cb244-4"><a href="#cb244-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The value of x is&quot;</span>,x,<span class="st">&quot;which is greater than&quot;</span>, y)</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb246-1"><a href="#cb246-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb246-2"><a href="#cb246-2" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb246-3"><a href="#cb246-3" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> y:</span>
+<span id="cb246-4"><a href="#cb246-4" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The value of x is&quot;</span>,x,<span class="st">&quot;which is greater than&quot;</span>, y)</span></code></pre></div>
 <pre><code>## The value of x is 10 which is greater than 4</code></pre>
 <p>The message is printed above because x is greater than y.</p>
-<div class="sourceCode" id="cb246"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb246-1"><a href="#cb246-1" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb246-2"><a href="#cb246-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> y:</span>
-<span id="cb246-3"><a href="#cb246-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The value of x is&quot;</span>,x,<span class="st">&quot;which is greater than&quot;</span>, y)</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb248-1"><a href="#cb248-1" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb248-2"><a href="#cb248-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> y:</span>
+<span id="cb248-3"><a href="#cb248-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;The value of x is&quot;</span>,x,<span class="st">&quot;which is greater than&quot;</span>, y)</span></code></pre></div>
 <p>x is now no longer greater than y, so no message is printed.</p>
 <p>We really still want a message telling us what was the result of the
 condition.</p>
@@ -2871,17 +2877,17 @@ condition.</p>
 <p>If we want to perform an operation when the condition is false we can
 follow the <code>if</code> statement with an <code>else</code>
 statement.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb247-1"><a href="#cb247-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb247-2"><a href="#cb247-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb247-3"><a href="#cb247-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
-<span id="cb247-4"><a href="#cb247-4" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb247-5"><a href="#cb247-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than or equal to 5&quot;</span>)</span></code></pre></div>
-<pre><code>## 3 is less than to 5</code></pre>
-<div class="sourceCode" id="cb249"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb249-1"><a href="#cb249-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<div class="sourceCode" id="cb249"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb249-1"><a href="#cb249-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">3</span></span>
 <span id="cb249-2"><a href="#cb249-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
 <span id="cb249-3"><a href="#cb249-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
 <span id="cb249-4"><a href="#cb249-4" tabindex="-1"></a><span class="cf">else</span>:</span>
 <span id="cb249-5"><a href="#cb249-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than or equal to 5&quot;</span>)</span></code></pre></div>
+<pre><code>## 3 is less than to 5</code></pre>
+<div class="sourceCode" id="cb251"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb251-1"><a href="#cb251-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb251-2"><a href="#cb251-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb251-3"><a href="#cb251-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
+<span id="cb251-4"><a href="#cb251-4" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb251-5"><a href="#cb251-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than or equal to 5&quot;</span>)</span></code></pre></div>
 <pre><code>## 10 is greater than or equal to 5</code></pre>
 </div>
 <div id="else-if-elif" class="section level2">
@@ -2889,13 +2895,13 @@ statement.</p>
 <p>We may wish to execute different procedures under multiple
 conditions. This can be controlled using the <code>elif</code> following
 an initial <code>if</code> statement.</p>
-<div class="sourceCode" id="cb251"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb251-1"><a href="#cb251-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb251-2"><a href="#cb251-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
-<span id="cb251-3"><a href="#cb251-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
-<span id="cb251-4"><a href="#cb251-4" tabindex="-1"></a><span class="cf">elif</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb251-5"><a href="#cb251-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than 5&quot;</span>)</span>
-<span id="cb251-6"><a href="#cb251-6" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb251-7"><a href="#cb251-7" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is 5&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb253-1"><a href="#cb253-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb253-2"><a href="#cb253-2" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb253-3"><a href="#cb253-3" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is less than to 5&quot;</span>)</span>
+<span id="cb253-4"><a href="#cb253-4" tabindex="-1"></a><span class="cf">elif</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb253-5"><a href="#cb253-5" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is greater than 5&quot;</span>)</span>
+<span id="cb253-6"><a href="#cb253-6" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb253-7"><a href="#cb253-7" tabindex="-1"></a>  <span class="bu">print</span>(x, <span class="st">&quot;is 5&quot;</span>)</span></code></pre></div>
 <pre><code>## 5 is 5</code></pre>
 </div>
 <div id="loops" class="section level2">
@@ -2913,10 +2919,10 @@ iterations.</p>
 designating the while loop, ten follow with the logical to be evaluated
 immediately after. The dependent code is indicated by a colon, new line
 and indentation.</p>
-<div class="sourceCode" id="cb253"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb253-1"><a href="#cb253-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb253-2"><a href="#cb253-2" tabindex="-1"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="dv">3</span>:</span>
-<span id="cb253-3"><a href="#cb253-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is&quot;</span>,x)</span>
-<span id="cb253-4"><a href="#cb253-4" tabindex="-1"></a>  x <span class="op">=</span> x<span class="op">+</span><span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb255-1"><a href="#cb255-1" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb255-2"><a href="#cb255-2" tabindex="-1"></a><span class="cf">while</span> x <span class="op">&lt;</span> <span class="dv">3</span>:</span>
+<span id="cb255-3"><a href="#cb255-3" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;x is&quot;</span>,x)</span>
+<span id="cb255-4"><a href="#cb255-4" tabindex="-1"></a>  x <span class="op">=</span> x<span class="op">+</span><span class="dv">1</span></span></code></pre></div>
 <pre><code>## x is 1
 ## x is 2</code></pre>
 </div>
@@ -2925,9 +2931,9 @@ and indentation.</p>
 <p>For loops do not have a conditional. Instead you supply an object
 that you want to be iterate over. This can be a list, tuple, dictionary,
 set or string. Here we use a list.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb255-1"><a href="#cb255-1" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">&#39;Alpha&#39;</span>,<span class="st">&#39;Bravo&#39;</span>,<span class="st">&#39;Charlie&#39;</span>]</span>
-<span id="cb255-2"><a href="#cb255-2" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
-<span id="cb255-3"><a href="#cb255-3" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code></pre></div>
+<div class="sourceCode" id="cb257"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb257-1"><a href="#cb257-1" tabindex="-1"></a>x <span class="op">=</span> [<span class="st">&#39;Alpha&#39;</span>,<span class="st">&#39;Bravo&#39;</span>,<span class="st">&#39;Charlie&#39;</span>]</span>
+<span id="cb257-2"><a href="#cb257-2" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> x:</span>
+<span id="cb257-3"><a href="#cb257-3" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code></pre></div>
 <pre><code>## Alpha
 ## Bravo
 ## Charlie</code></pre>
@@ -2937,8 +2943,8 @@ set or string. Here we use a list.</p>
 <p>The range() function provides us with a nice input for our for loops.
 It returns a sequence of numbers, starting from 0 and stops before the
 specified number.</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb257-1"><a href="#cb257-1" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb257-2"><a href="#cb257-2" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;i is&quot;</span>, i)</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb259-1"><a href="#cb259-1" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
+<span id="cb259-2"><a href="#cb259-2" tabindex="-1"></a>  <span class="bu">print</span>(<span class="st">&quot;i is&quot;</span>, i)</span></code></pre></div>
 <pre><code>## i is 0
 ## i is 1
 ## i is 2</code></pre>
@@ -2948,12 +2954,12 @@ specified number.</p>
 <p>When we have a numeric range, we can use it to index out from
 existing objects. This often allows for more complex code
 evaluation.</p>
-<div class="sourceCode" id="cb259"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb259-1"><a href="#cb259-1" tabindex="-1"></a>geneName <span class="op">=</span> [<span class="st">&quot;Ikzf1&quot;</span>,<span class="st">&quot;Myc&quot;</span>,<span class="st">&quot;Igll1&quot;</span>]</span>
-<span id="cb259-2"><a href="#cb259-2" tabindex="-1"></a>expression <span class="op">=</span> [<span class="fl">10.4</span>, <span class="fl">4.3</span>, <span class="fl">6.5</span>]</span>
-<span id="cb259-3"><a href="#cb259-3" tabindex="-1"></a>iterations <span class="op">=</span> <span class="bu">len</span>(geneName)</span>
-<span id="cb259-4"><a href="#cb259-4" tabindex="-1"></a></span>
-<span id="cb259-5"><a href="#cb259-5" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(iterations):</span>
-<span id="cb259-6"><a href="#cb259-6" tabindex="-1"></a>  <span class="bu">print</span>(geneName[i],<span class="st">&quot; has an TPM of &quot;</span>,expression[i])</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb261-1"><a href="#cb261-1" tabindex="-1"></a>geneName <span class="op">=</span> [<span class="st">&quot;Ikzf1&quot;</span>,<span class="st">&quot;Myc&quot;</span>,<span class="st">&quot;Igll1&quot;</span>]</span>
+<span id="cb261-2"><a href="#cb261-2" tabindex="-1"></a>expression <span class="op">=</span> [<span class="fl">10.4</span>, <span class="fl">4.3</span>, <span class="fl">6.5</span>]</span>
+<span id="cb261-3"><a href="#cb261-3" tabindex="-1"></a>iterations <span class="op">=</span> <span class="bu">len</span>(geneName)</span>
+<span id="cb261-4"><a href="#cb261-4" tabindex="-1"></a></span>
+<span id="cb261-5"><a href="#cb261-5" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(iterations):</span>
+<span id="cb261-6"><a href="#cb261-6" tabindex="-1"></a>  <span class="bu">print</span>(geneName[i],<span class="st">&quot; has an TPM of &quot;</span>,expression[i])</span></code></pre></div>
 <pre><code>## Ikzf1  has an TPM of  10.4
 ## Myc  has an TPM of  4.3
 ## Igll1  has an TPM of  6.5</code></pre>
@@ -2994,13 +3000,13 @@ follow the logic.</p>
     print the value and a statement saying it is equal to 5
   else if value is less than 5
     print the value and a statement saying it is less than 5</code></pre>
-<div class="sourceCode" id="cb263"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb263-1"><a href="#cb263-1" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
-<span id="cb263-2"><a href="#cb263-2" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb263-3"><a href="#cb263-3" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is greater than 5&quot;</span>)</span>
-<span id="cb263-4"><a href="#cb263-4" tabindex="-1"></a>  <span class="cf">elif</span> i <span class="op">==</span> <span class="dv">5</span>:</span>
-<span id="cb263-5"><a href="#cb263-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is  5&quot;</span>) </span>
-<span id="cb263-6"><a href="#cb263-6" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb263-7"><a href="#cb263-7" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is less than 5&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb265-1"><a href="#cb265-1" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
+<span id="cb265-2"><a href="#cb265-2" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb265-3"><a href="#cb265-3" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is greater than 5&quot;</span>)</span>
+<span id="cb265-4"><a href="#cb265-4" tabindex="-1"></a>  <span class="cf">elif</span> i <span class="op">==</span> <span class="dv">5</span>:</span>
+<span id="cb265-5"><a href="#cb265-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is  5&quot;</span>) </span>
+<span id="cb265-6"><a href="#cb265-6" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb265-7"><a href="#cb265-7" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is less than 5&quot;</span>) </span></code></pre></div>
 <pre><code>## Number 0 is less than 5
 ## Number 1 is less than 5
 ## Number 2 is less than 5
@@ -3014,16 +3020,16 @@ follow the logic.</p>
 <h2>Breaking loops</h2>
 <p>We can use conditionals to exit a loop if a condition is satisfied,
 just like a while loop.</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb265-1"><a href="#cb265-1" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">range</span>(<span class="dv">8</span>)</span>
-<span id="cb265-2"><a href="#cb265-2" tabindex="-1"></a></span>
-<span id="cb265-3"><a href="#cb265-3" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
-<span id="cb265-4"><a href="#cb265-4" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
-<span id="cb265-5"><a href="#cb265-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is greater than 5&quot;</span>)</span>
-<span id="cb265-6"><a href="#cb265-6" tabindex="-1"></a>  <span class="cf">elif</span> i <span class="op">==</span> <span class="dv">5</span>:</span>
-<span id="cb265-7"><a href="#cb265-7" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is  5&quot;</span>)</span>
-<span id="cb265-8"><a href="#cb265-8" tabindex="-1"></a>    <span class="cf">break</span></span>
-<span id="cb265-9"><a href="#cb265-9" tabindex="-1"></a>  <span class="cf">else</span>:</span>
-<span id="cb265-10"><a href="#cb265-10" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is less than 5&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb267"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb267-1"><a href="#cb267-1" tabindex="-1"></a>x <span class="op">=</span> <span class="bu">range</span>(<span class="dv">8</span>)</span>
+<span id="cb267-2"><a href="#cb267-2" tabindex="-1"></a></span>
+<span id="cb267-3"><a href="#cb267-3" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">8</span>):</span>
+<span id="cb267-4"><a href="#cb267-4" tabindex="-1"></a>  <span class="cf">if</span> i <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb267-5"><a href="#cb267-5" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is greater than 5&quot;</span>)</span>
+<span id="cb267-6"><a href="#cb267-6" tabindex="-1"></a>  <span class="cf">elif</span> i <span class="op">==</span> <span class="dv">5</span>:</span>
+<span id="cb267-7"><a href="#cb267-7" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is  5&quot;</span>)</span>
+<span id="cb267-8"><a href="#cb267-8" tabindex="-1"></a>    <span class="cf">break</span></span>
+<span id="cb267-9"><a href="#cb267-9" tabindex="-1"></a>  <span class="cf">else</span>:</span>
+<span id="cb267-10"><a href="#cb267-10" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">&quot;Number&quot;</span>,i,<span class="st">&quot;is less than 5&quot;</span>) </span></code></pre></div>
 <pre><code>## Number 0 is less than 5
 ## Number 1 is less than 5
 ## Number 2 is less than 5
