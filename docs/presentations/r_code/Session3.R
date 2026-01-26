@@ -37,7 +37,6 @@ py_install(c("matplotlib", "numpy", "scipy","seaborn"), pip_options = "--quiet")
 
 ## fig, ax = plt.subplots(figsize=(3, 2))
 ## ax.set_xlim(-3, 4)
-## ax.set_ylim(6, 10)
 ## plt.show()
 
 ## fig1, (ax1, ax2) = plt.subplots(nrows=1, ncols=2)

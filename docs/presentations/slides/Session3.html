@@ -3,7 +3,7 @@
   <head>
     <title>Intro to Python - Session 3</title>
     <meta charset="utf-8" />
-    <meta name="author" content="http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/" />
+    <meta name="author" content="http://rockefelleruniversity.github.io/Intro_To_Python/" />
     <meta name="author" content="brc@rockefeller.edu" />
     <script src="libs/header-attrs-2.30/header-attrs.js"></script>
     <link rel="stylesheet" href="default.css" type="text/css" />
@@ -25,7 +25,7 @@ class: middle, inverse, title-slide
 Bioinformatics Resource Center - Rockefeller University
 ]
 .author[
-### <a href="http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/" class="uri">http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/</a>
+### <a href="http://rockefelleruniversity.github.io/Intro_To_Python/" class="uri">http://rockefelleruniversity.github.io/Intro_To_Python/</a>
 ]
 .author[
 ### <a href="mailto:brc@rockefeller.edu" class="email">brc@rockefeller.edu</a>
@@ -93,7 +93,7 @@ import matplotlib.pyplot as plt
 
 ## Figures, Plots, and Subplots
 
-In Python, the best way to make a figure is by using the [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) function to define a figure and set(s) of axes. The reason we use the `subplots()` function is that it makes it easy to add multiple plots/axes to a figure, which is commonly done in the visualization of scientific data. To define a figure, you can write
+In Python, the best way to make a figure is by using the [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) function to define a figure and set(s) of axes. The reason we use the `subplots()` function is that it makes it easy to add multiple plots/axes to a figure, which is commonly done in the visualization of scientific data. To define a figure, you can write:
 
 
 ``` python
@@ -125,13 +125,13 @@ fig, ax = plt.subplots()
 - You can have multiple axes in a single figure (which we will see later)  
 - [`subplots()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) is a function which has multiple arguments that you can use to specify the size and shape of your figure, as well as other parameters for your axes. 
 
-Let's visit the documentation and take a look at the options.
+Let's visit the [documentation](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html) and take a look at the options.
 
 ---
 
 ## Figure Size
 
-- You can specify the size of the figure using the `figsize=([width], [height])` option (dimensions will be in inches)
+- You can specify the size of the figure using the `figsize=([width], [height])` option (dimensions should be in inches based on default 100 dpi - may change depending on your monitor).
 - At the bottom of your code, type `plt.show()` to render your plot
 
 
@@ -146,7 +146,7 @@ plt.show()
 
 ## Axis Limits
 
-- You can also set the limits of your axes
+- You can set the limits of your x and y axes by applying the set_xlim() or set_ylim() function to your axes, ax.
 
 
 ``` python
@@ -156,14 +156,6 @@ ax.set_xlim(-3, 4)
 
 ```
 ## (-3.0, 4.0)
-```
-
-``` python
-ax.set_ylim(6, 10)
-```
-
-```
-## (6.0, 10.0)
 ```
 
 ``` python
@@ -270,7 +262,6 @@ for i in range(len(sex)):
 ```
 
 ---
-
 ## Scatter Plots
 
 Scatter plots are used for displaying discrete data points, where each point has a set of coordinates `\((x,y)\)`. If you want to plot data points `\((x_1, y_1), (x_2, y_2) ... (x_n, y_n)\)` from lists `\(x = (x_1, x_2,...,x_n)\)` and `\(y = (y_1, y_2,...,y_n)\)`, you can use the [`scatter()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html) function, applied to the axis you want to plot on.
@@ -324,9 +315,20 @@ Take a look at the options in the [`scatter()`](https://matplotlib.org/stable/ap
 
 ## Named Colors
 
-Python has a number of named colors. You can also specify hex or RGB color codes as strings. 
+Python has a number of [named colors](https://matplotlib.org/stable/gallery/color/named_colors.html). 
 
 ![Matplotlib named colors](imgs/named_colors.png)
+
+---
+## Named Colors
+
+You can use these color names as strings to define colors within the parameters of scatter(), or you can also specify hex or RGB color codes as strings.
+
+
+* Named colors: color = 'magenta'
+* HEX: color = '#1D7308
+* RGB: color = (0.1, 0.2, 0.5)
+
 
 ---
 ## Customize Your Plot
@@ -832,7 +834,7 @@ plt.show()
 
 
 ```
-## &lt;matplotlib.colorbar.Colorbar object at 0x7f1ad1cdea80&gt;
+## &lt;matplotlib.colorbar.Colorbar object at 0x7fb2b8760230&gt;
 ```
 
 ![](Session3_files/figure-html/unnamed-chunk-38-27.png)&lt;!-- --&gt;

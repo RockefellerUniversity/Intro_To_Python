@@ -3,7 +3,7 @@
   <head>
     <title>Intro to Python - Session 2</title>
     <meta charset="utf-8" />
-    <meta name="author" content="http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/" />
+    <meta name="author" content="http://rockefelleruniversity.github.io/Intro_To_Python/" />
     <meta name="author" content="brc@rockefeller.edu" />
     <script src="libs/header-attrs-2.30/header-attrs.js"></script>
     <link rel="stylesheet" href="default.css" type="text/css" />
@@ -25,7 +25,7 @@ class: middle, inverse, title-slide
 Bioinformatics Resource Center - Rockefeller University
 ]
 .author[
-### <a href="http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/" class="uri">http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/</a>
+### <a href="http://rockefelleruniversity.github.io/Intro_To_Python/" class="uri">http://rockefelleruniversity.github.io/Intro_To_Python/</a>
 ]
 .author[
 ### <a href="mailto:brc@rockefeller.edu" class="email">brc@rockefeller.edu</a>
@@ -92,51 +92,51 @@ A standard format for this data is a table:
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_a &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.650527 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.134974 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.527946 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.528311 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.948281 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.576030 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_b &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.581785 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 5.393524 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.388599 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.880921 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.275247 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.273620 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_c &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.592237 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.183371 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.918769 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.742350 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.511227 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.872312 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_d &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.994723 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 4.447086 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 3.614760 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.100776 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.994260 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.564769 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_e &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.779982 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.618680 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.669484 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.959079 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.141902 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.351015 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_f &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.521964 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.550138 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.682096 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.285537 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.810087 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.660951 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_g &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.328184 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.805728 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.624605 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.892425 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.061962 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.567682 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Gene_h &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 8.785078 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 10.179353 &lt;/td&gt;
-   &lt;td style="text-align:right;"&gt; 9.447519 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9.010033 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.085788 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10.553555 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -204,7 +204,7 @@ os.listdir("data")
 ```
 
 ```
-## ['final_heatmap.png', 'gene_expression.csv', 'final_exercise_filled.ipynb', 'susbet_dataset_args.py', 'ToRead.csv', 'myresult.RData', 'gene_data.csv', 'GeneNames.txt', 'height-weight_female.csv', 'final_exercise_blank.ipynb', 'final_violin_1.png', 'salmon_catch_data.csv', 'data_vis_filled.ipynb', 'salmon_mercury.csv', 'final_violin_2.png', 'height-weight.csv', 'susbet_dataset.py', 'GeneExpression.txt', 'matplotlib_colors.png', 'final_scatter.png', 'GeneExpressionWithMethods.txt', 'readThisTable.csv', 'final_bar.png']
+## ['gene_expression.csv', 'susbet_dataset_args.py', 'ToRead.csv', 'Data Visualization', 'myresult.RData', 'gene_data.csv', 'GeneNames.txt', 'height-weight_female.csv', 'Final Project', 'height-weight.csv', 'susbet_dataset.py', 'GeneExpression.txt', 'GeneExpressionWithMethods.txt', 'readThisTable.csv']
 ```
 
 ---

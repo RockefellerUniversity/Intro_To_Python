@@ -2,7 +2,7 @@
 title: "Intro to Python - Session 1"
 subtitle: " <html><div style='float:left'></div><hr color='#EB811B' size=1px width=796px></html> Bioinformatics Resource Center - Rockefeller University"
 author: 
-  - "http://rockefelleruniversity.github.io/ATAC.Cut-Run.ChIP/"
+  - "http://rockefelleruniversity.github.io/Intro_To_Python/"
   - "brc@rockefeller.edu"
 output: 
   xaringan::moon_reader:
@@ -89,12 +89,13 @@ Python is a high-level, general-purpose programming language.
 
 Guido van Rossum began working on Python in the late 1980s as a successor to the ABC programming language and first released it in 1991 
 
-One of the most noticeable differences comes from the emphasis on code readability;
-it uses significant indentation 
+One of the most noticeable differences comes from the emphasis on code readability:
+
+  it uses significant indentation 
 
 Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions. Python 2.7 and older is officially unsupported but some tools require it. 
 
-<img src="imgs/Python.png" alt="python" height="200" width="300">
+<img src="imgs/Python.png" alt="python" height="300" width="300">
 
 ---
 ## What is Python to you?
@@ -184,10 +185,10 @@ Practicals with answers as HTML pages and R code solutions.
 ---
 ## Starting with Python
 
-Many laptops will come with python installed so getting started is easy. You will simply be able write python into Terminal or Command Prompt and a **Python console** will open. This is an interactive python session. This will work with most of what will do in the next few sessions as we are working on the basics. 
+Many laptops will come with python installed so getting started is easy. You will simply be able write **python** into Terminal or Command Prompt and a **Python console** will open. This is an interactive python session. This will work with most of what will do in the next few sessions as we are working on the basics. 
 
 
-<img src="imgs/pythonconsole.png" alt="comparison" height="250" width="550">
+<img src="imgs/pythonconsole.png" alt="comparison" height="250" width="700">
 
 
 ---
@@ -315,13 +316,13 @@ We can manually open one up by Terminal > New Terminal.
 
 Once the Terminal is open, you can then just open Python, by typing `python` into the new terminal window. 
 
-There is is an easier shortcut to do this. Once you start developing code the easiest way to open it is to use the `Tab + Enter` shortcut. 
+There is is an easier shortcut to do this. Once you start developing code the easiest way to open it is to use the `Shift + Enter` shortcut. 
 
 ---
 ## Quick Recap
 
 
-![extensions](imgs/overview.png)
+![extensions](imgs/schematic.png)
 
 
 
