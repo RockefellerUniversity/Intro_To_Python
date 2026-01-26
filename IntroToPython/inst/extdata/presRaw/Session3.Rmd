@@ -376,67 +376,211 @@ plt.show()
 
 ```
 
+---
+## Histograms 
+
+Another common plot type is a histogram. We are going to put a histogram of height distributions by sex in the blank subplot. We will do this using the `plt.hist()` function. You can find the documentation [here](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html).
+
+At a minimum, `hist()` requires the data points you wish to plot as an argument. You may also specify the `bins` argument as an integer (the default is 10).
+
+Let's take our previous plot and add histograms for the male and female height distributions to the subplot axes on the right, each with 5 bins. Also, add a title and axis labels for the histogram. Note: You may have to change the `figsize` parameter so that the labels all fit.
 
 ---
+## Histograms 
 
-## Lines of Best Fit
+```{python, eval=F}
+ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5)
+ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5)
 
-Lines of best fit (also called linear regressions) are useful tools for finding trends in scattered data. A line of best fit will follow the equation 
 
-$y(x) = mx+b$,
+ax2.set_title('Height Distributions by Sex')
+ax2.set_ylabel('Count')
+ax2.set_xlabel('Height (cm)')
 
-where $m$ is the slope and $b$ is the intercept. Today we will be using [`curve_fit()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html) from the `scipy.optimize` package to generate a best fit line for the Male and Female height vs weight data. 
-
----
-
-## curve_fit
-
-`curve_fit()` takes as input:
-
-- `f`: A function $f(x, m, b)$ (which we will define to be a line, but can be any single-variable function with an arbitrary number of fit parameters) 
-- `xdata` and `ydata`, the data points we are fitting to (weight and height arrays)
-- Other optional parameters for weighting, initial guesses, etc.
-
-`curve_fit()` returns as outputs:
-
-- Optimal parameters of $m$ and $b$ (or whichever fit parameters you have defined in your function)
-- Other information about the quality of the fit (covariance matrix)
-
-Let's give it a try!
-
+```
 
 ---
-## Get the Fit Parameters
+## Histograms 
 
-```{python}
-from scipy.optimize import curve_fit 
+```{python, eval=T, echo=F}
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
 
-# define the function with the independent variable first, followed by fit parameters
-def line(x, m, b):
-    return  m * x + b
+# Plot data on ax1
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
 
-popt_m, pcov_m = curve_fit(f=line, xdata=weight_m, ydata=height_m)
-popt_f, pcov_f = curve_fit(f=line, xdata=weight_f, ydata=height_f)
+# Plot data on ax2
 
-print(popt_m)
+ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5)
+ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5)
+
+# Add labels
+ax1.set_title("Height vs Weight")
+ax1.set_xlabel("Weight (kg)")
+ax1.set_ylabel("Height (cm)")
+
+ax2.set_title('Height Distributions by Sex')
+ax2.set_ylabel('Count')
+ax2.set_xlabel('Height (cm)')
+
+# Suppress automatic notebook output
+plt.show()
+
+
 ```
 
 ---
 
-## X Coordinates
+## Legends
 
-First, we need to make our list of x coordinates for the lines of best fit. Let's make a list using the `np.linspace()` function. `np.linspace()` takes 3 arguments: `start`, `stop`, and `num`, and returns a list that begins at `start` and ends at `stop` with `num` evenly-spaced points.
+We can add a legend to a set of axes by using the legend() function. You can find the documentation here.
 
-Let's define our x values:
+We automatically generate a legend by adding a parameter called label as a string in each plot we would like to include in the legend, and then calling the legend() function.
 
-```{python}
-x = np.linspace(start=60, stop=100, num=100)
-print(x)
+You can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today. Check out the documentation for full details!
+
+In the box below, add a legend for each set of axes. 
+
+---
+## Legends
+
+
+```{python, eval=F}
+
+# Add legend
+ax1.legend()
+ax2.legend()
+
 ```
 
 ---
+## Legends
 
-## Y Coordinates
+
+```{python, eval=T, echo=F}
+# Generate figure and axes
+fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
+
+# Plot data on ax1
+ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, marker = 's')
+ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, marker = 'o')
+
+# Plot data on ax2
+
+ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5)
+ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5)
+
+# Add labels
+ax1.set_title("Height vs Weight")
+ax1.set_xlabel("Weight (kg)")
+ax1.set_ylabel("Height (cm)")
+
+ax2.set_title('Height Distributions by Sex')
+ax2.set_ylabel('Count')
+ax2.set_xlabel('Height (cm)')
+
+# Add legend
+ax1.legend()
+ax2.legend()
+
+# Suppress automatic notebook output
+plt.show()
+
+
+```
+
+---
+## Line Plots
+
+Another common plot is a line plot. This uses the `plot()` function from `matplotlib.pyplot` (check out the documentation [here](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html)). The minimum arguments for `plot()` are the x- and y-coordinates to be plotted, which will be output with a line connecting them. Let's plot the function $y = x^2$.
+
+The first thing we need to do is to define the list of coordinates to be plotted. Remember that even though the function we are plotting is continuous mathematically, we will still be plotting a discrete line of points. In the bow below:
+
+1. Define the list of x-values using `numpy`'s `linspace()` function to create a list of 100 points between 0 and 2. 
+2. Define a function $f(x) = x^2$ 
+3. Use it to generate a list of y-values. 
+
+---
+## Line Plots
+
+```{python}
+
+x_values = np.linspace(0, 2, 100)
+
+def f(x):
+    return x**2
+
+y_values = f(x_values)
+
+```
+
+---
+## Line Plots
+
+Next, plot your function on the a fresh set of axes. Add any labels and other customizations you would like.
+
+```{python}
+fig, ax = plt.subplots()
+
+ax.plot(x_values, y_values, c = 'teal', linestyle = '--')
+
+ax.set_title("Quadratic Function $y = x^2$")
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+
+plt.show()
+```
+
+---
+## Seaborn
+
+`matplotlib.pyplot` is the bread and butter of data visualization in Python, and allows you near-arbitrary degrees of customization for your plots.
+
+However, the `seaborn` library was developed using `matplotlib` to make nice-looking plots with less code.
+
+We are going to use it to make a violin plot, because that is something that `matplotlib.pyplot` does not do a nice job of.
+
+Going back to our patient data, we are going to make a violin plot of the patient weight distributions by sex. 
+
+We will use the `violinplot()` function from the `seaborn` library, which we will import as `sns`.
+
+---
+## Seaborn
+
+```{python}
+import seaborn as sns
+
+fig, ax = plt.subplots(figsize = (4, 4))
+
+sns.violinplot(weight_m, ax = ax)
+
+plt.plot()
+```
+
+---
+## Seaborn
+
+```{python, eval=F}
+fig, ax = plt.subplots(figsize = (4, 4))
+
+sns.violinplot(weight_m, ax = ax, color = 'royalblue', alpha = 0.5, linewidth=0, label = "Male")
+
+sns.violinplot(weight_f, ax = ax, color = 'magenta', alpha = 0.5, linewidth=0, label = "Female")
+
+ax.set_ylabel('Weight (kg)')
+
+ax.set_title("Weight Distribution by Sex")
+
+ax.legend()
+
+plt.show()
+```
+
+
+
+
+
 
 Now that we have our x values, we can plug them into the linear function we have defined, `line(x, m, b)`, including the values for the fit parameters we found using `curve_fit()`. Let's define our y values to plot in the following way:
 
@@ -446,292 +590,23 @@ y_female = line(x, m = popt_f[0], b = popt_f[1])
 ```
 
 ---
-
-## Generating a Line Plot
-
-Now that we have the x and y coordinates of each line of best fit, we can use [`plot()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html) to plot them on our axes (`ax1`). `plot()` behaves exactly like scatter, in the sense that it accepts a list of x values and a list of y values. However, it will just plot these coordinates and connect them with a straight line. 
-
----
-
-## Plotting the Lines 
-
-Finally, we can put it all together. Take the code we have created for our 1x2 subplot and add in the lines of best fit on `ax1`.
-
-```{python, eval=F, echo=T}
-# Generate figure and axes
-fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
-
-# Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5)
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5)
-
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
-
-ax1.set_title("Height vs Weight")
-ax1.set_xlabel("Weight (kg)")
-ax1.set_ylabel("Height (cm)")
-
-plt.show()
-```
-
----
-## Plotting the Lines 
-
-```{python, echo=F}
-# Generate figure and axes
-fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
-
-# Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5)
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5)
-
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
-
-ax1.set_title("Height vs Weight")
-ax1.set_xlabel("Weight (kg)")
-ax1.set_ylabel("Height (cm)")
-
-plt.show()
-```
-
----
-## Adding a Legend
-
-Finally, we would like to add a legend to this plot since it contains multiple datasets. We can do this using the [`legend()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html) function. 
-
-We can automatically generate a legend by adding a parameter called `label` as a string in each plot we would like to include in the legend, and then calling the `legend()` function. 
-
-You can pass arguments to this function to specify the formatting and location of the legend, but we'll skip that part today. Check out the documentation for full details!
-
----
-
-## Adding a Legend
-
-
-```{python, eval=F, echo=T}
-# Generate figure and axes
-fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
-
-# Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
-
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
-
-ax1.set_title("Height vs Weight")
-ax1.set_xlabel("Weight (kg)")
-ax1.set_ylabel("Height (cm)")
-
-ax1.legend()
-
-plt.show()
-```
-
----
-## Adding a Legend
-
-```{python, echo=F}
-# Generate figure and axes
-fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
-
-# Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
-
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
-
-ax1.set_title("Height vs Weight")
-ax1.set_xlabel("Weight (kg)")
-ax1.set_ylabel("Height (cm)")
-
-ax1.legend()
-
-plt.show()
-```
-
----
-## Histograms 
-
-Another common plot type is a histogram. We are going to put a histogram of height distributions by sex in the blank subplot. We will do this using the [`plt.hist()`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html) function. 
-
-At a minimum, `hist()` takes the data points you wish to plot as an argument. You may also specify the `bins` argument as an integer (the default is 10). 
-
-Let's take our previous plot and add histograms for the male and female height distributions, each with 5 bins.
-
----
-
-## Plotting Histograms
-
-```{python, eval=F, echo=T}
-# Generate figure and axes
-fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
-
-# Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
-
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
-
-ax1.set_title("Height vs Weight")
-ax1.set_xlabel("Weight (kg)")
-ax1.set_ylabel("Height (cm)")
-ax1.legend()
-
-ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5)
-ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5)
-
-plt.show()
-```
-
----
-## Histograms 
-
-```{python, echo=F}
-# Generate figure and axes
-fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
-
-# Plot data
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
-
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
-
-ax1.set_title("Height vs Weight")
-ax1.set_xlabel("Weight (kg)")
-ax1.set_ylabel("Height (cm)")
-ax1.legend()
-
-ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5)
-ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5)
-
-plt.show()
-```
-
-
----
-## Finishing Touches
-
-Finally, let's add a legend, axis labels, and title to the histogram.
-
-```{python, eval=F}
-
-fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
-ax1.set_title("Height vs Weight")
-ax1.set_xlabel("Weight (kg)")
-ax1.set_ylabel("Height (cm)")
-ax1.legend()
-ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5, label = 'Male')
-ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5, label = 'Female')
-
-ax2.set_ylabel('Count')
-ax2.set_xlabel('Height (cm)')
-ax2.legend()
-ax2.set_title('Height Distributions by Sex')
-
-plt.show()
-```
-
----
-## Finishing Touches
-
-```{python, echo=F}
-
-fig, (ax1, ax2) = plt.subplots(ncols = 2, nrows = 1, figsize=(10, 4))
-ax1.scatter(weight_m, height_m, c = 'royalblue', alpha = 0.5, label = 'Male')
-ax1.scatter(weight_f, height_f, c = 'magenta', alpha = 0.5, label='Female')
-ax1.plot(x, y_male, c = 'royalblue')
-ax1.plot(x, y_female, c = 'magenta')
-ax1.set_title("Height vs Weight")
-ax1.set_xlabel("Weight (kg)")
-ax1.set_ylabel("Height (cm)")
-ax1.legend()
-ax2.hist(height_m, bins=5, color = 'royalblue', alpha = 0.5, label = 'Male')
-ax2.hist(height_f, bins=5, color = 'magenta', alpha = 0.5, label = 'Female')
-
-ax2.set_ylabel('Count')
-ax2.set_xlabel('Height (cm)')
-ax2.legend()
-ax2.set_title('Height Distributions by Sex')
-
-plt.show()
-```
-
----
-
 ## Seaborn
 
-`matplotlib.pyplot` is the bread and butter of data visualization in Python, and allows you near-arbitrary degrees of customization for your plots.
-
-However, the [`seaborn`](https://seaborn.pydata.org/) library was developed using `matplotlib` to make nice-looking plots with less code. 
-
-We are going to use it to make a violin plot, because that is something that `matplotlib.pyplot` does not do a nice job of. 
-
----
-
-## Violin Plots
-
-We are going to make a violin plot of our patient weight distributions by sex. To do this, we will use the [`violinplot()`](https://seaborn.pydata.org/generated/seaborn.violinplot.html) function from the `seaborn` library.
-
-```{python}
-import seaborn as sns
-
-fig, ax = plt.subplots(figsize = (4, 4))
-
-sns.violinplot(weight_m, ax = ax)
-
-```
-
----
-
-## Make it Nice
-
-Let's add the other dataset and make it nicer.
-
-```{python, eval=F}
+```{python, eval=T, echo=F}
 fig, ax = plt.subplots(figsize = (4, 4))
 
 sns.violinplot(weight_m, ax = ax, color = 'royalblue', alpha = 0.5, linewidth=0, label = "Male")
+
 sns.violinplot(weight_f, ax = ax, color = 'magenta', alpha = 0.5, linewidth=0, label = "Female")
 
 ax.set_ylabel('Weight (kg)')
+
 ax.set_title("Weight Distribution by Sex")
+
 ax.legend()
 
 plt.show()
 ```
-
-
----
-
-## Make it Nice
-
-
-Let's add the other dataset and make it nicer.
-
-```{python, echo=F}
-fig, ax = plt.subplots(figsize = (6, 5))
-
-sns.violinplot(weight_m, ax = ax, color = 'royalblue', alpha = 0.5, linewidth=0, label = "Male")
-sns.violinplot(weight_f, ax = ax, color = 'magenta', alpha = 0.5, linewidth=0, label = "Female")
-
-ax.set_ylabel('Weight (kg)')
-ax.set_title("Weight Distribution by Sex")
-ax.legend()
-
-plt.show()
-```
-
-
 
 ---
 
@@ -775,11 +650,11 @@ My personal favourite is called *viridis* (watch the launch video [here](https:/
 
 ---
 
-## We Hate Jet!
+### Don't Use Jet!
 
-Some color schemes that may seem natural to use (especially rainbow/jet) actually tend to skew our perceptions of the data values and therefore are not recommended. 
+Some color schemes that may seem natural to use (especially rainbow/jet) actually tend to skew our perceptions of the data values, as seen in the photo below (sourced from [here](https://www.domestic-engineering.com/drafts/viridis/viridis.html)), and therefore are not recommended.
 
-![Mona Lisa in original, jet, and viridis.](imgs/monalisa.png)
+![](colormaps.svg)
 
 ---
 
