@@ -1634,13 +1634,13 @@ Sample_3.hi
 Gene_a
 </td>
 <td style="text-align:right;">
-3.166541
+4.547960
 </td>
 <td style="text-align:right;">
-4.886880
+3.549208
 </td>
 <td style="text-align:right;">
-4.606144
+3.963461
 </td>
 </tr>
 <tr>
@@ -1648,13 +1648,13 @@ Gene_a
 Gene_b
 </td>
 <td style="text-align:right;">
-2.342709
+2.138276
 </td>
 <td style="text-align:right;">
-6.603740
+3.109153
 </td>
 <td style="text-align:right;">
-4.268355
+4.926339
 </td>
 </tr>
 <tr>
@@ -1662,13 +1662,13 @@ Gene_b
 Gene_c
 </td>
 <td style="text-align:right;">
-4.147176
+3.892413
 </td>
 <td style="text-align:right;">
-3.900358
+4.204377
 </td>
 <td style="text-align:right;">
-4.833181
+4.921687
 </td>
 </tr>
 <tr>
@@ -1676,13 +1676,13 @@ Gene_c
 Gene_d
 </td>
 <td style="text-align:right;">
-4.368126
+3.343825
 </td>
 <td style="text-align:right;">
-3.428708
+4.884594
 </td>
 <td style="text-align:right;">
-5.866756
+3.234477
 </td>
 </tr>
 <tr>
@@ -1690,13 +1690,13 @@ Gene_d
 Gene_e
 </td>
 <td style="text-align:right;">
-12.240208
+11.387281
 </td>
 <td style="text-align:right;">
-11.012076
+9.987368
 </td>
 <td style="text-align:right;">
-10.342122
+11.045621
 </td>
 </tr>
 <tr>
@@ -1704,13 +1704,13 @@ Gene_e
 Gene_f
 </td>
 <td style="text-align:right;">
-10.308645
+11.074677
 </td>
 <td style="text-align:right;">
-9.751059
+9.056735
 </td>
 <td style="text-align:right;">
-11.166391
+8.340946
 </td>
 </tr>
 <tr>
@@ -1718,13 +1718,13 @@ Gene_f
 Gene_g
 </td>
 <td style="text-align:right;">
-8.889014
+9.397350
 </td>
 <td style="text-align:right;">
-9.860780
+8.671098
 </td>
 <td style="text-align:right;">
-9.617840
+8.479863
 </td>
 </tr>
 <tr>
@@ -1732,13 +1732,13 @@ Gene_g
 Gene_h
 </td>
 <td style="text-align:right;">
-9.838351
+9.874481
 </td>
 <td style="text-align:right;">
-8.941217
+10.412912
 </td>
 <td style="text-align:right;">
-9.474184
+10.605041
 </td>
 </tr>
 </tbody>
@@ -1784,7 +1784,7 @@ the <code>chdir</code> function.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>os.listdir()</span></code></pre></div>
 <pre><code>## [&#39;presRaw&#39;, &#39;imgs&#39;, &#39;height-weight_female.csv&#39;, &#39;customCSS&#39;, &#39;data&#39;, &#39;GeneNames_highexpression.txt&#39;, &#39;_course.yml&#39;, &#39;Descriptions&#39;]</code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>os.listdir(<span class="st">&quot;data&quot;</span>)</span></code></pre></div>
-<pre><code>## [&#39;gene_expression.csv&#39;, &#39;susbet_dataset_args.py&#39;, &#39;ToRead.csv&#39;, &#39;Data Visualization&#39;, &#39;myresult.RData&#39;, &#39;gene_data.csv&#39;, &#39;GeneNames.txt&#39;, &#39;height-weight_female.csv&#39;, &#39;Final Project&#39;, &#39;height-weight.csv&#39;, &#39;susbet_dataset.py&#39;, &#39;GeneExpression.txt&#39;, &#39;GeneExpressionWithMethods.txt&#39;, &#39;readThisTable.csv&#39;]</code></pre>
+<pre><code>## [&#39;gene_expression.csv&#39;, &#39;ToRead.csv&#39;, &#39;subset_dataset.py&#39;, &#39;Data Visualization&#39;, &#39;myresult.RData&#39;, &#39;gene_data.csv&#39;, &#39;GeneNames.txt&#39;, &#39;height-weight_female.csv&#39;, &#39;Final Project&#39;, &#39;height-weight.csv&#39;, &#39;GeneExpression.txt&#39;, &#39;subset_dataset_args.py&#39;, &#39;GeneExpressionWithMethods.txt&#39;, &#39;readThisTable.csv&#39;]</code></pre>
 </div>
 <div id="paths" class="section level2">
 <h2>Paths</h2>
@@ -1813,10 +1813,15 @@ in absence of any other external information.</p></li>
 start with “/” to get to the top level of your computers file
 structure.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>os.chdir(<span class="st">&quot;/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/&quot;</span>)</span></code></pre></div>
+<p>This absolute pathway is very precise but it contains specific
+information about my computer. This means this will only work on this
+computer.</p>
 <p>Given that we started at: <em>/Users/mattpaul</em>, we could have
-also used. This uses the knowledge that we are in that start position to
-find where we are going.</p>
+also used a relative path. This uses the knowledge that we are in that
+start position to find where we are going.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>os.chdir(<span class="st">&quot;Downloads/Intro_To_Python-master/r_course/&quot;</span>)</span></code></pre></div>
+<p>If we ensure the code is run from an equivalent position, than we can
+use relative paths across computers.</p>
 </div>
 <div id="back-to-reading" class="section level2">
 <h2>Back to Reading</h2>
@@ -1976,12 +1981,13 @@ pretty well most of the time.</p>
 ##        &#39;Male&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;, &#39;Female&#39;],
 ##       dtype=&#39;&lt;U6&#39;)</code></pre>
 </div>
-<div id="quick-recap" class="section level2">
-<h2>Quick Recap</h2>
+<div id="quick-recap---array-filtering" class="section level2">
+<h2>Quick Recap - Array Filtering</h2>
 <p>Once you have performed some analysis you will want to export it into
 a new file.</p>
-<p>Let’s do some quick processing based on what we learned yesterday.
-First we will make a 2D array.</p>
+<p>Let’s do some quick filtering of the data based on what we learned
+yesterday. We can then export the results later.</p>
+<p>First we will make a 2D array.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a></span>
 <span id="cb23-2"><a href="#cb23-2" tabindex="-1"></a>new_array <span class="op">=</span> np.array([sex, height, weight])</span></code></pre></div>
 <p>Next we do a logical test to see which entries in our first row are
@@ -2001,7 +2007,7 @@ Female.</p>
 ##        False, False,  True, False,  True,  True,  True,  True,  True,
 ##         True])</code></pre>
 </div>
-<div id="quick-recap-1" class="section level2">
+<div id="quick-recap" class="section level2">
 <h2>Quick Recap</h2>
 <p>We can use the boolean array we created to subset our array, based on
 whether they are <code>Female</code> or not.</p>
@@ -2052,8 +2058,9 @@ will use a string.</p>
 <p>Though a lot of the time we may use these NumPy approaches, there are
 specific functions dedicated to a variety of data types.</p>
 <p>The most common is <a href="https://pandas.pydata.org/docs/getting_started/index.html#getting-started">pandas</a>.
-This is a specialized library for managing data frames. It also has the
-ability to read/write from excel spreadsheets.</p>
+This is a specialized library for managing data frames. These are
+similar to arrays but a little more flexible for multiple data types. It
+also has the ability to read/write from excel spreadsheets.</p>
 <p><a href="https://biopython.org/">BioPython</a> and <a href="https://bionumpy.github.io/bionumpy/menu.html">BioNumPy</a> have a
 range of utilities for managing biological data types i.e. fasta, fastq,
 etc.</p>
@@ -2064,8 +2071,8 @@ etc.</p>
 <hr />
 <div id="scripts" class="section level2">
 <h2>Scripts</h2>
-<p>So far we have been working interactively with the console: asking it
-questions and getting answers back immediately.</p>
+<p>So far we have predominately been working interactively with the
+console: asking it questions and getting answers back immediately.</p>
 <p>When you want to run all your code, or if you want to start working
 on automation you can run a whole script instead. In this case we have
 all our code written out in a *.py document. This is good practice for
@@ -2120,7 +2127,7 @@ script. You will have to do this directly if you want to run a more
 complex script i.e. one that takes arguments.</p>
 <pre><code>/Users/mattpaul/Deskt
 op/miniconda3/envs/intro_to_python/bin/python /Users/mattpaul/Documents/RU/Train
-ing/Intro_To_Python/r_course/data/susbet_dataset.py</code></pre>
+ing/Intro_To_Python/r_course/data/subset_dataset.py</code></pre>
 </div>
 <div id="passing-arguments" class="section level2">
 <h2>Passing Arguments</h2>
@@ -2149,9 +2156,7 @@ entries are the different arguments.</p>
 <h2>Passing Arguments</h2>
 <p>To pass the argument to our script when we run it, we simply add it
 after our python script.</p>
-<pre><code>/Users/mattpaul/Deskt
-op/miniconda3/envs/intro_to_python/bin/python /Users/mattpaul/Documents/RU/Train
-ing/Intro_To_Python/r_course/data/susbet_dataset_args.py Male</code></pre>
+<pre><code>/Users/mattpaul/Desktop/miniconda3/envs/intro_to_python/bin/python /Users/mattpaul/Documents/RU/Training/Intro_To_Python/r_course/data/subset_dataset_args.py Male</code></pre>
 </div>
 <div id="script-messages" class="section level2">
 <h2>Script Messages</h2>
