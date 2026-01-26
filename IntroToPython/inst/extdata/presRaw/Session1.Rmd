@@ -719,19 +719,19 @@ list3
 We can concatenate lists, just as we did with strings.
 
 ```{python}
-biglist = my_strs + my_ints
+biglist = my_ints + my_strs
 biglist
 ```
 
 ```{python}
-biglist = my_strs 
-biglist += my_ints
-biglist
+biglist2 = [1,2,3,4,5] 
+biglist2 += my_strs
+biglist2
 ```
 
 ```{python}
-biglist = my_strs * 5
-biglist
+biglist3 = my_strs * 5
+biglist3
 ```
 
 ---
@@ -768,12 +768,7 @@ my_strs.remove('c')
 my_strs
 ```
 
-* the generic `del` statement removes an argument from a specific position in the list
 
-```{python}
-del my_strs[3]
-my_strs
-```
 
 ---
 ## Functions and lists
@@ -786,10 +781,17 @@ There are many useful functions built into the base version of python.
 my_strs.index('c')
 ```
 
-* `.append()` will append the supplied argument to the list
+* the generic `del` statement removes an argument from a specific position in the list
 
 ```{python}
-my_strs.append("f")
+del my_strs[3]
+my_strs
+```
+
+* we can also test membership of an element with the `in` operator
+
+```{python}
+"a" in my_strs
 ```
 
 ---
@@ -1087,7 +1089,7 @@ except Exception as e:
 ---
 ## Sets are unique
 
-Even if you provide duplicate entries to a set, the set wil only contain unique values. 
+Even if you provide duplicate entries to a set, the set will only contain unique values. 
 
 ```{python}
 myset = set(["a", "b", "c","c","c"])
@@ -1231,7 +1233,7 @@ except Exception as e:
 
 Arrays contain only one data type. While they will accept lists of different data types, but these elements will be coerced into a common type. 
 
-```{python, eval=F, echo=T}
+```{python, eval=T, echo=T}
 
 arr = np.array(['a', 2, 3])
 arr
@@ -1415,7 +1417,7 @@ Here is a rough guide:
 * Tuples - If you want to create an immutable version of a list as some kind of reference.  
 * Sets - Similar to Tuples, but if you do not want any repeating values.   
 * Dictionaries - If you have complex data i.e. different shape and size, and you will have some kind of key/lookup values. 
-* Arrays - When you have rectangular data i.e. a table. 
+* Arrays - When you have rectangular data i.e. a table, need to perform math on elements or interface with more advanced computational libraries (stats, ML, etc) 
 
 ---
 ```{r, results='asis',include=TRUE,echo=FALSE}
@@ -1458,6 +1460,8 @@ Key parts:
 * `arguments` - any arguments that the function expects in parentheses. 
 * `code` - the start of the code is indicated by a colon, new line and indentation. 
 * `return` - this is the result that you wish to be delivered from the function. 
+
+NOTE: In python functions, indentation after defining the function is required. Otherwise you will get an error. 
 
 ```{python}
 def myFirstFunction(num1, num2):
@@ -1636,7 +1640,8 @@ myFirstFunction(5,10)
 
 Once I have made a function and I want to keep reusing it I can easily save it i.e. I have a function that I want to use regularly to process some data in the same way. To do this you save it as a script. 
 
-First open a new script: File > New File > Python Script. We can then add our orginal function and save the python script as *myFirstFunction.py*.
+First open a new script: File > New File > Python Script. We can then add our original function and save the python script as *myFirstFunction.py*. 
+
 
 ```{python, eval=F}
 
@@ -1653,6 +1658,7 @@ def myFirstFunction(num1, num2):
 
 
 First open a new script: File > New File > Python Script. We can then add our orginal function and save the python script as *myFirstFunction_script.py*.
+
 
 ```{python, eval=F}
 
