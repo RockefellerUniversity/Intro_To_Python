@@ -91,11 +91,13 @@ Guido van Rossum began working on Python in the late 1980s as a successor to the
 
 One of the most noticeable differences comes from the emphasis on code readability:
 
-  it uses significant indentation 
+<div style="text-indent: 2em;">
+it uses significant indentation.
+</div>
 
 Python 3.0, released in 2008, was a major revision not completely backward-compatible with earlier versions. Python 2.7 and older is officially unsupported but some tools require it. 
 
-<img src="imgs/Python.png" alt="python" height="300" width="300">
+<img src="imgs/Python.png" alt="python" height="250" width="250">
 
 ---
 ## What is Python to you?
@@ -241,15 +243,7 @@ conda install jupyter
 ```
 
 
----
-## Interactive or scripts?
 
-As with many languages you can work with python in two main ways:
-interactive or scripts. 
-
-When people think about coding they are often thinking about the interactive **console**. This is what we saw earlier when we first opened python. When you work in this way lines of code are submitted as you enter them. You often do this when you are developing an analysis and trying out parameters. This is mostly how we will work in the training. 
-
-When you want to automate something, i.e. an analysis workflow, you will write a script. You can then run this script with python and it will run every line of code for you sequentially.
 
 ---
 ## Python and IDEs
@@ -317,6 +311,17 @@ We can manually open one up by Terminal > New Terminal.
 Once the Terminal is open, you can then just open Python, by typing `python` into the new terminal window. 
 
 There is is an easier shortcut to do this. Once you start developing code the easiest way to open it is to use the `Shift + Enter` shortcut. 
+
+---
+## Interactive or scripts?
+
+As with many languages you can work with python in two main ways:
+interactive or scripts. 
+
+When people think about coding they are often thinking about the interactive **console**. This is what we saw earlier when we first opened python. When you work in this way lines of code are submitted as you enter them. You often do this when you are developing an analysis and trying out parameters. This is mostly how we will work in the training. 
+
+When you want to automate something, i.e. an analysis workflow, you will write a script. You can then run this script with python and it will run every line of code for you sequentially.
+
 
 ---
 ## Quick Recap
@@ -522,6 +527,22 @@ except Exception as e:
   print(e)
   
 ```
+
+---
+## A quick aside
+
+You will run into errors coding. 
+
+DON'T PANIC. 
+
+Most of the time the error messages are very clear. And if they are not a quick google will often clear it up. 
+
+In this case we can break it down:
+
+* ValueError - The content is invalid for the operation. The first statement is the overarching name for the error.
+* invalid literal for int() - Specifically the int() function is expecting something different
+* with base 10 - It is expecting base 10 numbers/integers
+* 'Hello!' - This is what you gave it. We can see it doesn't match the criteria above.
 
 ---
 ## Concatenation
@@ -835,14 +856,7 @@ except Exception as e:
   
 ```
 
----
-## A quick aside
 
-You will run into errors coding. 
-
-DON'T PANIC. 
-
-Most of the time the error messages are very clear. And if they are not a quick google will often clear it up. 
 
 ---
 ## Tuple/List coercion
@@ -1226,7 +1240,7 @@ arr
 ---
 ## Adding Dimensions
 
-It is possible to create many kinds of arrays, with differing dimensionality. They can be 1D,2D,3D etc. Typically we think about 2D arrays as this is often the rectangular data we deal with. 
+Typically we think about 2D arrays as this is often the rectangular data we deal with. It is possible to create many kinds of arrays, with differing dimensionality. They can be 1D,2D,3D etc.  
 
 Here we again create a list to coerce into a array. This time we have a list of lists. Each list will become equivalent to a row in our array.
 
@@ -1254,7 +1268,7 @@ We can confirm the shape of the array using the`shape` attribute
 arr_2d.shape
 ```
 
-The shape of an array can easily be changed with the `reshape` method. Note that you will get an error if the number of values in the array doesn't fit int othe dimensions specified.
+The shape of an array can easily be changed with the `reshape` method. Note that you will get an error if the number of values in the array doesn't fit into the dimensions specified.
 
 ```{python}
 arr_2d.reshape(9,1)
@@ -1263,7 +1277,7 @@ arr_2d.reshape(9,1)
 ---
 ## Indexing Arrays
 
-We can use same square brackets we used for other data objects to index our arrays. The big difference is we now have 2 dimensions. We therefore need to provide 2 indexes, separated by a comma. 
+We can use the same square brackets we used for other data objects to index our arrays. The big difference is we now have 2 dimensions. We therefore need to provide 2 indexes, separated by a comma. 
 
 The first number will correspond to row. The second number will correspond to column.
 
@@ -1286,9 +1300,6 @@ arr_2d[:,2]
 arr_2d[0,1:3]
 
 ```
-
-
-
 
 ---
 ## Logical Indexing
@@ -1705,7 +1716,7 @@ There are several ways to control how your code is evaluated. There are two main
 
 Conditional branching is the evaluation of a logical to determine whether a chunk of code is executed.
 
-In Python, we use the if statement with the logical to be evaluated immediately after. The dependent code is indicated by a colon, new line and indentation.
+In Python, we use the if statement with the logical to be evaluated immediately after. The dependent code is indicated by a **colon**, **new line** and **indentation**.
 
 ```{python}
 
@@ -1736,6 +1747,7 @@ if x > y:
   print("The value of x is",x,"which is greater than", y)
 
 ```
+
 The message is printed above because x is greater than y.
 
 
