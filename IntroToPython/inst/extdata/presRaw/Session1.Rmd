@@ -313,6 +313,20 @@ Once the Terminal is open, you can then just open Python, by typing `python` int
 There is is an easier shortcut to do this. Once you start developing code the easiest way to open it is to use the `Shift + Enter` shortcut. 
 
 ---
+## Why VS code and IDEs
+
+As VS code is an IDE it allows us to access and run python. But also do several other things from the same portal i.e.
+
+- Explore files
+- Open/Write scripts
+- Shortcuts for common python utilities
+- Have a live plotting window
+- GitHub integration
+- Advanced coding features for debugging and LLM support
+
+We won't full dive into everything but getting familiar early is best. 
+
+---
 ## Interactive or scripts?
 
 As with many languages you can work with python in two main ways:
