@@ -7,7 +7,6 @@ The session includes longer exercises and shorter slide decks and so more time s
 
 Session sections:
 
-* Looping Conditional Branching
 * Loading libraries
 * Writing Scripts
 * Getting help
