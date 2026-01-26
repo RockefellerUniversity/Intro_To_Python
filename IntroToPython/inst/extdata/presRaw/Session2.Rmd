@@ -203,13 +203,17 @@ os.chdir("/Users/mattpaul/Downloads/Intro_To_Python-master/r_course/")
 
 ```
 
-Given that we started at: */Users/mattpaul*, we could have also used. This uses the knowledge that we are in that start position to find where we are going. 
+This absolute pathway is very precise but it contains specific information about my computer. This means this will only work on this computer. 
+
+Given that we started at: */Users/mattpaul*, we could have also used a relative path. This uses the knowledge that we are in that start position to find where we are going. 
 
 ```{python, eval=F}
 
 os.chdir("Downloads/Intro_To_Python-master/r_course/")
 
 ```
+
+If we ensure the code is run from an equivalent position, than we can use relative paths across computers. 
 
 ---
 ## Back to Reading
@@ -290,11 +294,13 @@ sex
 
 
 ---
-## Quick Recap
+## Quick Recap - Array Filtering
 
-Once you have performed some analysis you will want to export it into a new file. 
+Once you have performed some analysis you will want to export it into a new file.
 
-Let's do some quick processing based on what we learned yesterday. First we will make a 2D array. 
+Let's do some quick filtering of the data based on what we learned yesterday. We can then export the results later. 
+
+First we will make a 2D array. 
 
 ```{python}
 
@@ -337,7 +343,7 @@ np.savetxt("height-weight_female.csv", subset_array, delimiter=',', fmt='%s')
 
 Though a lot of the time we may use these NumPy approaches, there are specific functions dedicated to a variety of data types. 
 
-The most common is [pandas](https://pandas.pydata.org/docs/getting_started/index.html#getting-started). This is a specialized library for managing data frames. It also has the ability to read/write from excel spreadsheets.  
+The most common is [pandas](https://pandas.pydata.org/docs/getting_started/index.html#getting-started). This is a specialized library for managing data frames. These are similar to arrays but a little more flexible for multiple data types. It also has the ability to read/write from excel spreadsheets.  
 
 [BioPython](https://biopython.org/) and [BioNumPy](https://bionumpy.github.io/bionumpy/menu.html) have a range of utilities for managing biological data types i.e. fasta, fastq, etc.
 
@@ -367,7 +373,7 @@ if(params$isSlides == "yes"){
 
 ## Scripts
 
-So far we have been working interactively with the console: asking it questions and getting answers back immediately. 
+So far we have predominately been working interactively with the console: asking it questions and getting answers back immediately. 
 
 When you want to run all your code, or if you want to start working on automation you can run a whole script instead. In this case we have all our code written out in a *.py document. This is good practice for matured analysis that you have finalized to ensure that you have everything properly documented. 
 
@@ -426,7 +432,7 @@ More traditionally we would invoke python directly and provide the script. You w
 ```
 /Users/mattpaul/Deskt
 op/miniconda3/envs/intro_to_python/bin/python /Users/mattpaul/Documents/RU/Train
-ing/Intro_To_Python/r_course/data/susbet_dataset.py
+ing/Intro_To_Python/r_course/data/subset_dataset.py
 ```
 
 
@@ -463,9 +469,7 @@ np.savetxt("data/height-weight_"+arg1+".csv", subset_array, delimiter=',', fmt='
 To pass the argument to our script when we run it, we simply add it after our python script. 
 
 ```
-/Users/mattpaul/Deskt
-op/miniconda3/envs/intro_to_python/bin/python /Users/mattpaul/Documents/RU/Train
-ing/Intro_To_Python/r_course/data/susbet_dataset_args.py Male
+/Users/mattpaul/Desktop/miniconda3/envs/intro_to_python/bin/python /Users/mattpaul/Documents/RU/Training/Intro_To_Python/r_course/data/subset_dataset_args.py Male
 ```
 
 ---

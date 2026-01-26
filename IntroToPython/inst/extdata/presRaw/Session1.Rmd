@@ -1880,7 +1880,7 @@ To help us write complex code we often use pseudocode as a starting point.
 ---
 ## Pseudocode
 
-When we write pseudocode we are trying to write out each computational step in a human readaBle way. 
+When we write pseudocode we are trying to write out each computational step in a human readable way. 
 
 It is important to be specific, simple, concise and include the control structures that would be in your final code. 
 
