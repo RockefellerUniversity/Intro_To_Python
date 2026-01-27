@@ -1128,7 +1128,7 @@ myset1.difference(myset2)
 ## Set vs List
  
 * A list allows duplicate elements and maintains their order
-* A set ensures element uniqueness without any guaranteed order
+* A set ensures element uniqueness without any guaranteed order, good for membership testing
 
 ---
 ## Time for an exercise!

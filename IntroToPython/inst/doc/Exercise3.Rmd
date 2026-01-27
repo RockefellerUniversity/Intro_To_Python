@@ -99,7 +99,9 @@ arr_num_6x3 = arr_num.reshape(6,3)
 
 ```{python, echo=toMessage} 
 small_nums = arr_num_6x3[arr_num_6x3 < 10]
+small_nums
 big_nums = arr_num_6x3[arr_num_6x3 > 9]
+big_nums
 ```
 
 - Confirm the shape and dimensions of these arrays. 
@@ -117,14 +119,16 @@ big_nums.ndim
 ```{python, echo=toMessage} 
 
 small_nums_3x3 = small_nums.reshape(3,3)
+small_nums_3x3
 big_nums_3x3 = big_nums.reshape(3,3)
-
+big_nums_3x3
 ```
 
 - Concatenate these two arrays, joining them by columns.
 
 ```{python, echo=toMessage} 
 arr_cat = np.concatenate((small_nums_3x3, big_nums_3x3), axis = 1)
+arr_cat
 ```
 
 **Exercise 3** - **Custom Functions**
