@@ -234,7 +234,7 @@ print(concatenated_str)
 ```
 
 
-- Then try creating 1 variable called "concatenate_1" which stores "I" and another called "concatenate_2" which stores " code" and concatenate both variables. Try, for example, print(concatentate_1 + concatenate_2) - what do you get?
+- Then try creating 1 variable called "concatenate_1" which stores "I" and another called "concatenate_2" which stores " code" and concatenate both variables. Try, for example, print(concatenate_1 + concatenate_2) - what do you get?
     
 ```{python, echo=toMessage}
 
