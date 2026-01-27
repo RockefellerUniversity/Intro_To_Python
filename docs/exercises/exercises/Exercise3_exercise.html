@@ -386,17 +386,32 @@ Session 1 <a href="https://rockefelleruniversity.github.io/Intro_To_Python/">ses
 <li><p>Index this array into two different arrays, one that contains the
 values less than 10, and another that contains values that are 10 or
 higher.</p></li>
-<li><p>Confirm the shape and dimensions of these arrays.</p></li>
+</ul>
+<pre><code>## array([1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
+<pre><code>## array([10, 11, 12, 13, 14, 15, 16, 17, 18])</code></pre>
+<ul>
+<li>Confirm the shape and dimensions of these arrays.</li>
 </ul>
 <pre><code>## (9,)</code></pre>
 <pre><code>## 1</code></pre>
 <pre><code>## (9,)</code></pre>
 <pre><code>## 1</code></pre>
 <ul>
-<li><p>Convert both of the new arrays to two dimensional, 3 by 3
-arrays.</p></li>
-<li><p>Concatenate these two arrays, joining them by columns.</p></li>
+<li>Convert both of the new arrays to two dimensional, 3 by 3
+arrays.</li>
 </ul>
+<pre><code>## array([[1, 2, 3],
+##        [4, 5, 6],
+##        [7, 8, 9]])</code></pre>
+<pre><code>## array([[10, 11, 12],
+##        [13, 14, 15],
+##        [16, 17, 18]])</code></pre>
+<ul>
+<li>Concatenate these two arrays, joining them by columns.</li>
+</ul>
+<pre><code>## array([[ 1,  2,  3, 10, 11, 12],
+##        [ 4,  5,  6, 13, 14, 15],
+##        [ 7,  8,  9, 16, 17, 18]])</code></pre>
 <p><strong>Exercise 3</strong> - <strong>Custom Functions</strong></p>
 <ul>
 <li>Create a function which takes one number and returns the square of
