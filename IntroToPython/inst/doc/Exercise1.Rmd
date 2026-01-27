@@ -28,34 +28,33 @@ These exercises are about data types from Session 1 [session1](https://rockefell
 - Look up what the `pow()` function does and how it works. Try to do this in python.
 
 
-```{python, echo=toMessage}
+```{python, echo=toMessage, fig.keep='none'}
 help(pow)
 
 ```
 
-
 - Use the `pow()` function to calculate 4^13.3
 
-```{python, echo=toMessage}
+```{python, echo=toMessage, fig.keep='none'}
 pow(4,13.3)
 
 ```
 
 - What data type is 4^13.3? Coerce it into an integer. Then a string. 
 
-```{python,echo=toMessage}
+```{python,echo=toMessage, fig.keep='none'}
 myfloat = pow(4,13.3)
 type(myfloat)
 
 ```
 
-```{python,echo=toMessage}
+```{python,echo=toMessage, fig.keep='none'}
 myint = int(myfloat)
 type(myint)
 
 ```
 
-```{python,echo=toMessage}
+```{python,echo=toMessage, fig.keep='none'}
 mystr = int(myint)
 mystr
 type(mystr)
@@ -67,7 +66,7 @@ type(mystr)
 - Create a variable named "myfirst_var" and store a number in it.
 - Print the variable with the print() statement
 
-```{python, echo=toMessage}
+```{python, echo=toMessage, fig.keep='none'}
 
 myfirst_var = 1
 
