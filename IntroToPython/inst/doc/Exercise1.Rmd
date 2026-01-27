@@ -14,7 +14,10 @@ params:
 ```{r, setup,include=FALSE}
 toMessage <- ifelse(!is.null(params$toMessage), params$toMessage, FALSE)
 message(toMessage)
-knitr::opts_chunk$set(dev = 'png')
+knitr::opts_chunk$set(
+  dev = 'svg',
+  fig.keep = 'none'
+)
 
 ```
 
