@@ -36,7 +36,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<link href="site_libs/ionicons-2.0.1/css/ionicons.min.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -449,17 +448,12 @@ div.tocify {
     </li>
   </ul>
 </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
+<li>
   <a href="https://github.com//RockefellerUniversity/Intro_To_Python/issues">Getting help!</a>
 </li>
-<li>
-  <a href="https://twitter.com/Rockefeller_BRC">
-    <span class="ion ion-social-twitter"></span>
-     
-  </a>
-</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -478,6 +472,14 @@ class="email">brc@rockefeller.edu</a></h4>
 </div>
 
 
+<!-- BRC logo, pinned to the top-right of the navbar and linking to the BRC
+     site. Placed here rather than in the navbar brand because the brand is
+     itself a link (to Home) and HTML anchors cannot be nested. -->
+<p><a id="brc-logo" href="http://rockefelleruniversity.github.io" title="Bioinformatics Resource Center" target="_blank" rel="noopener">
+<img src="logo.svg" alt="Bioinformatics Resource Center"/> </a> <style>
+#brc-logo { position: fixed; top: 8px; right: 15px; z-index: 1032; }
+#brc-logo img { height: 34px; } <span class="citation">@media</span>
+(max-width: 767px) { #brc-logo { display: none; } } </style></p>
 <hr />
 <p><br></p>
 <div id="course-overview" class="section level2">
@@ -485,7 +487,7 @@ class="email">brc@rockefeller.edu</a></h4>
 <p><br></p>
 <div id="course-integrity" class="section level3">
 <h3>Course Integrity</h3>
-<p><strong>This course is compiled automatically on <em>2026-07-11</em>
+<p><strong>This course is compiled automatically on <em>2026-08-11</em>
 </strong> <br> <a
 href="https://github.com/RockefellerUniversity/Intro_To_Python/actions/workflows/selfTest.yml"><img
 src="https://github.com/RockefellerUniversity/Intro_To_Python/actions/workflows/selfTest.yml/badge.svg"

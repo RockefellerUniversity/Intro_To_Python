@@ -68,11 +68,8 @@ navbar:
         href: exercises/exercises/Exercise6_exercise.html
       - text: Solution
         href: exercises/answers/Exercise6_answers.html
-  right:
   - text: Getting help!
     href: https://github.com//RockefellerUniversity/Intro_To_Python/issues
-  - href: https://twitter.com/Rockefeller_BRC
-    icon: ion-social-twitter
 output:
   html_document:
     toc: yes
